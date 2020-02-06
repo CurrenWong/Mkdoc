@@ -1,5 +1,19 @@
 site_name: MkLorum
+
 nav:
     - Home: index.md
     - About: about.md
+
 theme: readthedocs
+
+extra_javascript:
+  - js/katex.min.js
+  - js/mathtex-script-type.min.js
+  - js/copy-tex.min.js
+  - js/auto-render.min.js
+  - js/extra.js
+
+extra_css:
+  - css/katex.min.css
+  - css/copy-tex.min.css
+

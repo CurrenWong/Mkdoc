@@ -15,3 +15,13 @@ For full documentation visit [mkdocs.org](https://mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Math test
+
+$x = 0$
+
+$$
+\lim\limits_{x \to 0}x = 0 \tag{1.1}
+$$
+
+666
