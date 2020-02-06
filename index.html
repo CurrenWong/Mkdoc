@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="css/theme.css" type="text/css" />
   <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="css/katex.min.css" rel="stylesheet">
+  <link href="css/copy-tex.min.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -60,6 +62,8 @@
             <li><a class="toctree-l3" href="#commands">Commands</a></li>
         
             <li><a class="toctree-l3" href="#project-layout">Project layout</a></li>
+        
+            <li><a class="toctree-l3" href="#math-test">Math test</a></li>
         
         </ul>
     
@@ -119,6 +123,12 @@ docs/
     index.md  # The documentation homepage.
     ...       # Other markdown pages, images and other files.
 </code></pre>
+<h2 id="math-test">Math test</h2>
+<p>$x = 0$</p>
+<p>$$
+\lim\limits_{x \to 0}x = 0 \tag{1.1}
+$$</p>
+<p>666</p>
               
             </div>
           </div>
@@ -160,6 +170,11 @@ docs/
 </div>
     <script>var base_url = '.';</script>
     <script src="js/theme.js" defer></script>
+      <script src="js/katex.min.js" defer></script>
+      <script src="js/mathtex-script-type.min.js" defer></script>
+      <script src="js/copy-tex.min.js" defer></script>
+      <script src="js/auto-render.min.js" defer></script>
+      <script src="js/extra.js" defer></script>
       <script src="search/main.js" defer></script>
 
 </body>
@@ -167,5 +182,5 @@ docs/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2020-02-06 21:44:31
+Build Date UTC : 2020-02-06 23:21:34
 -->
