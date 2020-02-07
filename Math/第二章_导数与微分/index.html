@@ -1,0 +1,1207 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>第二章 导数与微分 - Curren's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/katex.min.css">
+    
+      <link rel="stylesheet" href="../../css/copy-tex.min.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Curren's Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Curren's Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                第二章 导数与微分
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Curren's Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Curren's Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Math
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Math
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../第一章_函数_极限_连续/" title="第一章 函数 极限 连续" class="md-nav__link">
+      第一章 函数 极限 连续
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        第二章 导数与微分
+      </label>
+    
+    <a href="./" title="第二章 导数与微分" class="md-nav__link md-nav__link--active">
+      第二章 导数与微分
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 导数与微分的概念
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1. 导数与微分的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2. 连续、可导、可微之间的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3. 导数的几何意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4. 相关变化率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 导数公式及求导法则
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1. 基本初等函数的导数公式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 求导法则
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    2.2.1. 有理运算法则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2. 复合函数求导法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    2.2.3. 隐函数求导法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    2.2.4. 反函数的导数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225" class="md-nav__link">
+    2.2.5. 参数方程求导法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2251" class="md-nav__link">
+    2.2.5.1. 极坐标方程转化为参数方程形式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226" class="md-nav__link">
+    2.2.6. 对数求导法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 高阶导数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 高阶导数的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 常用的高阶导数公式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 求高阶导数的方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../第三章_微分中值定理及导数应用/" title="第三章 微分中值定理及导数应用" class="md-nav__link">
+      第三章 微分中值定理及导数应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 导数与微分的概念
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1. 导数与微分的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2. 连续、可导、可微之间的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3. 导数的几何意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4. 相关变化率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 导数公式及求导法则
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1. 基本初等函数的导数公式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 求导法则
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    2.2.1. 有理运算法则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2. 复合函数求导法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    2.2.3. 隐函数求导法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    2.2.4. 反函数的导数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225" class="md-nav__link">
+    2.2.5. 参数方程求导法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2251" class="md-nav__link">
+    2.2.5.1. 极坐标方程转化为参数方程形式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226" class="md-nav__link">
+    2.2.6. 对数求导法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 高阶导数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 高阶导数的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 常用的高阶导数公式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 求高阶导数的方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">第二章 导数与微分<!-- omit in toc --><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">目录<!-- omit in toc --><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#_1">第二章 导数与微分<!-- omit in toc --></a><ul>
+<li><a href="#_2">目录<!-- omit in toc --></a></li>
+<li><a href="#1">1. 导数与微分的概念</a><ul>
+<li><a href="#11">1.1. 导数与微分的概念</a></li>
+<li><a href="#12">1.2. 连续、可导、可微之间的关系</a></li>
+<li><a href="#13">1.3. 导数的几何意义</a></li>
+<li><a href="#14">1.4. 相关变化率</a></li>
+</ul>
+</li>
+<li><a href="#2">2. 导数公式及求导法则</a><ul>
+<li><a href="#21">2.1. 基本初等函数的导数公式</a></li>
+<li><a href="#22">2.2. 求导法则</a><ul>
+<li><a href="#221">2.2.1. 有理运算法则</a></li>
+<li><a href="#222">2.2.2. 复合函数求导法</a></li>
+<li><a href="#223">2.2.3. 隐函数求导法</a></li>
+<li><a href="#224">2.2.4. 反函数的导数</a></li>
+<li><a href="#225">2.2.5. 参数方程求导法</a><ul>
+<li><a href="#2251">2.2.5.1. 极坐标方程转化为参数方程形式</a></li>
+</ul>
+</li>
+<li><a href="#226">2.2.6. 对数求导法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3">3. 高阶导数</a><ul>
+<li><a href="#31">3.1. 高阶导数的定义</a></li>
+<li><a href="#32">3.2. 常用的高阶导数公式</a></li>
+<li><a href="#33">3.3. 求高阶导数的方法</a></li>
+</ul>
+</li>
+<li><a href="#4">4. 总结</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h2 id="1">1. 导数与微分的概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1. 导数与微分的概念<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>导数</strong><ul>
+<li>概念：函数在某一点的变化率</li>
+</ul>
+</li>
+<li><strong>微分</strong><ul>
+<li>概念：函数值在某一点的改变量的近似值</li>
+</ul>
+</li>
+</ul>
+<h3 id="12">1.2. 连续、可导、可微之间的关系<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>连续与可导</strong></p>
+<ul>
+<li>连续不一定可导</li>
+<li>可导必定连续</li>
+</ul>
+</li>
+<li>
+<p><strong>连续与可微</strong></p>
+<ul>
+<li>连续不一定可微</li>
+<li>可微必定连续</li>
+</ul>
+</li>
+<li>
+<p><strong>可导与可微(在一元函数中)</strong></p>
+<ul>
+<li>可微必定可导</li>
+<li>可导必定可微</li>
+<li>可导是可微的<code>充分必要</code>条件</li>
+</ul>
+</li>
+</ul>
+<p><em><code>注</code>：在多元函数中，可导（偏导）不一定可微，可导（偏导）也不一定连续</em></p>
+<ul>
+<li><strong>证明可导必可微</strong></li>
+</ul>
+<p>根据可导定义，令</p>
+<p>
+<script type="math/tex; mode=display">\lim\limits_ {\Delta x \to 0}\frac{\Delta y}{\Delta x} = A</script>
+</p>
+<p>则有</p>
+<p>
+<script type="math/tex; mode=display">\lim\limits_ {\Delta x \to 0}\frac{\Delta y - A\Delta x}{\Delta x} = 0</script>
+</p>
+<p>即有<script type="math/tex">\Delta y - A\Delta x = o(\Delta x)</script>，故<script type="math/tex">\Delta y = A\Delta + o(\Delta x)</script>，其中<script type="math/tex">A</script>为常数，满足可微的定义，因此，可导必可微。</p>
+<ul>
+<li><strong>证明可微必可导</strong></li>
+</ul>
+<p>根据可微定义</p>
+<p>
+<script type="math/tex; mode=display">
+\Delta y = A\Delta x + o(\Delta x)
+</script>
+</p>
+<p>则</p>
+<p>
+<script type="math/tex; mode=display">
+f'(x_0) = \lim\limits_{\Delta x \to 0}\frac{A \Delta x + o(\Delta x)}{\Delta x} = A
+</script>
+</p>
+<p>导数存在，故满足可导的定义，因此可微必可导，且<script type="math/tex">f'(x) = A</script>.</p>
+<ul>
+<li><strong>常见错误</strong><ul>
+<li>
+<script type="math/tex">f(x)</script>在某邻域可导</li>
+<li><code>不能</code>推出<script type="math/tex">f'(x)</script>在<script type="math/tex">x_0</script>点连续</li>
+<li><code>不能</code>推出<script type="math/tex">\lim\limits_{x \to x_0}f'(x)</script>存在</li>
+<li>题型：第一章例<script type="math/tex">33</script>，考察洛必达法则的使用条件</li>
+</ul>
+</li>
+</ul>
+<h3 id="13">1.3. 导数的几何意义<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>导数<script type="math/tex">f'(x_0)</script>在几何上表示曲线<script type="math/tex">y = f(x)</script>在点<script type="math/tex">(x_0, f(x_0))</script>处切线的斜率。</p>
+<p><em><code>注</code>：法线的斜率是切线斜率的负倒数。</em></p>
+<h3 id="14">1.4. 相关变化率<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>定义</li>
+</ul>
+<p>设<script type="math/tex">x = x(t)</script>及<script type="math/tex">y = y(t)</script>都是可导函数，而变量<script type="math/tex">x</script>与<script type="math/tex">y</script>之间存在某种关系，从而他们的变化率<script type="math/tex">\dfrac{dx}{dt}</script>与<script type="math/tex">\dfrac{dy}{dt}</script>之间也存在一定关系，这样两个相互依赖的变化率成为<code>相关变化率</code></p>
+<ul>
+<li>例题（第二章例<script type="math/tex">29</script>）</li>
+</ul>
+<p>已知动点<script type="math/tex">P</script>在曲线<script type="math/tex">y = x^3</script>上运动，记坐标原点与点<script type="math/tex">P</script>间的距离为<script type="math/tex">l</script>。若点<script type="math/tex">P</script>的横坐标对时间的变化率为常数<script type="math/tex">v_0</script>，则当点<script type="math/tex">P</script>运动到点<script type="math/tex">(1, 1)</script>时，<script type="math/tex">l</script>对时间的变化率是<script type="math/tex">\underline{\hspace*{1cm}}</script>.</p>
+<p>解：</p>
+<p>已知<script type="math/tex">\dfrac{dx}{dv} = v_0</script>，<script type="math/tex">l = \sqrt{x^2 + x^6}</script>，则</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{dl}{dt} = \frac{dl}{dx} \cdot \frac{dx}{dt} = \frac{2x + 6x^5}{2\sqrt{x^2 + x^6}} \cdot v_0
+</script>
+</p>
+<p>带入数值<script type="math/tex">x = 1</script>，则</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{dl}{dt} = \frac{1 + 3}{\sqrt{2}}v_0 = 2\sqrt{2} v_0
+</script>
+</p>
+<hr />
+<h2 id="2">2. 导数公式及求导法则<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1. 基本初等函数的导数公式<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>
+<script type="math/tex; mode=display">
+(C)' = 0 \tag{2.1}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(x^a)' = ax^{a-1} \tag{2.2}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(a^x)' = a^x\ln(a) \tag{2.3}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(e^x)' = e^x \tag{2.4}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\log_a^x)' = \frac{1}{x\ln(a)} \tag{2.5}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\ln \mid x \mid )' = \frac{1}{x} \tag{2.6}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\sin x)' = \cos(x) \tag{2.7}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\cos x)' = -\sin(x) \tag{2.8}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\tan x )' = \sec^2(x) \tag{2.9}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\cot x)' = - \csc^2(x) \tag{2.10}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\sec x)' = \sec (x) \tan (x) \tag{2.11}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\csc x)' = \csc^2(x) \cot (x) \tag{2.12}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\arcsin x)' = \frac{1}{\sqrt{1 - x^2}} \tag{2.13}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\arccos x)' = - \frac{1}{\sqrt{1 - x^2}} \tag{2.14}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\arctan x)' = \frac{1}{1 + x^2} \tag{2.15}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(\arcctg x)' = \frac{1}{\sqrt{1 - x^2}} \tag{2.16}
+</script>
+</p>
+<p><em><code>注</code>：<script type="math/tex">\sec(x) = \dfrac{1}{\cos(x)}</script>，<script type="math/tex">\csc(x) = \dfrac{1}{\sin(x)}</script></em></p>
+<h3 id="22">2.2. 求导法则<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h4 id="221">2.2.1. 有理运算法则<a class="headerlink" href="#221" title="Permanent link">&para;</a></h4>
+<p>设<script type="math/tex">u = u(x), v = v(x)</script>在<script type="math/tex">x</script>处可导，则</p>
+<p>
+<script type="math/tex; mode=display">(u \pm v)' = u' \pm v' \tag{2.17}</script>
+</p>
+<p>
+<script type="math/tex; mode=display">(uv)' = u'v + uv' \tag{2.18}</script>
+</p>
+<p>
+<script type="math/tex; mode=display">(\dfrac{u}{v})' = \dfrac{u'v - uv'}{v^2} \tag{2.19}</script>
+</p>
+<h4 id="222">2.2.2. 复合函数求导法<a class="headerlink" href="#222" title="Permanent link">&para;</a></h4>
+<p>设<script type="math/tex">u = \varphi(x)</script>在<script type="math/tex">x</script>处可导，<script type="math/tex">y = f(u)</script>在对应点可导，则复合函数<script type="math/tex">y = f[\varphi(x)]</script>在<script type="math/tex">x</script>处可导，则</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} = f'(u)\varphi'(x)
+\tag{2.20}
+</script>
+</p>
+<ul>
+<li><strong>推论</strong></li>
+</ul>
+<p>一个可导的奇（偶）函数，求一次导，其奇偶性发生一次变化</p>
+<ul>
+<li><strong>证明推论</strong></li>
+</ul>
+<ol>
+<li>若<script type="math/tex">f(x)</script>为<code>奇函数</code>。</li>
+</ol>
+<p>
+<script type="math/tex">f(x)</script>满足<script type="math/tex">f(-x) = -f(x)</script>,又根据复合函数求导法则，得到<script type="math/tex">f'(-x) = -f'(x)</script>，则</p>
+<p>
+<script type="math/tex; mode=display">
+[f(-x)]' = -[-f(x)]' = [f(x)]'
+</script>
+</p>
+<p>即<script type="math/tex">f'(x)</script>为<strong>偶函数</strong></p>
+<ol start="2">
+<li>若<script type="math/tex">f(x)</script>为<code>偶函数</code>。</li>
+</ol>
+<p>
+<script type="math/tex">f(x)</script>满足<script type="math/tex">f(-x) = f(x)</script>,又根据复合函数求导法则，得到<script type="math/tex">f'(-x) = -f'(x)</script>，则</p>
+<p>
+<script type="math/tex; mode=display">
+[f(-x)]' = -[f(x)]'
+</script>
+</p>
+<p>即<script type="math/tex">f'(x)</script>为<strong>奇函数</strong></p>
+<h4 id="223">2.2.3. 隐函数求导法<a class="headerlink" href="#223" title="Permanent link">&para;</a></h4>
+<p>设<script type="math/tex">y = y(x)</script>是由方程<script type="math/tex">F(x, y) = x</script>所确定的可导函数，为求得<script type="math/tex">y'</script>，可在方程<script type="math/tex">F(x, y) = 0</script>两边对<script type="math/tex">x</script>求导，可得到一个含有<script type="math/tex">y'</script>的方程，从中解出<script type="math/tex">y'</script>即可。</p>
+<p><em><code>注</code>：<script type="math/tex">y'</script>也可由多元函数微分法中的隐函数求导公式2.21得到。</em></p>
+<p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx} = - \frac{F'_x}{F'_y}
+\tag{2.21}
+</script>
+</p>
+<h4 id="224">2.2.4. 反函数的导数<a class="headerlink" href="#224" title="Permanent link">&para;</a></h4>
+<p>若<script type="math/tex">y = f(x)</script>在某区间内可导，且<script type="math/tex">f'(x) \ne 0</script>，则其反函数<script type="math/tex">x = \varphi (x)</script>在对应区间内也可导，且</p>
+<p>
+<script type="math/tex; mode=display">
+\varphi (y) = \frac{1}{f'(x)}
+\tag{2.22}
+</script>
+</p>
+<p>即</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx} =\frac{1}{\dfrac{dy}{dx}}
+</script>
+</p>
+<h4 id="225">2.2.5. 参数方程求导法<a class="headerlink" href="#225" title="Permanent link">&para;</a></h4>
+<p>设<script type="math/tex">y = y(x)</script>是由参数方程</p>
+<p>
+<script type="math/tex; mode=display">
+{\left\{ \begin{aligned}
+&x = \varphi (x)\\
+&y = \psi (x)\\
+\end{aligned}\right. }, (\alpha < t < \beta)
+</script>
+</p>
+<p>确定的函数，则</p>
+<ol>
+<li>若<script type="math/tex">\varphi (x)</script>和<script type="math/tex">\psi (x)</script>都可导，且<script type="math/tex">\varphi(t) \ne 0</script>，则</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx} = \frac{\psi(x)}{\varphi(x)}
+\tag{2.23}
+</script>
+</p>
+<ol start="2">
+<li>若<script type="math/tex">\varphi (x)</script>和<script type="math/tex">\psi (x)</script>都二阶可导，且<script type="math/tex">\varphi(t) \ne 0</script>，则</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\frac{d^2 y}{d^2 x} = \frac{d}{dt}(\frac{dy}{dx}) \cdot \frac{dt}{dx}= \frac{d}{dt}(\frac{\psi '(t)}{\varphi '(t)}) \cdot \frac{1}{\varphi '(x)} = \frac{\psi ''(t)\varphi '(x) - \varphi ''(x) \psi '(t)}{\varphi^3 (t)}
+\tag{2.24}
+</script>
+</p>
+<h5 id="2251">2.2.5.1. 极坐标方程转化为参数方程形式<a class="headerlink" href="#2251" title="Permanent link">&para;</a></h5>
+<p>极坐标性质</p>
+<p>
+<script type="math/tex; mode=display">
+{\left\{ \begin{aligned}
+\rho^2 &= x^2 + y^2\\
+\tan \theta &= \frac{y}{x} (x \ne 0)\\
+\end{aligned}\right.}
+\tag{2.25}
+</script>
+</p>
+<p>极坐标转化为直角坐标的转化公式</p>
+<p>
+<script type="math/tex; mode=display">
+{\left\{ \begin{aligned}
+x = \rho \sin \theta\\
+y = \rho \cos \theta\\
+\end{aligned}\right.}
+\tag{2.26}
+</script>
+</p>
+<p>已知经过点<script type="math/tex">M(\rho_o, \theta_0)</script>，且直线与极轴所成角为<script type="math/tex">\alpha</script>的直线<script type="math/tex">l</script>，其极坐标方程为</p>
+<p>
+<script type="math/tex; mode=display">
+\rho \sin (\alpha - \theta) = \rho_0 \sin(\alpha_0 - \theta_0)
+</script>
+</p>
+<p>即</p>
+<p>
+<script type="math/tex; mode=display">
+\rho = \rho_0 \sec(\alpha_0 - \theta_0)
+</script>
+</p>
+<p>转化为参数方程形式</p>
+<p>
+<script type="math/tex; mode=display">
+{\left\{ \begin{aligned}
+x = \rho_0 \sec(\alpha_0 - \theta_0) \sin(\theta)\\
+y = \rho_0 \sec(\alpha_0 - \theta_0) \cos(\theta)\\
+\end{aligned} \right.}
+</script>
+</p>
+<h4 id="226">2.2.6. 对数求导法<a class="headerlink" href="#226" title="Permanent link">&para;</a></h4>
+<p>如果<script type="math/tex">y = y(x)</script>的表达式由<code>多个因式的乘除、乘幂</code>构成，或是<code>幂指函数</code>的形式，则可先将函数去对数，然后两边对<script type="math/tex">x</script>求导。</p>
+<p><em><code>注</code>：对等式两边取对数，需要满足等式两边都大于0的条件</em></p>
+<hr />
+<h2 id="3">3. 高阶导数<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1. 高阶导数的定义<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>含义：一般地，函数<script type="math/tex">y = f(x)</script>的<script type="math/tex">n</script>阶导数为<script type="math/tex">y^{(n)} = [f^{(n - 1)}(x)]'</script>，也可记为<script type="math/tex">f^{(n)}(x)</script>或<script type="math/tex">\dfrac{d^ny}{dx^n}</script>，即<script type="math/tex">n</script>阶导数就是<script type="math/tex">n-1</script>阶导函数的导数。</p>
+<p><em><code>注</code>：如果函数在点<script type="math/tex">x</script>处<script type="math/tex">n</script>阶可导，则在点<script type="math/tex">x</script>的某邻域内<script type="math/tex">f(x)</script>必定具有一切低于<script type="math/tex">n</script>阶的导数。</em></p>
+<h3 id="32">3.2. 常用的高阶导数公式<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>
+<script type="math/tex; mode=display">
+(\sin x)^{(n)} = \sin (x + n \cdot \frac{\pi}{2})
+\tag{2.27}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(cos x)^{(n)} = \cos (x + n \cdot \frac{\pi}{2})
+\tag{2.28}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(u \pm v)^{(n)} = u^{(n)} \pm v^{(n)}
+\tag{2.29}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(uv)^{(n)} = \sum_{k=0}^n C_n^k u^{(k)}v^{(n-k)}
+\tag{2.30}
+</script>
+</p>
+<p>式2.24可类比<script type="math/tex">n</script>阶二项式公式</p>
+<p>
+<script type="math/tex; mode=display">
+(u + v)^{n} = \sum_{k=0}^n C_n^k u^{k}v^{n-k}
+\tag{2.31}
+</script>
+</p>
+<ul>
+<li>推论</li>
+</ul>
+<p>若<script type="math/tex">y= \sin(ax + b)</script>，则
+<script type="math/tex; mode=display">
+y^{(n)} = a^n \sin(ax + b + n \cdot \frac{\pi}{2})
+\tag{2.32}
+</script>
+</p>
+<ul>
+<li>证明</li>
+</ul>
+<p>通过归纳法，求<script type="math/tex">y'</script>和<script type="math/tex">y''</script>，推出<script type="math/tex">y^{(n)}</script>.</p>
+<h3 id="33">3.3. 求高阶导数的方法<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<ol>
+<li>公式法，带入高阶导数公式</li>
+<li>归纳法，求<script type="math/tex">y'</script>，<script type="math/tex">y''</script>，归纳<script type="math/tex">y^{(n)}</script>
+</li>
+</ol>
+<hr />
+<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>导数<ul>
+<li><strong>定义</strong></li>
+<li><strong>求导法则</strong></li>
+<li>高阶导数</li>
+</ul>
+</li>
+<li>微分<ul>
+<li>定义</li>
+<li><strong>微分与可导的关系</strong></li>
+<li>微分方程求导</li>
+</ul>
+</li>
+</ol>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../第一章_函数_极限_连续/" title="第一章 函数 极限 连续" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                第一章 函数 极限 连续
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../第三章_微分中值定理及导数应用/" title="第三章 微分中值定理及导数应用" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                第三章 微分中值定理及导数应用
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/katex.min.js"></script>
+      
+        <script src="../../js/mathtex-script-type.min.js"></script>
+      
+        <script src="../../js/copy-tex.min.js"></script>
+      
+        <script src="../../js/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
