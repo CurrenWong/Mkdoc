@@ -1,19 +1,43 @@
-site_name: MkLorum
+site_name: Curren's Blog
 
 nav:
     - Home: index.md
     - About: about.md
+    - Math: 
+      - Math/第一章_函数_极限_连续.md
+      - Math/第二章_导数与微分.md
+      - Math/第三章_微分中值定理及导数应用.md
 
-theme: readthedocs
+theme: 
+  name: material
+  highlightjs: false
+  shortcuts:
+        help: 191    # ?
+        next: 78     # n
+        previous: 80 # p
+        search: 83   # s
+  max_width: 100%
 
 extra_javascript:
   - js/katex.min.js
   - js/mathtex-script-type.min.js
   - js/copy-tex.min.js
   - js/auto-render.min.js
-  - js/extra.js
+#   - js/extra.js # 渲染未被mathJax捕捉的公式
 
 extra_css:
   - css/katex.min.css
   - css/copy-tex.min.css
+
+markdown_extensions:
+  - mdx_math:
+        add_preview: false
+        enable_dollar_delimiter: true
+  - toc:
+        permalink: true
+        marker: "[TOC]"
+  - sane_lists
+  - meta
+  - wikilinks
+  - admonition
 
