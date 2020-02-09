@@ -1,0 +1,38 @@
+/* Image Style */
+img[src*="#width-full"] {
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+
+img[src*="#width-most"] {
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+
+img[src*="#width-half"] {
+    width: 50%;
+    display: flex;
+    margin: auto;
+}
+/* Heading */
+.md-typeset h1{
+    font-weight: bold;
+}
+
+.md-typeset h2{
+    font-weight: bold;
+}
+
+.md-typeset h3{
+    font-weight: bold;
+}
+
+.md-typeset h4{
+    font-weight: bold;
+}
+
+.md-typeset h5{
+    font-weight: bold;
+}
