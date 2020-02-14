@@ -1,0 +1,863 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>第四章 不定积分 - Curren's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/katex.min.css">
+    
+      <link rel="stylesheet" href="../../css/copy-tex.min.css">
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Curren's Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Curren's Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                第四章 不定积分
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Curren's Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Curren's Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      高等数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        高等数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../第一章_函数_极限_连续/" title="第一章 函数 极限 连续" class="md-nav__link">
+      第一章 函数 极限 连续
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../第二章_导数与微分/" title="第二章 导数与微分" class="md-nav__link">
+      第二章 导数与微分
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../第三章_微分中值定理及导数应用/" title="第三章 微分中值定理及导数应用" class="md-nav__link">
+      第三章 微分中值定理及导数应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 不定积分的概念与性质
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1. 不定积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2. 原函数存在定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3. 不定积分的性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 不定积分基本公式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 三种主要积分法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 第一换元积分法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 第二换元积分法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 分部积分法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 三类常见可积函数积分
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1. 有理函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2. 三角有理式积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3. 简单无理函数积分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">第四章 不定积分<!-- omit in toc --><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">目录<!-- omit in toc --><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#_1">第四章 不定积分<!-- omit in toc --></a><ul>
+<li><a href="#_2">目录<!-- omit in toc --></a></li>
+<li><a href="#1">1. 不定积分的概念与性质</a><ul>
+<li><a href="#11">1.1. 不定积分</a></li>
+<li><a href="#12">1.2. 原函数存在定理</a></li>
+<li><a href="#13">1.3. 不定积分的性质</a></li>
+</ul>
+</li>
+<li><a href="#2">2. 不定积分基本公式</a></li>
+<li><a href="#3">3. 三种主要积分法</a><ul>
+<li><a href="#31">3.1. 第一换元积分法</a></li>
+<li><a href="#32">3.2. 第二换元积分法</a></li>
+<li><a href="#33">3.3. 分部积分法</a></li>
+</ul>
+</li>
+<li><a href="#4">4. 三类常见可积函数积分</a><ul>
+<li><a href="#41">4.1. 有理函数</a></li>
+<li><a href="#42">4.2. 三角有理式积分</a></li>
+<li><a href="#43">4.3. 简单无理函数积分</a></li>
+</ul>
+</li>
+<li><a href="#5">5. 总结</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h2 id="1">1. 不定积分的概念与性质<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1. 不定积分<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定义</strong></li>
+</ul>
+<p>
+<script type="math/tex">f(x)</script>的原函数的全体成为<script type="math/tex">f(x)</script>的不定积分，记为<script type="math/tex">\int f(x)dx</script>.</p>
+<p>如果<script type="math/tex">F(x)</script>为<script type="math/tex">f(x)</script>的一个原函数，则有</p>
+<p>
+<script type="math/tex; mode=display">
+\int {f(x)}dx = F(x) + C
+\tag{4.1}
+</script>
+</p>
+<p>其中<script type="math/tex">C</script>为任意常数</p>
+<h3 id="12">1.2. 原函数存在定理<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>证明存在的定理</strong></li>
+</ul>
+<p>若<script type="math/tex">f(x)</script>在区间<script type="math/tex">I</script>上连续，则<script type="math/tex">f(x)</script>在区间<script type="math/tex">I</script>上一定存在原函数</p>
+<ul>
+<li><strong>证明不存在的定理</strong></li>
+</ul>
+<p>若<script type="math/tex">f(x)</script>在区间<script type="math/tex">I</script>上有第一类间断点，则<script type="math/tex">f(x)</script>在区间<script type="math/tex">I</script>上没有原函数</p>
+<h3 id="13">1.3. 不定积分的性质<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>
+<script type="math/tex; mode=display">
+(\int {f(x)}dx)' = f(x), d (\int {f(x)}dx) = f(x)dx
+\tag{4.2}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int {f'(x)}dx = f(x) + C, \int d{f(x)}dx = f(x) + C \tag{4.3}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int {f(x) \pm g(x)}dx = \int {f(x)}dx \pm \int {g(x)}dx
+\tag{4.4}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int k{f(x)}dx = k \int {f(x)}dx, (k = C)
+\tag{4.5}
+</script>
+</p>
+<hr />
+<h2 id="2">2. 不定积分基本公式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>
+<script type="math/tex; mode=display">
+\int {0}dx = C
+\tag{4.6}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int {x^a}dx = \frac{1}{a+1}x^{\alpha + 1} + C, (\alpha \ne -1)
+\tag{4.7}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{1}{x} dx = \ln|x| + C
+\tag{4.8}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int a^x dx = \frac{a^x}{\ln a} + C, (a > 0, a \ne 1)
+\tag{4.9}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int e^x dx = e^x + C
+\tag{4.10}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \sin x dx = - \cos(x) + C
+\tag{4.11}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \cos(x) dx = \sin(x) + C
+\tag{4.12}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \sec^2 x dx = \tan(x) + C
+\tag{4.13}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \csc^2 x dx = -\ctg x + C
+\tag{4.14}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \sec x \tan x dx = \sec x + C
+\tag{4.15}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \csc x \ctg x dx = - \csc x + C
+\tag{4.16}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{1}{\sqrt{1 - x^2}}dx = \arcsin x + C
+\tag{4.17}
+</script>
+</p>
+<ul>
+<li><strong>证明4.23：</strong> 凑微分法</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+\int \frac{1}{\sqrt{1 - x^2}}dx &= \int \dfrac{dx}{a \sqrt{1 - (\dfrac{x}{a}})^2} dx \\
+&= \int \frac{d (\dfrac{x}{a})}{\sqrt{1 - (\dfrac{x}{a}})^2} dx \\
+&= \arcsin x + C
+\end{aligned} }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{1}{{1 + x^2}}dx = \arctan x + C
+\tag{4.18}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{1}{{a^2 + x^2}}dx = \frac{1}{a} \arctan \frac{x}{a} + C
+\tag{4.19}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{1}{x^2 - a^2} dx = \frac{1}{2a} \ln|\frac{x-a}{x+a}| + C
+\tag{4.20}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{1}{\sqrt{x^2 + a^2}} dx = \ln (x + \sqrt{x^2 + a^2}) + C
+\tag{4.21}
+</script>
+</p>
+<ul>
+<li><strong>证明4.21：</strong> 第二类换元法，令<script type="math/tex">x = a\tan t</script>
+</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+\int \frac{1}{\sqrt{x^2 + a^2}} dx &= \int \frac{a\sec^2 t}{a \sec t} dt = \int \sec t dt \\
+&= \ln |\sec t + \tan t| + C \\
+&= \ln |x + \sqrt{x^2 + a^2}| - \ln a+ C\\
+&= \ln |x + \sqrt{x^2 + a^2}| + C
+\end{aligned} }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{1}{\sqrt{x^2 - a^2}} dx = \ln |x + \sqrt{x^2 - a^2}| + C
+\tag{4.22}
+</script>
+</p>
+<ul>
+<li><strong>证明4.22：</strong> 第二类换元法，令<script type="math/tex">x = a\sec t</script>
+</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+\int \frac{1}{\sqrt{x^2 - a^2}} dx &= \int \frac{a\sec t \tan t}{a \tan t} dt = \int \sec t dt \\
+&= \ln |\sec t + \tan t| + C \\
+&= \ln |x + \sqrt{x^2 - a^2}| - \ln a+ C\\
+&= \ln |x + \sqrt{x^2 - a^2}| + C
+\end{aligned} }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int {\sec x} dx = \ln |\sec x + \tan x| + C
+\tag{4.23}
+</script>
+</p>
+<ul>
+<li><strong>证明4.23：</strong> 凑微分法</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+\int {\sec x} dx &= \int \frac{\sec x[\sec x + \tan x]}{\sec x + \tan x} dx &=& \int \frac{\sec^2 x + \sec x \tan x}{\sec x + \tan x} dx   \\
+&= \int \frac{\sec x[\sec x + \tan x]}{\sec x + \tan x} dx &=& \int \frac{d(\sec x + \tan x)}{\sec x + \tan x}\\
+&= \ln |\sec x + \tan x| + C
+\end{aligned} }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int {\csc x} dx = -\ln |\csc x + \ctg x| + C
+\tag{4.24}
+</script>
+</p>
+<ul>
+<li><strong>证明4.24：</strong> 凑微分法</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+\int {\csc x} dx &= \int \frac{\csc x[\csc x + \ctg x]}{\csc x + \ctg x} dx &=& \int \frac{\csc^2 x + \csc x \ctg x}{\csc x + \ctg x} dx   \\
+&= \int \frac{\csc x[\csc x + \ctg x]}{\csc x + \ctg x} dx &=& \int \frac{d(\csc x + \ctg x)}{\csc x + \ctg x}\\
+&= \ln |\csc x + \ctg x| + C
+\end{aligned} }
+</script>
+</p>
+<hr />
+<h2 id="3">3. 三种主要积分法<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1. 第一换元积分法<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定理</strong> 设<script type="math/tex">\int f(u) du = F(u) + C</script>, <script type="math/tex">u = \varphi(x)</script>存在连续导数，则</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+\int f[\varphi(x)]\varphi '(x) dx = \int f[\varphi(x)] d\varphi x = F(\varphi(x)) + C
+\tag{4.25}
+</script>
+</p>
+<h3 id="32">3.2. 第二换元积分法<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定理</strong> 设<script type="math/tex">x = \varphi (x)</script>是单调的、可导的函数，并且<script type="math/tex">\varphi'(t) \ne 0</script>，又</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+\int f[\varphi(t)]\varphi '(t) dt = F(\varphi(t)) + C
+</script>
+</p>
+<p>则</p>
+<p>
+<script type="math/tex; mode=display">
+\int {f(x)} dx = \int f[\varphi(t)]\varphi '(t) dt = F(\varphi(t)) + C = F[\varphi^{-1}(x)] + C
+\tag{4.26}
+</script>
+</p>
+<p><em><strong>注</strong>：式中对<script type="math/tex">\varphi (t)</script>求导的部分容易被遗漏</em></p>
+<ul>
+<li><strong>常用的三种变量代换</strong></li>
+</ul>
+<ol>
+<li>
+<p>被积函数含有<script type="math/tex">\sqrt{a^2 - x^2}</script>，令<script type="math/tex">x = a\sin x</script>（或<script type="math/tex">a \cos x</script>).</p>
+</li>
+<li>
+<p>被积函数含有<script type="math/tex">\sqrt{x^2 + a^2}</script>，令<script type="math/tex">x = a\tan x</script>.</p>
+</li>
+<li>
+<p>被积函数含有<script type="math/tex">\sqrt{x^2 - a^2}</script>，令<script type="math/tex">x = a\sec x</script>.</p>
+</li>
+</ol>
+<h3 id="33">3.3. 分部积分法<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>分部积分公式</strong></li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+\int u dv = uv - \int v du
+\tag{4.27}
+</script>
+</p>
+<ul>
+<li><strong>分部积分法中<script type="math/tex">u,v</script>的选取</strong></li>
+</ul>
+<ol>
+<li>把多项式以外的函数凑进微分号，因为对多项式求导若干次后能够将其化为常数项</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\int p_n(x)e^{\alpha x} dx, \int p_n(x)\sin \alpha x dx, \int p_n(x)\cos \alpha x dx
+</script>
+</p>
+<ol start="2">
+<li>把指数函数或三角函数凑进微分号都可以，但把指数凑进去更简单</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\int e^{\alpha x}\sin \beta x dx, \int e^{\alpha x}\cos \beta x
+</script>
+</p>
+<ol start="3">
+<li>把多项式凑进微分号，多项式以外的函数方便求导，不方便积分</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\int p_n(x)\ln x dx, \int p_n(x)\arctan x dx, \int p_n(x)\arcsin x dx
+</script>
+</p>
+<hr />
+<h2 id="4">4. 三类常见可积函数积分<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1. 有理函数<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>有理函数积分</strong> <script type="math/tex">\int R(x) dx</script>
+</li>
+</ul>
+<ol>
+<li>一般方法（部分分式法）</li>
+<li>特殊方法（加项减项拆或凑微分降幂）</li>
+</ol>
+<h3 id="42">4.2. 三角有理式积分<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>三角有理式积分</strong> <script type="math/tex">\int R(\sin x, \cos x) dx</script>
+</li>
+</ul>
+<ol>
+<li>一般方法（万能代换）令<script type="math/tex">\tan \dfrac{x}{2} = t</script>.</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\int R(\sin x, \cos x) dx = \int R(\frac{2t}{1 + t^2}, \frac{1 - t^2}{1 + t^2}) dt
+\tag{4.28}
+</script>
+</p>
+<ol start="2">
+<li>特殊方法（三角变形，换元，分解）</li>
+</ol>
+<ul>
+<li><strong>几种常用的换元法</strong></li>
+</ul>
+<ol>
+<li>若<script type="math/tex">R(- \sin x, \cos x) = - R(\sin x, \cos x)</script>，则令<script type="math/tex">u = \cos x</script>，或凑<script type="math/tex">d\cos x</script>.</li>
+<li>若<script type="math/tex">R(\sin x, - \cos x) = - R(\sin x, \cos x)</script>，则令<script type="math/tex">u = \sin x</script>，或凑<script type="math/tex">d\sin x</script>.</li>
+<li>若<script type="math/tex">R(- \sin x, - \cos x) = R(\sin x, \cos x)</script>，则令<script type="math/tex">u = \tan x</script>，或凑<script type="math/tex">d\tan x</script>.</li>
+</ol>
+<h3 id="43">4.3. 简单无理函数积分<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>简单无理函数积分</strong> <script type="math/tex">
+\int R(x, \sqrt[n]{\dfrac{ax + b}{cx + d}}) dx</script>
+</li>
+</ul>
+<p>令<script type="math/tex">\sqrt[n]{\dfrac{ax + b}{cx + d}} = t</script>，将其转化为有理函数积分进行计算</p>
+<hr />
+<h2 id="5">5. 总结<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>两个概念</p>
+<ul>
+<li>原函数</li>
+<li>不定积分</li>
+</ul>
+</li>
+<li>
+<p><strong>三种方法</strong></p>
+<ul>
+<li><strong>第一类换元法</strong></li>
+<li><strong>第二类换元法</strong></li>
+<li><strong>分部积分法</strong></li>
+</ul>
+</li>
+<li>
+<p>三种形式</p>
+<ul>
+<li>有理函数</li>
+<li>三角有理式</li>
+<li>简单无理函数</li>
+</ul>
+</li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/katex.min.js"></script>
+      
+        <script src="../../js/mathtex-script-type.min.js"></script>
+      
+        <script src="../../js/copy-tex.min.js"></script>
+      
+        <script src="../../js/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
