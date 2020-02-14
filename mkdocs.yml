@@ -2,7 +2,6 @@ site_name: Curren's Blog
 
 nav:
     - Home: index.md
-    - About: about.md
     - 高等数学: 
       - 高等数学/第一章_函数_极限_连续.md
       - 高等数学/第二章_导数与微分.md
