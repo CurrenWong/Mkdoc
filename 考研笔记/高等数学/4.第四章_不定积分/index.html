@@ -10,7 +10,11 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
+        <meta name="description" content="Curren's Notes">
       
+      
+      
+        <meta name="author" content="Curren">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -31,21 +35,21 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
-        <title>第四章 不定积分 - Curren's Blog</title>
+        <title>4.第四章 不定积分 - Curren's Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -54,14 +58,14 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/katex.min.css">
+      <link rel="stylesheet" href="../../../css/katex.min.css">
     
-      <link rel="stylesheet" href="../../css/copy-tex.min.css">
+      <link rel="stylesheet" href="../../../css/copy-tex.min.css">
     
-      <link rel="stylesheet" href="../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
     
       
@@ -74,6 +78,8 @@
     <svg class="md-svg">
       <defs>
         
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
         
       </defs>
     </svg>
@@ -90,7 +96,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Curren's Blog" class="md-header-nav__button md-logo">
+        <a href="../../.." title="Curren's Notes" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -103,11 +109,11 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Curren's Blog
+              Curren's Notes
             </span>
             <span class="md-header-nav__topic">
               
-                第四章 不定积分
+                4.第四章 不定积分
               
             </span>
           
@@ -142,6 +148,28 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/CurrenWong/Mkdoc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -160,13 +188,33 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Curren's Blog" class="md-nav__button md-logo">
+    <a href="../../.." title="Curren's Notes" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    Curren's Blog
+    Curren's Notes
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/CurrenWong/Mkdoc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -176,8 +224,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
+    <a href="../../.." title="Welcome to MkDocs" class="md-nav__link">
+      Welcome to MkDocs
     </a>
   </li>
 
@@ -194,10 +242,31 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
-      高等数学
+      考研笔记
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        考研笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      高等数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
         高等数学
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -209,8 +278,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../第一章_函数_极限_连续/" title="第一章 函数 极限 连续" class="md-nav__link">
-      第一章 函数 极限 连续
+    <a href="../1.第一章_函数_极限_连续/" title="1.第一章 函数 极限 连续" class="md-nav__link">
+      1.第一章 函数 极限 连续
     </a>
   </li>
 
@@ -221,8 +290,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../第二章_导数与微分/" title="第二章 导数与微分" class="md-nav__link">
-      第二章 导数与微分
+    <a href="../2.第二章_导数与微分/" title="2.第二章 导数与微分" class="md-nav__link">
+      2.第二章 导数与微分
     </a>
   </li>
 
@@ -233,8 +302,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../第三章_微分中值定理及导数应用/" title="第三章 微分中值定理及导数应用" class="md-nav__link">
-      第三章 微分中值定理及导数应用
+    <a href="../3.第三章_微分中值定理及导数应用/" title="3.第三章 微分中值定理及导数应用" class="md-nav__link">
+      3.第三章 微分中值定理及导数应用
     </a>
   </li>
 
@@ -254,11 +323,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        第四章 不定积分
+        4.第四章 不定积分
       </label>
     
-    <a href="./" title="第四章 不定积分" class="md-nav__link md-nav__link--active">
-      第四章 不定积分
+    <a href="./" title="4.第四章 不定积分" class="md-nav__link md-nav__link--active">
+      4.第四章 不定积分
     </a>
     
       
@@ -402,6 +471,71 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      读书笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        读书笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../读书笔记/数学/数学女孩/" title="数学女孩" class="md-nav__link">
+      数学女孩
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -569,6 +703,8 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/考研笔记/高等数学/4.第四章_不定积分.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
                 
                 <h1 id="_1">第四章 不定积分<!-- omit in toc --><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">目录<!-- omit in toc --><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -717,6 +853,7 @@
 \tag{4.16}
 </script>
 </p>
+<hr />
 <p>
 <script type="math/tex; mode=display">
 \int \frac{1}{\sqrt{1 - x^2}}dx = \arcsin x + C
@@ -724,7 +861,7 @@
 </script>
 </p>
 <ul>
-<li><strong>证明4.23：</strong> 凑微分法</li>
+<li><strong>证明4.17：</strong> 凑微分法</li>
 </ul>
 <p>
 <script type="math/tex; mode=display">
@@ -735,6 +872,7 @@
 \end{aligned} }
 </script>
 </p>
+<hr />
 <p>
 <script type="math/tex; mode=display">
 \int \frac{1}{{1 + x^2}}dx = \arctan x + C
@@ -753,6 +891,7 @@
 \tag{4.20}
 </script>
 </p>
+<hr />
 <p>
 <script type="math/tex; mode=display">
 \int \frac{1}{\sqrt{x^2 + a^2}} dx = \ln (x + \sqrt{x^2 + a^2}) + C
@@ -773,6 +912,7 @@
 \end{aligned} }
 </script>
 </p>
+<hr />
 <p>
 <script type="math/tex; mode=display">
 \int \frac{1}{\sqrt{x^2 - a^2}} dx = \ln |x + \sqrt{x^2 - a^2}| + C
@@ -793,6 +933,7 @@
 \end{aligned} }
 </script>
 </p>
+<hr />
 <p>
 <script type="math/tex; mode=display">
 \int {\sec x} dx = \ln |\sec x + \tan x| + C
@@ -806,7 +947,7 @@
 <script type="math/tex; mode=display">
 { \begin{aligned}
 \int {\sec x} dx &= \int \frac{\sec x[\sec x + \tan x]}{\sec x + \tan x} dx &=& \int \frac{\sec^2 x + \sec x \tan x}{\sec x + \tan x} dx   \\
-&= \int \frac{\sec x[\sec x + \tan x]}{\sec x + \tan x} dx &=& \int \frac{d(\sec x + \tan x)}{\sec x + \tan x}\\
+&= \int \frac{d(\sec x + \tan x)}{\sec x + \tan x}\\
 &= \ln |\sec x + \tan x| + C
 \end{aligned} }
 </script>
@@ -824,7 +965,7 @@
 <script type="math/tex; mode=display">
 { \begin{aligned}
 \int {\csc x} dx &= \int \frac{\csc x[\csc x + \ctg x]}{\csc x + \ctg x} dx &=& \int \frac{\csc^2 x + \csc x \ctg x}{\csc x + \ctg x} dx   \\
-&= \int \frac{\csc x[\csc x + \ctg x]}{\csc x + \ctg x} dx &=& \int \frac{d(\csc x + \ctg x)}{\csc x + \ctg x}\\
+&= \int \frac{d(\csc x + \ctg x)}{\csc x + \ctg x}\\
 &= \ln |\csc x + \ctg x| + C
 \end{aligned} }
 </script>
@@ -1000,7 +1141,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../第三章_微分中值定理及导数应用/" title="第三章 微分中值定理及导数应用" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../3.第三章_微分中值定理及导数应用/" title="3.第三章 微分中值定理及导数应用" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1009,11 +1150,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                第三章 微分中值定理及导数应用
+                3.第三章 微分中值定理及导数应用
               </span>
             </div>
           </a>
         
+        
+          <a href="../../../读书笔记/数学/数学女孩/" title="数学女孩" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                数学女孩
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
@@ -1035,17 +1190,17 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../js/katex.min.js"></script>
+        <script src="../../../js/katex.min.js"></script>
       
-        <script src="../../js/mathtex-script-type.min.js"></script>
+        <script src="../../../js/mathtex-script-type.min.js"></script>
       
-        <script src="../../js/copy-tex.min.js"></script>
+        <script src="../../../js/copy-tex.min.js"></script>
       
-        <script src="../../js/auto-render.min.js"></script>
+        <script src="../../../js/auto-render.min.js"></script>
       
     
   </body>
