@@ -1,12 +1,10 @@
-site_name: Curren's Blog
+site_name: Curren's Notes
 
-nav:
-    - Home: index.md
-    - 高等数学: 
-      - 高等数学/第一章_函数_极限_连续.md
-      - 高等数学/第二章_导数与微分.md
-      - 高等数学/第三章_微分中值定理及导数应用.md
-      - 高等数学/第四章_不定积分.md
+repo_url: https://github.com/CurrenWong/Mkdoc/
+
+site_author: Curren
+
+site_description: Curren's Notes
 
 theme: 
   name: material
@@ -16,7 +14,6 @@ theme:
         next: 78     # n
         previous: 80 # p
         search: 83   # s
-  max_width: 100%
 
 extra_javascript:
   - js/katex.min.js
