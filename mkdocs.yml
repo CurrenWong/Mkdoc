@@ -20,7 +20,8 @@ extra_javascript:
   - js/mathtex-script-type.min.js
   - js/copy-tex.min.js
   - js/auto-render.min.js
-#   - js/extra.js # 渲染未被mathJax捕捉的公式
+  - js/jquery-3.4.1.min.js # 定制jQuery函数
+  - js/extra.js # 渲染未被mathJax捕捉的公式
 
 extra_css:
   - css/katex.min.css
@@ -40,5 +41,3 @@ markdown_extensions:
   - admonition
   - codehilite:
         linenums: true
-        linenums: true
-

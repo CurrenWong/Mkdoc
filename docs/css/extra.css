@@ -36,3 +36,8 @@ img[src*="#width-half"] {
 .md-typeset h5{
     font-weight: bold;
 }
+
+
+.md-typeset details {
+    font-size: .8rem;
+}
