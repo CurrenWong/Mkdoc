@@ -33,8 +33,12 @@ markdown_extensions:
         add_preview: false
         enable_dollar_delimiter: true
   - toc:
-        permalink: true
+        permalink: "#" # 设置标题链接的标志
         marker: "[TOC]"
+        toc_depth: 4
+        anchorlink: true
+        baselevel: 1
+        
   - sane_lists
   - meta
   - wikilinks
