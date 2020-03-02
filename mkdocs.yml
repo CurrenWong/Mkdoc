@@ -2,18 +2,22 @@ site_name: Curren's Notes
 
 repo_url: https://github.com/CurrenWong/Mkdoc/
 
+repo_name: 'currenwong/Mkdoc'
+
 site_author: Curren
 
 site_description: Curren's Notes
 
 theme: 
   name: material
-  highlightjs: false
-  shortcuts:
-        help: 191    # ?
-        next: 78     # n
-        previous: 80 # p
-        search: 83   # s
+  palette: # 颜色
+    primary: 'deep orange'
+    accent: 'indigo'
+  logo: # 图标
+    icon: 'star'
+  feature: # 是否将一层目录显示为上方的tab
+    tabs: true
+  language: 'en' # 语言
 
 extra_javascript:
   - js/katex.min.js
@@ -25,6 +29,7 @@ extra_javascript:
   - js/d3-flextree.js
   - js/view.mindmap.js
   - js/highlight.pack.js # 代码高亮
+  - js/emoji.min.js # 显示emoji
   - js/extra.js # 渲染未被mathJax捕捉的公式，渲染思维导图
 
 extra_css:
@@ -32,6 +37,8 @@ extra_css:
   - css/copy-tex.min.css
   - css/view.mindmap.css
   - css/highlight-default.css # 代码高亮主题
+  - css/font-awesome-all.min.css # font-awesome 图标
+  - css/emoji.css # 显示emoji
   - css/extra.css
 
 markdown_extensions:
@@ -49,3 +56,15 @@ markdown_extensions:
   - meta
   - wikilinks
   - admonition
+
+plugins:
+  - search
+  - build_plantuml:
+      render: "server" # or "local" for local rendering
+      bin_path: "/usr/local/bin/plantuml" # ignored when render: server
+      server: "http://www.plantuml.com/plantuml" # offical plantuml server
+      output_format: "svg" # or "png"
+      diagram_root: "docs/diagrams" # should reside under docs_dir
+      output_folder: "out"
+      input_folder: "src"
+
