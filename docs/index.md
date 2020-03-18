@@ -19,11 +19,3 @@ For full documentation visit [mkdocs.org](https://mkdocs.org).
         ...       # Other markdown pages, images and other files.
 
 ```
-
-```language-mindmap
-
-# Test
-
-```
-
-![test](./diagrams/out/test.svg#width-half "test.svg")
