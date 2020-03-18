@@ -190,7 +190,7 @@ function markToNode(map, seq) {
 }
 
 // 转换emoji
-function translateEmoji(text = "a, text") {
+function translateEmoji(text = "a, text, p") {
     // 获取转换器
     var emoji = new EmojiConvertor();
     // 获取所有标题和思维导图节点
@@ -201,7 +201,7 @@ function translateEmoji(text = "a, text") {
     })
     // 定义正则对象
     var reg = new RegExp();
-    reg.compile(":[a-z|\-]*:", "ig");
+    reg.compile(":[a-z|\-|1-9|\+|\-]*:", "ig");
     // 转换FontAwesome
     elements.each(function () {
         const element = $(this);
@@ -218,14 +218,14 @@ function translateEmoji(text = "a, text") {
                 // $(this).append('<i class="fas ' + element + '"></i>')
             }
         }
-    })
+    });
 }
 
 // 判断访问设备是否是手机
 function isMobile() {
     var ua = navigator.userAgent;
     // iPad 屏幕足够显示长公式
-    var agent = ["Android", "iPhone", "SymbianOS", "Windows Phone",  "iPod"];
+    var agent = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod"];
     var flag = false;
     for (var i = 0; i < agent.length; i++) {
         if (ua.indexOf(agent[i]) > 0) {
@@ -253,7 +253,29 @@ function clearTag() {
     }
 }
 
-
+// 转换删除线
+function translateDeleteLine(text = "text, p, li") {
+    // 定义正则对象
+    var reg = new RegExp();
+    reg.compile("~~[^.]*~~", "ig");
+    // 获取所有符合格式的DOM对象
+    var elements = $(text);
+    // 转换FontAwesome
+    elements.each(function () {
+        const element = $(this);
+        // 获取符合格式的字符串数组
+        var strList = $(this).html().match(reg);
+        if (strList != null) {
+            for (let i = 0; i < strList.length; i++) {
+                const element = strList[i];
+                var newElement = $(this).html().replace(element, '<s>' + element.replace(/~/ig, "") + '</s>');
+                $(this).html(newElement);
+                // 转为FontAwesome元素并添加为this的子元素
+                // $(this).append('<i class="fas ' + element + '"></i>')
+            }
+        }
+    });
+}
 
 // --------------------------------
 // 代码运行
@@ -352,3 +374,6 @@ $(translateEmoji());
 
 // 若是手机访问，去除长公式的标号，防止影响阅读
 $(clearTag());
+
+// 渲染删除线
+$(translateDeleteLine());
