@@ -40,7 +40,7 @@
     
     
       
-        <title>1.文法 - Curren's Notes</title>
+        <title>2.优先级反转与中断机制 - Curren's Notes</title>
       
     
     
@@ -129,7 +129,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                1.文法
+                2.优先级反转与中断机制
               
             </span>
           
@@ -626,10 +626,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
     <label class="md-nav__link" for="nav-4-2">
       嵌入式系统
@@ -647,37 +649,11 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-nav__link">
+    <a href="../1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-nav__link">
       1.uCos环境配置
     </a>
   </li>
 
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
-    
-    <label class="md-nav__link" for="nav-4-3">
-      编译原理
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-3">
-        编译原理
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
         
           
           
@@ -694,11 +670,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1.文法
+        2.优先级反转与中断机制
       </label>
     
-    <a href="./" title="1.文法" class="md-nav__link md-nav__link--active">
-      1.文法
+    <a href="./" title="2.优先级反转与中断机制" class="md-nav__link md-nav__link--active">
+      2.优先级反转与中断机制
     </a>
     
       
@@ -720,37 +696,50 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 上下文无关文法
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 优先级反转
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1. 文法
+  <a href="#21" class="md-nav__link">
+    2.1. 优先级反转
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    1.2. 语法描述的几个基本概念
+  <a href="#22" class="md-nav__link">
+    2.2. 优先级继承和优先级天花板策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    2.2.1. 优先级继承
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    1.3. 上下文无关文法
+  <a href="#222" class="md-nav__link">
+    2.2.2. 优先级天花板
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    1.4. 最左、最右推导
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -760,15 +749,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 语法树
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 二义性
+    3. 中断机制
   </a>
   
     <nav class="md-nav">
@@ -776,14 +758,21 @@
         
           <li class="md-nav__item">
   <a href="#31" class="md-nav__link">
-    3.1. 文法的二义性
+    3.1. 外部中断
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#32" class="md-nav__link">
-    3.2. 语言的二义性
+    3.2. 内部中断
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 软件中断
   </a>
   
 </li>
@@ -795,42 +784,8 @@
       
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4. 乔姆斯基形式语言体系
+    4. 参考文献
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    4.1. 零型文法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    4.2. 一型文法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    4.3. 二型文法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" class="md-nav__link">
-    4.4. 三型文法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -842,6 +797,78 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      移动应用开发
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        移动应用开发
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1.%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="1.课程项目思维导图" class="md-nav__link">
+      1.课程项目思维导图
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      编译原理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        编译原理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/1.%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/" title="1.上下文无关文法" class="md-nav__link">
+      1.上下文无关文法
+    </a>
   </li>
 
         
@@ -884,37 +911,50 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 上下文无关文法
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 优先级反转
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1. 文法
+  <a href="#21" class="md-nav__link">
+    2.1. 优先级反转
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    1.2. 语法描述的几个基本概念
+  <a href="#22" class="md-nav__link">
+    2.2. 优先级继承和优先级天花板策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    2.2.1. 优先级继承
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    1.3. 上下文无关文法
+  <a href="#222" class="md-nav__link">
+    2.2.2. 优先级天花板
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    1.4. 最左、最右推导
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -924,15 +964,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 语法树
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 二义性
+    3. 中断机制
   </a>
   
     <nav class="md-nav">
@@ -940,14 +973,21 @@
         
           <li class="md-nav__item">
   <a href="#31" class="md-nav__link">
-    3.1. 文法的二义性
+    3.1. 外部中断
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#32" class="md-nav__link">
-    3.2. 语言的二义性
+    3.2. 内部中断
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 软件中断
   </a>
   
 </li>
@@ -959,42 +999,8 @@
       
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4. 乔姆斯基形式语言体系
+    4. 参考文献
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    4.1. 零型文法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    4.2. 一型文法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    4.3. 二型文法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" class="md-nav__link">
-    4.4. 三型文法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1014,145 +1020,176 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/编译原理/1.文法.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/嵌入式系统/2.优先级反转与中断机制.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1"><a class="toclink" href="#_1">文法</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+                <h1 id="_1"><a class="toclink" href="#_1">优先级反转与中断机制</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
 <h2 id="_2"><a class="toclink" href="#_2">目录</a><a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <div class="toc">
 <ul>
-<li><a href="#_1">文法</a><ul>
+<li><a href="#_1">优先级反转与中断机制</a><ul>
 <li><a href="#_2">目录</a></li>
-<li><a href="#1">1. 上下文无关文法</a><ul>
-<li><a href="#11">1.1. 文法</a></li>
-<li><a href="#12">1.2. 语法描述的几个基本概念</a></li>
-<li><a href="#13">1.3. 上下文无关文法</a></li>
-<li><a href="#14">1.4. 最左、最右推导</a></li>
+<li><a href="#1">1. 背景</a></li>
+<li><a href="#2">2. 优先级反转</a><ul>
+<li><a href="#21">2.1. 优先级反转</a></li>
+<li><a href="#22">2.2. 优先级继承和优先级天花板策略</a><ul>
+<li><a href="#221">2.2.1. 优先级继承</a></li>
+<li><a href="#222">2.2.2. 优先级天花板</a></li>
 </ul>
 </li>
-<li><a href="#2">2. 语法树</a></li>
-<li><a href="#3">3. 二义性</a><ul>
-<li><a href="#31">3.1. 文法的二义性</a></li>
-<li><a href="#32">3.2. 语言的二义性</a></li>
 </ul>
 </li>
-<li><a href="#4">4. 乔姆斯基形式语言体系</a><ul>
-<li><a href="#41">4.1. 零型文法</a></li>
-<li><a href="#42">4.2. 一型文法</a></li>
-<li><a href="#43">4.3. 二型文法</a></li>
-<li><a href="#44">4.4. 三型文法</a></li>
+<li><a href="#3">3. 中断机制</a><ul>
+<li><a href="#31">3.1. 外部中断</a></li>
+<li><a href="#32">3.2. 内部中断</a></li>
+<li><a href="#33">3.3. 软件中断</a></li>
 </ul>
 </li>
+<li><a href="#4">4. 参考文献</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="1"><a class="toclink" href="#1">1. 上下文无关文法</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
-<h3 id="11"><a class="toclink" href="#11">1.1. 文法</a><a class="headerlink" href="#11" title="Permanent link">#</a></h3>
+<h2 id="1"><a class="toclink" href="#1">1. 背景</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p>今天看<a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=EJmMZXq1b8qOpBlD69XAdP7LEGaKJWEYBqWxRnme5vrVzo4QMZYgNyk2jNA5467K">《μC/OS-III源码分析笔记》</a>的时候学了<strong>优先级反转</strong>的概念，书中没有详细介绍，于是我在<a href="https://www.igetget.com">得到APP</a>的搜索引擎中进行了搜索，看到刘旭明老师写的<a href="(https://m.igetget.com/hybrid/v2/ebook/detail?bid=OAdXprx6N41dm9BQkayr8z7OqLGoE3lrd80YMlVAnxRZXK2Dg5pbevPJjjnQv2eb)">《嵌入式实时操作系统原理与最佳实践》</a>中讲得很清楚，于是我把原文摘录了下来，方便学习和记录，版权归原作者刘旭明老师所有。</p>
+<h2 id="2"><a class="toclink" href="#2">2. 优先级反转</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
+<h3 id="21"><a class="toclink" href="#21">2.1. 优先级反转</a><a class="headerlink" href="#21" title="Permanent link">#</a></h3>
+<p>(Priority inversion)</p>
+<blockquote>
+<p>在系统中，有些资源必须是独占使用的，多个任务对这样的资源的并发访问将导致错误的发生。一般来说，对需要独占使用的资源必须使用互斥方法将对其的并发访问串行化<a href="#bib-1"><sup>1</sup></a>。</p>
+<p>在优先级多任务系统中引入互斥方案，会导致任务优先级反转的问题：假如某时低优先级的任务占有资源，然后又有高优先级的任务申请资源，但因为不能满足而被挂起了，即<strong>低优先级任务阻塞了高优先级任务的运行</strong>。假如这时又有一个中优先级任务，那么它会把低优先级任务抢占。最终高优先级任务会间接地被中优先级任务抢占了。这种现象叫作<strong>优先级反转</strong>。举例说明：</p>
+<p>假如A、D、C三个任务优先级从高到低排列，任务A和C共享互斥信号量R，如果某一时刻任务C已经获得互斥信号量R，而任务A此时尝试占用R，那么任务A会因为得不到R而阻塞在R的<strong>任务等待队列</strong>中。再假设此时任务D因为优先级高于任务C从而抢占了C，进而长期占有处理器资源，那么就相当于中优先级的任务D间接阻塞了高优先级任务A的运行。</p>
+</blockquote>
+<p><img alt="优先级反转" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/2.%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC.jpg" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 1. 优先级反转}
+</script>
+</p>
+<blockquote>
 <ul>
-<li><strong>文法</strong><ul>
-<li>定义：描述语言的语法结构的形式规则（即语法规则）</li>
-<li>举例：&lt;句子&gt; → &lt;主语&gt;&lt;谓语&gt;&lt;间接宾语&gt;&lt;直接宾语&gt; 推导出He gave me a book.</li>
-</ul>
+<li>
+<p>T0时刻，任务C处于运行状态，运行过程中，任务C获得了共享资源R。</p>
+</li>
+<li>
+<p>T1时刻，任务A就绪。由于任务A优先级高于任务C，所以它抢占了任务C，任务A被调度执行。</p>
+</li>
+<li>
+<p>T2时刻，任务A需要共享资源R，但R被更低优先级的任务C所拥有，所以任务A被阻塞等待该资源。任务C得到执行。</p>
+</li>
+<li>
+<p>T3时刻，此时任务D就绪，由于任务D优先级高于任务C，所以它抢占了任务C，任务D被调度执行。</p>
 </li>
 </ul>
-<h3 id="12"><a class="toclink" href="#12">1.2. 语法描述的几个基本概念</a><a class="headerlink" href="#12" title="Permanent link">#</a></h3>
+<p>从整个流程上看，T3时刻，高优先级任务A被低优先级任务D间接地抢占了。此时优先级最高的任务A不仅要等任务C运行完，还要等优先级低的任务D运行完才能被调度，如果任务D和任务C需要执行很长时间，那么任务A的执行就不能得到保证，整个系统的实时性能很差。</p>
+<p>优先级反转现象对基于优先级调度的实时系统有很大的影响。在基于优先级调度的系统中，处理器资源是按照优先级分配给任务的，就绪的高优先级任务必须实时获得处理器。系统中的各种资源，如果采用按照任务优先级分配的原则，那么高优先级的任务应该是首先被考虑的。优先级反转的问题将打乱这些原则。</p>
+</blockquote>
+<h3 id="22"><a class="toclink" href="#22">2.2. 优先级继承和优先级天花板策略</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
+<blockquote>
+<p>优先级反转问题的核心原因在于共享资源的访问规则，即共享资源只能被一个任务占用，被占用后其他任务不能强制使用这个资源。在优先级反转问题上，高优先级任务被低优先级任务阻塞是必定的，但被中优先级任务阻塞则是很无奈的。为了避免因为中优先级任务挟持低优先级任务从而阻塞高优先级任务的现象，可以采用一些必要的算法。</p>
+<p>有两种经典的防止优先级反转的算法：</p>
+<ul>
+<li>
+<p>优先级继承策略（Priority inheritance）：当一个任务占有了资源并且随后阻塞了其他申请该资源的任务时，该任务将临时改变它的优先级为所有申请该资源的任务中的最高优先级，并以这个临时优先级在临界区执行。当任务释放资源后，则恢复它原有的优先级。从行为上看，占有资源的任务的优先级将是“水涨船高”式的多次改变，因为它的优先级最高，所以它不会被曾经比它优先级高的那些任务抢占。操作系统从优先级角度安排它尽快执行，尽快释放资源，但是这样做操作系统却牺牲了中等优先级任务的调度机会。</p>
+</li>
+<li>
+<p>优先级天花板策略（Priority ceilings）：将申请（占有）资源的任务的优先级提升到可能访问该资源的所有任务的最高优先级（这个最高优先级称为该资源的优先级天花板）。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="221"><a class="toclink" href="#221">2.2.1. 优先级继承</a><a class="headerlink" href="#221" title="Permanent link">#</a></h4>
+<p><img alt="优先级继承" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/2.%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/%E4%BC%98%E5%85%88%E7%BA%A7%E7%BB%A7%E6%89%BF%E7%AD%96%E7%95%A5.jpg" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 2. 优先级继承策略}
+</script>
+</p>
+<p><em>初始优先级：<script type="math/tex"> A > D > B > C </script>（从高到低排序）</em></p>
+<blockquote>
+<ul>
+<li>
+<p>T0时刻，只有任务C处于运行状态，在运行过程中，任务C得到共享资源R。</p>
+</li>
+<li>
+<p>T1时刻，任务B抢占任务C，并尝试获得资源R，因为优先级继承的原因，任务C的优先级被提升到任务B的优先级；任务B被阻塞。</p>
+</li>
+<li>
+<p>T2时刻，任务A抢占任务C，并尝试获得资源R，因为优先级继承的原因，任务C的优先级被提升到任务A的优先级；任务A被阻塞。</p>
+</li>
+<li>
+<p>在Ta时刻，任务D就绪，但因为此时任务C的优先级已经被提升并且比任务D优先级高，所以任务D不能抢占任务C，任务C继续运行。</p>
+</li>
+<li>
+<p>T3时刻，任务C释放资源，它的优先级恢复到原有优先级。任务A得到资源，并因为优先级原因抢占任务C。</p>
+</li>
+<li>
+<p>T4时刻，任务A释放资源，结束运行。任务B得到资源。但此时因为任务D优先级高于任务B，所以任务D开始运行。</p>
+</li>
+<li>
+<p>T5时刻，任务D结束运行，任务B开始执行。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="222"><a class="toclink" href="#222">2.2.2. 优先级天花板</a><a class="headerlink" href="#222" title="Permanent link">#</a></h4>
+<p><img alt="优先级天花板" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/2.%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/%E4%BC%98%E5%85%88%E7%BA%A7%E5%A4%A9%E8%8A%B1%E6%9D%BF%E7%AD%96%E7%95%A5.jpg" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 3. 优先级天花板策略}
+</script>
+</p>
+<blockquote>
+<ul>
+<li>
+<p>T0时刻，只有任务C处于运行状态。</p>
+</li>
+<li>
+<p>T1时刻，任务C得到共享资源R，因为优先级天花板策略的原因，任务C的优先级提升到全部可能访问该资源的任务的最高优先级。</p>
+</li>
+<li>
+<p>Ta时刻，任务A抢占任务C执行，随后尝试获得资源R，但是失败并阻塞。任务C继续运行。</p>
+</li>
+<li>
+<p>Tb时刻，任务B就绪，但是因为任务C优先级更高，所以只能等待执行。</p>
+</li>
+<li>
+<p>T2时刻任务C释放资源R，任务A得到资源R。因为使用优先级天花板策略，任务C优先级恢复到原有优先级。任务A抢占任务C开始运行。</p>
+</li>
+<li>
+<p>T3时刻，任务A结束运行。任务B开始运行。</p>
+</li>
+<li>
+<p>T4时刻，任务B结束运行。任务C开始继续运行。</p>
+</li>
+</ul>
+<p>优先级继承策略对任务执行流程的影响相对较小，因为只有当高优先级任务申请已被低优先级任务占有的共享资源这一事实发生时，才提升低优先级任务的优先级。而天花板策略是谁占有就直接升到最高。形象地说，优先级继承策略是“水涨船高”，而优先级天花板策略则是“一次到位”。</p>
+</blockquote>
+<h2 id="3"><a class="toclink" href="#3">3. 中断机制</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<blockquote>
+<p>中断机制是处理器的重要基础设施，用来应对各种事件的响应和处理。当外设或者处理器自身有事件发生时，处理器会暂停执行当前的代码，并转向处理这些中断事务。在处理器与外设间的交互大多采用中断来完成，中断系统能极大提高系统的效率。
+发出中断请求的来源叫作中断源。根据中断源的不同，可以把中断分为以下三类：</p>
+</blockquote>
+<h3 id="31"><a class="toclink" href="#31">3.1. 外部中断</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<blockquote>
+<p>外部中断是指由系统外设发出的中断请求，如串口数据的接收、键盘的敲击、打印机中断、定时器时间到达等。外部中断大多是可以屏蔽的，程序可以根据具体需要，通过中断控制器来屏蔽这些中断请求。</p>
+</blockquote>
+<h3 id="32"><a class="toclink" href="#32">3.2. 内部中断</a><a class="headerlink" href="#32" title="Permanent link">#</a></h3>
+<blockquote>
+<p>内部中断指因处理器自身的原因引起的异常事件，如非法指令、总线错误（取指）或者运算出错（除0）等。内部中断基本是不可屏蔽的中断。</p>
+</blockquote>
+<h3 id="33"><a class="toclink" href="#33">3.3. 软件中断</a><a class="headerlink" href="#33" title="Permanent link">#</a></h3>
+<blockquote>
+<p>软件中断是一种特殊的中断，它是程序通过软件指令触发的，从而主动引起程序流程的变化。比如在用户级运行的程序在某时刻需要访问处理器中受到保护的寄存器，则可以通过软件中断进入系统级，实现权限的提升<a href="#bib-1"><sup>1</sup></a>。</p>
+</blockquote>
+<p><em>注：版权归原作者刘旭明老师所有</em></p>
+<h2 id="4"><a class="toclink" href="#4">4. 参考文献</a><a class="headerlink" href="#4" title="Permanent link">#</a></h2>
+<div id="bib-1"></div>
+
 <ol>
-<li><strong>字母表</strong>：一个有穷字符集，记为<script type="math/tex">\Sigma</script>
-</li>
-<li><strong>字符</strong>：字母表中每个元素称为字符</li>
-<li><strong>字（字符串）</strong>：由<script type="math/tex">\Sigma</script>中的字符所构成的一个有穷序列</li>
-<li><strong>空字</strong>：不包含任何字符的序列称为空字，记为<script type="math/tex">\epsilon</script>
-</li>
-<li><strong>字的全体</strong>： 用<script type="math/tex">\Sigma^*</script>表示<script type="math/tex">\Sigma</script>上的所有字的全体，包含空字<script type="math/tex">\epsilon</script>
-</li>
-<li><strong>连接（积）</strong>：<script type="math/tex">\Sigma^*</script>的子集<script type="math/tex">U</script>和<script type="math/tex">V</script>的连接（积）定义为</li>
+<li><a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=OAdXprx6N41dm9BQkayr8z7OqLGoE3lrd80YMlVAnxRZXK2Dg5pbevPJjjnQv2eb">刘旭明. 嵌入式实时操作系统原理与最佳实践. 机械工业出版社, 2014.</a></li>
 </ol>
-<p>
-<script type="math/tex; mode=display">
-UV ＝ \{ \alpha \beta | \alpha \in U \& \beta \in V\}
-</script>
-</p>
-<ol start="7">
-<li><strong>闭包</strong>：<script type="math/tex">V^*</script>是<script type="math/tex">V</script>的闭包</li>
-</ol>
-<p>
-<script type="math/tex; mode=display">
-V^* = V^0 \bigcup V^1 \bigcup V^2 \bigcup V^3 \bigcup \cdots
-</script>
-</p>
-<p>闭包包含<script type="math/tex">V^0 = \epsilon</script>
-</p>
-<ol start="8">
-<li><strong>正规闭包</strong>：<script type="math/tex">V^+</script>是<script type="math/tex">V</script>的正规闭包：</li>
-</ol>
-<p>
-<script type="math/tex; mode=display">
-V^+＝V V^*
-</script>
-</p>
-<p>正规闭包不含<script type="math/tex">\epsilon</script>
-</p>
-<h3 id="13"><a class="toclink" href="#13">1.3. 上下文无关文法</a><a class="headerlink" href="#13" title="Permanent link">#</a></h3>
-<p>上下文无关文法G是一个四元组</p>
-<p>
-<script type="math/tex; mode=display">
-G=(VT，VN，S，P)
-</script>
-</p>
-<p>其中</p>
-<ul>
-<li>
-<script type="math/tex">VT</script>：终结符（Terminal）集合(非空)</li>
-<li>
-<script type="math/tex">VN</script>：非终结符（Noterminal）集合（非空），且<script type="math/tex">VT \bigcap VN = \varnothing</script>
-</li>
-<li>
-<script type="math/tex">S</script>：文法的开始符号，<script type="math/tex">S \in VN</script>
-</li>
-<li>
-<script type="math/tex">P</script>：产生式集合(有限)，每个产生式形式为</li>
-</ul>
-<p>
-<script type="math/tex; mode=display">
-P \to \alpha {\hspace*{0.5cm}} P \in VN {\hspace*{0.5cm}} \alpha \in (VT \bigcup VN)^*
-</script>
-</p>
-<p>开始符<script type="math/tex">S</script>至少必须在某个产生式的左部出现一次。</p>
-<h3 id="14"><a class="toclink" href="#14">1.4. 最左、最右推导</a><a class="headerlink" href="#14" title="Permanent link">#</a></h3>
-<ul>
-<li>
-<p><strong>最左推导</strong></p>
-<ul>
-<li>定义：任何一步<script type="math/tex">\alpha \Rightarrow \beta</script>都是对<script type="math/tex">\alpha</script>中的最左非终结符进行替换</li>
-</ul>
-</li>
-<li>
-<p><strong>最右推导</strong></p>
-<ul>
-<li>定义：任何一步<script type="math/tex">\alpha \Rightarrow \beta</script>都是对<script type="math/tex">\alpha</script>中的最右非终结符进行替换</li>
-</ul>
-</li>
-</ul>
-<h2 id="2"><a class="toclink" href="#2">2. 语法树</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
-<ul>
-<li><strong>语法树</strong>：用一张图表示一个句型的推导,称为语法树。</li>
-</ul>
-<p>一棵语法树是不同推导过程的共性抽象，一棵语法树可以对应多个不同的推导过程。</p>
-<h2 id="3"><a class="toclink" href="#3">3. 二义性</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
-<h3 id="31"><a class="toclink" href="#31">3.1. 文法的二义性</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
-<ul>
-<li><strong>文法的二义性</strong>：如果一个文法存在某个句子对应两棵不同的语法树，则说这个文法是二义的</li>
-</ul>
-<h3 id="32"><a class="toclink" href="#32">3.2. 语言的二义性</a><a class="headerlink" href="#32" title="Permanent link">#</a></h3>
-<ul>
-<li><strong>语言的二义性</strong>：一个语言是二义的，如果对它不存在无二义的文法</li>
-</ul>
-<h2 id="4"><a class="toclink" href="#4">4. 乔姆斯基形式语言体系</a><a class="headerlink" href="#4" title="Permanent link">#</a></h2>
-<h3 id="41"><a class="toclink" href="#41">4.1. 零型文法</a><a class="headerlink" href="#41" title="Permanent link">#</a></h3>
-<h3 id="42"><a class="toclink" href="#42">4.2. 一型文法</a><a class="headerlink" href="#42" title="Permanent link">#</a></h3>
-<h3 id="43"><a class="toclink" href="#43">4.3. 二型文法</a><a class="headerlink" href="#43" title="Permanent link">#</a></h3>
-<h3 id="44"><a class="toclink" href="#44">4.4. 三型文法</a><a class="headerlink" href="#44" title="Permanent link">#</a></h3>
+<p>联系邮箱：curren_wong@163.com</p>
+<p>Github：<a href="https://github.com/CurrenWong">https://github.com/CurrenWong</a></p>
+<p>欢迎转载/Star/Fork，有问题欢迎通过邮箱交流。</p>
                 
                   
                 
@@ -1174,7 +1211,7 @@ P \to \alpha {\hspace*{0.5cm}} P \in VN {\hspace*{0.5cm}} \alpha \in (VT \bigcup
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1188,6 +1225,20 @@ P \to \alpha {\hspace*{0.5cm}} P \in VN {\hspace*{0.5cm}} \alpha \in (VT \bigcup
             </div>
           </a>
         
+        
+          <a href="../../%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1.%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="1.课程项目思维导图" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                1.课程项目思维导图
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
