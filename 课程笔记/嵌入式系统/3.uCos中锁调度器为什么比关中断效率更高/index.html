@@ -40,7 +40,7 @@
     
     
       
-        <title>1.uCos环境配置 - Curren's Notes</title>
+        <title>3.uCos中锁调度器为什么比关中断效率更高 - Curren's Notes</title>
       
     
     
@@ -129,7 +129,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                1.uCos环境配置
+                3.uCos中锁调度器为什么比关中断效率更高
               
             </span>
           
@@ -647,6 +647,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-nav__link">
+      1.uCos环境配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-nav__link">
+      2.优先级反转与中断机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -658,11 +682,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1.uCos环境配置
+        3.uCos中锁调度器为什么比关中断效率更高
       </label>
     
-    <a href="./" title="1.uCos环境配置" class="md-nav__link md-nav__link--active">
-      1.uCos环境配置
+    <a href="./" title="3.uCos中锁调度器为什么比关中断效率更高" class="md-nav__link md-nav__link--active">
+      3.uCos中锁调度器为什么比关中断效率更高
     </a>
     
       
@@ -691,14 +715,14 @@
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    2. 准备工作
+    2. 优化原因
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 配置步骤
+    3. 关中断和锁调度器
   </a>
   
     <nav class="md-nav">
@@ -706,20 +730,47 @@
         
           <li class="md-nav__item">
   <a href="#31" class="md-nav__link">
-    3.1. 配置服务器
+    3.1. 概念
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-vs-code" class="md-nav__link">
-    3.2. 配置VS Code
+  <a href="#32" class="md-nav__link">
+    3.2. 源代码
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1. 开/关中断
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2. 锁调度器
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 参考文献
+  </a>
   
 </li>
       
@@ -731,30 +782,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-nav__link">
-      2.优先级反转与中断机制
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../3.uCos%E4%B8%AD%E9%94%81%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%94%E5%85%B3%E4%B8%AD%E6%96%AD%E6%95%88%E7%8E%87%E6%9B%B4%E9%AB%98/" title="3.uCos中锁调度器为什么比关中断效率更高" class="md-nav__link">
-      3.uCos中锁调度器为什么比关中断效率更高
-    </a>
   </li>
 
         
@@ -888,14 +915,14 @@
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    2. 准备工作
+    2. 优化原因
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 配置步骤
+    3. 关中断和锁调度器
   </a>
   
     <nav class="md-nav">
@@ -903,20 +930,47 @@
         
           <li class="md-nav__item">
   <a href="#31" class="md-nav__link">
-    3.1. 配置服务器
+    3.1. 概念
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-vs-code" class="md-nav__link">
-    3.2. 配置VS Code
+  <a href="#32" class="md-nav__link">
+    3.2. 源代码
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1. 开/关中断
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2. 锁调度器
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 参考文献
+  </a>
   
 </li>
       
@@ -936,110 +990,192 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/嵌入式系统/1.uCos环境配置.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/嵌入式系统/3.uCos中锁调度器为什么比关中断效率更高.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ucos"><a class="toclink" href="#ucos">uC/OS环境配置</a><a class="headerlink" href="#ucos" title="Permanent link">#</a></h1>
-<p>基于Mac OS、VS Code Remote和阿里云Ubuntu服务器的uC/OS-III仿真环境配置</p>
+                <h1 id="ucos"><a class="toclink" href="#ucos">uC/OS中锁调度器为什么比关中断效率更高</a><a class="headerlink" href="#ucos" title="Permanent link">#</a></h1>
 <h2 id="_1"><a class="toclink" href="#_1">目录</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <div class="toc">
 <ul>
-<li><a href="#ucos">uC/OS环境配置</a><ul>
+<li><a href="#ucos">uC/OS中锁调度器为什么比关中断效率更高</a><ul>
 <li><a href="#_1">目录</a></li>
 <li><a href="#1">1. 背景</a></li>
-<li><a href="#2">2. 准备工作</a></li>
-<li><a href="#3">3. 配置步骤</a><ul>
-<li><a href="#31">3.1. 配置服务器</a></li>
-<li><a href="#32-vs-code">3.2. 配置VS Code</a></li>
+<li><a href="#2">2. 优化原因</a></li>
+<li><a href="#3">3. 关中断和锁调度器</a><ul>
+<li><a href="#31">3.1. 概念</a></li>
+<li><a href="#32">3.2. 源代码</a><ul>
+<li><a href="#321">3.2.1. 开/关中断</a></li>
+<li><a href="#322">3.2.2. 锁调度器</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#4">4. 参考文献</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <h2 id="1"><a class="toclink" href="#1">1. 背景</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
-<p>这学期选了一门课叫《嵌入式系统》，老师让我们用<a href="https://www.micrium.com">a系统</a>来做仿真。但我发现现有的仿真平台都是基于Windows的，比如<a href="http://www.keil.com">Keil</a>，uC/OS官方也出了<a href="https://www.micrium.com/downloadcenter/download-results/?searchterm=hm-linux&amp;supported=true">基于Linux的系统版本</a>，但是给的文件是一个Eclipse Project，所以需要安装了GUI界面才比较好打开，用服务器也不好操作，总之对Mac十分地不友好:imp:。</p>
-<p>于是我进行了一番搜索，搜索范围囊括了百度、CSDN、知乎、BiliBili、XXXXHub等众多程序员经常出没的地方，都没有找到一个比较好的解决方案。最后，还是在大型交友社区Github上找到了一位<a href="https://github.com/zhanwwan">上海的Cisco工程师</a>开源的项目，他基于uC/OS官方的Linux版本仿真代码，写了一个<a href="https://github.com/zhanwwan/ucos3-posix">可以用命令行操作的版本</a>。</p>
-<p>我看到之后都快哭了，终于不用退课了:sob:。把这位大佬的项目Fork过来以后，因为做实验需要经常调试，我把命令行用Makefile再简化了一点，放在了<a href="https://github.com/CurrenWong/ucos3-posix">我的Github上</a>。欢迎大家Star/Fork，~~求你们了~~。</p>
-<h2 id="2"><a class="toclink" href="#2">2. 准备工作</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
-<p>要完成本篇文章中所说的配置工作，你需要有</p>
+<p>今天看<a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=EJmMZXq1b8qOpBlD69XAdP7LEGaKJWEYBqWxRnme5vrVzo4QMZYgNyk2jNA5467K">《μC/OS-III源码分析笔记》</a>的时候学习了通过使用<strong>锁调度器</strong>代替<strong>关中断</strong>，并使用中断延迟提交，能够大大节省关中断的时间，提高运行效率。但是效率具体是如何提高的，书中的说明我没有太看明白，于是我就把书中提到的函数的源代码找出来分析了一下，希望能够理解<strong>锁调度器</strong>和<strong>关中断</strong>两者之间的区别。uC/OS完整源代码可以从<a href="https://www.micrium.com/downloadcenter/download-results/?searchterm=hm-linux&amp;supported=true">官网</a>和<a href="https://github.com/CurrenWong/ucos3-posix">我的Github上</a>下载。</p>
+<h2 id="2"><a class="toclink" href="#2">2. 优化原因</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
+<p>使用关中断进入临界区以后，系统不会响应中断请求，如果临界区里需要做一些如I/O、与外设交互等需要进入较长时间的等待状态的任务，此时CPU就处于忙等状态，不能够响应中断去运行中断处理程序，这就降低了系统的运行效率。</p>
+<p>锁调度器的方式可以保证当前运行的任务不会被其他任务抢占，使任务进入了临界区。</p>
+<p>但是锁住调度器之后还可以响应中断，减少了关中断的时间，使得CPU不会长时间处于忙等状态，提高了系统的实时性和运行效率。</p>
+<h2 id="3"><a class="toclink" href="#3">3. 关中断和锁调度器</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<h3 id="31"><a class="toclink" href="#31">3.1. 概念</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>中断</strong>：中断机制是处理器的重要基础设施，用来应对各种事件的响应和处理。当外设或者处理器自身有事件发生时，处理器会暂停执行当前的代码，并转向处理这些中断事务。中断可分为外部中断、内部中断和软件中断<a href="#bib-1"><sup>1</sup></a>。</p>
+</li>
+<li>
+<p><strong>抢占</strong>：通过调度器实现，抢占的发生可能是因为有更高优先级的任务进入就绪队列（优先级抢占机制）或该任务的时间片已结束（时间片轮转机制）。抢占可分为用户抢占和内核抢占。</p>
+</li>
+<li>
+<p><strong>关中断</strong>：进入临界段，禁止其他中断操作，关中断以后产生的中断请求会被挂起，等待开中断以后再响应。</p>
+</li>
+<li>
+<p><strong>开中断</strong>：退出临界段，允许中断操作。</p>
+</li>
+<li>
+<p><strong>锁调度器</strong>：锁住调度器(Lock the scheduler)，不允许其他任务抢占当前任务。</p>
+</li>
+<li>
+<p><strong>开启调度器</strong>：解锁调度器(Unlock the scheduler)，允许其他任务抢占当前任务。</p>
+</li>
+<li>
+<p><strong>ISR</strong>：中断服务程序（Interrupt Service Routine）。在CPU保护中断现场之后，ISR进入，进行中断预处理，记录当前中断嵌套深度，查找用户登记的中断处理程序<a href="#bib-1"><sup>1</sup></a>。</p>
+</li>
+</ul>
+<h3 id="32"><a class="toclink" href="#32">3.2. 源代码</a><a class="headerlink" href="#32" title="Permanent link">#</a></h3>
+<h4 id="321"><a class="toclink" href="#321">3.2.1. 开/关中断</a><a class="headerlink" href="#321" title="Permanent link">#</a></h4>
+<p>这里有两种方式通过关中断进入临界段</p>
+<ul>
+<li>CPU_INT_DIS()</li>
+<li>CPU_CRITICAL_ENTER()</li>
+</ul>
+<p>若<code>CPU_CFG_INT_DIS_MEAS_EN</code>标记为<code>False</code>，两个函数完全一致，后者只是将前者封装了一下。</p>
+<p>若<code>CPU_CFG_INT_DIS_MEAS_EN</code>标记为<code>True</code>，CPU_CRITICAL_ENTER()会记录关中断的时间。</p>
+<pre><code class="c">
+#define  CPU_INT_DIS() do { CPU_IntDis(); } while (0)
+/* Disable interrupts. */
+#define  CPU_INT_EN() do { CPU_IntEn();  } while (0)
+/* Enable  interrupts.*/
+
+#ifdef   CPU_CFG_INT_DIS_MEAS_EN
+/* Disable interrupts, ...                      */
+/* &amp; start interrupts disabled time measurement.*/
+#define  CPU_CRITICAL_ENTER()  do { CPU_INT_DIS();         \
+                                    CPU_IntDisMeasStart(); } while (0)
+/* Stop &amp; measure   interrupts disabled time,   */
+/* ...  &amp; re-enable interrupts.                 */
+#define  CPU_CRITICAL_EXIT()   do { CPU_IntDisMeasStop();  \
+                                    CPU_INT_EN();          } while (0)
+/* -------------------------------------------- */
+#else
+
+#define  CPU_CRITICAL_ENTER()  do { CPU_INT_DIS(); } while (0)
+/* Disable   interrupts.*/
+#define  CPU_CRITICAL_EXIT()   do { CPU_INT_EN();  } while (0)
+/* Re-enable interrupts.*/
+#endif
+</code></pre>
+
+<hr />
+<h4 id="322"><a class="toclink" href="#322">3.2.2. 锁调度器</a><a class="headerlink" href="#322" title="Permanent link">#</a></h4>
+<ul>
+<li>OS_CFG_ISR_POST_DEFERRED_EN：标记是否使用中断延迟提交</li>
+</ul>
+<pre><code class="c">// os_cfg.h
+#define OS_CFG_ISR_POST_DEFERRED_EN     0u
+/* Enable (1) or Disable (0) Deferred ISR posts*/
+</code></pre>
+
+<p>这里有两种方式进入临界段</p>
 <ol>
-<li>一台MacBook。其实啥电脑都行，但我们主要想解决的还是在Mac上进行uC/OS仿真的问题。</li>
-<li><a href="https://code.visualstudio.com">VS Code</a>。其实其他IDE、编辑器只要支持SSH连接也都可以，~~但我觉得VS Code天下第一~~。</li>
-<li>VS Code 插件 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a>，微软官方开发的SSH插件。</li>
-<li>一台Ubuntu服务器。我使用的是阿里云的<a href="https://promotion.aliyun.com/ntms/act/campus2018.html?spm=5176.13735996.J_7116760870.3.683d3b5aGqQLKI&amp;userCode=2yfpwghd&amp;aly_as=UspolMloT">学生服务器</a>，一年只要100多，你买了不吃亏，你买了不上当。</li>
+<li>调用OS_CRITICAL_ENTER()锁调度器。</li>
+<li>先调用CPU_CRITICAL_ENTER()关中断，再调用OS_CRITICAL_ENTER_CPU_EXIT()锁调度器并开中断。</li>
 </ol>
-<h2 id="3"><a class="toclink" href="#3">3. 配置步骤</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
-<h3 id="31"><a class="toclink" href="#31">3.1. 配置服务器</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>若<code>OS_CFG_ISR_POST_DEFERRED_EN</code>标记为<code>False</code>，OS_CRITICAL_ENTER()实现的是关中断，OS_CRITICAL_ENTER_CPU_EXIT()是一个空函数。</p>
+</li>
+<li>
+<p>若<code>CPU_CFG_INT_DIS_MEAS_EN</code>标记为<code>True</code>，这里的两个函数都能实现锁调度器的功能。</p>
+</li>
+</ul>
+<pre><code class="c">
+// os.h
+#if (OS_CFG_ISR_POST_DEFERRED_EN == DEF_ENABLED)
+/* Deferred ISR Posts */
+/* Lock the scheduler*/
+#define  OS_CRITICAL_ENTER()                                       \
+         do {                                                      \
+             CPU_CRITICAL_ENTER();                                 \
+             OSSchedLockNestingCtr++;                              \
+             if (OSSchedLockNestingCtr == 1u) {                    \
+                 OS_SCHED_LOCK_TIME_MEAS_START();                  \
+             }                                                     \
+             CPU_CRITICAL_EXIT();                                  \
+         } while (0)
+/* Lock the scheduler but re-enable interrupts */
+#define  OS_CRITICAL_ENTER_CPU_EXIT()                              \
+         do {                                                      \
+             OSSchedLockNestingCtr++;                              \
+                                                                   \
+             if (OSSchedLockNestingCtr == 1u) {                    \
+                 OS_SCHED_LOCK_TIME_MEAS_START();                  \
+             }                                                     \
+             CPU_CRITICAL_EXIT();                                  \
+         } while (0)
+
+/* Scheduling occurs only if an interrupt occurs*/
+#define  OS_CRITICAL_EXIT()                                        \
+         do {                                                      \
+             CPU_CRITICAL_ENTER();                                 \
+             OSSchedLockNestingCtr--;                              \
+             if (OSSchedLockNestingCtr == (OS_NESTING_CTR)0) {     \
+                 OS_SCHED_LOCK_TIME_MEAS_STOP();                   \
+                 if (OSIntQNbrEntries &gt; (OS_OBJ_QTY)0) {           \
+                     CPU_CRITICAL_EXIT();                          \
+                     OS_Sched0();                                  \
+                 } else {                                          \
+                     CPU_CRITICAL_EXIT();                          \
+                 }                                                 \
+             } else {                                              \
+                 CPU_CRITICAL_EXIT();                              \
+             }                                                     \
+         } while (0)
+
+#define  OS_CRITICAL_EXIT_NO_SCHED()                               \
+         do {                                                      \
+             CPU_CRITICAL_ENTER();                                 \
+             OSSchedLockNestingCtr--;                              \
+             if (OSSchedLockNestingCtr == (OS_NESTING_CTR)0) {     \
+                 OS_SCHED_LOCK_TIME_MEAS_STOP();                   \
+             }                                                     \
+             CPU_CRITICAL_EXIT();                                  \
+         } while (0)
+
+#else
+/* Direct ISR Posts */
+
+#define  OS_CRITICAL_ENTER()                    CPU_CRITICAL_ENTER()
+
+#define  OS_CRITICAL_ENTER_CPU_EXIT()
+
+#define  OS_CRITICAL_EXIT()                     CPU_CRITICAL_EXIT()
+
+#define  OS_CRITICAL_EXIT_NO_SCHED()            CPU_CRITICAL_EXIT()
+
+#endif
+</code></pre>
+
+<h2 id="4"><a class="toclink" href="#4">4. 参考文献</a><a class="headerlink" href="#4" title="Permanent link">#</a></h2>
+<div id="bib-1"></div>
+
 <ol>
-<li>安装CMake</li>
+<li><a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=OAdXprx6N41dm9BQkayr8z7OqLGoE3lrd80YMlVAnxRZXK2Dg5pbevPJjjnQv2eb">刘旭明. 嵌入式实时操作系统原理与最佳实践. 机械工业出版社, 2014.</a></li>
 </ol>
-<pre><code class="cmd">sudo apt install cmake
-</code></pre>
-
-<ol start="2">
-<li>从Github上下载源代码到服务器。</li>
-</ol>
-<p>在你想要安装的目录下输入命令</p>
-<pre><code class="cmd">git clone https://github.com/CurrenWong/ucos3-posix.git
-</code></pre>
-
-<ol start="3">
-<li>进入项目文件夹</li>
-</ol>
-<pre><code class="cmd">cd ucos3-posix
-</code></pre>
-
-<ol start="4">
-<li>构建项目</li>
-</ol>
-<pre><code class="cmd">make
-</code></pre>
-
-<p>构建完成以后会在最后一行输出<code>Done</code>。</p>
-<ol start="4">
-<li>运行项目检查是否安装成功</li>
-</ol>
-<pre><code class="cmd">make run
-</code></pre>
-
-<p><img alt="make_run" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/make_run.png" /></p>
-<p>看到<code>uCos-III is running</code>时就说明配置完成了:sparkles:。用Ctrl-C停掉运行中的项目就可以了。</p>
-<p>但是，在命令行界面里写代码体验还是稍微差了一点，除非是精通Vim的大佬。所以接下来我们会通过配置VS Code来实现远程SSH，这样就能够在本地的VS Code上写代码，并且在服务器上运行了。</p>
-<h3 id="32-vs-code"><a class="toclink" href="#32-vs-code">3.2. 配置VS Code</a><a class="headerlink" href="#32-vs-code" title="Permanent link">#</a></h3>
-<ol>
-<li>下载Remote ssh插件</li>
-</ol>
-<p>在扩展商店中搜索<code>remote ssh</code>，出来第一个就是我们需要的插件，点击Install安装即可。</p>
-<p><img alt="remote_ssh" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/remote_ssh.png" /></p>
-<p>如果没有装C语言扩展的话，再装一个<code>C/C++</code>，也是微软官方的插件。</p>
-<ol start="2">
-<li>配置ssh连接</li>
-</ol>
-<p>下载好remote ssh以后，左下角会有一个绿色的标记，点击这个标记。</p>
-<p><img alt="config_ssh" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/config_ssh.png" /></p>
-<p>这时会弹出一个菜单，让你选择做什么操作。为了之后连接方便，我们直接把用户名和服务器IP写在配置文件中。</p>
-<ul>
-<li>首先选择Open Configure File</li>
-</ul>
-<p><img alt="open_config" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/open_config.png" /></p>
-<ul>
-<li>然后选择<code>xxx/.ssh/config</code></li>
-</ul>
-<p><img alt="open_config_2" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/open_config_2.png" /></p>
-<ul>
-<li>在配置文件中填入你的主机昵称（Host）、服务器IP（HostName）和登陆用户名（User）</li>
-</ul>
-<p><img alt="open_config_3" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/open_config_3.png" /></p>
-<ul>
-<li>保存以后，再点击一下窗口左下角的绿色标记，弹出Vs Code的命令窗口，选择<code>Connect to Host</code>，在选择我们刚刚创建的主机。</li>
-</ul>
-<p><img alt="connect_ssh" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/connect_ssh.png" /></p>
-<ul>
-<li>这时会弹出一个新的窗口，输入连接密码以后，我们就大功告成了。</li>
-</ul>
-<p><img alt="connect_ssh_2" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/connect_ssh_2.png" /></p>
-<p>进入我们在服务器上配置的uC/OS路径，编辑app.c，愉快地进行uC/OS仿真吧！:+1:。</p>
 <p>联系邮箱：curren_wong@163.com</p>
 <p>Github：<a href="https://github.com/CurrenWong">https://github.com/CurrenWong</a></p>
 <p>欢迎转载/Star/Fork，有问题欢迎通过邮箱交流。</p>
@@ -1064,7 +1200,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E8%BF%90%E5%8A%A8%E5%92%8C%E5%8A%9B/" title="1.第一章 运动和力" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1073,19 +1209,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                1.第一章 运动和力
+                2.优先级反转与中断机制
               </span>
             </div>
           </a>
         
         
-          <a href="../2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1.%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="1.课程项目思维导图" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                2.优先级反转与中断机制
+                1.课程项目思维导图
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
