@@ -28,8 +28,9 @@ extra_javascript:
   - js/d3.min.js
   - js/d3-flextree.js
   - js/view.mindmap.js
-  - js/highlight.pack.js # 代码高亮
   - js/emoji.min.js # 显示emoji
+  - js/mermaid.min.js # Mermaid UML
+  - js/highlight.pack.js # 代码高亮
   - js/extra.js # 渲染未被mathJax捕捉的公式，渲染思维导图
 
 extra_css:
@@ -37,6 +38,7 @@ extra_css:
   - css/copy-tex.min.css
   - css/view.mindmap.css
   - css/highlight-default.css # 代码高亮主题
+  # - css/tomorrow.css # 代码高亮主题
   - css/font-awesome-all.min.css # font-awesome 图标
   - css/emoji.css # 显示emoji
   - css/extra.css
