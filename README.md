@@ -1,3 +1,3 @@
 # Mkdoc
 
-My MkDoc Blog
+My Notes
