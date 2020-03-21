@@ -182,8 +182,7 @@ function markToNode(map, seq) {
         map.parent().after(getSvgTemplate("mindmap-inline-" + seq));
         // 将未渲染的节点元素添加到模板中
         map.html(str);
-    }
-    else {
+    } else {
         throw "Mindmap " + seq + " 不存在根节点";
     }
 
@@ -260,9 +259,8 @@ function translateDeleteLine(text = "text, p, li") {
     reg.compile("~~[^.]*~~", "ig");
     // 获取所有符合格式的DOM对象
     var elements = $(text);
-    // 转换FontAwesome
+    // 转换删除线
     elements.each(function () {
-        const element = $(this);
         // 获取符合格式的字符串数组
         var strList = $(this).html().match(reg);
         if (strList != null) {
@@ -270,11 +268,44 @@ function translateDeleteLine(text = "text, p, li") {
                 const element = strList[i];
                 var newElement = $(this).html().replace(element, '<s>' + element.replace(/~/ig, "") + '</s>');
                 $(this).html(newElement);
-                // 转为FontAwesome元素并添加为this的子元素
-                // $(this).append('<i class="fas ' + element + '"></i>')
             }
         }
     });
+}
+
+// 转换define中的代码高亮
+function transferMetaCode(text = "pre code") {
+    var reg = new RegExp();
+    reg.compile("[A-Z|_]+[(][)]", "g");
+    // 获取所有符合格式的DOM对象
+    var elements = $(text);
+    // 转换代码高亮
+    elements.each(function () {
+        // 获取符合格式的字符串数组
+        var strList = new Set($(this).html().match(reg));
+        strList = Array.from(strList);
+        if (strList != null) {
+            for (let i = 0; i < strList.length; i++) {
+                const element = strList[i];
+                var regExp = new RegExp();
+                // 构造正则表达式
+                regExp.compile(element.replace("()", "[(][)]"), "ig");
+                // 转换格式
+                var newElement = $(this).html().replace(regExp, '<span class="hljs-metaFun">' + element + '</span>');
+                $(this).html(newElement);
+            }
+        }
+    });
+    // 
+}
+
+// 将.hljs-title嵌套的.hljs-meta去掉
+function transferMetaTitle() {
+    $('.hljs-metaFun .hljs-meta').each(
+        function () {
+            $(this).parent().html($(this).html());
+        }
+    );
 }
 
 // --------------------------------
@@ -338,11 +369,31 @@ $(document).ready(
     }
 );
 
+
 // 代码高亮
-$(document).ready(
-    function () {
-        hljs.initHighlightingOnLoad();
+$(function () {
+    // 不转换UML图
+    var text = 'pre code';
+    ignoreList = ['mermaid', 'mindmap']
+    document.querySelectorAll(text).forEach((block) => {
+            if (ignoreList.indexOf(block.className) != -1) {
+                
+            } else {
+                hljs.highlightBlock(block);
+            }
     });
+    $('.mermaid').parent().each(function () {
+        $(this).attr('style', 'background-color:blanchedalmond');
+    });
+    }
+    // hljs.initHighlightingOnLoad()
+);
+
+// 转换define中的代码高亮
+$(transferMetaCode());
+
+// 转换metaFun类中的meta，由于highlightjs后生效，没有效果
+// $(transferMetaTitle());
 
 // 渲染mindmap代码框
 $(document).ready(
