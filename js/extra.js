@@ -308,6 +308,12 @@ function transferMetaTitle() {
     );
 }
 
+// 显示页面访问量
+function showPageView() {
+    $('h1').first().after('<p><strong>当前页面浏览量</strong>：<span data-hk-page="current"> - </span>次</p>');
+}
+
+
 // --------------------------------
 // 代码运行
 
@@ -376,16 +382,16 @@ $(function () {
     var text = 'pre code';
     ignoreList = ['mermaid', 'mindmap']
     document.querySelectorAll(text).forEach((block) => {
-            if (ignoreList.indexOf(block.className) != -1) {
-                
-            } else {
-                hljs.highlightBlock(block);
-            }
+        if (ignoreList.indexOf(block.className) != -1) {
+
+        } else {
+            hljs.highlightBlock(block);
+        }
     });
     $('.mermaid').parent().each(function () {
         $(this).attr('style', 'background-color:blanchedalmond');
     });
-    }
+}
     // hljs.initHighlightingOnLoad()
 );
 
@@ -428,3 +434,6 @@ $(clearTag());
 
 // 渲染删除线
 $(translateDeleteLine());
+
+// 显示页面访问量
+$(showPageView());
