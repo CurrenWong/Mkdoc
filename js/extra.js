@@ -418,7 +418,7 @@ $(document).ready(
                 markmap('svg#mindmap-inline-' + String(i + 1), tree_root, {
                     preset: 'colorful', // or default
                     linkShape: 'diagonal' // or bracket
-                })
+                });
                 // 去除原来的代码区域
                 element.parent().remove();
             }
