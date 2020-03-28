@@ -312,7 +312,10 @@ function transferMetaTitle() {
 function showPageView() {
     $('h1').first().after('<p><strong>当前页面浏览量</strong>：<span data-hk-page="current"> - </span>次</p>');
 }
-
+// 显示阅读所需时间
+function showReadingTime() {
+    $('h1').first().after('<p><strong>阅读时间：</strong><span class="eta"></span> (<span class="words"></span> 字)</p>');
+}
 
 // --------------------------------
 // 代码运行
@@ -434,6 +437,33 @@ $(clearTag());
 
 // 渲染删除线
 $(translateDeleteLine());
+
+// 放置模板显示阅读所需时间
+$(showReadingTime());
+// 计算并显示阅读所需时间
+// $('article').readingTime({
+//     wordCountTarget: '.words',
+//     lang :'zh'
+// }); 
+$(function() {
+
+	$('article').readingTime({
+		// readingTimeAsNumber: true,
+		// readingTimeTarget: $('.reading-time'),
+        wordCountTarget: '.words',
+		wordsPerMinute: 275,
+		round: true,
+        lang: 'zh',
+        lessThanAMinuteString:'Less than 1 min',
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(data) {
+			console.log(data.error);
+			$('.reading-time').remove();
+		}
+	});
+});
 
 // 显示页面访问量
 $(showPageView());
