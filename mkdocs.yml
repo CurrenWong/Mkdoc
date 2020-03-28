@@ -41,8 +41,8 @@ extra_css:
   - css/katex.min.css
   - css/copy-tex.min.css
   - css/view.mindmap.css
-  - css/highlight-default.css # 代码高亮主题
-  # - css/tomorrow.css # 代码高亮主题
+  # - css/highlight-default.css # 代码高亮主题
+  - css/atom-one-dark-reasonable.css # 代码高亮主题
   - css/font-awesome-all.min.css # font-awesome 图标
   - css/emoji.css # 显示emoji
   - css/extra.css
