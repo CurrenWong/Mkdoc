@@ -40,7 +40,7 @@
     
     
       
-        <title>数学女孩 - Curren's Notes</title>
+        <title>XGBoost - Curren's Notes</title>
       
     
     
@@ -103,7 +103,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="0" class="md-skip">
+      <a href="#xgboost" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -129,7 +129,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                数学女孩
+                XGBoost
               
             </span>
           
@@ -241,7 +241,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+        <a href="../../%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
           算法学习笔记
         </a>
       
@@ -279,7 +279,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" class="md-tabs__link md-tabs__link--active">
+        <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" class="md-tabs__link">
           读书笔记
         </a>
       
@@ -427,10 +427,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       算法学习笔记
@@ -467,7 +469,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="常用技巧" class="md-nav__link">
+    <a href="../../%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="常用技巧" class="md-nav__link">
       常用技巧
     </a>
   </li>
@@ -482,10 +484,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
     <label class="md-nav__link" for="nav-3-2">
       机器学习算法
@@ -501,11 +505,125 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/" title="XGBoost" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        XGBoost
+      </label>
+    
+    <a href="./" title="XGBoost" class="md-nav__link md-nav__link--active">
       XGBoost
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-boosting" class="md-nav__link">
+    2. Boosting
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1. 建立映射
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 计算参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-xgboost" class="md-nav__link">
+    3. XGBoost的目标函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 化简目标函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 使用泰勒级数近似目标函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 模型参数化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 寻找最佳分裂点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 参考文献
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -703,12 +821,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       读书笔记
@@ -724,12 +840,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
     
     <label class="md-nav__link" for="nav-5-1">
       数学
@@ -745,200 +859,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        数学女孩
-      </label>
-    
-    <a href="./" title="数学女孩" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" title="数学女孩" class="md-nav__link">
       数学女孩
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    目录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 概述
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1. 内容简介
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    1.2. 作者简介
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    1.3. 人物简介
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-1" class="md-nav__link">
-    2. 第1章 数列和数学模型
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1. 故事情节
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    2.2. 数列智力题没有正确答案
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-2" class="md-nav__link">
-    3. 第2章 一封名叫数学公式的情书
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-3-omega" class="md-nav__link">
-    4. 第3章 \omega的华尔兹
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-4" class="md-nav__link">
-    5. 第4章 斐波那契数列和生成函数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-5" class="md-nav__link">
-    6. 第5章 基本不等式
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-6" class="md-nav__link">
-    7. 第6章 在米尔嘉旁边
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-7" class="md-nav__link">
-    8. 第7章 卷积
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-8" class="md-nav__link">
-    9. 第8章 调和数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-9" class="md-nav__link">
-    10. 第9章 泰勒展开和巴塞尔问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-10" class="md-nav__link">
-    11. 第10章 分拆数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12_1" class="md-nav__link">
-    12. 总结
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121" class="md-nav__link">
-    12.1. 原书参考文献
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#122" class="md-nav__link">
-    12.2. 本文参考文献
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1345,7 +1270,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     目录
   </a>
   
@@ -1353,41 +1278,14 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 概述
+    1. 背景
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1. 内容简介
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    1.2. 作者简介
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    1.3. 人物简介
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-1" class="md-nav__link">
-    2. 第1章 数列和数学模型
+  <a href="#2-boosting" class="md-nav__link">
+    2. Boosting
   </a>
   
     <nav class="md-nav">
@@ -1395,14 +1293,14 @@
         
           <li class="md-nav__item">
   <a href="#21" class="md-nav__link">
-    2.1. 故事情节
+    2.1. 建立映射
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#22" class="md-nav__link">
-    2.2. 数列智力题没有正确答案
+    2.2. 计算参数
   </a>
   
 </li>
@@ -1413,92 +1311,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-2" class="md-nav__link">
-    3. 第2章 一封名叫数学公式的情书
+  <a href="#3-xgboost" class="md-nav__link">
+    3. XGBoost的目标函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-3-omega" class="md-nav__link">
-    4. 第3章 \omega的华尔兹
+  <a href="#4" class="md-nav__link">
+    4. 化简目标函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-4" class="md-nav__link">
-    5. 第4章 斐波那契数列和生成函数
+  <a href="#5" class="md-nav__link">
+    5. 使用泰勒级数近似目标函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-5" class="md-nav__link">
-    6. 第5章 基本不等式
+  <a href="#6" class="md-nav__link">
+    6. 模型参数化
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-6" class="md-nav__link">
-    7. 第6章 在米尔嘉旁边
+  <a href="#7" class="md-nav__link">
+    7. 寻找最佳分裂点
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-7" class="md-nav__link">
-    8. 第7章 卷积
+  <a href="#8" class="md-nav__link">
+    8. 参考文献
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-8" class="md-nav__link">
-    9. 第8章 调和数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-9" class="md-nav__link">
-    10. 第9章 泰勒展开和巴塞尔问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-10" class="md-nav__link">
-    11. 第10章 分拆数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12_1" class="md-nav__link">
-    12. 总结
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121" class="md-nav__link">
-    12.1. 原书参考文献
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#122" class="md-nav__link">
-    12.2. 本文参考文献
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1518,105 +1368,343 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/读书笔记/数学/数学女孩.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/算法学习笔记/机器学习算法/XGBoost.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1"><a class="toclink" href="#_1">数学女孩</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<h2 id="_2"><a class="toclink" href="#_2">目录</a><a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+                <h1 id="xgboost"><a class="toclink" href="#xgboost">XGBoost原理简介</a><a class="headerlink" href="#xgboost" title="Permanent link">#</a></h1>
+<h2 id="_1"><a class="toclink" href="#_1">目录</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <div class="toc">
 <ul>
-<li><a href="#_1">数学女孩</a><ul>
-<li><a href="#_2">目录</a></li>
-<li><a href="#1">1. 概述</a><ul>
-<li><a href="#11">1.1. 内容简介</a></li>
-<li><a href="#12">1.2. 作者简介</a></li>
-<li><a href="#13">1.3. 人物简介</a></li>
+<li><a href="#xgboost">XGBoost原理简介</a><ul>
+<li><a href="#_1">目录</a></li>
+<li><a href="#1">1. 背景</a></li>
+<li><a href="#2-boosting">2. Boosting</a><ul>
+<li><a href="#21">2.1. 建立映射</a></li>
+<li><a href="#22">2.2. 计算参数</a></li>
 </ul>
 </li>
-<li><a href="#2-1">2. 第1章 数列和数学模型</a><ul>
-<li><a href="#21">2.1. 故事情节</a></li>
-<li><a href="#22">2.2. 数列智力题没有正确答案</a></li>
-</ul>
-</li>
-<li><a href="#3-2">3. 第2章 一封名叫数学公式的情书</a></li>
-<li><a href="#4-3-omega">4. 第3章 \omega的华尔兹</a></li>
-<li><a href="#5-4">5. 第4章 斐波那契数列和生成函数</a></li>
-<li><a href="#6-5">6. 第5章 基本不等式</a></li>
-<li><a href="#7-6">7. 第6章 在米尔嘉旁边</a></li>
-<li><a href="#8-7">8. 第7章 卷积</a></li>
-<li><a href="#9-8">9. 第8章 调和数</a></li>
-<li><a href="#10-9">10. 第9章 泰勒展开和巴塞尔问题</a></li>
-<li><a href="#11-10">11. 第10章 分拆数</a></li>
-<li><a href="#12_1">12. 总结</a><ul>
-<li><a href="#121">12.1. 原书参考文献</a></li>
-<li><a href="#122">12.2. 本文参考文献</a></li>
-</ul>
-</li>
+<li><a href="#3-xgboost">3. XGBoost的目标函数</a></li>
+<li><a href="#4">4. 化简目标函数</a></li>
+<li><a href="#5">5. 使用泰勒级数近似目标函数</a></li>
+<li><a href="#6">6. 模型参数化</a></li>
+<li><a href="#7">7. 寻找最佳分裂点</a></li>
+<li><a href="#8">8. 参考文献</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="1"><a class="toclink" href="#1">1. 概述</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
-<p><img alt="封面" src="../../../img/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9%E5%B0%81%E9%9D%A2.jpg#width-most" /></p>
-<h3 id="11"><a class="toclink" href="#11">1.1. 内容简介</a><a class="headerlink" href="#11" title="Permanent link">#</a></h3>
-<blockquote>
-<p>《数学女孩》以小说的形式展开，重点描述一群年轻人探索数学中的美。内容由浅入深，数学讲解部分十分精妙，被称为“绝赞的初等数学科普书”。内容涉及数列和数学模型、斐波那契数列、卷积、调和数、泰勒展开、巴塞尔问题、分拆数等，非常适合对数学感兴趣的初高中生以及成人阅读<a href="#bib-1"><sup>1</sup></a>。</p>
-</blockquote>
-<h3 id="12"><a class="toclink" href="#12">1.2. 作者简介</a><a class="headerlink" href="#12" title="Permanent link">#</a></h3>
-<blockquote>
-<p>作者结城浩，日本资深技术作家和程序员。二十年来笔耕不辍，在编程语言、设计模式、数学、密码技术等领域，编写著作三十余本。代表作有《数学女孩》系列、《程序员的数学》等<a href="#bib-1"><sup>1</sup></a>。</p>
-</blockquote>
-<h3 id="13"><a class="toclink" href="#13">1.3. 人物简介</a><a class="headerlink" href="#13" title="Permanent link">#</a></h3>
+<h2 id="1"><a class="toclink" href="#1">1. 背景</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p>今天听了<a href="https://www.greedyai.com/h5/pages/semCourse/mlIndex.html?utm_source=baidu&amp;plan=PC-ppc&amp;unit=ppc&amp;keyword=txxy&amp;e_keywordid=161349696748&amp;e_keywordid2=161349696748&amp;renqun_youhua=2052306&amp;bd_vid=8398392434228986151">贪心学院</a>主办，李文哲老师主讲的<a href="https://space.bilibili.com/326267739/">《XGBoost的技术剖析》直播</a>，让我对XGB的原理有了一些了解。于是我想写一篇笔记整理一下听课的内容。</p>
+<p>老师讲得挺通俗易懂的，不过由于XGB本身具有一定的复杂性，需要看懂这篇笔记需要有如下的背景知识：</p>
 <ol>
-<li><code>我</code>：书中的主角，以第一人称视角对故事进行叙述，本文为了方便写作，下面就用<code>男主</code>来指代主角了。男主是一名高二学生，不喜欢运动，也没什么朋友，最喜欢的就是展开数学公式，总是在图书室一个人面朝笔记本写写算算。</li>
-<li><code>米尔嘉</code>：数学学霸，年级数学第一，但总分是第二，落后于都宫。高一与男主结识，两人经常一起讨论数学问题，经常用一流的解法打动男主。</li>
-<li><code>泰朵拉</code>：数学一般的活力少女，和男主在同一所初中毕业，比男主小一届，所以是高一学生，平时经常向男主发问。</li>
-<li><code>都宫</code>：年级第一，擅长体育，在书中出现较少。</li>
-<li><code>村木老师</code>：知识渊博的数学老师，有时候会给男主和米尔嘉出题，让他们自由思考。</li>
-<li><code>盈盈</code>：钢琴爱好者协会“最强音”的会长，偶尔会和米尔嘉一起练琴。</li>
+<li>决策树的原理</li>
+<li>泰勒级数</li>
+<li>损失函数</li>
+<li>惩罚函数</li>
 </ol>
-<h2 id="2-1"><a class="toclink" href="#2-1">2. 第1章 数列和数学模型</a><a class="headerlink" href="#2-1" title="Permanent link">#</a></h2>
-<h3 id="21"><a class="toclink" href="#21">2.1. 故事情节</a><a class="headerlink" href="#21" title="Permanent link">#</a></h3>
-<p>本章主要介绍了男主和米尔嘉的相遇过程，米尔嘉给男主念了几个数列，被男主接上了，两人就像对上了暗号，确认过眼神，都是搞数学的人。</p>
-<h3 id="22"><a class="toclink" href="#22">2.2. 数列智力题没有正确答案</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
-<p>数列题提供的有限的几个数字，而数列本身是无限延续的，就像看起来很简单的<script type="math/tex">1, 2, 3, 4 ,\cdots</script>这样的数列，我们很自然地会想到下一个数应该是<script type="math/tex">5</script>，但其实后面的数也可以是<script type="math/tex">10, 20, 30,
-40,\cdots</script>满足下面的表达式</p>
+<p>如果对这些概念不太了解，推荐阅读复旦大学邱锡鹏老师的开源书<a href="https://nndl.github.io">《神经网络与深度学习》</a>还有人民邮电出版社的<a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=Jjrvne28LQ2OjoRqkgdnmJX6NADGlWxv59wx1KvbBz97eaMP4VZrpEYy5VB6adNX">《机器学习实战》</a>，泰勒级数可以参考高数课本和网络资料。</p>
+<h2 id="2-boosting"><a class="toclink" href="#2-boosting">2. Boosting</a><a class="headerlink" href="#2-boosting" title="Permanent link">#</a></h2>
+<p>从 <code>XGBoost</code> 这个名字就能看出来，这个模型使用了 <code>Boosting</code> 的方法，那么我们就来先了解一下 <code>Boosting</code> 它是个啥玩意儿。</p>
+<p><img alt="bagging-boosting" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/bagging-boosting.png" /></p>
 <p>
 <script type="math/tex; mode=display">
-a_n = [((x-1) \mod 4 ) + 1] * 10^{\lfloor(x / 4) \rfloor} , (n \in N_+)
-\tag{1.1}
+\text{Figure 1. Bagging vs Boosting}
 </script>
 </p>
-<p>我们无法发现数列的规律，真正的数列模型是一眼看不出来的。如下面这个数列</p>
+<p>老师的PPT中对比了 <code>Bagging</code> 和 <code>Boosting</code> 两种常用的集成学习方法。</p>
+<ul>
+<li>
+<p><strong>Bagging</strong>：利用多个过拟合的弱学习器来获得更好的效果。典型的算法有随机森林。</p>
+</li>
+<li>
+<p><strong>Boosting</strong>：利用多个欠拟合的弱学习器来获得更好的效果。典型的算法有GBDT/GBRT，Adaboost，XGBoost和LightGBM。</p>
+</li>
+</ul>
+<p><code>Boosting</code> 本身在不同算法中的具体应用也不完全相同，而从 <code>XGBoost</code> <a href="#bib-1"><sup>1</sup></a>的<a href="https://arxiv.org/abs/1603.02754">论文</a>  中我们能够了解到，它主要借鉴了 <code>GBDT</code> 的 <code>Boosting</code> 方法</p>
+<p>为了加深对 <code>Boosting</code> 的了解，我把 <code>GBDT</code> <a href="#bib-2"><sup>2</sup></a> 的<a href="https://projecteuclid.org/euclid.aos/1013203451">论文</a>也找出来看了一下。</p>
+<h3 id="21"><a class="toclink" href="#21">2.1. 建立映射</a><a class="headerlink" href="#21" title="Permanent link">#</a></h3>
+<p>首先，我们通过公式<script type="math/tex">(1)</script>建立从 <script type="math/tex">\mathbf{x}</script> 到 <script type="math/tex">y</script> 的映射。</p>
 <p>
 <script type="math/tex; mode=display">
-1, 2, 3, 4, 6, 9, 8, 12, 18, 27, \cdots
+\widehat{y} = F\left(\mathbf{x} ;\left\{\beta_{m}, \mathbf{a}_{m}\right\}_{1}^{M}\right)=\sum_{m=1}^{M} \beta_{m} h\left(\mathbf{x} ; \mathbf{a}_{m}\right)
+\tag{1}
 </script>
 </p>
-<p>其答案可能是这样的</p>
+<p>这里的 <script type="math/tex">\mathbf{x}</script> 和 <script type="math/tex">\mathbf{a}_{m}</script> 用粗体显示，表示它们都是向量，<script type="math/tex">\widehat{y}</script> 表示模型的预测值。</p>
+<p>公式<script type="math/tex">(1)</script>中的 <script type="math/tex">h\left(\mathbf{x} ; \mathbf{a}_{m}\right)</script> 表示一个个弱分类器， <script type="math/tex">\mathbf{a}_{m}</script> 是弱分类器的参数，<script type="math/tex">\beta_m</script> 是其权重，<script type="math/tex">\left\{\beta_{m}, \mathbf{a}_{m}\right\}_{1}^{M}</script> 是 <script type="math/tex">\mathbf{a}_{m}</script> 和 <script type="math/tex">\beta_m</script> 的 <script type="math/tex">M</script> 个组合。<script type="math/tex">M</script>表示弱分类器的数量。</p>
+<p>公式<script type="math/tex">(1)</script>表示 <code>GBDT</code> 是通过对多个弱分类器结果进行线性加权求和从而求出最终结果的。</p>
+<h3 id="22"><a class="toclink" href="#22">2.2. 计算参数</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
+<p>建立了<script type="math/tex">\mathbf{x}</script> 到 <script type="math/tex">y</script> 的映射之后，我们就需要考虑如何去计算函数中的参数。</p>
 <p>
 <script type="math/tex; mode=display">
-{\underbrace{2^0 3^0}_{\text{指数之和为0}}}, {\underbrace{2^1 3^0, 2^0 3^1}_{\text{指数之和为1}}} , {\underbrace{2^2 3^0, 2^1 3^1, 2^0 3^2}_{\text{指数之和为2}}} , {\underbrace{2^3 3^0, 2^2 3^1, 2^1 3^2, 2^0 3^3}_{\text{指数之和为3}}} , \cdots
+\left(\beta_{m}, \mathbf{a}_{m}\right)=\arg \min _{\beta, \mathbf{a}} \sum_{i=1}^{N} L\left(y_{i}, F_{m-1}\left(\mathbf{x}_{i}\right)+\beta h\left(\mathbf{x}_{i} ; \mathbf{a}\right)\right)
+\tag{2}
 </script>
 </p>
-<p>这就引出了后面的<strong>质数分解</strong>问题，即书中所说的“世界上只有两个质数”的话题。</p>
-<h2 id="3-2"><a class="toclink" href="#3-2">3. 第2章 一封名叫数学公式的情书</a><a class="headerlink" href="#3-2" title="Permanent link">#</a></h2>
-<h2 id="4-3-omega"><a class="toclink" href="#4-3-omega">4. 第3章 <script type="math/tex">\omega</script>的华尔兹</a><a class="headerlink" href="#4-3-omega" title="Permanent link">#</a></h2>
-<h2 id="5-4"><a class="toclink" href="#5-4">5. 第4章 斐波那契数列和生成函数</a><a class="headerlink" href="#5-4" title="Permanent link">#</a></h2>
-<h2 id="6-5"><a class="toclink" href="#6-5">6. 第5章 基本不等式</a><a class="headerlink" href="#6-5" title="Permanent link">#</a></h2>
-<h2 id="7-6"><a class="toclink" href="#7-6">7. 第6章 在米尔嘉旁边</a><a class="headerlink" href="#7-6" title="Permanent link">#</a></h2>
-<h2 id="8-7"><a class="toclink" href="#8-7">8. 第7章 卷积</a><a class="headerlink" href="#8-7" title="Permanent link">#</a></h2>
-<h2 id="9-8"><a class="toclink" href="#9-8">9. 第8章 调和数</a><a class="headerlink" href="#9-8" title="Permanent link">#</a></h2>
-<h2 id="10-9"><a class="toclink" href="#10-9">10. 第9章 泰勒展开和巴塞尔问题</a><a class="headerlink" href="#10-9" title="Permanent link">#</a></h2>
-<h2 id="11-10"><a class="toclink" href="#11-10">11. 第10章 分拆数</a><a class="headerlink" href="#11-10" title="Permanent link">#</a></h2>
-<h2 id="12_1"><a class="toclink" href="#12_1">12. 总结</a><a class="headerlink" href="#12_1" title="Permanent link">#</a></h2>
-<h3 id="121"><a class="toclink" href="#121">12.1. 原书参考文献</a><a class="headerlink" href="#121" title="Permanent link">#</a></h3>
-<h3 id="122"><a class="toclink" href="#122">12.2. 本文参考文献</a><a class="headerlink" href="#122" title="Permanent link">#</a></h3>
+<p>公式 <script type="math/tex">(2)</script> 中，<script type="math/tex">\displaystyle\arg \min _{\beta, \mathbf{a}}</script> 表示使其右边的表达式最小的 <script type="math/tex">(\beta, \mathbf{a})</script> 组合，<script type="math/tex">L(y_i, \hat{y_i})</script> 为损失函数。</p>
+<p>公式 <script type="math/tex">(2)</script> 说明参数 <script type="math/tex">\left(\beta_{m}, \mathbf{a}_{m}\right)</script>是通过使得损失函数最小化计算出来的，具体如何计算就取决于我们使用什么具体的损失函数和优化器了。</p>
+<p>同时， 我们还可以推出公式 <script type="math/tex">(3)</script>。</p>
+<p>
+<script type="math/tex; mode=display">
+F_{m}(\mathbf{x})=F_{m-1}(\mathbf{x})+\beta_{m} h\left(\mathbf{x} ; \mathbf{a}_{m}\right)
+\tag{3}
+</script>
+</p>
+<p>公式 <script type="math/tex">(3)</script> 中 <script type="math/tex">F_{m}(\mathbf{x})</script> 是训练完 <script type="math/tex">m</script> 个弱分类器以后，模型的输出结果。</p>
+<p>公式 <script type="math/tex">(3)</script> 说明 <code>GBDT</code> 在训练每第 <script type="math/tex">m</script> 个弱分类器时，我们需要先将前 <script type="math/tex">m-1</script> 个弱分类器的预测结果求和，从而获得一个新的预测结果，在此基础上对第 <script type="math/tex">m</script> 个弱分类器进行训练和预测。即新的弱分类器是在已有模型的<a href="https://baike.baidu.com/item/残差/5162512?fr=aladdin">残差</a>上进行训练的。</p>
+<p>可理解为如下公式。</p>
+<p>
+<script type="math/tex; mode=display">
+\beta_{m} h\left(\mathbf{x} ; \mathbf{a}_{m}\right) \to  (y_i - \sum_{k=1}^{m-1} \beta_{k} h\left(\mathbf{x} ; \mathbf{a}_{k}\right))
+\tag{4}
+</script>
+</p>
+<p>即第 <script type="math/tex">m</script> 个弱分类器的训练目标是输出趋近于 <script type="math/tex">y_i</script> 和 前<script type="math/tex">m - 1</script> 个弱分类器的结果之和的差值。</p>
+<p>再结合老师PPT中的例子，应该就能够很好地理解 <code>Boosting</code> 的作用。</p>
+<p><img alt="boostTree" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/boostTree.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 2. Boost Tree}
+</script>
+</p>
+<p><img alt="finalPredict" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/finalPredict.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 3. Model Predict}
+</script>
+</p>
+<h2 id="3-xgboost"><a class="toclink" href="#3-xgboost">3. XGBoost的目标函数</a><a class="headerlink" href="#3-xgboost" title="Permanent link">#</a></h2>
+<p>了解了 <code>Boosting</code> 之后，我们就可以开始学习 <code>XGBoost</code> 了，首先从它的目标函数开始分析。</p>
+<p><img alt="objectFunction" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/objectFunction.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 4. Object Function}
+</script>
+</p>
+<p>我们一般使用树模型来作为弱分类器，假设有 <script type="math/tex">K</script> 颗树，对第 <script type="math/tex">i</script> 个输入，它们的预测值为 <script type="math/tex">\widehat{y}_i</script>。</p>
+<p>
+<script type="math/tex; mode=display">
+\widehat{y}_{i}=\sum_{k=1}^{K} f_{k}\left(\mathbf{x}_{i}\right),\ \ f_{k} \in {\mathcal{F}}
+\tag{5}
+</script>
+</p>
+<p>公式 <script type="math/tex">(5)</script> 中 <script type="math/tex">f_k(\mathbf{x}_i)</script> 表示第 <script type="math/tex">k</script> 颗树对第 <script type="math/tex">i</script> 个输入向量的预测输出。</p>
+<p>而 <code>XGBoost</code> 的目标函数由损失函数和惩罚函数组成，这一点大多数机器学习模型都差不多。通过最小化损失函数来提高预测精度，引入惩罚函数来控制模型复杂度，防止过拟合。</p>
+<p>
+<script type="math/tex; mode=display">
+Obj = \sum_{i = 1}^n {l(y_i, \widehat{y}_{i})} + \sum_{k = 1}^K \Omega (f_k)
+\tag{6}
+</script>
+</p>
+<p>公式 <script type="math/tex">(6)</script> 中的 <script type="math/tex">n</script> 表示输入数据的总数目，我们的优化目标就是最小化目标函数。</p>
+<p>
+<script type="math/tex; mode=display">
+\min Obj
+\tag{7}
+</script>
+</p>
+<h2 id="4"><a class="toclink" href="#4">4. 化简目标函数</a><a class="headerlink" href="#4" title="Permanent link">#</a></h2>
+<p>有了目标函数以后，我们还没有好的办法直接对它进行求解，还需要进行化简。图5是老师的PPT。</p>
+<p><img alt="additiveTraning" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/additiveTraning.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 5. Additive Traning}
+</script>
+</p>
+<p>图5的左半部分主要在解释Additive Traning，和我们在 <code>Boosting</code> 部分提到的类似。我们主要关注右半部分的化简过程。</p>
+<p>通过将 <script type="math/tex">\widehat{y}_{i}</script> 展开，去除常数项，可以将目标函数化简为</p>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+Obj &= \sum_{i = 1}^n {l(y_i, \widehat{y}_{i}^{(k)})} + \sum_{k = 1}^K \Omega (f_k) & \\
+&= \sum_{i = 1}^n {l(y_i, \widehat{y}_{i}^{(k-1)} + f_k(\mathbf{x}_i) )} + \Omega (f_k) & \\
+\end{aligned} }
+\tag{8}
+</script>
+</p>
+<p>此处利用了公式 <script type="math/tex">(5)</script> 将 <script type="math/tex">\widehat{y}_{i}^{(k)}</script> 中前 <script type="math/tex">k-1</script> 项分离了出来。因为前 <script type="math/tex">k-1</script> 项已经在各自的训练过程中优化过了，在这里可以视为常数项，所以我们将惩罚函数中的前 <script type="math/tex">k-1</script> 项去除，仅考虑要优化的 <script type="math/tex">f_k</script> 部分。</p>
+<h2 id="5"><a class="toclink" href="#5">5. 使用泰勒级数近似目标函数</a><a class="headerlink" href="#5" title="Permanent link">#</a></h2>
+<p>尽管我们对目标函数进行了化简，但直接对目标函数进行求解，运算的复杂度会非常高，所以我们选择对目标函数进行二级泰勒展开，提高模型的训练速度。</p>
+<p><img alt="taylor expansion" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/taylor.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 6. Taylor Expansion}
+</script>
+</p>
+<p>根据公式 <script type="math/tex">(9)</script> 中的二级泰勒展开式。</p>
+<p>
+<script type="math/tex; mode=display">
+f(x + \Delta x) \approx f(x) + f'(x) \cdot \Delta x + \frac{1}{2} f''(x) \cdot \Delta x^2
+\tag{9}
+</script>
+</p>
+<p>对目标函数进行展开：</p>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+Obj &= \sum_{i = 1}^n {l(y_i, \widehat{y}_{i}^{(k-1)} + f_k(\mathbf{x}_i) )} + \Omega (f_k) & \\
+&= \sum_{i=1}^{n}\left[l\left(y_{i}, \hat{y}^{(k-1)}\right)+g_{i} f_{k}\left(\mathbf{x}_{i}\right)+\frac{1}{2} h_{i} f_{k}^{2}\left(\mathbf{x}_{i}\right)\right]+\Omega\left(f_{k}\right) &\\
+\end{aligned} }
+\tag{10}
+</script>
+</p>
+<p>其中 <script type="math/tex">g_{i}=\partial_{\hat{y}(k-1)} l\left(y_{i}, \hat{y}^{(k-1)}\right)</script> 且 <script type="math/tex">h_{i}=\partial_{\hat{y}(k-1)}^{2} l\left(y_{i}, \hat{y}^{(k-1)}\right)</script>， 对应二级泰勒展开式中的一阶导数和二阶导数，由于它们都是基于前 <script type="math/tex">k - 1</script> 个模型的，所以在训练第 <script type="math/tex">k</script> 个模型时也是已知的，可以视为常数项。</p>
+<p>公式 <script type="math/tex">(10)</script> 中，<script type="math/tex">l(y_{i}, \hat{y}^{(k-1)})</script> 也可视为常数项，并且这一项没有和变量 <script type="math/tex">f_k(\mathbf{x}_i)</script>相乘，所以我们可以将展开后的目标函数再次进行化简，结果为：</p>
+<p>
+<script type="math/tex; mode=display">
+Obj =\sum_{i=1}^{n}\left[g_{i} f_{k}\left(\mathbf{x}_{i}\right)+\frac{1}{2} h_{i} f_{k}^{2}\left(\mathbf{x}_{i}\right)\right]+\Omega\left(f_{k}\right)
+\tag{11}
+</script>
+</p>
+<h2 id="6"><a class="toclink" href="#6">6. 模型参数化</a><a class="headerlink" href="#6" title="Permanent link">#</a></h2>
+<p>在公式 <script type="math/tex">(5)</script> 中 ，我们提到<script type="math/tex">f_k(\mathbf{x}_i)</script> 表示第 <script type="math/tex">k</script> 颗树对第 <script type="math/tex">i</script> 个输入向量的预测输出。那么我们又应该如何在公式中将 <script type="math/tex">f_k(\mathbf{x}_i)</script> 展开，从而进行训练和调优，最终达到优化模型的目的呢。这里我们就需要将模型参数化，将问题转化为参数优化的问题。</p>
+<p>那么我们这一节要解决的子问题就是，如何用参数的形式来表示一颗决策树，或者说，如何将决策树的模型参数化。</p>
+<p>我们参考周志华老师<a href="https://book.douban.com/subject/26708119/">《机器学习》</a> <a href="#bib-3"><sup>3</sup></a> 书中的一个例子。</p>
+<pre><code class="mermaid">graph TD
+    A[纹理] --&gt;|清晰| B[密度 &lt;= 0.381?]
+    B --&gt; |是|C[坏瓜1]
+    B --&gt; |否|D[好瓜2]
+    A[纹理] --&gt;|稍糊| E[触感=?]
+    E --&gt; |硬滑|F[坏瓜3]
+    E --&gt; |软粘|G[好瓜4]
+    A[纹理] --&gt;|模糊| H[坏瓜5]
+
+</code></pre>
+
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 7. Decision Tree}
+</script>
+</p>
+<p>设 <script type="math/tex">\widehat{y}_i = 1</script>表示模型预测第 <script type="math/tex">i</script> 个瓜为好瓜，<script type="math/tex">\widehat{y}_i = 0</script>表示模型预测第 <script type="math/tex">i</script> 个瓜为坏瓜。叶子节点标签后的数字为叶子节点的标号。</p>
+<p>设 <script type="math/tex">I_j = \{i | q(\mathbf{x}_{i}) = j\}</script> 为被分到第 <script type="math/tex">j</script> 个叶子节点中的 <script type="math/tex">\mathbf{x}_{i}</script> 的序号集合。<script type="math/tex">q(\mathbf{x}_{i})</script> 为输入 <script type="math/tex">\mathbf{x}_{i}</script>到叶子节点序号的映射。</p>
+<p>设 <script type="math/tex">w_j = \alpha (j)</script> 为第 <script type="math/tex">j</script> 个叶子节点的 <script type="math/tex">\widehat{y}</script> 值。取样例数据进行说明：</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">纹理</th>
+<th align="center">触感</th>
+<th align="center">密度</th>
+<th align="center">好瓜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">清晰</td>
+<td align="center">硬滑</td>
+<td align="center">0.697</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">清晰</td>
+<td align="center">软粘</td>
+<td align="center">0.267</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">稍糊</td>
+<td align="center">硬滑</td>
+<td align="center">0.091</td>
+<td align="center">否</td>
+</tr>
+</tbody>
+</table>
+<p>则</p>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+f_k(\mathbf{x}_{1}) = \alpha (q(\mathbf{x}_{1})) =\alpha(2)=1 = w_2 & \\
+f_k(\mathbf{x}_{2}) = \alpha (q(\mathbf{x}_{2})) =\alpha(1)=0 = w_1 & \\
+f_k(\mathbf{x}_{3}) = \alpha (q(\mathbf{x}_{3})) =\alpha(3)=0 = w_3 & \\
+\end{aligned} }
+</script>
+</p>
+<hr />
+<p>根据上面的定义，我们继续对目标函数进行化简。</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Obj &=\sum_{i=1}^{n}\left[g_{i} f_{k}\left(\mathbf{x}_{i}\right)+\frac{1}{2} h_{i} f_{k}^{2}\left(\mathbf{x}_{i}\right)\right]+\gamma T+\frac{1}{2} \lambda \sum_{j=1}^{T} w_{j}^{2}\\
+\end{aligned}
+\tag{12}
+</script>
+</p>
+<p>公式 <script type="math/tex">(12)</script> 中 <script type="math/tex">\gamma</script> 为树的深度，<script type="math/tex">T</script> 为叶子节点个数，<script type="math/tex">\lambda</script> 为惩罚项系数。</p>
+<p>公式 <script type="math/tex">(12)</script> 将惩罚函数从对每一项输入数据的输出求和，转为了对每一个叶子节点的输出求和。下面对<script type="math/tex">f_{k}\left(\mathbf{x}_{i}\right)</script> 也进行这样的转换。</p>
+<p>
+<script type="math/tex; mode=display">
+Obj=\sum_{j=1}^{T}\left[\left(\sum_{i \in I_{j}} g_{i}\right) w_{j}+\frac{1}{2}\left(\sum_{i \in I_{j}} h_{i}+\lambda\right) w_{j}^{2}\right]+\gamma T
+\tag{13}
+</script>
+</p>
+<p>公式 <script type="math/tex">(13)</script> 中 <script type="math/tex">I_j = \{i | q(\mathbf{x}_{i}) = j\}</script> 是被分到第 <script type="math/tex">j</script> 个叶子节点中的 <script type="math/tex">\mathbf{x}_{i}</script> 的序号集合。</p>
+<h2 id="7"><a class="toclink" href="#7">7. 寻找最佳分裂点</a><a class="headerlink" href="#7" title="Permanent link">#</a></h2>
+<p>我们假设树的结构 <script type="math/tex">q(\mathbf{x}_{i})</script> 是确定的，即公式 <script type="math/tex">(13)</script> 中，<script type="math/tex">\gamma</script> 和 <script type="math/tex">T</script> 两个参数是确定的，<script type="math/tex">I_j</script> 也是确定的，剩下的自变量就只有 <script type="math/tex">w_j^2</script>，我们就得到了一个一元二次方程。</p>
+<p>要使这个一元二次方程最小，我们就需要找到它的极值点。</p>
+<p>首先考虑二次项系数的正负性。<script type="math/tex">\lambda</script> 是惩罚项系数，是非负的，而
+<script type="math/tex">h_{i}=\partial_{\hat{y}(k-1)}^{2} l\left(y_{i}, \hat{y}^{(k-1)}\right)</script>，是损失函数的二阶导数。</p>
+<p>我们参考<a href="https://nndl.github.io">《神经网络与深度学习》</a> <a href="#bib-4"><sup>4</sup></a> 中给出的常用损失函数。</p>
+<p><img alt="Loss Function" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/lossFunction.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 8. Loss Function}
+</script>
+</p>
+<p><code>XGBoost</code> 常用的是平方损失，它的二阶导函数恒为正数。所以目标函数二次项系数也恒为正。</p>
+<p>所以我们根据一元二次方程的性质，求解目标函数的最小值。</p>
+<p>
+<script type="math/tex; mode=display">
+w_{j}^{*}=-\frac{\sum_{i \in I_{j}} g_{i}}{\sum_{i \in I_{j}} h_{i}+\lambda}
+\tag{14}
+</script>
+</p>
+<p>带入公式 <script type="math/tex">(13)</script> 可求得</p>
+<p>
+<script type="math/tex; mode=display">
+Obj(q)=-\frac{1}{2} \sum_{j=1}^{T} \frac{\left(\sum_{i \in I_{j}} g_{i}\right)^{2}}{\sum_{i \in I_{j}} h_{i}+\lambda}+\gamma T
+\tag{15}
+</script>
+</p>
+<p>公式 <script type="math/tex">(15)</script> 中 <script type="math/tex">q</script> 为某一确定的树结构。<script type="math/tex">Obj(q)</script> 可以作为评分函数，用来计算树结构的得分。类似于决策树模型中的信息熵(Information Entropy)。</p>
+<p>由于遍历所有的树结构是一个 <script type="math/tex">NP</script> 问题，所以 <code>XGBoost</code> 采用了贪心算法来求得树结构的局部最优解。</p>
+<p>假设 <script type="math/tex">I_L</script> 和 <script type="math/tex">I_R</script> 是分割后的左节点和右节点的<script type="math/tex">\mathbf{x}_{i}</script> 的序号集合，<script type="math/tex">I = I_L \bigcup I_R</script>，那么每次分裂后 <script type="math/tex">Obj(q)</script> 的减少值为：</p>
+<p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{s p l i t}=\frac{1}{2}\left[\frac{\left(\sum_{i \in I_{L}} g_{i}\right)^{2}}{\sum_{i \in I_{L}} h_{i}+\lambda}+\frac{\left(\sum_{i \in I_{R}} g_{i}\right)^{2}}{\sum_{i \in I_{R}} h_{i}+\lambda}-\frac{\left(\sum_{i \in I} g_{i}\right)^{2}}{\sum_{i \in I} h_{i}+\lambda}\right]-\gamma
+</script>
+</p>
+<p>这个公式可以用来搜索最佳的分裂点，类似于决策树中的信息增益(Information Gain)。</p>
+<p>接下来的过程就和一般的决策树训练过程类似了，论文中也给了两个搜索最佳分裂点的算法，我们就不做详细讨论了。</p>
+<p><img alt="Algorithm1" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/algorithm1.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 9. Algorithm 1}
+</script>
+</p>
+<p><img alt="Algorithm2" src="../../../img/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/XGBoost/algorithm2.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 10. Algorithm 2}
+</script>
+</p>
+<p><code>XGBoost</code> 主要的内容大概就是这些，希望了解更加详细内容的同学可以查看<a href="http://arxiv.org/abs/1603.02754">原始论文</a>。</p>
+<h2 id="8"><a class="toclink" href="#8">8. 参考文献</a><a class="headerlink" href="#8" title="Permanent link">#</a></h2>
 <div id="bib-1"></div>
 
-<p>[1]<a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=qPKdG1m9B8MaveyJdxRzNnKYlqgVZ3koXB3o5pL7E4m1r26kQjXDAPObGkYgJ4pN">得到APP.《数学女孩》[EB/OL].https://m.igetget.com/hybrid/v2/ebook/detail?bid=qPKdG1m9B8MaveyJdxRzNnKYlqgVZ3koXB3o5pL7E4m1r26kQjXDAPObGkYgJ4pN,2016.01.
-</a></p>
-<div id="bib-2"></div>
+<p>[1] T. Chen, C. Guestrin, Xgboost: A scalable tree boosting system, CoRR abs/1603.02754. arXiv:1603.02754.
+URL <a href="http://arxiv.org/abs/1603.02754">http://arxiv.org/abs/1603.02754</a></p>
+<p>[2] J. Friedman, Greedy function approximation: A gradient boosting machine, The Annals of Statistics 29. doi:10.1214/aos/1013203451.
+URL <a href="https://projecteuclid.org/euclid.aos/1013203451">https://projecteuclid.org/euclid.aos/1013203451</a></p>
+<p>[3] <a href="https://book.douban.com/subject/26708119/">周志华, 机器学习, no. 84-85, 清华大学出版社, 2016.</a></p>
+<p>[4] <a href="https://nndl.github.io">邱锡鹏, 神经网络与深度学习, no. 74, Github, 2020.</a></p>
+<hr />
+<p>联系邮箱：curren_wong@163.com</p>
+<p>Github：<a href="https://github.com/CurrenWong">https://github.com/CurrenWong</a></p>
+<p>欢迎转载/Star/Fork，有问题欢迎通过邮箱交流。</p>
                 
                   
                 
@@ -1638,7 +1726,7 @@ a_n = [((x-1) \mod 4 ) + 1] * 10^{\lfloor(x / 4) \rfloor} , (n \in N_+)
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%A0%E9%A2%98/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD_%E9%94%99%E9%A2%98/" title="1.第一章 函数 极限 连续 错题" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="常用技巧" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1647,19 +1735,19 @@ a_n = [((x-1) \mod 4 ) + 1] * 10^{\lfloor(x / 4) \rfloor} , (n \in N_+)
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                1.第一章 函数 极限 连续 错题
+                常用技巧
               </span>
             </div>
           </a>
         
         
-          <a href="../../../%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Java%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.Java%E7%BC%96%E7%A8%8B%E6%8F%90%E9%AB%98/" title="1.Java编程提高" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" title="1.第一章 随机事件与概率" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                1.Java编程提高
+                1.第一章 随机事件与概率
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
