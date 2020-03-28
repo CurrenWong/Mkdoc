@@ -132,13 +132,13 @@ function headToTree(parent, text, seq) {
     // 构建节点树
     var tree_root = buildTree(root, headingList);
     // console.log("length:" + tree_root.children.length);
-    return tree_root
-};
+    return tree_root;
+}
 
 function getSvgTemplate(id) {
     var str = '<div style="height:300px;"><svg style="width:100%; height:100%;" id ="' +
         id + '" ></svg></div><hr>';
-    return str
+    return str;
 }
 
 // 将mindmap代码框中的markdown转为html<ni>text</ni>标记
@@ -177,7 +177,7 @@ function markToNode(map, seq) {
             nodeList[i] = buffer;
         }
         // 转回文本，换行符分割
-        str = nodeList.toString().replace(/,/ig, "\n")
+        str = nodeList.toString().replace(/,/ig, "\n");
         // 创建svg模板，用传入的顺序seq标号
         map.parent().after(getSvgTemplate("mindmap-inline-" + seq));
         // 将未渲染的节点元素添加到模板中
@@ -185,7 +185,6 @@ function markToNode(map, seq) {
     } else {
         throw "Mindmap " + seq + " 不存在根节点";
     }
-
 }
 
 // 转换emoji
@@ -197,7 +196,7 @@ function translateEmoji(text = "a, text, p") {
     // 转换Emoji
     elements.each(function () {
         $(this).html(emoji.replace_colons($(this).html()));
-    })
+    });
     // 定义正则对象
     var reg = new RegExp();
     reg.compile(":[a-z|\-|1-9|\+|\-]*:", "ig");
@@ -312,7 +311,10 @@ function transferMetaTitle() {
 function showPageView() {
     $('h1').first().after('<p><strong>当前页面浏览量</strong>：<span data-hk-page="current"> - </span>次</p>');
 }
-
+// 显示阅读所需时间
+function showReadingTime() {
+    $('h1').first().after('<p><strong>阅读时间：</strong><span class="eta"></span> (<span class="words"></span> 字)</p>');
+}
 
 // --------------------------------
 // 代码运行
@@ -329,7 +331,7 @@ $(document).ready($("math-details").each(function () {
             right: "$",
             display: false
         }]
-    })
+    });
 }));
 
 // 渲染标题5，使其即便不显示在目录上，也能够带有锚点和链接，
@@ -353,7 +355,7 @@ $(document).ready(
     function () {
         // 在目录前插入思维导图
         $("h2").children(".toclink").filter(function () {
-            return $(this).text() == "目录"
+            return $(this).text() == "目录";
         }).parent().before(getSvgTemplate("mindmap"));
         // 渲染
         if ($('svg#mindmap').length != 0) {
@@ -370,7 +372,7 @@ $(document).ready(
                         window.location.href = $(this).attr("href");
                     });
                 }
-            })
+            });
         }
     }
 );
@@ -380,7 +382,7 @@ $(document).ready(
 $(function () {
     // 不转换UML图
     var text = 'pre code';
-    ignoreList = ['mermaid', 'mindmap']
+    ignoreList = ['mermaid', 'mindmap'];
     document.querySelectorAll(text).forEach((block) => {
         if (ignoreList.indexOf(block.className) != -1) {
 
@@ -434,6 +436,30 @@ $(clearTag());
 
 // 渲染删除线
 $(translateDeleteLine());
+
+// 放置模板显示阅读所需时间
+$(showReadingTime());
+
+// 计算并显示阅读所需时间
+$(function() {
+
+	$('article').readingTime({
+		// readingTimeAsNumber: true,
+		// readingTimeTarget: $('.reading-time'),
+        wordCountTarget: '.words',
+		wordsPerMinute: 275,
+		round: true,
+        lang: 'zh',
+        lessThanAMinuteString:'Less than 1 min',
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(data) {
+			console.log(data.error);
+			$('.reading-time').remove();
+		}
+	});
+});
 
 // 显示页面访问量
 $(showPageView());
