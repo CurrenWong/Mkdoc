@@ -390,7 +390,7 @@ $(function () {
             hljs.highlightBlock(block);
         }
     });
-    $('.mermaid').parent().each(function () {
+    $('.mermaid').each(function () {
         $(this).attr('style', 'background-color:blanchedalmond');
     });
 }

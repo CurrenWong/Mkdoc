@@ -33,7 +33,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 }
 
-.hljs-meta-keyword {
+.hljs-meta-keyword, .hljs-keyword{
     color: #8959a8;
 }
 
@@ -46,7 +46,6 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .hljs-type,
 .hljs-string,
-.hljs-number,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-quote,
@@ -54,6 +53,10 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-deletion {
     color: #880000;
 }
+.hljs-number, .hljs-params{
+    color: #f5871f;
+}
+
 
 .hljs-title,
 .hljs-section {

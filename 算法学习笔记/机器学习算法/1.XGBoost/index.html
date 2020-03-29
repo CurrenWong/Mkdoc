@@ -73,7 +73,7 @@
     
       <link rel="stylesheet" href="../../../css/view.mindmap.css">
     
-      <link rel="stylesheet" href="../../../css/highlight-default.css">
+      <link rel="stylesheet" href="../../../css/atom-one-dark-reasonable.css">
     
       <link rel="stylesheet" href="../../../css/font-awesome-all.min.css">
     
@@ -1630,23 +1630,30 @@ f_k(\mathbf{x}_{3}) = \alpha (q(\mathbf{x}_{3})) =\alpha(3)=0 = w_3 & \\
 </p>
 <hr />
 <p>根据上面的定义，我们继续对目标函数进行化简。</p>
+<p>首先展开惩罚函数:</p>
+<p>
+<script type="math/tex; mode=display">
+\Omega(f)=\gamma T+\frac{1}{2} \lambda\|w\|^{2}
+\tag{12}
+</script>
+</p>
 <p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 Obj &=\sum_{i=1}^{n}\left[g_{i} f_{k}\left(\mathbf{x}_{i}\right)+\frac{1}{2} h_{i} f_{k}^{2}\left(\mathbf{x}_{i}\right)\right]+\gamma T+\frac{1}{2} \lambda \sum_{j=1}^{T} w_{j}^{2}\\
 \end{aligned}
-\tag{12}
-</script>
-</p>
-<p>公式 <script type="math/tex">(12)</script> 中 <script type="math/tex">\gamma</script> 为树的深度，<script type="math/tex">T</script> 为叶子节点个数，<script type="math/tex">\lambda</script> 为惩罚项系数。</p>
-<p>公式 <script type="math/tex">(12)</script> 将惩罚函数从对每一项输入数据的输出求和，转为了对每一个叶子节点的输出求和。下面对<script type="math/tex">f_{k}\left(\mathbf{x}_{i}\right)</script> 也进行这样的转换。</p>
-<p>
-<script type="math/tex; mode=display">
-Obj=\sum_{j=1}^{T}\left[\left(\sum_{i \in I_{j}} g_{i}\right) w_{j}+\frac{1}{2}\left(\sum_{i \in I_{j}} h_{i}+\lambda\right) w_{j}^{2}\right]+\gamma T
 \tag{13}
 </script>
 </p>
-<p>公式 <script type="math/tex">(13)</script> 中 <script type="math/tex">I_j = \{i | q(\mathbf{x}_{i}) = j\}</script> 是被分到第 <script type="math/tex">j</script> 个叶子节点中的 <script type="math/tex">\mathbf{x}_{i}</script> 的序号集合。</p>
+<p>公式 <script type="math/tex">(12)</script> 中 <script type="math/tex">\gamma</script> 为树的深度，<script type="math/tex">T</script> 为叶子节点个数，<script type="math/tex">\lambda</script> 为惩罚项系数。<script type="math/tex">\|w\|^{2}</script> 为L2正则化项。公式 <script type="math/tex">(13)</script> 为将惩罚函数带入后的目标函数。</p>
+<p>下面将<script type="math/tex">f_{k}\left(\mathbf{x}_{i}\right)</script> 从对每一项输入数据的输出求和，转为对每一个叶子节点的输出求和。</p>
+<p>
+<script type="math/tex; mode=display">
+Obj=\sum_{j=1}^{T}\left[\left(\sum_{i \in I_{j}} g_{i}\right) w_{j}+\frac{1}{2}\left(\sum_{i \in I_{j}} h_{i}+\lambda\right) w_{j}^{2}\right]+\gamma T
+\tag{14}
+</script>
+</p>
+<p>公式 <script type="math/tex">(14)</script> 中 <script type="math/tex">I_j = \{i | q(\mathbf{x}_{i}) = j\}</script> 是被分到第 <script type="math/tex">j</script> 个叶子节点中的 <script type="math/tex">\mathbf{x}_{i}</script> 的序号集合。</p>
 <h2 id="7"><a class="toclink" href="#7">7. 寻找最佳分裂点</a><a class="headerlink" href="#7" title="Permanent link">#</a></h2>
 <p>我们假设树的结构 <script type="math/tex">q(\mathbf{x}_{i})</script> 是确定的，即公式 <script type="math/tex">(13)</script> 中，<script type="math/tex">\gamma</script> 和 <script type="math/tex">T</script> 两个参数是确定的，<script type="math/tex">I_j</script> 也是确定的，剩下的自变量就只有 <script type="math/tex">w_j^2</script>，我们就得到了一个一元二次方程。</p>
 <p>要使这个一元二次方程最小，我们就需要找到它的极值点。</p>
@@ -1664,23 +1671,23 @@ Obj=\sum_{j=1}^{T}\left[\left(\sum_{i \in I_{j}} g_{i}\right) w_{j}+\frac{1}{2}\
 <p>
 <script type="math/tex; mode=display">
 w_{j}^{*}=-\frac{\sum_{i \in I_{j}} g_{i}}{\sum_{i \in I_{j}} h_{i}+\lambda}
-\tag{14}
-</script>
-</p>
-<p>带入公式 <script type="math/tex">(13)</script> 可求得</p>
-<p>
-<script type="math/tex; mode=display">
-Obj(q)=-\frac{1}{2} \sum_{j=1}^{T} \frac{\left(\sum_{i \in I_{j}} g_{i}\right)^{2}}{\sum_{i \in I_{j}} h_{i}+\lambda}+\gamma T
 \tag{15}
 </script>
 </p>
-<p>公式 <script type="math/tex">(15)</script> 中 <script type="math/tex">q</script> 为某一确定的树结构。<script type="math/tex">Obj(q)</script> 可以作为评分函数，用来计算树结构的得分。类似于决策树模型中的信息熵(Information Entropy)。</p>
+<p>带入公式 <script type="math/tex">(14)</script> 可求得</p>
+<p>
+<script type="math/tex; mode=display">
+Obj(q)=-\frac{1}{2} \sum_{j=1}^{T} \frac{\left(\sum_{i \in I_{j}} g_{i}\right)^{2}}{\sum_{i \in I_{j}} h_{i}+\lambda}+\gamma T
+\tag{16}
+</script>
+</p>
+<p>公式 <script type="math/tex">(16)</script> 中 <script type="math/tex">q</script> 为某一确定的树结构。<script type="math/tex">Obj(q)</script> 可以作为评分函数，用来计算树结构的得分。类似于决策树模型中的信息熵(Information Entropy)。</p>
 <p>由于遍历所有的树结构是一个 <script type="math/tex">NP</script> 问题，所以 <code>XGBoost</code> 采用了贪心算法来求得树结构的局部最优解。</p>
 <p>假设 <script type="math/tex">I_L</script> 和 <script type="math/tex">I_R</script> 是分割后的左节点和右节点的<script type="math/tex">\mathbf{x}_{i}</script> 的序号集合，<script type="math/tex">I = I_L \bigcup I_R</script>，那么每次分裂后 <script type="math/tex">Obj(q)</script> 的减少值为：</p>
 <p>
 <script type="math/tex; mode=display">
 \mathcal{L}_{s p l i t}=\frac{1}{2}\left[\frac{\left(\sum_{i \in I_{L}} g_{i}\right)^{2}}{\sum_{i \in I_{L}} h_{i}+\lambda}+\frac{\left(\sum_{i \in I_{R}} g_{i}\right)^{2}}{\sum_{i \in I_{R}} h_{i}+\lambda}-\frac{\left(\sum_{i \in I} g_{i}\right)^{2}}{\sum_{i \in I} h_{i}+\lambda}\right]-\gamma
-\tag{16}
+\tag{17}
 </script>
 </p>
 <p>这个公式可以用来搜索最佳的分裂点，类似于决策树中的信息增益(Information Gain)。</p>
