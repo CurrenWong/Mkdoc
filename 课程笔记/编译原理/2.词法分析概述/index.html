@@ -40,7 +40,7 @@
     
     
       
-        <title>2.词法分析 - Curren's Notes</title>
+        <title>2.词法分析概述 - Curren's Notes</title>
       
     
     
@@ -129,7 +129,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                2.词法分析
+                2.词法分析概述
               
             </span>
           
@@ -1009,8 +1009,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/" title="5.uCos中的任务机制" class="md-nav__link">
-      5.uCos中的任务机制
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6%E5%92%8C%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%95/" title="5.uCos中的任务机制和优先级位图算法" class="md-nav__link">
+      5.uCos中的任务机制和优先级位图算法
     </a>
   </li>
 
@@ -1164,11 +1164,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.词法分析
+        2.词法分析概述
       </label>
     
-    <a href="./" title="2.词法分析" class="md-nav__link md-nav__link--active">
-      2.词法分析
+    <a href="./" title="2.词法分析概述" class="md-nav__link md-nav__link--active">
+      2.词法分析概述
     </a>
     
       
@@ -1190,21 +1190,97 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 编译流程
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 词法分析
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1. 词法分析器的协作
+  <a href="#21" class="md-nav__link">
+    2.1. 编译流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 词法分析的任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3. 词法分析器的功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4. 词法分析器的输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5. 词法分析器在编译器中地位
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 词法分析器的设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 输入、预处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 超前搜索
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 状态转换图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 参考文献
+  </a>
   
 </li>
       
@@ -1318,21 +1394,97 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 编译流程
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 词法分析
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1. 词法分析器的协作
+  <a href="#21" class="md-nav__link">
+    2.1. 编译流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 词法分析的任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3. 词法分析器的功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4. 词法分析器的输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5. 词法分析器在编译器中地位
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 词法分析器的设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 输入、预处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 超前搜索
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 状态转换图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 参考文献
+  </a>
   
 </li>
       
@@ -1352,7 +1504,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/编译原理/2.词法分析.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/编译原理/2.词法分析概述.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="_1"><a class="toclink" href="#_1">词法分析</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
@@ -1361,16 +1513,31 @@
 <ul>
 <li><a href="#_1">词法分析</a><ul>
 <li><a href="#_2">目录</a></li>
-<li><a href="#1">1. 编译流程</a><ul>
-<li><a href="#11">1.1. 词法分析器的协作</a></li>
+<li><a href="#1">1. 背景</a></li>
+<li><a href="#2">2. 词法分析</a><ul>
+<li><a href="#21">2.1. 编译流程</a></li>
+<li><a href="#22">2.2. 词法分析的任务</a></li>
+<li><a href="#23">2.3. 词法分析器的功能</a></li>
+<li><a href="#24">2.4. 词法分析器的输出</a></li>
+<li><a href="#25">2.5. 词法分析器在编译器中地位</a></li>
 </ul>
 </li>
+<li><a href="#3">3. 词法分析器的设计</a><ul>
+<li><a href="#31">3.1. 输入、预处理</a></li>
+<li><a href="#32">3.2. 超前搜索</a></li>
+</ul>
+</li>
+<li><a href="#4">4. 状态转换图</a></li>
+<li><a href="#5">5. 参考文献</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <hr />
-<h2 id="1"><a class="toclink" href="#1">1. 编译流程</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<h2 id="1"><a class="toclink" href="#1">1. 背景</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p>今天学习了编译原理中的<code>词法分析</code>这一章节，我参考了国防工业出版社<a href="https://baike.baidu.com/item/编译原理/3668951?fr=aladdin">《编译原理》</a>教材<a href="#bib-1"><sup>1</sup></a> 和中国大学MOOC-<a href="https://www.icourse163.org/course/NUDT-1003101005">国防科技大学《编译原理》</a>的PPT，整理了这一章的内容，希望能够理解这部分的知识。</p>
+<h2 id="2"><a class="toclink" href="#2">2. 词法分析</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
+<h3 id="21"><a class="toclink" href="#21">2.1. 编译流程</a><a class="headerlink" href="#21" title="Permanent link">#</a></h3>
 <pre><code class="mermaid">graph TB
     A(源程序) --&gt;|开始编译| B[词法分析器]
     B --&gt; |单词符号|C[语法分析器]
@@ -1381,7 +1548,56 @@
 
 </code></pre>
 
-<h3 id="11"><a class="toclink" href="#11">1.1. 词法分析器的协作</a><a class="headerlink" href="#11" title="Permanent link">#</a></h3>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 1. 编译流程}
+</script>
+</p>
+<h3 id="22"><a class="toclink" href="#22">2.2. 词法分析的任务</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
+<ul>
+<li>词法分析的任务<ul>
+<li>从左至右逐个字符地对源程序进行扫描，产生一个个单词符号</li>
+</ul>
+</li>
+<li>词法分析器(Lexical Analyzer)<ul>
+<li>扫描器(Scanner)</li>
+<li>执行词法分析的程序</li>
+</ul>
+</li>
+</ul>
+<h3 id="23"><a class="toclink" href="#23">2.3. 词法分析器的功能</a><a class="headerlink" href="#23" title="Permanent link">#</a></h3>
+<ul>
+<li>功能<ul>
+<li>输入源程序、输出单词符号</li>
+</ul>
+</li>
+<li>单词符号的种类<ul>
+<li><strong>基本字</strong>:如 begin，repeat，for，...</li>
+<li><strong>标识符</strong>:用来表示各种名字，如变量名、数组名和过程名</li>
+<li><strong>常数</strong>:各种类型的常数</li>
+<li><strong>运算符</strong>: <script type="math/tex"> +，-，*，/， \cdots </script>
+</li>
+<li><strong>界符</strong>:逗号、分号、括号和空白</li>
+</ul>
+</li>
+</ul>
+<h3 id="24"><a class="toclink" href="#24">2.4. 词法分析器的输出</a><a class="headerlink" href="#24" title="Permanent link">#</a></h3>
+<ul>
+<li>输出的单词符号的表示形式<ul>
+<li>(<strong>单词种别，单词自身的值</strong>)</li>
+</ul>
+</li>
+<li>单词种别通常用整数编码表示<ul>
+<li>若一个种别只有一个单词符号，则种别编码就代表该单词符号。假定<strong>基本字、运算符</strong>和<strong>界符</strong>都是一符一种。</li>
+<li>若一个种别有多个单词符号，则对于每个单词符号，给出种别<strong>编码</strong>和<strong>自身的值</strong>。<ul>
+<li><strong>标识符</strong>单列一种;标识符自身的值表示成按机器字节划分的内部码</li>
+<li><strong>常数</strong>按类型分种;常数的值则表示成标准的二进制形式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="25"><a class="toclink" href="#25">2.5. 词法分析器在编译器中地位</a><a class="headerlink" href="#25" title="Permanent link">#</a></h3>
 <pre><code class="mermaid">graph LR
     O(源程序) --&gt; |源程序|A
     A[词法分析器] --&gt;|单词符号| B[语法分析器]
@@ -1390,6 +1606,131 @@
     C[符号表] --- B
 
 </code></pre>
+
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 2. 词法分析器在编译器中地位}
+</script>
+</p>
+<h2 id="3"><a class="toclink" href="#3">3. 词法分析器的设计</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<h3 id="31"><a class="toclink" href="#31">3.1. 输入、预处理</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<p>词法分析器工作的第一步是输入源程序文本。输入串一般是放在一个缓冲区中，这个缓冲区称<code>输入缦冲区</code>。词法分析的工作（单词符号的识别）可以直接在这个<code>缓冲区</code>中进行。但在许多情况下，把输入串预处理一下，对单词符号的识别工作将是比较方便的。</p>
+<p>我们可以设想一个<code>预处理子程序</code>，它能够完成去除空白符、换行符和注释还有合并界符等任务。</p>
+<p>每当词法分析器调用它时，它就处理出一串确定长度（如120个字符）的输入字符，并将其装进词法分析器所指定的缓冲区中（称为<code>扫描缓冲区</code>）。这样，分析器就可以在此缓冲区中直接进行单词符号的识别，而不必管其他繁琐事物。</p>
+<p><img alt="词法分析器的结构" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84.png#half" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 3. 词法分析器的结构}
+</script>
+</p>
+<p>分析器对扫描缓冲区进行扫描时一般用两个<code>指示器</code>，一个指向当前正在识别的单词的<code>开始位置</code>（指向新单词的首字符），另一个用于向前搜索以寻找单词的终点。</p>
+<p>不论<code>扫描缓冲区</code>设得多大都不能保证单词符号不会被它的边界所打断。因此，扫描缓冲区最好使用一个<code>一分为二的区域</code>。并对标识符和常数的长度<code>加以限制</code>（例如，不得多于120个字符）。否则，即使缓冲区再大也无济于事。</p>
+<p><img alt="扫描缓冲区" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/%E6%89%AB%E6%8F%8F%E7%BC%93%E5%86%B2%E5%8C%BA.png#half" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 4. 扫描缓冲区}
+</script>
+</p>
+<h3 id="32"><a class="toclink" href="#32">3.2. 超前搜索</a><a class="headerlink" href="#32" title="Permanent link">#</a></h3>
+<ul>
+<li>定义：词法分析过程中，有时为了确定词性，需超前扫描若干个字符。</li>
+</ul>
+<p>如以下FORTRAN语句，用户可以重新定义关键字，编译器就需要超前扫描都关键字后的数字格式才能知道其词性。</p>
+<p><img alt="超前搜索" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/%E8%B6%85%E5%89%8D%E6%90%9C%E7%B4%A2.png#half" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 5. 超前搜索}
+</script>
+</p>
+<p>除了关键字需要超前搜索，标识符、常数、算符和界符等也可能会需要超前搜索。</p>
+<ol>
+<li>标识符识别</li>
+</ol>
+<p>字母开头的字母数字串，后跟界符或算符</p>
+<ol start="2">
+<li>常数识别</li>
+</ol>
+<p>识别出算术常数并将其转变为二进制内码表示，如</p>
+<p>
+<script type="math/tex; mode=display">
+5.EQ.M
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+5.E08
+</script>
+</p>
+<ol start="3">
+<li>算符和界符的识别</li>
+</ol>
+<p>把多字符组成的算符和界符拼合成一个单词符号</p>
+<p>
+<script type="math/tex; mode=display">
+:=， **， .EQ. ， ++，--，>=
+</script>
+</p>
+<hr />
+<p>由于超前搜索这个问题的存在，现在的编程语言大多加入了一些限制，从而避免超前搜索。</p>
+<ol>
+<li>所有基本字都是保留字;用户不能用它们作自己的标识符</li>
+<li>基本字作为特殊的标识符来处理，使用保留字表</li>
+<li>如果基本字、标识符和常数(或标号)之间没有确定的运算符或界符作间隔，则必须使用一个空白符作间隔，如：</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+DO99K=1，10
+</script>
+</p>
+<p>要写成</p>
+<p>
+<script type="math/tex; mode=display">
+DO \hspace*{0.2cm} 99 \hspace*{0.2cm} K=1，10
+</script>
+</p>
+<h2 id="4"><a class="toclink" href="#4">4. 状态转换图</a><a class="headerlink" href="#4" title="Permanent link">#</a></h2>
+<p>使用状态转换图是设计词法分析器的一种好途径。转换图是一张有限方向图，可用于识别(或接受)一定的字符串。</p>
+<p>在状态转换图中，</p>
+<ul>
+<li>节点代表状态，用圆圈表示</li>
+<li>状态之间用箭弧连接。箭弧上的标记（字符）代表在射出结点（即箭弧始结点）状态下可能出现的输出字符或字符类</li>
+<li>一张转换图只包含有限个状态，其中有一个为初态，至少要有一个终态</li>
+</ul>
+<p>例如，图6表示，从初态进入状态1，若读入字符则进入状态2，若读入数字则进入状态3。</p>
+<pre><code class="mermaid">stateDiagram
+[*] --&gt; 状态1
+状态1 --&gt; 状态2: 字符
+状态1 --&gt; 状态3: 数字
+</code></pre>
+
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 6. 状态转换图}
+</script>
+</p>
+<p>图7中终态节点右上角的星号表示读入其他字符后需要回退到上一个输入，即最终识别出的结果不包含除数字以外的其他字符。</p>
+<p><img alt="识别整常数的状态转换图" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/%E8%AF%86%E5%88%AB%E6%95%B4%E5%B8%B8%E6%95%B0%E7%9A%84%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.png#half" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 7. 识别整常数的状态转换图}
+</script>
+</p>
+<p>图8是一个词法分析器的设计示例</p>
+<p><img alt="词法分析器的设计示例" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%A4%BA%E4%BE%8B.png#half" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 8. 词法分析器的设计示例}
+</script>
+</p>
+<p><em>注：部分内容整理自国防工业出版社<a href="https://baike.baidu.com/item/编译原理/3668951?fr=aladdin">《编译原理》</a>教材和中国大学MOOC-<a href="https://www.icourse163.org/course/NUDT-1003101005">国防科技大学《编译原理》</a>PPT</em></p>
+<h2 id="5"><a class="toclink" href="#5">5. 参考文献</a><a class="headerlink" href="#5" title="Permanent link">#</a></h2>
+<div id="bib-1"></div>
+
+<p>[1] 陈火旺. 编译原理 [M]. 北京 : 国防工业出版社, 2010.</p>
+<hr />
+<p>联系邮箱：curren_wong@163.com</p>
+<p>Github：<a href="https://github.com/CurrenWong">https://github.com/CurrenWong</a></p>
+<p>欢迎转载/Star/Fork，有问题欢迎通过邮箱交流。</p>
                 
                   
                 

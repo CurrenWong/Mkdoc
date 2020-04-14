@@ -40,7 +40,7 @@
     
     
       
-        <title>5.uCos中的任务机制 - Curren's Notes</title>
+        <title>5.uCos中的任务机制和优先级位图算法 - Curren's Notes</title>
       
     
     
@@ -103,7 +103,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ucos-iii" tabindex="0" class="md-skip">
+      <a href="#ucos" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -129,7 +129,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                5.uCos中的任务机制
+                5.uCos中的任务机制和优先级位图算法
               
             </span>
           
@@ -1020,11 +1020,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        5.uCos中的任务机制
+        5.uCos中的任务机制和优先级位图算法
       </label>
     
-    <a href="./" title="5.uCos中的任务机制" class="md-nav__link md-nav__link--active">
-      5.uCos中的任务机制
+    <a href="./" title="5.uCos中的任务机制和优先级位图算法" class="md-nav__link md-nav__link--active">
+      5.uCos中的任务机制和优先级位图算法
     </a>
     
       
@@ -1053,7 +1053,7 @@
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    2. 源码分析
+    2. 任务概述
   </a>
   
     <nav class="md-nav">
@@ -1061,22 +1061,28 @@
         
           <li class="md-nav__item">
   <a href="#21" class="md-nav__link">
-    2.1. 任务调度函数
+    2.1. 进程与线程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    2.1.1. 从进程到线程
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    2.2. 任务初始化函数
+  <a href="#212" class="md-nav__link">
+    2.1.2. 进程/线程模型
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    2.3. 任务挂起函数
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -1087,7 +1093,274 @@
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 参考文献
+    3. 任务概述
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 任务定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 任务的优势
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 任务的分类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 任务参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 任务的状态与变迁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 任务控制块
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 就绪算法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1. 就绪表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2. 优先级位图算法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721" class="md-nav__link">
+    7.2.1. 优先级位图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722" class="md-nav__link">
+    7.2.2. 任务进入就绪态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#723" class="md-nav__link">
+    7.2.3. 任务退出就绪态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#724" class="md-nav__link">
+    7.2.4. 优先级判定表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#725" class="md-nav__link">
+    7.2.5. 获取进入就绪态的最高优先级
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 任务调度
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    8.1. 概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    8.2. 任务切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    8.3. 任务切换的基本步骤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    8.4. 任务切换的时机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9. 任务管理机制
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    9.1. 主要任务管理功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    9.2. 创建任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    9.3. 堆栈空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    9.4. 删除任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95" class="md-nav__link">
+    9.5. 挂起任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96" class="md-nav__link">
+    9.6. 解挂任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97" class="md-nav__link">
+    9.7. 一些特殊的系统任务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    10. 源码分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    10.1. 任务调度函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    10.2. 任务初始化函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    10.3. 任务挂起函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    10.4. 恢复任务挂起函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11. 参考文献
   </a>
   
 </li>
@@ -1241,8 +1514,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/" title="2.词法分析" class="md-nav__link">
-      2.词法分析
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" title="2.词法分析概述" class="md-nav__link">
+      2.词法分析概述
     </a>
   </li>
 
@@ -1353,7 +1626,7 @@
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    2. 源码分析
+    2. 任务概述
   </a>
   
     <nav class="md-nav">
@@ -1361,22 +1634,28 @@
         
           <li class="md-nav__item">
   <a href="#21" class="md-nav__link">
-    2.1. 任务调度函数
+    2.1. 进程与线程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    2.1.1. 从进程到线程
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    2.2. 任务初始化函数
+  <a href="#212" class="md-nav__link">
+    2.1.2. 进程/线程模型
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    2.3. 任务挂起函数
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -1387,7 +1666,274 @@
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3. 参考文献
+    3. 任务概述
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 任务定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 任务的优势
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 任务的分类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 任务参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 任务的状态与变迁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 任务控制块
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 就绪算法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1. 就绪表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2. 优先级位图算法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721" class="md-nav__link">
+    7.2.1. 优先级位图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722" class="md-nav__link">
+    7.2.2. 任务进入就绪态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#723" class="md-nav__link">
+    7.2.3. 任务退出就绪态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#724" class="md-nav__link">
+    7.2.4. 优先级判定表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#725" class="md-nav__link">
+    7.2.5. 获取进入就绪态的最高优先级
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 任务调度
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    8.1. 概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    8.2. 任务切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    8.3. 任务切换的基本步骤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    8.4. 任务切换的时机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9. 任务管理机制
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    9.1. 主要任务管理功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    9.2. 创建任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    9.3. 堆栈空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    9.4. 删除任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95" class="md-nav__link">
+    9.5. 挂起任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96" class="md-nav__link">
+    9.6. 解挂任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97" class="md-nav__link">
+    9.7. 一些特殊的系统任务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    10. 源码分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    10.1. 任务调度函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    10.2. 任务初始化函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    10.3. 任务挂起函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    10.4. 恢复任务挂起函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11. 参考文献
   </a>
   
 </li>
@@ -1408,31 +1954,601 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/嵌入式系统/5.uCos中的任务机制.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/嵌入式系统/5.uCos中的任务机制和优先级位图算法.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ucos-iii"><a class="toclink" href="#ucos-iii">uCos-III中的任务机制</a><a class="headerlink" href="#ucos-iii" title="Permanent link">#</a></h1>
+                <h1 id="ucos"><a class="toclink" href="#ucos">uCos中的任务机制和优先级位图算法</a><a class="headerlink" href="#ucos" title="Permanent link">#</a></h1>
 <h2 id="_1"><a class="toclink" href="#_1">目录</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <div class="toc">
 <ul>
-<li><a href="#ucos-iii">uCos-III中的任务机制</a><ul>
+<li><a href="#ucos">uCos中的任务机制和优先级位图算法</a><ul>
 <li><a href="#_1">目录</a></li>
 <li><a href="#1">1. 背景</a></li>
-<li><a href="#2">2. 源码分析</a><ul>
-<li><a href="#21">2.1. 任务调度函数</a></li>
-<li><a href="#22">2.2. 任务初始化函数</a></li>
-<li><a href="#23">2.3. 任务挂起函数</a></li>
+<li><a href="#2">2. 任务概述</a><ul>
+<li><a href="#21">2.1. 进程与线程</a><ul>
+<li><a href="#211">2.1.1. 从进程到线程</a></li>
+<li><a href="#212">2.1.2. 进程/线程模型</a></li>
 </ul>
 </li>
-<li><a href="#3">3. 参考文献</a></li>
+</ul>
+</li>
+<li><a href="#3">3. 任务概述</a><ul>
+<li><a href="#31">3.1. 任务定义</a></li>
+<li><a href="#32">3.2. 任务的优势</a></li>
+<li><a href="#33">3.3. 任务的分类</a></li>
+</ul>
+</li>
+<li><a href="#4">4. 任务参数</a></li>
+<li><a href="#5">5. 任务的状态与变迁</a></li>
+<li><a href="#6">6. 任务控制块</a></li>
+<li><a href="#7">7. 就绪算法</a><ul>
+<li><a href="#71">7.1. 就绪表</a></li>
+<li><a href="#72">7.2. 优先级位图算法</a><ul>
+<li><a href="#721">7.2.1. 优先级位图</a></li>
+<li><a href="#722">7.2.2. 任务进入就绪态</a></li>
+<li><a href="#723">7.2.3. 任务退出就绪态</a></li>
+<li><a href="#724">7.2.4. 优先级判定表</a></li>
+<li><a href="#725">7.2.5. 获取进入就绪态的最高优先级</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#8">8. 任务调度</a><ul>
+<li><a href="#81">8.1. 概述</a></li>
+<li><a href="#82">8.2. 任务切换</a></li>
+<li><a href="#83">8.3. 任务切换的基本步骤</a></li>
+<li><a href="#84">8.4. 任务切换的时机</a></li>
+</ul>
+</li>
+<li><a href="#9">9. 任务管理机制</a><ul>
+<li><a href="#91">9.1. 主要任务管理功能</a></li>
+<li><a href="#92">9.2. 创建任务</a></li>
+<li><a href="#93">9.3. 堆栈空间</a></li>
+<li><a href="#94">9.4. 删除任务</a></li>
+<li><a href="#95">9.5. 挂起任务</a></li>
+<li><a href="#96">9.6. 解挂任务</a></li>
+<li><a href="#97">9.7. 一些特殊的系统任务</a></li>
+</ul>
+</li>
+<li><a href="#10">10. 源码分析</a><ul>
+<li><a href="#101">10.1. 任务调度函数</a></li>
+<li><a href="#102">10.2. 任务初始化函数</a></li>
+<li><a href="#103">10.3. 任务挂起函数</a></li>
+<li><a href="#104">10.4. 恢复任务挂起函数</a></li>
+</ul>
+</li>
+<li><a href="#11">11. 参考文献</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <h2 id="1"><a class="toclink" href="#1">1. 背景</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
-<p>老师上课讲到了uC/OS中的任务机制，所以我结合<a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=EJmMZXq1b8qOpBlD69XAdP7LEGaKJWEYBqWxRnme5vrVzo4QMZYgNyk2jNA5467K">《μC/OS-III源码分析笔记》</a>想要写一篇笔记对这部分的内容进行总结。</p>
-<h2 id="2"><a class="toclink" href="#2">2. 源码分析</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
-<h3 id="21"><a class="toclink" href="#21">2.1. 任务调度函数</a><a class="headerlink" href="#21" title="Permanent link">#</a></h3>
+<p>今天老师上课讲到了uC/OS中的任务机制，所以我想要结合<a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=EJmMZXq1b8qOpBlD69XAdP7LEGaKJWEYBqWxRnme5vrVzo4QMZYgNyk2jNA5467K">《μC/OS-III源码分析笔记》</a>和中国大学MOOC-电子科技大学<a href="https://www.icourse163.org/learn/UESTC-1206862805?tid=1450357492#/learn/announce">《嵌入式系统及应用》</a>PPT写一篇笔记对这部分的内容进行总结。</p>
+<h2 id="2"><a class="toclink" href="#2">2. 任务概述</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
+<h3 id="21"><a class="toclink" href="#21">2.1. 进程与线程</a><a class="headerlink" href="#21" title="Permanent link">#</a></h3>
+<h4 id="211"><a class="toclink" href="#211">2.1.1. 从进程到线程</a><a class="headerlink" href="#211" title="Permanent link">#</a></h4>
+<ul>
+<li>
+<p><strong>定义</strong>：进程最初由Multics的设计者在20世纪60年代提出来的，主要包括以下内容：</p>
+<ul>
+<li>一个正在执行的程序</li>
+<li>计算机中正在运行的程序的一个实例</li>
+<li>可以分配给处理器，并由处理器执行的一个实体</li>
+<li>由一个顺序的执行线程、一个当前状态和一组相关的系统资源所刻画的活动单元</li>
+</ul>
+</li>
+<li>
+<p><strong>组成</strong>：进程由代码、数据、堆栈和进程控制块构成</p>
+<ul>
+<li>进程控制块包含了操作系统用来控制进程所需要的信息</li>
+<li>包括进程状态和调度信息、CPU寄存器信息、内存管理信息和I/O状态信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>作用</strong>：早期的进程，包含了以下两个方面的内容</p>
+<ul>
+<li>资源。进程是资源分配的基本单位，一个进程包括一个保存进程映像的虚拟地址空间、主存、I/O设备和文件等资源。</li>
+<li>调度执行。进程作为操作系统的调度实体，是调度的基本单位。</li>
+</ul>
+</li>
+<li>
+<p><strong>演变</strong>：随着操作系统的发展，进程所包含的两个方面的内容逐渐被分开：</p>
+<ul>
+<li>轻量级进程或线程：调度执行的单位</li>
+<li>进程：资源分配的单位</li>
+<li>线程是进程内部一个相对独立的控制流，由线程上下文和需要执行的一段程序指令构成</li>
+<li>在进程中，所有线程共享该进程的状态和资源，可以访问相同的数据</li>
+</ul>
+</li>
+<li>
+<p><strong>线程的优势</strong>：</p>
+<ul>
+<li><strong>创建</strong>：在一个已有进程中创建一个新线程比创建一个全新的进程所需的时间开销少</li>
+<li><strong>终止</strong>：终止一个线程比终止一个进程所花费的时间少</li>
+<li><strong>切换</strong>：线程切换比进程切换所花费的时间少</li>
+<li><strong>通信</strong>：使同一进程内部不同线程之间的通信效率得到显著提高。<ul>
+<li>在大多数操作系统中，不同进程之间的通信需要内核的干预，而同一进程内部不同线程之间则可直接通信</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="212"><a class="toclink" href="#212">2.1.2. 进程/线程模型</a><a class="headerlink" href="#212" title="Permanent link">#</a></h4>
+<ul>
+<li><strong>模型</strong>：引入线程的概念后，可把进程和线程的使用分为以下几种模型:</li>
+</ul>
+<p><img alt="模型" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E6%A8%A1%E5%9E%8B.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 1. 模型}
+</script>
+</p>
+<ul>
+<li>
+<p><strong>单进程/多线程模型</strong>：大多数嵌入式实时内核使用了单进程/多线程模型，或简单地称为<strong>任务模型</strong></p>
+<ul>
+<li>把整个应用当作一个没有定义的进程来对待</li>
+<li>应用则被划分为多个任务的形式来进行处理</li>
+<li>适用于实时性要求较高的、相对简单的应用</li>
+</ul>
+</li>
+<li>
+<p><strong>多进程/多线程模型</strong>：也有一些嵌入式实时操作系统采用了多进程/多线程模型</p>
+<ul>
+<li>系统中包含多个进程，每个进程对应又包含多个线程</li>
+<li>适合于处理复杂的应用</li>
+</ul>
+</li>
+</ul>
+<h2 id="3"><a class="toclink" href="#3">3. 任务概述</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<h3 id="31"><a class="toclink" href="#31">3.1. 任务定义</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：任务是嵌入式实时操作系统内核的基本调度单位。</p>
+</li>
+<li>
+<p><strong>内容</strong>：任务主要包含以下内容</p>
+<ul>
+<li><strong>代码</strong>：一段可执行的程序</li>
+<li><strong>数据</strong>：程序所需要的相关数据（变量、工作空间、缓冲区等）</li>
+<li><strong>堆栈</strong>：局部变量，子程序调用，任务上下文等</li>
+<li><strong>上下文</strong>：程序执行的上下文环境</li>
+</ul>
+</li>
+</ul>
+<p><em>注：任务通常包含一个具有无限循环的程序</em></p>
+<h3 id="32"><a class="toclink" href="#32">3.2. 任务的优势</a><a class="headerlink" href="#32" title="Permanent link">#</a></h3>
+<p><img alt="任务的优势" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%BC%98%E5%8A%BF.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 2. 任务的优势}
+</script>
+</p>
+<h3 id="33"><a class="toclink" href="#33">3.3. 任务的分类</a><a class="headerlink" href="#33" title="Permanent link">#</a></h3>
+<p><img alt="任务的分类1" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%88%86%E7%B1%BB1.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 3. 任务的分类-按到达情况的可预测性}
+</script>
+</p>
+<p><img alt="任务的分类2" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%88%86%E7%B1%BB2.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 4. 任务的分类-按重要程度划分}
+</script>
+</p>
+<h2 id="4"><a class="toclink" href="#4">4. 任务参数</a><a class="headerlink" href="#4" title="Permanent link">#</a></h2>
+<ol>
+<li>优先级</li>
+</ol>
+<ul>
+<li><strong>定义</strong>：表示任务对应工作内容在处理上的优先程度</li>
+<li><strong>作用</strong>：优先级越高，表明任务越需要得到优先处理<ul>
+<li>飞行器中处理稳定性控制的任务，就需要具有较高的优先级，一旦执行条件得到满足，应及时得到执行</li>
+</ul>
+</li>
+<li><strong>分类</strong>：任务的优先级分为静态优先级和动态优先级。<ul>
+<li><strong>静态优先级</strong>：任务的优先级被确定后，在系统运行过程中将不再发生变化</li>
+<li><strong>动态优先级</strong>：系统运行过程中，任务的优先级是可以动态变化的</li>
+</ul>
+</li>
+<li><strong>数量</strong>：uCOS-II中共可管理64个任务，每个任务必须有不同的优先级。uCOS-III中已经可以支持同一优先级有多个任务，且可以自行设置优先级的个数</li>
+</ul>
+<ol start="2">
+<li>周期</li>
+</ol>
+<ul>
+<li><strong>周期</strong>：周期任务所具有的参数，表示任务周期性执行的间隔时间</li>
+</ul>
+<ol start="3">
+<li>任务的计算时间</li>
+</ol>
+<ul>
+<li>任务在<strong>特定硬件环境</strong>下被完整执行所需要的时间，也被称为是任务的执行时间（execution time）</li>
+<li>由于任务每次执行的软件环境的<strong>差异性</strong>，导致任务在各次具体执行过程中的计算时间各有不同。</li>
+<li>通常用<strong>最坏情况下</strong>的执行时间（worst case time）或是需要的<strong>最长执行时间</strong>来表示，也可用<strong>统计时间</strong>（statistical time）来表示。</li>
+</ul>
+<ol start="4">
+<li>任务的就绪时间</li>
+</ol>
+<ul>
+<li>任务具备了在处理器上被执行所需要条件时的时间</li>
+</ul>
+<ol start="5">
+<li>截止时间</li>
+</ol>
+<ul>
+<li>定义：意味着任务需要在该时间到来之前被执行完成。</li>
+<li>分类：<ul>
+<li>截止时间可以通过绝对截止时间（absolute deadline）和相对截止时间（relative time）两种方式来表示。相对截止时间为任务的绝对截止时间减去任务的就绪时间。</li>
+<li>截止时间可以分为强截止时间（hard deadline）和弱截止时间（soft deadline）两种情况：<ul>
+<li>具有强截止时间的任务即为关键任务，如果截止时间不能得到满足，就会出现严重的后果。</li>
+<li>拥有关键任务的实时系统又被称为强实时（hard real-time）
+系统，否则称为弱实时（soft real-time）系统。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5"><a class="toclink" href="#5">5. 任务的状态与变迁</a><a class="headerlink" href="#5" title="Permanent link">#</a></h2>
+<p>任务拥有的资源情况是不断变化的，导致任务状态也表现出不断变化的特性。</p>
+<p>不同的实时内核实现方式对任务状态的定义不尽相同，但是都可以概括为三种基本
+的状态</p>
+<ul>
+<li><strong>等待</strong>（waiting）：任务在等待某个事件的发生；</li>
+<li><strong>就绪</strong>（ready）： 任务等待获得处理器资源；</li>
+<li><strong>执行</strong>（running）：任务获得处理器资源，所包含的代码内容正在被执行。</li>
+</ul>
+<hr />
+<ul>
+<li>单处理器系统中任务的特点：<ul>
+<li>任何时候都只有一个任务在CPU中执行。无事时就运行空闲任务执行空操作。</li>
+<li>任何一个可以执行的任务都必须处于就绪状态。<ul>
+<li>调度程序从任务的就绪队列中选择下一个需要执行的任务。</li>
+<li>处于就绪状态的任务拥有除CPU以外的其他所有需要的资源。</li>
+</ul>
+</li>
+<li>如果任务在需要等待I/O设备或其他任务提供的数据，就处于等待状态。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><img alt="任务的状态与变迁" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BB%BB%E5%8A%A1%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8F%98%E8%BF%81.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 5. 任务的状态与变迁}
+</script>
+</p>
+<p><img alt="三个任务进行状态转换的过程" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%B8%89%E4%B8%AA%E4%BB%BB%E5%8A%A1%E8%BF%9B%E8%A1%8C%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 6. 三个任务进行状态转换的过程}
+</script>
+</p>
+<p><img alt="状态变迁图" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E7%8A%B6%E6%80%81%E5%8F%98%E8%BF%81%E5%9B%BE.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 7. 状态变迁图}
+</script>
+</p>
+<h2 id="6"><a class="toclink" href="#6">6. 任务控制块</a><a class="headerlink" href="#6" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>定义</strong>：任务控制块是包含任务相关信息的数据结构，它包含了任务执行过程中所需要的所有信息</p>
+</li>
+<li>
+<p><strong>作用</strong>：任务管理是通过对任务控制块（Task Control Block，TCB）的操作来实现的。</p>
+</li>
+<li>
+<p><strong>内容</strong>：任务控制块大都包括以下信息：</p>
+<ul>
+<li>任务的名字</li>
+<li>任务执行的起始地址</li>
+<li>任务的优先级</li>
+<li>任务的状态</li>
+<li>任务的硬件上下文<ul>
+<li>堆栈指针、PC和寄存器等</li>
+</ul>
+</li>
+<li>任务的队列指针等内容</li>
+</ul>
+</li>
+</ul>
+<h2 id="7"><a class="toclink" href="#7">7. 就绪算法</a><a class="headerlink" href="#7" title="Permanent link">#</a></h2>
+<p>当有多个任务同时就绪时，内核利用特定的算法求出当前具有最高优先级的就绪任务。</p>
+<p>在嵌入式实时操作系统中，常用的就绪算法是优先级位图算法。我们以uC/OS-II中的实现为例来进行讲述。</p>
+<h3 id="71"><a class="toclink" href="#71">7.1. 就绪表</a><a class="headerlink" href="#71" title="Permanent link">#</a></h3>
+<p><img alt="就绪表" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E5%B0%B1%E7%BB%AA%E8%A1%A8.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 8. 就绪表}
+</script>
+</p>
+<h3 id="72"><a class="toclink" href="#72">7.2. 优先级位图算法</a><a class="headerlink" href="#72" title="Permanent link">#</a></h3>
+<h4 id="721"><a class="toclink" href="#721">7.2.1. 优先级位图</a><a class="headerlink" href="#721" title="Permanent link">#</a></h4>
+<p><img alt="优先级位图算法1" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%951.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 9. 优先级位图算法}
+</script>
+</p>
+<h4 id="722"><a class="toclink" href="#722">7.2.2. 任务进入就绪态</a><a class="headerlink" href="#722" title="Permanent link">#</a></h4>
+<p><img alt="任务进入就绪态" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%952.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 10. 任务进入就绪态}
+</script>
+</p>
+<pre><code class="cpp">// 任务进入就绪态
+OSRdyGrp |= OSMapTbl[priority &gt;&gt; 3];
+OSRdyTbl[priority &gt;&gt; 3] |= OSMapTbl[priority &amp; 0x07];
+</code></pre>
+
+<p>我们先来分析一下第一行代码。如图10中所示，任务优先级为35时，首先将35化为二进制</p>
+<p>
+<script type="math/tex; mode=display">
+priority = (00100011)_B
+</script>
+</p>
+<p>将 <script type="math/tex">priority</script> 右移三位，则得到35在 <code>OSMapTbl</code> 中的对应位置</p>
+<p>
+<script type="math/tex; mode=display">
+priority \gg 3 = (00100)_B = (4)_D
+</script>
+</p>
+<p>从 <code>OSMapTbl</code> 表中进行索引</p>
+<p>
+<script type="math/tex; mode=display">
+\text{OSMapTbl[4]} = (00010000)_B
+</script>
+</p>
+<p>假设<code>OSRdyGrp</code>为全<script type="math/tex">0</script>，<script type="math/tex">\text{OSMapTbl[4]}</script>和 <code>OSRdyGrp</code> 做或运算</p>
+<p>
+<script type="math/tex; mode=display">
+OSRdyGrp ｜ (00010000)_B = (00010000)_B
+</script>
+</p>
+<p><code>OSRdyGrp</code> 标示了某个或多个就绪任务的优先级在<code>OSRdyTbl[4]</code> 这一行中。</p>
+<hr />
+<p>接着看第二行代码</p>
+<pre><code class="cpp">// 任务进入就绪态
+OSRdyTbl[priority &gt;&gt; 3] |= OSMapTbl[priority &amp; 0x07];
+</code></pre>
+
+<p>
+<script type="math/tex; mode=display">
+\text{0x07} = (00000111)_B
+</script>
+</p>
+<p>
+<script type="math/tex">priority</script> 和 <script type="math/tex">\text{0x07}</script> 相与，即取 <script type="math/tex">priority</script> 的后三位二进制，此处为 <script type="math/tex">(011)_B</script>，即<script type="math/tex">(3)_D</script>，查表可得</p>
+<p>
+<script type="math/tex; mode=display">
+\text{OSMapTbl}[3] = (00001000)_B
+</script>
+</p>
+<p>假设<code>OSRdyTbl[4]</code> 为全0，<script type="math/tex">\text{OSMapTbl}[3]</script>与<code>OSRdyTbl[4]</code> 相或</p>
+<p>
+<script type="math/tex; mode=display">
+\text{OSRdyTbl[4]} \ | \ (00001000)_B = (00001000)_B
+</script>
+</p>
+<p>再放入 <code>OSRdyTbl[4]</code> 中，标示了就绪的任务优先级为35。</p>
+<h4 id="723"><a class="toclink" href="#723">7.2.3. 任务退出就绪态</a><a class="headerlink" href="#723" title="Permanent link">#</a></h4>
+<p><img alt="任务退出就绪态" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%953.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 11. 任务退出就绪态}
+</script>
+</p>
+<pre><code class="cpp">if((OSRdyTbl[priority &gt;&gt; 3] &amp;= ~OSMapTbl[priority &amp; 0x07]) == 0)
+OSRdyGrp &amp;= ~OSMapTbl[priority &gt;&gt; 3];
+</code></pre>
+
+<p>接着上面的例子，当任务退出就绪态时</p>
+<p>
+<script type="math/tex; mode=display">
+\text{OSMapTbl}[3] = (00001000)_B
+</script>
+</p>
+<p><code>~</code>放在数字前表示取反</p>
+<p>
+<script type="math/tex; mode=display">
+～\text{OSMapTbl}[3] = (11110111)_B
+</script>
+</p>
+<p>与  <code>OSRdyTbl[4]</code> 相与</p>
+<p>
+<script type="math/tex; mode=display">
+\text{OSRdyTbl[4]} \ \& \  (11110111)_B = (00000000)_B = (0)_D
+</script>
+</p>
+<p>满足 <code>if</code> 语句中的条件，则</p>
+<p>
+<script type="math/tex; mode=display">
+{ \begin{aligned}
+\text{OSRdyGrp} &= \text{OSRdyGrp}\ \&  ~(00010000)_B & \\
+&= (00010000)_B \ \& \ (11101111)_B & \\
+&= (00000000)_B \ & \\
+&= (0)_D \ & \\
+\end{aligned} }
+</script>
+</p>
+<h4 id="724"><a class="toclink" href="#724">7.2.4. 优先级判定表</a><a class="headerlink" href="#724" title="Permanent link">#</a></h4>
+<p><img alt="优先级判定表" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%954.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 12. 优先级判定表}
+</script>
+</p>
+<h4 id="725"><a class="toclink" href="#725">7.2.5. 获取进入就绪态的最高优先级</a><a class="headerlink" href="#725" title="Permanent link">#</a></h4>
+<pre><code class="cpp">y = OSUnMapTbl[OSRdyGrp];
+x = OSUnMapTbl[OSRdyTbl[y]];
+priority = (y &lt;&lt; 3) + x;
+</code></pre>
+
+<p><img alt="获取进入就绪态的最高优先级" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%955.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 13. 获取进入就绪态的最高优先级}
+</script>
+</p>
+<h2 id="8"><a class="toclink" href="#8">8. 任务调度</a><a class="headerlink" href="#8" title="Permanent link">#</a></h2>
+<h3 id="81"><a class="toclink" href="#81">8.1. 概述</a><a class="headerlink" href="#81" title="Permanent link">#</a></h3>
+<ul>
+<li>uC/OS-II总是选择就绪态任务中优先级最高的任务执行</li>
+<li>由调度器来确定哪个任务优先级最高和进行调度切换</li>
+<li>任务级调度是由函数<code>OS_Sched()</code>完成</li>
+<li>中断级的调度是由函数<code>OSIntExit()</code>完成的</li>
+<li>需要注意的是，uC/OS-II的调度执行时间是确定的常数，与应用程序建立的任务数量以及当前最高优先级任务的位置没有关系</li>
+</ul>
+<h3 id="82"><a class="toclink" href="#82">8.2. 任务切换</a><a class="headerlink" href="#82" title="Permanent link">#</a></h3>
+<p><img alt="任务切换" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E4%BB%BB%E5%8A%A1%E5%88%87%E6%8D%A2.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 14. 任务切换}
+</script>
+</p>
+<h3 id="83"><a class="toclink" href="#83">8.3. 任务切换的基本步骤</a><a class="headerlink" href="#83" title="Permanent link">#</a></h3>
+<ol>
+<li>保存任务<strong>上下文</strong>环境</li>
+<li>更新当前运行任务的<strong>控制块</strong>内容，将其状态改为就绪或等待状态</li>
+<li>将任务控制块移到相应队列（就绪队列或等待队列，或进行位图操作）</li>
+<li>选择另一个任务进行执行(调度)</li>
+<li>改变需投入运行任务的控制块内容，将其状态变为<strong>运行状态</strong></li>
+<li>恢复需投入运行任务的上下文环境</li>
+</ol>
+<h3 id="84"><a class="toclink" href="#84">8.4. 任务切换的时机</a><a class="headerlink" href="#84" title="Permanent link">#</a></h3>
+<ol>
+<li>中断、自陷(Traps)</li>
+<li>正在运行任务因缺乏资源而阻塞</li>
+<li>时间片轮转调度时时间片用尽</li>
+<li>更高优先级任务就绪</li>
+</ol>
+<h2 id="9"><a class="toclink" href="#9">9. 任务管理机制</a><a class="headerlink" href="#9" title="Permanent link">#</a></h2>
+<h3 id="91"><a class="toclink" href="#91">9.1. 主要任务管理功能</a><a class="headerlink" href="#91" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>创建任务</strong>的过程即为分配任务控制块的过程。</p>
+<ul>
+<li>在创建任务时，通常需要确定任务的名字和任务的优先级等内容，
+确立任务所能使用的堆栈区域。</li>
+<li>任务创建成功后，通常会为用户返回一个标识该任务的ID，以实
+现对任务的引用管理。</li>
+</ul>
+</li>
+<li>
+<p><strong>删除任务</strong>把任务从系统中去掉，释放对应的任务控制块。</p>
+</li>
+<li>
+<p><strong>挂起/唤醒任务</strong>把任务变为等待状态，可通过唤醒任务操作把任务转
+换为就绪状态。</p>
+</li>
+<li>
+<p><strong>设置任务属性</strong>可以用来设置任务的抢占、时间片等特性，以确定是
+否允许任务在执行过程中被抢占或是对同优先级任务采用时间片轮
+转方式运行等。</p>
+</li>
+<li>
+<p><strong>改变任务优先级</strong>用来根据需要改变任务的当前优先级。</p>
+</li>
+<li>
+<p><strong>获取任务信息</strong>获得任务的当前优先级、任务的属性、任务的名字、
+任务的上下文、任务的状态等内容，便于用户进行决策。</p>
+</li>
+</ul>
+<h3 id="92"><a class="toclink" href="#92">9.2. 创建任务</a><a class="headerlink" href="#92" title="Permanent link">#</a></h3>
+<p>任务可以在多任务调度开始之前创建，也可以在其它任务的执
+行过程中创建。但不能在中断服务程序中创建。开始多任务调
+度之前，必须至少创建一个任务。</p>
+<ul>
+<li>
+<p><strong>定义</strong>：任务创建为任务分配和初始化相关的数据结构。</p>
+</li>
+<li>
+<p><strong>所需信息</strong>：<strong>任务创建</strong>时通常需要使用如下<strong>信息</strong>：</p>
+<ul>
+<li>任务的名字和初始优先级</li>
+<li>任务栈</li>
+<li>任务属性</li>
+<li>任务对应的函数入口地址</li>
+<li>任务对应函数的参数等</li>
+</ul>
+</li>
+<li>
+<p><strong>过程</strong>：任务创建通常需要<strong>完成以下工作</strong>：</p>
+<ul>
+<li>获得任务控制块TCB</li>
+<li>根据实时内核用户提供的信息初始化TCB</li>
+<li>为任务分配一个可以唯一标识任务的ID</li>
+<li>使任务处于就绪状态，把任务放置到就绪队列</li>
+<li>进行任务调度处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="93"><a class="toclink" href="#93">9.3. 堆栈空间</a><a class="headerlink" href="#93" title="Permanent link">#</a></h3>
+<p><img alt="堆栈空间" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6/%E5%A0%86%E6%A0%88%E7%A9%BA%E9%97%B4.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 15. 堆栈空间}
+</script>
+</p>
+<h3 id="94"><a class="toclink" href="#94">9.4. 删除任务</a><a class="headerlink" href="#94" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>定义</strong>：内核<strong>根据任务创建时获得的ID删除指定的任务</strong>。</li>
+<li>
+<p><strong>要点</strong>：任务删除时需要<strong>释放该任务所拥有的资源</strong>。这通常由<strong>内核和任务共同完成</strong>。</p>
+</li>
+<li>
+<p><strong>过程</strong>：任务删除通常需要进行以下工作：</p>
+<ul>
+<li>根据指定的ID，获得对应任务的TCB</li>
+<li>把任务的TCB从队列中取出来，挂入空闲TCB队列释放任务所占用的资源</li>
+</ul>
+</li>
+</ul>
+<h3 id="95"><a class="toclink" href="#95">9.5. 挂起任务</a><a class="headerlink" href="#95" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>功能</strong>：挂起指定任务，直到通过唤醒任务对任务进行解挂。<ul>
+<li>一个任务可以<strong>把自己挂起</strong>。</li>
+<li>当任务把自己挂起后，会引起<strong>任务的调度</strong>，实时内核将选取另外一个合适的任务进行执行。</li>
+<li>任务被挂起后，该任务将处于<strong>等待状态（或挂起状态）</strong>。</li>
+</ul>
+</li>
+<li><strong>过程</strong>：挂起任务通常需要进行以下工作：<ul>
+<li>根据指定的ID，获得对应任务的TCB；</li>
+<li>把任务的状态变为等待状态，并把任务从就绪队列或就绪表中移除；</li>
+<li>如果任务自己挂起自己，进行任务调度</li>
+</ul>
+</li>
+</ul>
+<h3 id="96"><a class="toclink" href="#96">9.6. 解挂任务</a><a class="headerlink" href="#96" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>功能</strong>：根据任务ID解挂指定的任务。<ul>
+<li>如果<strong>任务还在等待其他资源</strong>，任务解挂后仍然处于等待状态;</li>
+<li>否则，解挂后的任务将处于就绪状态。</li>
+</ul>
+</li>
+<li><strong>过程</strong>：解挂任务通常需要进行以下工作：<ul>
+<li>根据指定的ID，获得对应任务的TCB</li>
+<li>如果任务在等待其他资源，任务将仍然处于等待状态；否则，把任务的状态变为就绪状态，并把TCB放置到就绪队列</li>
+<li>进行任务调度</li>
+</ul>
+</li>
+</ul>
+<h3 id="97"><a class="toclink" href="#97">9.7. 一些特殊的系统任务</a><a class="headerlink" href="#97" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>空闲任务</strong>：是由内核创建的在没有其它任务就绪时运行的一种任务。它的优先级是最低的，不能被应用软件删除。</p>
+</li>
+<li>
+<p><strong>统计任务</strong>：通常是由内核创建的统计运行时间的任务。它告诉用户应用程序使用了多少CPU时间，通常用百分比来表示。（<em>注： uC/OS-II 中可利用OSIdleCtr变量来实现这个功能</em>）</p>
+</li>
+</ul>
+<h2 id="10"><a class="toclink" href="#10">10. 源码分析</a><a class="headerlink" href="#10" title="Permanent link">#</a></h2>
+<p>以下内容参考自<a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=EJmMZXq1b8qOpBlD69XAdP7LEGaKJWEYBqWxRnme5vrVzo4QMZYgNyk2jNA5467K">《μC/OS-III 源码分析笔记》</a>。</p>
+<h3 id="101"><a class="toclink" href="#101">10.1. 任务调度函数</a><a class="headerlink" href="#101" title="Permanent link">#</a></h3>
 <p>首先看任务调度函数<code>OSSched()</code></p>
 <pre><code class="cpp">void  OSSched (void)
  {
@@ -1477,10 +2593,10 @@
 <blockquote>
 <p>首先如果是在中断中或者调度器被锁住，就不能直接进行调度直接退出。中断的代码一般做的都是重要并且比较简单的事情，中断必须先执行完再去执行任务相关代码。如果在中断中进行任务调度，不仅仅会影响系统的实时性，中断服务程序不能及时运行，而且可能会产生异常（关于中断中进行任务切换引发的异常在网上有相关的文章——《破坏STM32中断机制引发的异常》进行分析，大家可以去看下）。</p>
 <p>根据前面的第12章第13章关于就绪列表的知识很容易就找出就绪列表中哪一个优先级最高，且该优先级哪个任务应该进行切换执行，然后判断该任务是不是跟当前运行任务相同。如果相同就不用进行调度，如果不同先对任务切换的次数<code>OSTCBHighRdyPtr-&gt;CtxSwCtr</code>跟系统总的任务切换的次数<code>OSTaskCtxSwCtr</code>进行更新，接着执行调度，这个时候只是调用了宏<code>OS_TASK_SW()</code>。</p>
-<p>有些读者可能会想，原来任务切换这么简单，就是调用了一个宏，看似简单的东西其实不简单，因为这个宏只是相当一个导火索，后面会“引爆”其他的操作。</p>
+<p>有些读者可能会想，原来任务切换这么简单，就是调用了一个宏，看似简单的东西其实不简单，因为这个宏只是相当一个导火索，后面会“引爆”其他的操作 <a href="#bib-1"><sup>1</sup></a>。</p>
 </blockquote>
-<h3 id="22"><a class="toclink" href="#22">2.2. 任务初始化函数</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
-<p>代码清单15-1 任务创建函数OSTaskCreate</p>
+<h3 id="102"><a class="toclink" href="#102">10.2. 任务初始化函数</a><a class="headerlink" href="#102" title="Permanent link">#</a></h3>
+<p>任务创建函数OSTaskCreate</p>
 <pre><code class="cpp"> void  OSTaskCreate (OS_TCB        *p_tcb,
                      CPU_CHAR      *p_name,
                      OS_TASK_PTR    p_task,
@@ -1717,8 +2833,8 @@
  }
 </code></pre>
 
-<h3 id="23"><a class="toclink" href="#23">2.3. 任务挂起函数</a><a class="headerlink" href="#23" title="Permanent link">#</a></h3>
-<p>代码清单15-2 任务挂起函数OSTaskSuspend</p>
+<h3 id="103"><a class="toclink" href="#103">10.3. 任务挂起函数</a><a class="headerlink" href="#103" title="Permanent link">#</a></h3>
+<p>任务挂起函数OSTaskSuspend</p>
 <pre><code class="cpp"> // 是否包含挂起任务或者取消挂起任务的相关代码
  #if OS_CFG_TASK_SUSPEND_EN &gt; 0u
  void   OSTaskSuspend (OS_TCB  *p_tcb,
@@ -1785,8 +2901,8 @@
      case OS_TASK_STATE_RDY:
 
          /*在允许中断延迟的情况下，开中断并且锁住调度器，因为下面操作的变量
-68         不可能在中断中被使用，所以只需要锁住调度器即可。如果不允许中断
-69         延迟，这里会变成什么都不做，实际上这是个空宏，因为前面已经关中断*/
+         不可能在中断中被使用，所以只需要锁住调度器即可。如果不允许中断
+         延迟，这里会变成什么都不做，实际上这是个空宏，因为前面已经关中断*/
          OS_CRITICAL_ENTER_CPU_CRITICAL_EXIT();
 
          // 任务状态变为挂起状态
@@ -1849,10 +2965,131 @@
  #endif
 </code></pre>
 
-<h2 id="3"><a class="toclink" href="#3">3. 参考文献</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<h3 id="104"><a class="toclink" href="#104">10.4. 恢复任务挂起函数</a><a class="headerlink" href="#104" title="Permanent link">#</a></h3>
+<p>恢复挂起任务函数OSTaskResume</p>
+<pre><code class="cpp">
+ // 是否包含挂起任务或者取消挂起任务的相关代码
+ #if OS_CFG_TASK_SUSPEND_EN &gt; 0u
+ void  OSTaskResume (OS_TCB  *p_tcb,
+                     OS_ERR  *p_err)
+ {
+     CPU_SR_ALLOC();
+
+
+ // 是否定义安全检查的宏
+ #ifdef OS_SAFETY_CRITICAL
+     if (p_err == (OS_ERR *)0) {
+
+        // 如果传入的参数p_err是空指针，那么将进入安全关键异常，这部分需要用户自己编写
+         OS_SAFETY_CRITICAL_EXCEPTION();
+         return;
+     }
+ #endif
+
+ // 中断中不允许调用任务挂起函数
+ #if OS_CFG_CALLED_FROM_ISR_CHK_EN &gt; 0u
+     if (OSIntNestingCtr &gt; (OS_NESTING_CTR)0) {
+         *p_err = OS_ERR_TASK_RESUME_ISR;
+         return;
+     }
+ #endif
+
+     // 进入临界段
+     CPU_CRITICAL_ENTER();
+
+ // 是否进行参数检测
+ #if OS_CFG_ARG_CHK_EN &gt; 0u
+     /*如果参数p_tcb是空指针或者指向当前任务的指针，那么不能继续进行恢复操作
+       因为当前任务正在运行，没有处于挂起状态。*/
+     if ((p_tcb == (OS_TCB *)0) ||
+         (p_tcb == OSTCBCurPtr)) {
+         CPU_CRITICAL_EXIT();
+         *p_err = OS_ERR_TASK_RESUME_SELF;
+         return;
+     }
+ #endif
+
+     *p_err  = OS_ERR_NONE;
+
+     // 根据任务的状态进行操作
+     switch (p_tcb-&gt;TaskState) {
+
+     // 如果任务没有处于挂起的相关状态，就直接退出
+     case OS_TASK_STATE_RDY:
+     case OS_TASK_STATE_DLY:
+     case OS_TASK_STATE_PEND:
+     case OS_TASK_STATE_PEND_TIMEOUT:
+         CPU_CRITICAL_EXIT();
+         *p_err = OS_ERR_TASK_NOT_SUSPENDED;
+         break;
+
+     // 如果任务只是处于挂起状态
+     case OS_TASK_STATE_SUSPENDED:
+
+         // 开中断然后锁住调度器
+         OS_CRITICAL_ENTER_CPU_CRITICAL_EXIT();
+
+         // 挂起的嵌套层数减1
+         p_tcb-&gt;SuspendCtr--;
+
+         // 如果挂起的嵌套层数为0，那么就将任务置于就绪状态
+         if (p_tcb-&gt;SuspendCtr == (OS_NESTING_CTR)0) {
+             p_tcb-&gt;TaskState = OS_TASK_STATE_RDY;
+             OS_TaskRdy(p_tcb);
+         }
+
+         // 减少调度器嵌套层数，即退出临界段
+         OS_CRITICAL_EXIT_NO_SCHED();
+         break;
+
+     // 任务处于延时和挂起两种状态
+     case OS_TASK_STATE_DLY_SUSPENDED:
+
+         // 挂起的嵌套层数减1
+         p_tcb-&gt;SuspendCtr--;
+         // 如果嵌套层数已经为0，说明已经脱离挂起状态，剩下等待状态
+         if (p_tcb-&gt;SuspendCtr == (OS_NESTING_CTR)0) {
+             p_tcb-&gt;TaskState = OS_TASK_STATE_DLY;
+         }
+
+         // 退出临界段
+         CPU_CRITICAL_EXIT();
+         break;
+
+     /*任务处于挂起和等待两种状态，仍然是先将嵌套层数减1，然后检查
+       挂起嵌套的层数是否为0，为0就只剩下等待状态了*/
+     case OS_TASK_STATE_PEND_SUSPENDED:
+         p_tcb-&gt;SuspendCtr--;
+         if (p_tcb-&gt;SuspendCtr == (OS_NESTING_CTR)0) {
+             p_tcb-&gt;TaskState = OS_TASK_STATE_PEND;
+         }
+         CPU_CRITICAL_EXIT();
+         break;
+
+     /*任务处于挂起和超时等待两种状态，仍然是先将嵌套层数减1，然后检查
+       挂起嵌套的层数是否为0，为0就只剩下超时等待状态了*/
+     case OS_TASK_STATE_PEND_TIMEOUT_SUSPENDED:
+         p_tcb-&gt;SuspendCtr--;
+         if (p_tcb-&gt;SuspendCtr == (OS_NESTING_CTR)0) {
+             p_tcb-&gt;TaskState = OS_TASK_STATE_PEND_TIMEOUT;
+         }
+         CPU_CRITICAL_EXIT();
+         break;
+
+     default:
+         CPU_CRITICAL_EXIT();
+         *p_err = O
+
+</code></pre>
+
+<h2 id="11"><a class="toclink" href="#11">11. 参考文献</a><a class="headerlink" href="#11" title="Permanent link">#</a></h2>
 <div id="bib-1"></div>
 
 <p>[1] <a href="https://m.igetget.com/hybrid/v2/ebook/detail?bid=EJmMZXq1b8qOpBlD69XAdP7LEGaKJWEYBqWxRnme5vrVzo4QMZYgNyk2jNA5467K">李悦城. μC/OS-III 源码分析笔记. 机械工业出版社, 2016.</a></p>
+<hr />
+<p>联系邮箱：curren_wong@163.com</p>
+<p>Github：<a href="https://github.com/CurrenWong">https://github.com/CurrenWong</a></p>
+<p>欢迎转载/Star/Fork，有问题欢迎通过邮箱交流。</p>
                 
                   
                 
