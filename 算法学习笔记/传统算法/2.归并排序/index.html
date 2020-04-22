@@ -655,6 +655,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      归并排序
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        归并排序
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/1.51Nod-2134_%E9%80%86%E5%BA%8F%E5%AF%B9%E4%B8%AA%E6%95%B01000/" title="1.51Nod 2134 逆序对个数1000" class="md-nav__link">
+      1.51Nod 2134 逆序对个数1000
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1662,8 +1698,8 @@ void MergeSort(RecordType r1[], int low, int high, RecordType r[])
         r[low] = r1[low];
     else {
         mid = (low + high) / 2;
-        MergeSort(r1，low，mid, r2)
-            MergeSort(r1，mid + 1，high, r2);
+        MergeSort(r1，low，mid, r2);
+        MergeSort(r1，mid + 1，high, r2);
         Merge(r2，low，mid，high，r);
     }
     free(r2);
