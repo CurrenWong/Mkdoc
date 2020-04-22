@@ -1,0 +1,2143 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Curren's Notes">
+      
+      
+      
+        <meta name="author" content="Curren">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>1.Java中的泛型 - Curren's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/copy-tex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/view.mindmap.css">
+    
+      <link rel="stylesheet" href="../../../css/atom-one-dark-reasonable.css">
+    
+      <link rel="stylesheet" href="../../../css/font-awesome-all.min.css">
+    
+      <link rel="stylesheet" href="../../../css/emoji.css">
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#java" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Curren's Notes" aria-label="Curren's Notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">star</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Curren's Notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                1.Java中的泛型
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/CurrenWong/Mkdoc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    currenwong/Mkdoc
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." class="md-tabs__link">
+        Welcome to Curren's Notes
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" class="md-tabs__link">
+          工具使用笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+          算法学习笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" class="md-tabs__link">
+          考研笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" class="md-tabs__link">
+          读书笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          课程笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Curren's Notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">star</i>
+      
+    </a>
+    Curren's Notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/CurrenWong/Mkdoc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    currenwong/Mkdoc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome to Curren's Notes" class="md-nav__link">
+      Welcome to Curren's Notes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      工具使用笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        工具使用笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      得到APP
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        得到APP
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" title="1.我为什么推荐程序员朋友使用得到APP" class="md-nav__link">
+      1.我为什么推荐程序员朋友使用得到APP
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      算法学习笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        算法学习笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      传统算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        传统算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="1.算法设计中的常用技巧" class="md-nav__link">
+      1.算法设计中的常用技巧
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/2.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="2.归并排序" class="md-nav__link">
+      2.归并排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      刷题笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        刷题笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      分块算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        分块算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%88%86%E5%9D%97%E7%AE%97%E6%B3%95/1.HDU4858_%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="1.HDU4858 项目管理" class="md-nav__link">
+      1.HDU4858 项目管理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      前沿算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        前沿算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E6%B2%BF%E7%AE%97%E6%B3%95/1.Listing_All_Fixed-Size_Cycles_in_Sparse_Graphs/" title="1.Listing All Fixed Size Cycles in Sparse Graphs" class="md-nav__link">
+      1.Listing All Fixed Size Cycles in Sparse Graphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      机器学习算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        机器学习算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/1.XGBoost%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/" title="1.XGBoost原理简介" class="md-nav__link">
+      1.XGBoost原理简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/2.XGBoost%E7%9A%84%E7%BA%AFPython%E5%AE%9E%E7%8E%B0/" title="2.XGBoost的纯Python实现" class="md-nav__link">
+      2.XGBoost的纯Python实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      考研笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        考研笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      概率论与数理统计
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        概率论与数理统计
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" title="1.第一章 随机事件与概率" class="md-nav__link">
+      1.第一章 随机事件与概率
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      高等数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        高等数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD/" title="1.第一章 函数 极限 连续" class="md-nav__link">
+      1.第一章 函数 极限 连续
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" title="2.第二章 导数与微分" class="md-nav__link">
+      2.第二章 导数与微分
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E7%AC%AC%E4%B8%89%E7%AB%A0_%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E5%8F%8A%E5%AF%BC%E6%95%B0%E5%BA%94%E7%94%A8/" title="3.第三章 微分中值定理及导数应用" class="md-nav__link">
+      3.第三章 微分中值定理及导数应用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E7%AC%AC%E5%9B%9B%E7%AB%A0_%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/" title="4.第四章 不定积分" class="md-nav__link">
+      4.第四章 不定积分
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E7%AC%AC%E4%BA%94%E7%AB%A0_%E5%AE%9A%E7%A7%AF%E5%88%86%E4%B8%8E%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86/" title="5.第五章 定积分与反常积分" class="md-nav__link">
+      5.第五章 定积分与反常积分
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      高等数学习题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        高等数学习题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%A0%E9%A2%98/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD_%E9%94%99%E9%A2%98/" title="1.第一章 函数 极限 连续 错题" class="md-nav__link">
+      1.第一章 函数 极限 连续 错题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      读书笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        读书笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" title="数学女孩" class="md-nav__link">
+      数学女孩
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      课程笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        课程笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1" checked>
+    
+    <label class="md-nav__link" for="nav-6-1">
+      Java分布式系统
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        Java分布式系统
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1.Java中的泛型
+      </label>
+    
+    <a href="./" title="1.Java中的泛型" class="md-nav__link md-nav__link--active">
+      1.Java中的泛型
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 泛型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1. 基本概念和原理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    2.1.1. 一个简单泛型类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    2.1.2. 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 通配符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    2.2.1. 更简洁的参数类型限定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2. 理解通配符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    2.2.3. 超类型通配符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    2.2.4. 通配符比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3. 细节和局限性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 参考文献
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11.%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8/" title="11.分布式架构的应用" class="md-nav__link">
+      11.分布式架构的应用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2.Java%E4%B8%AD%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="2.Java中的注解" class="md-nav__link">
+      2.Java中的注解
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      大学物理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        大学物理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E8%BF%90%E5%8A%A8%E5%92%8C%E5%8A%9B/" title="1.第一章 运动和力" class="md-nav__link">
+      1.第一章 运动和力
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      嵌入式系统
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        嵌入式系统
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-nav__link">
+      1.uCos环境配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-nav__link">
+      2.优先级反转与中断机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/3.uCos%E4%B8%AD%E9%94%81%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%94%E5%85%B3%E4%B8%AD%E6%96%AD%E6%95%88%E7%8E%87%E6%9B%B4%E9%AB%98/" title="3.uCos中锁调度器为什么比关中断效率更高" class="md-nav__link">
+      3.uCos中锁调度器为什么比关中断效率更高
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/4.uCos%E7%9A%84%E5%BB%B6%E8%BF%9F%E4%B8%AD%E6%96%AD%E6%8F%90%E4%BA%A4%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87/" title="4.uCos的延迟中断提交为什么能提高效率" class="md-nav__link">
+      4.uCos的延迟中断提交为什么能提高效率
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6%E5%92%8C%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%95/" title="5.uCos中的任务机制和优先级位图算法" class="md-nav__link">
+      5.uCos中的任务机制和优先级位图算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/6.uCos%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5%E5%92%8C%E9%80%9A%E4%BF%A1/" title="6.uCos中的同步互斥和通信" class="md-nav__link">
+      6.uCos中的同步互斥和通信
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      数字电子技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        数字电子技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/1.%E6%95%B0%E5%88%B6%E5%92%8C%E6%95%B0%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2/" title="1.数制和数制的转换" class="md-nav__link">
+      1.数制和数制的转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/2.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%8D%A1%E8%AF%BA%E5%9B%BE/" title="2.逻辑代数与卡诺图" class="md-nav__link">
+      2.逻辑代数与卡诺图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/3.%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF/" title="3.逻辑门电路" class="md-nav__link">
+      3.逻辑门电路
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+    
+    <label class="md-nav__link" for="nav-6-5">
+      移动应用开发
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        移动应用开发
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1.%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="1.课程项目思维导图" class="md-nav__link">
+      1.课程项目思维导图
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+    
+    <label class="md-nav__link" for="nav-6-6">
+      编译原理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-6">
+        编译原理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/1.%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/" title="1.上下文无关文法" class="md-nav__link">
+      1.上下文无关文法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" title="2.词法分析概述" class="md-nav__link">
+      2.词法分析概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/3.%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-%E8%87%AA%E4%B8%8A%E8%80%8C%E4%B8%8B%E5%88%86%E6%9E%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/" title="3.语法分析 自上而下分析的基本问题" class="md-nav__link">
+      3.语法分析 自上而下分析的基本问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6-4" type="checkbox" id="nav-6-6-4">
+    
+    <label class="md-nav__link" for="nav-6-6-4">
+      练习题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-6-4">
+        练习题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BB%83%E4%B9%A0%E9%A2%98/5.%E7%BB%83%E4%B9%A0%E9%A2%982-4%E7%AB%A0/" title="5.练习题2 4章" class="md-nav__link">
+      5.练习题2 4章
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
+    
+    <label class="md-nav__link" for="nav-6-7">
+      软件协同设计
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-7">
+        软件协同设计
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/1.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B8%8E%E5%AE%9E%E8%B7%B5/" title="1.前后端分离的思考与实践" class="md-nav__link">
+      1.前后端分离的思考与实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/2.%E4%BD%BF%E7%94%A8Express%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE/" title="2.使用Express部署Vue项目" class="md-nav__link">
+      2.使用Express部署Vue项目
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 泛型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1. 基本概念和原理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    2.1.1. 一个简单泛型类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    2.1.2. 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 通配符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    2.2.1. 更简洁的参数类型限定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2. 理解通配符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    2.2.3. 超类型通配符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    2.2.4. 通配符比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3. 细节和局限性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 参考文献
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/Java分布式系统/1.Java中的泛型.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="java"><a class="toclink" href="#java">Java中的泛型</a><a class="headerlink" href="#java" title="Permanent link">#</a></h1>
+<h2 id="_1"><a class="toclink" href="#_1">目录</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#java">Java中的泛型</a><ul>
+<li><a href="#_1">目录</a></li>
+<li><a href="#1">1. 背景</a></li>
+<li><a href="#2">2. 泛型</a><ul>
+<li><a href="#21">2.1. 基本概念和原理</a><ul>
+<li><a href="#211">2.1.1. 一个简单泛型类</a></li>
+<li><a href="#212">2.1.2. 小结</a></li>
+</ul>
+</li>
+<li><a href="#22">2.2. 通配符</a><ul>
+<li><a href="#221">2.2.1. 更简洁的参数类型限定</a></li>
+<li><a href="#222">2.2.2. 理解通配符</a></li>
+<li><a href="#223">2.2.3. 超类型通配符</a></li>
+<li><a href="#224">2.2.4. 通配符比较</a></li>
+</ul>
+</li>
+<li><a href="#23">2.3. 细节和局限性</a></li>
+</ul>
+</li>
+<li><a href="#3">3. 参考文献</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="1"><a class="toclink" href="#1">1. 背景</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p>这学期上了《分布式系统》课程，内容主要是基于Java实现分布式计算，所以老师前几节课主要在给我们讲用Java做分布式可能会用到的一些技术。为了方便学习和记录，我将老师讲的内容结合书籍做了一些整理，这一篇主要讨论泛型。</p>
+<h2 id="2"><a class="toclink" href="#2">2. 泛型</a><a class="headerlink" href="#2" title="Permanent link">#</a></h2>
+<p>此部分内容主要参考自<a href="http://m.igetget.com/hybrid/v2/ebook/detail?bid=pqvNQ1KRJa7EmgG8MPKrzykNVbDpBWZpJkwQA1xO54nlvZq296YodejLXVJE5eAd">《Java编程的逻辑》</a>第8章 <a href="#bib-1"><sup>1</sup></a>。</p>
+<h3 id="21"><a class="toclink" href="#21">2.1. 基本概念和原理</a><a class="headerlink" href="#21" title="Permanent link">#</a></h3>
+<p>在实际编程过程中，很多时候我们关心的不是类型，而是能力，针对接口和能力编程，不仅可以复用代码，还可以降低耦合，提高灵活性。</p>
+<p>泛型将接口的概念进一步延伸，“泛型”的字面意思就是广泛的类型。类、接口和方法代码可以应用于非常广泛的类型，代码与它们能够操作的数据类型不再绑定在一起，同一套代码可以用于多种数据类型，这样，不仅可以复用代码，降低耦合，而且可以提高代码的可读性和安全性。</p>
+<p>这么说可能比较抽象，接下来，我们通过一些例子逐步进行说明。在<code>Java</code>中，类、接口、方法都可以是泛型的，我们先来看泛型类。</p>
+<h4 id="211"><a class="toclink" href="#211">2.1.1. 一个简单泛型类</a><a class="headerlink" href="#211" title="Permanent link">#</a></h4>
+<p>我们通过一个简单的例子来说明泛型类的基本概念、基本原理和泛型的好处。</p>
+<ol>
+<li><strong>基本概念</strong></li>
+</ol>
+<p>我们直接来看代码：</p>
+<pre><code class="java">public class Pair&lt;T&gt; {
+    T first;
+    T second;
+    public Pair(T first, T second){
+        this.first = first;
+        this.second = second;
+    }
+    public T getFirst() {
+        return first;
+    }
+    public T getSecond() {
+        return second;
+    }
+}
+</code></pre>
+
+<p><code>Pair</code>就是一个泛型类，与普通类的区别体现在：</p>
+<ul>
+<li>类名后面多了一个<code>&lt;T&gt;</code>；</li>
+<li><code>first</code>和<code>second</code>的类型都是<code>T</code>。</li>
+</ul>
+<p><code>T</code>是什么呢？<code>T</code>表示类型参数，泛型就是类型参数化，处理的数据类型不是固定的，而是可以作为参数传入。怎么用这个泛型类，并传递类型参数呢？看代码：</p>
+<pre><code class="java">Pair&lt;Integer&gt; minmax = new Pair&lt;Integer&gt;(1,100);
+Integer min = minmax.getFirst();
+Integer max = minmax.getSecond();
+</code></pre>
+
+<p><code>Pair&lt;Integer&gt;</code>中的<code>Integer</code>就是传递的实际类型参数。<code>Pair</code>类的代码和它处理的数据类型不是绑定的，具体类型可以变化。上面是<code>Integer</code>，也可以是<code>String</code>，比如：</p>
+<pre><code class="java">Pair&lt;String&gt; kv = new Pair&lt;String&gt;(&quot;name&quot;,&quot;老马&quot;);
+</code></pre>
+
+<p>类型参数可以有多个，<code>Pair</code>类中的<code>first</code>和<code>second</code>可以是不同的类型，多个类型之间以逗号分隔，来看改进后的<code>Pair</code>类定义：</p>
+<pre><code class="java">public class Pair&lt;U, V&gt; {
+    U first;
+    V second;
+    public Pair(U first, V second){
+        this.first = first;
+        this.second = second;
+    }
+    public U getFirst() {
+        return first;
+    }
+    public V getSecond() {
+        return second;
+    }
+}
+</code></pre>
+
+<p>可以这样使用：</p>
+<pre><code class="java">Pair&lt;String,Integer&gt; pair = new Pair&lt;String,Integer&gt;(&quot;老马&quot;,100);
+</code></pre>
+
+<p><code>&lt;String，Integer&gt;</code>既出现在了声明变量时，也出现在了<code>new</code>后面，比较烦琐，从<code>Java 7</code>开始，支持省略后面的类型参数，可以如下使用：</p>
+<pre><code class="java">Pair&lt;String,Integer&gt; pair = new Pair&lt;&gt;(&quot;老马&quot;,100);
+</code></pre>
+
+<ol start="2">
+<li><strong>基本原理</strong></li>
+</ol>
+<p>泛型类型参数到底是什么呢？为什么一定要定义类型参数呢？定义普通类，直接使用<code>Object</code>不就行了吗？比如，<code>Pair</code>类可以写为：</p>
+<pre><code class="java">public class Pair {
+    Object first;
+    Object second;
+    public Pair(Object first, Object second){
+        this.first = first;
+        this.second = second;
+    }
+    public Object getFirst() {
+        return first;
+    }
+    public Object getSecond() {
+        return second;
+    }
+}
+</code></pre>
+
+<p>使用<code>Pair</code>的代码可以为：</p>
+<pre><code class="java">Pair minmax = new Pair(1,100);
+Integer min = (Integer)minmax.getFirst();
+Integer max = (Integer)minmax.getSecond();
+Pair kv = new Pair(&quot;name&quot;,&quot;老马&quot;);
+String key = (String)kv.getFirst();
+String value = (String)kv.getSecond();
+</code></pre>
+
+<p>这样是可以的。实际上，<code>Java</code>泛型的内部原理就是这样的。</p>
+<p>我们知道，<code>Java</code>有<code>Java</code>编译器和<code>Java</code>虚拟机，编译器将<code>Java</code>源代码转换为<code>.class</code>文件，虚拟机加载并运行<code>.class</code>文件。对于泛型类，<code>Java</code>编译器会将泛型代码转换为普通的非泛型代码，就像上面的普通<code>Pair</code>类代码及其使用代码一样，将类型参数T擦除，替换为<code>Object</code>，插入必要的强制类型转换。<code>Java</code>虚拟机实际执行的时候，它是不知道泛型这回事的，只知道普通的类及代码。</p>
+<p>再强调一下，<code>Java</code>泛型是通过擦除实现的，类定义中的类型参数如T会被替换为<code>Object</code>，在程序运行过程中，不知道泛型的实际类型参数，比如<code>Pair&lt;Integer&gt;</code>，运行中只知道<code>Pair</code>，而不知道<code>Integer</code>。认识到这一点是非常重要的，它有助于我们理解<code>Java</code>泛型的很多限制。</p>
+<p>Java为什么要这么设计呢？泛型是Java 5以后才支持的，这么设计是为了兼容性而不得已的一个选择。</p>
+<ol start="3">
+<li><strong>泛型的好处</strong></li>
+</ol>
+<p>既然只使用普通类和<code>Object</code>就可以，而且泛型最后也转换为了普通类，那为什么还要用泛型呢？或者说，泛型到底有什么好处呢？泛型主要有两个好处：</p>
+<ul>
+<li>更好的安全性。</li>
+<li>更好的可读性。</li>
+</ul>
+<p>语言和程序设计的一个重要目标是将bug尽量消灭在摇篮里，能消灭在写代码的时候，就不要等到代码写完程序运行的时候。只使用<code>Object</code>，代码写错的时候，开发环境和编译器不能帮我们发现问题，看代码：</p>
+<pre><code class="java">Pair pair = new Pair(&quot;老马&quot;,1);
+Integer id = (Integer)pair.getFirst();
+String name = (String)pair.getSecond();
+</code></pre>
+
+<p>看出问题了吗？写代码时不小心把类型弄错了，不过，代码编译时是没有任何问题的，但运行时程序抛出了类型转换异常<code>ClassCastException</code>。如果使用泛型，则不可能犯这个错误，比如下面的代码：</p>
+<pre><code class="java">Pair&lt;String,Integer&gt; pair = new Pair&lt;&gt;(&quot;老马&quot;,1);
+Integer id = pair.getFirst(); //有编译错误
+String name = pair.getSecond(); //有编译错误
+</code></pre>
+
+<p>开发环境（如<code>Eclipse</code>）会提示<code>类型错误</code>，即使没有好的开发环境，编译时<code>Java</code>编译器也会提示。这称之为类型安全，也就是说，通过使用泛型，开发环境和编译器能确保不会用错类型，为程序多设置一道安全防护网。使用泛型，还可以省去烦琐的强制类型转换，再加上明确的类型信息，代码可读性也会更好。</p>
+<h4 id="212"><a class="toclink" href="#212">2.1.2. 小结</a><a class="headerlink" href="#212" title="Permanent link">#</a></h4>
+<p>泛型是计算机程序中一种重要的思维方式，它<code>将数据结构和算法与数据类型相分离</code>，使得同一套数据结构和算法能够应用于各种数据类型，而且可以保证<code>类型安全</code>，<code>提高可读性</code>。</p>
+<h3 id="22"><a class="toclink" href="#22">2.2. 通配符</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
+<p>本节主要讨论泛型中的通配符概念。通配符有着令人费解和混淆的语法，但通配符大量应用于<code>Java</code>容器类中，它到底是什么？下面我们逐步来解析。</p>
+<h4 id="221"><a class="toclink" href="#221">2.2.1. 更简洁的参数类型限定</a><a class="headerlink" href="#221" title="Permanent link">#</a></h4>
+<p>我们看下面这个例子，为了将<code>Integer</code>对象添加到<code>Number</code>容器中，我们的类型参数使用了其他类型参数作为上界，这种写法有点烦琐，它可以替换为更为简洁的通配符形式：</p>
+<pre><code class="java">// 不使用通配符的例子
+public &lt;T extends E&gt; void addAll(DynamicArray&lt;T&gt; c) {
+    for(int i=0; i&lt;c.size; i++){
+        add(c.get(i));
+    }
+}
+</code></pre>
+
+<pre><code class="java">// 通配符形式
+public void addAll(DynamicArray&lt;? extends E&gt; c) {
+    for(int i=0; i&lt;c.size; i++){
+        add(c.get(i));
+    }
+}
+</code></pre>
+
+<p>这个方法没有定义类型参数，<code>c</code>的类型是<code>DynamicArray&lt;？extends E&gt;</code>，<code>？</code>表示通配符，<code>&lt;？extends E&gt;</code>表示有限定通配符，匹配<code>E</code>或<code>E</code>的某个子类型，具体什么子类型是未知的。使用这个方法的代码不需要做任何改动，还可以是：</p>
+<pre><code class="java">DynamicArray&lt;Number&gt; numbers = new DynamicArray&lt;&gt;();
+DynamicArray&lt;Integer&gt; ints = new DynamicArray&lt;&gt;();
+ints.add(100);
+ints.add(34);
+numbers.addAll(ints);
+</code></pre>
+
+<p>这里，<code>E</code>是<code>Number</code>类型，<code>DynamicArray&lt;？extends E&gt;</code>可以匹配<code>DynamicArray&lt;Integer&gt;</code>。</p>
+<p>那么问题来了，同样是<code>extends</code>关键字，同样应用于泛型，<code>&lt;T extends E&gt;</code>和<code>&lt;？extends E&gt;</code>到底有什么关系？它们用的地方不一样，我们解释一下：</p>
+<p>1）<code>&lt;T extends E&gt;</code>用于<code>定义</code>类型参数，它声明了一个类型参数<code>T</code>，可放在泛型类定义中类名后面、泛型方法返回值前面。
+2）<code>&lt;？extends E&gt;</code>用于<code>实例化</code>类型参数，它用于实例化泛型变量中的类型参数，只是这个具体类型是未知的，只知道它是<code>E</code>或<code>E</code>的某个子类型。</p>
+<p>虽然它们不一样，但两种写法经常可以达成相同目标，比如，前面例子中，下面两种写法都可以：</p>
+<pre><code class="java">public void addAll(DynamicArray&lt;? extends E&gt; c)
+public &lt;T extends E&gt; void addAll(DynamicArray&lt;T&gt; c)
+</code></pre>
+
+<p>那么，到底应该用哪种形式呢？我们先进一步理解通配符，然后再解释。</p>
+<h4 id="222"><a class="toclink" href="#222">2.2.2. 理解通配符</a><a class="headerlink" href="#222" title="Permanent link">#</a></h4>
+<p>除了有限定通配符，还有一种通配符，形如<code>DynamicArray&lt;？&gt;</code>，称为无限定通配符。我们来看个例子，在<code>DynamicArray</code>中查找指定元素，代码如下：</p>
+<pre><code class="java">public static int indexOf(DynamicArray&lt;?&gt; arr, Object elm){
+    for(int i=0; i&lt;arr.size(); i++){
+        if(arr.get(i).equals(elm)){
+            return i;
+        }
+    }
+    return -1;
+}
+</code></pre>
+
+<p>其实，这种无限定通配符形式也可以改为使用类型参数。也就是说，下面的写法：</p>
+<pre><code class="java">public static int indexOf(DynamicArray&lt;?&gt; arr, Object elm)
+</code></pre>
+
+<p>可以改为：</p>
+<pre><code class="java">public static &lt;T&gt; int indexOf(DynamicArray&lt;T&gt; arr, Object elm)
+</code></pre>
+
+<p>不过，通配符形式更为简洁。虽然通配符形式更为简洁，但上面两种通配符都有一个重要的限制：只能读，不能写。怎么理解呢？看下面的例子：</p>
+<pre><code class="java">DynamicArray&lt;Integer&gt; ints = new DynamicArray&lt;&gt;();
+DynamicArray&lt;? extends Number&gt; numbers = ints;
+Integer a = 200;
+numbers.add(a); //错误！
+numbers.add((Number)a)； //错误！
+numbers.add((Object)a); //错误！
+</code></pre>
+
+<p>三种add方法都是非法的，无论是<code>Integer</code>，还是<code>Number</code>或<code>Object</code>，编译器都会报错。为什么呢？问号就是表示类型安全无知，<code>？extends Number</code>表示是<code>Number</code>的某个子类型，但不知道具体子类型，如果允许写入，<code>Java</code>就无法确保类型安全性，所以干脆禁止。我们来看个例子，看看如果允许写入会发生什么：</p>
+<pre><code class="java">DynamicArray&lt;Integer&gt; ints = new DynamicArray&lt;&gt;();
+DynamicArray&lt;? extends Number&gt; numbers = ints;
+Number n = new Double(23.0);
+Object o = new String(&quot;hello world&quot;);
+numbers.add(n);
+numbers.add(o);
+</code></pre>
+
+<p>如果允许写入<code>Object</code>或<code>Number</code>类型，则最后两行编译就是正确的，也就是说，<code>Java</code>将允许把<code>Double</code>或<code>String</code>对象放入<code>Integer</code>容器，这显然违背了<code>Java</code>关于<code>类型安全</code>的承诺。
+大部分情况下，这种限制是好的，但这使得一些理应正确的基本操作无法完成，比如交换两个元素的位置，看如下代码：</p>
+<pre><code class="java">
+public static void swap(DynamicArray&lt;?&gt; arr, int i, int j){
+    Object tmp = arr.get(i);
+    arr.set(i, arr.get(j));
+    arr.set(j, tmp);
+}
+</code></pre>
+
+<p>这个代码看上去应该是正确的，但<code>Java</code>会提示编译错误，两行<code>set</code>语句都是非法的。不过，借助带类型参数的泛型方法，这个问题可以如下解决：</p>
+<pre><code class="java">private static &lt;T&gt; void swapInternal(DynamicArray&lt;T&gt; arr, int i, int j){
+    T tmp = arr.get(i);
+    arr.set(i, arr.get(j));
+    arr.set(j, tmp);
+}
+public static void swap(DynamicArray&lt;?&gt; arr, int i, int j){
+    swapInternal(arr, i, j);
+}
+</code></pre>
+
+<p><code>swap</code>可以调用<code>swapInternal</code>，而带类型参数的<code>swapInternal</code>可以写入。<code>Java</code>容器类中就有类似这样的用法，公共的API是通配符形式，形式更简单，但内部调用带类型参数的方法。</p>
+<p>除了这种需要写的场合，如果参数类型之间有依赖关系，也只能用类型参数，比如，将<code>src</code>容器中的内容复制到<code>dest</code>中：</p>
+<pre><code class="java">public static &lt;D,S extends D&gt; void copy(DynamicArray&lt;D&gt; dest,
+        DynamicArray&lt;S&gt; src){
+    for(int i=0; i&lt;src.size(); i++){
+        dest.add(src.get(i));
+    }
+}
+</code></pre>
+
+<p><code>S</code>和<code>D</code>有依赖关系，要么相同，要么<code>S</code>是<code>D</code>的子类，否则类型不兼容，有编译错误。不过，上面的声明可以使用通配符简化，两个参数可以简化为一个，如下所示：</p>
+<pre><code class="java">public static &lt;D&gt; void copy(DynamicArray&lt;D&gt; dest,
+        DynamicArray&lt;? extends D&gt; src){
+    for(int i=0; i&lt;src.size(); i++){
+        dest.add(src.get(i));
+    }
+}
+</code></pre>
+
+<p>如果返回值依赖于类型参数，也不能用通配符，比如，计算动态数组中的最大值，如下所示：</p>
+<pre><code class="java">public static &lt;T extends Comparable&lt;T&gt;&gt; T max(DynamicArray&lt;T&gt; arr){
+    T max = arr.get(0);
+    for(int i=1; i&lt;arr.size(); i++){
+        if(arr.get(i).compareTo(max)&gt;0){
+            max = arr.get(i);
+        }
+    }
+    return max;
+}
+</code></pre>
+
+<p>上面的代码就难以用通配符代替。</p>
+<p>现在我们再来看泛型方法到底应该用通配符的形式还是加类型参数。两者到底有什么关系？我们总结如下。</p>
+<ol>
+<li>通配符形式都可以用<code>类型参数的形式</code>来替代，通配符能做的，用类型参数都能做。</li>
+<li>通配符形式<code>可以减少类型参数</code>，形式上往往<code>更为简单</code>，可读性也更好，所以，<code>能用通配符的就用通配符</code>。</li>
+<li>如果类型参数之间<code>有依赖关系</code>，或者<code>返回值依赖类型参数</code>，或者<code>需要写操作</code>，则<code>只能用类型参数</code>。</li>
+<li>通配符形式和类型参数往往<code>配合使用</code>，比如，上面的copy方法，定义必要的类型参数，使用通配符表达依赖，并接受更广泛的数据类型。</li>
+</ol>
+<h4 id="223"><a class="toclink" href="#223">2.2.3. 超类型通配符</a><a class="headerlink" href="#223" title="Permanent link">#</a></h4>
+<p>还有一种通配符，与形式<code>&lt;？extends E&gt;</code>正好相反，它的形式为<code>&lt;？super E&gt;</code>，称为<code>超类型通配符</code>，表示<code>E</code>的某个<code>父类型</code>。它有什么用呢？有了它，我们就可以更灵活地写入了。</p>
+<p>如果没有这种语法，写入会有一些限制。来看个例子，我们给<code>DynamicArray</code>添加一个方法：</p>
+<pre><code class="java">public void copyTo(DynamicArray&lt;E&gt; dest){
+    for(int i=0; i&lt;size; i++){
+        dest.add(get(i));
+    }
+}
+</code></pre>
+
+<p>这个方法也很简单，将当前容器中的元素添加到传入的目标容器中。我们可能希望这么使用：</p>
+<pre><code class="java">DynamicArray&lt;Integer&gt; ints = new DynamicArray&lt;Integer&gt;();
+ints.add(100);
+ints.add(34);
+DynamicArray&lt;Number&gt; numbers = new DynamicArray&lt;Number&gt;();
+ints.copyTo(numbers);
+</code></pre>
+
+<p><code>Integer</code>是<code>Number</code>的子类，将<code>Integer</code>对象拷贝入<code>Number</code>容器，这种用法应该是合情合理的，但<code>Java</code>会提示编译错误，理由我们之前也说过了，期望的参数类型是<code>Dynamic-Array&lt;Integer&gt;</code>，<code>DynamicArray&lt;Number&gt;</code>并不适用。</p>
+<p>如之前所说，一般而言，不能将<code>DynamicArray&lt;Integer&gt;</code>看作<code>DynamicArray&lt;Number&gt;</code>，但我们这里的用法是没有问题的，<code>Java</code>解决这个问题的方法就是超类型通配符，可以将copyTo代码改为：</p>
+<pre><code class="java">public void copyTo(DynamicArray&lt;? super E&gt; dest){
+    for(int i=0; i&lt;size; i++){
+        dest.add(get(i));
+    }
+}
+</code></pre>
+
+<p>这样，就没有问题了。</p>
+<p>超类型通配符另一个常用的场合是<code>Comparable/Comparator</code>接口。同样，我们先来看下如果不使用会有什么限制。以前面计算最大值的方法为例，它的方法声明是：</p>
+<pre><code class="java">public static &lt;T extends Comparable&lt;T&gt;&gt; T max(DynamicArray&lt;T&gt; arr)
+</code></pre>
+
+<p>这个声明有什么限制呢？举个简单的例子，有两个类<code>Base</code>和<code>Child</code>，<code>Base</code>的代码是：</p>
+<pre><code class="java">class Base implements Comparable&lt;Base&gt;{
+    private int sortOrder;
+    public Base(int sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+    @Override
+    public int compareTo(Base o) {
+        if(sortOrder &lt; o.sortOrder){
+            return -1;
+        }else if(sortOrder &gt; o.sortOrder){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+}
+</code></pre>
+
+<p><code>Base</code>代码很简单，实现了<code>Comparable</code>接口，根据实例变量<code>sortOrder</code>进行比较。<code>Child</code>代码是：</p>
+<pre><code class="java">class Child extends Base {
+    public Child(int sortOrder) {
+        super(sortOrder);
+    }
+}
+</code></pre>
+
+<p>这里，<code>Child</code>非常简单，只是继承了<code>Base</code>。注意：<code>Child</code>没有重新实现<code>Comparable</code>接口，因为<code>Child</code>的比较规则和<code>Base</code>是一样的。我们可能希望使用前面的max方法操作<code>Child</code>容器，如下所示：</p>
+<pre><code class="java">DynamicArray&lt;Child&gt; childs = new DynamicArray&lt;Child&gt;();
+childs.add(new Child(20));
+childs.add(new Child(80));
+Child maxChild = max(childs);
+</code></pre>
+
+<p>遗憾的是，<code>Java</code>会提示编译错误，类型不匹配。为什么不匹配呢？我们可能会认为，<code>Java</code>会将<code>max</code>方法的类型参数<code>T</code>推断为<code>Child</code>类型，但类型T的要求是<code>extends Comparable&lt;T&gt;</code>，而<code>Child</code>并没有实现<code>Comparable&lt;Child&gt;</code>，它实现的是<code>Comparable&lt;Base&gt;</code>。</p>
+<p>但我们的需求是合理的，Base类的代码已经有了关于比较所需要的全部数据，它应该可以用于比较Child对象。解决这个问题的方法，就是修改max的方法声明，使用超类型通配符，如下所示：</p>
+<pre><code class="java">public static &lt;T extends Comparable&lt;? super T&gt;&gt; T max(DynamicArray&lt;T&gt; arr)
+</code></pre>
+
+<p>这么修改一下就可以了，这种写法比较抽象，将<code>T</code>替换为<code>Child</code>，就是：
+<code>Child extends Comparable&lt;? super Child&gt;</code>
+<code>&lt;？super Child&gt;</code>可以匹配<code>Base</code>，所以整体就是匹配的。</p>
+<p>我们比较一下类型参数限定与超类型通配符，类型参数限定只有<code>extends</code>形式，没有<code>super</code>形式，比如，前面的<code>copyTo方法</code>的通配符形式的声明为：</p>
+<pre><code class="java">public void copyTo(DynamicArray&lt;? super E&gt; dest)
+</code></pre>
+
+<p>如果类型参数限定支持<code>super</code>形式，则应该是：</p>
+<pre><code class="java">public &lt;T super E&gt; void copyTo(DynamicArray&lt;T&gt; dest)
+</code></pre>
+
+<p>事实是，<code>Java</code>并不支持这种语法。</p>
+<p>前面我们说过，对于有限定的通配符形式<code>&lt;？extends E&gt;</code>，可以用类型参数限定替代，但是对于类似上面的超类型通配符，则无法用类型参数替代。</p>
+<h4 id="224"><a class="toclink" href="#224">2.2.4. 通配符比较</a><a class="headerlink" href="#224" title="Permanent link">#</a></h4>
+<p>本节介绍了泛型中的三种通配符形式<code>&lt;？&gt;</code>、<code>&lt;？super E&gt;</code>和<code>&lt;？extends E&gt;</code>，并分析了与类型参数形式的区别和联系，它们比较容易混淆，我们总结比较如下：</p>
+<ol>
+<li>它们的目的都是为了使方法接口更为灵活，可以接受更为广泛的类型。</li>
+<li><code>&lt;？super E&gt;</code>用于灵活写入或比较，使得对象可以写入父类型的容器，使得父类型的比较方法可以应用于子类对象，它不能被类型参数形式替代。</li>
+<li><code>&lt;？&gt;</code>和<code>&lt;？extends E&gt;</code>用于灵活读取，使得方法可以读取E或E的任意子类型的容器对象，它们可以用类型参数的形式替代，但通配符形式更为简洁。
+<code>Java</code>容器类的实现中，有很多使用通配符的例子，比如，类<code>Collections</code>中就有如下方法：</li>
+</ol>
+<pre><code class="java">public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)
+public static &lt;T&gt; void sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)
+public static &lt;T&gt; void copy(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)
+public static &lt;T&gt; T max(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)
+</code></pre>
+
+<h3 id="23"><a class="toclink" href="#23">2.3. 细节和局限性</a><a class="headerlink" href="#23" title="Permanent link">#</a></h3>
+<p>泛型也存在一些局限性，这些局限性主要是由于<code>Java</code>泛型的实现机制引起的，这些局限性包括：</p>
+<ol>
+<li>不能使用基本类型</li>
+<li>没有运行时类型信息</li>
+<li>类型擦除会引发一些冲突</li>
+<li>不能通过类型参数创建对象</li>
+<li>不能用于静态变量</li>
+<li>不能创建泛型数组，需要通过泛型容器来实现数组功能</li>
+</ol>
+<p>我们需要理解这些局限性，幸运的是，一般并不需要特别去记忆，因为用错的时候，<code>Java</code>开发环境和编译器会进行提示，当被提示时能够理解并从容应对即可。</p>
+<h2 id="3"><a class="toclink" href="#3">3. 参考文献</a><a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<div id="bib-1"></div>
+
+<p>[1] <a href="http://m.igetget.com/hybrid/v2/ebook/detail?bid=pqvNQ1KRJa7EmgG8MPKrzykNVbDpBWZpJkwQA1xO54nlvZq296YodejLXVJE5eAd">马俊昌. Java 编程的逻辑 [M]. 北京 : 机械工业出版社, 2018.</a></p>
+<hr />
+<p>联系邮箱：curren_wong@163.com</p>
+<p>Github：<a href="https://github.com/CurrenWong">https://github.com/CurrenWong</a></p>
+<p>欢迎转载/Star/Fork，有问题欢迎通过邮箱交流。</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" title="数学女孩" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                数学女孩
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../11.%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8/" title="11.分布式架构的应用" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                11.分布式架构的应用
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      
+        <script src="../../../js/katex.min.js"></script>
+      
+        <script src="../../../js/mathtex-script-type.min.js"></script>
+      
+        <script src="../../../js/copy-tex.min.js"></script>
+      
+        <script src="../../../js/auto-render.min.js"></script>
+      
+        <script src="../../../js/jquery-3.4.1.min.js"></script>
+      
+        <script src="../../../js/d3.min.js"></script>
+      
+        <script src="../../../js/d3-flextree.js"></script>
+      
+        <script src="../../../js/view.mindmap.js"></script>
+      
+        <script src="../../../js/emoji.min.js"></script>
+      
+        <script src="../../../js/mermaid.min.js"></script>
+      
+        <script src="../../../js/highlight.pack.js"></script>
+      
+        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+      
+        <script src="https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
+      
+        <script src="../../../js/readingtime.js"></script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
