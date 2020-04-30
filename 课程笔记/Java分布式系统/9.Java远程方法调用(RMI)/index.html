@@ -1,0 +1,2766 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Curren's Notes">
+      
+      
+      
+        <meta name="author" content="Curren">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>9.Java远程方法调用(RMI) - Curren's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/copy-tex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/view.mindmap.css">
+    
+      <link rel="stylesheet" href="../../../css/atom-one-dark-reasonable.css">
+    
+      <link rel="stylesheet" href="../../../css/font-awesome-all.min.css">
+    
+      <link rel="stylesheet" href="../../../css/emoji.css">
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#javarmi" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Curren's Notes" aria-label="Curren's Notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">star</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Curren's Notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                9.Java远程方法调用(RMI)
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/CurrenWong/Mkdoc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    currenwong/Mkdoc
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." class="md-tabs__link">
+        Welcome to Curren's Notes
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" class="md-tabs__link">
+          工具使用笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+          算法学习笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" class="md-tabs__link">
+          考研笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" class="md-tabs__link">
+          读书笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../1.Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" class="md-tabs__link md-tabs__link--active">
+          课程笔记
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Curren's Notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">star</i>
+      
+    </a>
+    Curren's Notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/CurrenWong/Mkdoc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    currenwong/Mkdoc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome to Curren's Notes" class="md-nav__link">
+      Welcome to Curren's Notes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      工具使用笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        工具使用笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      得到APP
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        得到APP
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" title="1.我为什么推荐程序员朋友使用得到APP" class="md-nav__link">
+      1.我为什么推荐程序员朋友使用得到APP
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      算法学习笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        算法学习笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      传统算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        传统算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="1.算法设计中的常用技巧" class="md-nav__link">
+      1.算法设计中的常用技巧
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/2.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="2.归并排序" class="md-nav__link">
+      2.归并排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      刷题笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        刷题笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      STL基本用法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        STL基本用法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/STL%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/1.51Nod_2160_%E6%95%B0%E5%AD%97%E6%B8%B8%E6%88%8F/" title="1.51Nod 2160 数字游戏" class="md-nav__link">
+      1.51Nod 2160 数字游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/STL%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/2.51Nod_2142_%E7%AC%ACm%E5%A4%A7%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AF%81%E5%8F%B7%E7%A0%81/" title="2.51Nod 2142 第m大的身份证号码" class="md-nav__link">
+      2.51Nod 2142 第m大的身份证号码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/STL%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/3.%E8%AE%A1%E8%92%9C%E5%AE%A2_T1989_%E8%BF%9E%E7%BB%AD%E8%87%AA%E7%84%B6%E6%95%B0%E5%92%8C/" title="3.计蒜客 T1989 连续自然数和" class="md-nav__link">
+      3.计蒜客 T1989 连续自然数和
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      分块算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        分块算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%88%86%E5%9D%97%E7%AE%97%E6%B3%95/1.HDU4858_%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="1.HDU4858 项目管理" class="md-nav__link">
+      1.HDU4858 项目管理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-3" type="checkbox" id="nav-3-2-3">
+    
+    <label class="md-nav__link" for="nav-3-2-3">
+      动态规划
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-3">
+        动态规划
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.51Nod_1009_%E6%95%B0%E5%AD%971%E7%9A%84%E6%95%B0%E9%87%8F/" title="1.51Nod 1009 数字1的数量" class="md-nav__link">
+      1.51Nod 1009 数字1的数量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.51Nod_2080_%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" title="2.51Nod 2080 最长上升子序列" class="md-nav__link">
+      2.51Nod 2080 最长上升子序列
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-4" type="checkbox" id="nav-3-2-4">
+    
+    <label class="md-nav__link" for="nav-3-2-4">
+      字符串
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-4">
+        字符串
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/1.%E8%AE%A1%E8%92%9C%E5%AE%A2_T1112_%E5%8A%A0%E5%AF%86%E7%9A%84%E7%97%85%E5%8E%86%E5%8D%95/" title="1.计蒜客 T1112 加密的病历单" class="md-nav__link">
+      1.计蒜客 T1112 加密的病历单
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-5" type="checkbox" id="nav-3-2-5">
+    
+    <label class="md-nav__link" for="nav-3-2-5">
+      归并排序
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-5">
+        归并排序
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/1.51Nod-2134_%E9%80%86%E5%BA%8F%E5%AF%B9%E4%B8%AA%E6%95%B01000/" title="1.51Nod 2134 逆序对个数1000" class="md-nav__link">
+      1.51Nod 2134 逆序对个数1000
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-6" type="checkbox" id="nav-3-2-6">
+    
+    <label class="md-nav__link" for="nav-3-2-6">
+      数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-6">
+        数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/1.51Nod_2059_%E4%B8%8A%E5%8F%B0%E9%98%B6_easy/" title="1.51Nod 2059 上台阶 easy" class="md-nav__link">
+      1.51Nod 2059 上台阶 easy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/2.51Nod_2175_ProjectEuler_5/" title="2.51Nod 2175 ProjectEuler 5" class="md-nav__link">
+      2.51Nod 2175 ProjectEuler 5
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/3.51Nod_2456_%E6%9C%80%E5%B0%8F%E7%BA%A6%E6%95%B0_V2/" title="3.51Nod 2456 最小约数 V2" class="md-nav__link">
+      3.51Nod 2456 最小约数 V2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-7" type="checkbox" id="nav-3-2-7">
+    
+    <label class="md-nav__link" for="nav-3-2-7">
+      简单题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-7">
+        简单题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E7%AE%80%E5%8D%95%E9%A2%98/1.51Nod_2409_%E5%90%AF%E8%92%99%E7%BB%83%E4%B9%A0-%E5%80%8D%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0/" title="1.51Nod 2409 启蒙练习 倍数的个数" class="md-nav__link">
+      1.51Nod 2409 启蒙练习 倍数的个数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E7%AE%80%E5%8D%95%E9%A2%98/2.51Nod_2414_%E5%90%AF%E8%92%99%E7%BB%83%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E8%BE%93%E5%87%BA2/" title="2.51Nod 2414 启蒙练习 图形输出2" class="md-nav__link">
+      2.51Nod 2414 启蒙练习 图形输出2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E7%AE%80%E5%8D%95%E9%A2%98/3.51Node_2070_%E6%9C%80%E5%B0%8F%E7%BD%9A%E6%AC%BE/" title="3.51Node 2070 最小罚款" class="md-nav__link">
+      3.51Node 2070 最小罚款
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      前沿算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        前沿算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E6%B2%BF%E7%AE%97%E6%B3%95/1.Listing_All_Fixed-Size_Cycles_in_Sparse_Graphs/" title="1.Listing All Fixed Size Cycles in Sparse Graphs" class="md-nav__link">
+      1.Listing All Fixed Size Cycles in Sparse Graphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      机器学习算法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        机器学习算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/1.XGBoost%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/" title="1.XGBoost原理简介" class="md-nav__link">
+      1.XGBoost原理简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/2.XGBoost%E7%9A%84%E7%BA%AFPython%E5%AE%9E%E7%8E%B0/" title="2.XGBoost的纯Python实现" class="md-nav__link">
+      2.XGBoost的纯Python实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      考研笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        考研笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      概率论与数理统计
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        概率论与数理统计
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" title="1.第一章 随机事件与概率" class="md-nav__link">
+      1.第一章 随机事件与概率
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      高等数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        高等数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD/" title="1.第一章 函数 极限 连续" class="md-nav__link">
+      1.第一章 函数 极限 连续
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" title="2.第二章 导数与微分" class="md-nav__link">
+      2.第二章 导数与微分
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E7%AC%AC%E4%B8%89%E7%AB%A0_%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E5%8F%8A%E5%AF%BC%E6%95%B0%E5%BA%94%E7%94%A8/" title="3.第三章 微分中值定理及导数应用" class="md-nav__link">
+      3.第三章 微分中值定理及导数应用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E7%AC%AC%E5%9B%9B%E7%AB%A0_%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/" title="4.第四章 不定积分" class="md-nav__link">
+      4.第四章 不定积分
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E7%AC%AC%E4%BA%94%E7%AB%A0_%E5%AE%9A%E7%A7%AF%E5%88%86%E4%B8%8E%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86/" title="5.第五章 定积分与反常积分" class="md-nav__link">
+      5.第五章 定积分与反常积分
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      高等数学习题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        高等数学习题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%A0%E9%A2%98/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD_%E9%94%99%E9%A2%98/" title="1.第一章 函数 极限 连续 错题" class="md-nav__link">
+      1.第一章 函数 极限 连续 错题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      读书笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        读书笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" title="数学女孩" class="md-nav__link">
+      数学女孩
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      课程笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        课程笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1" checked>
+    
+    <label class="md-nav__link" for="nav-6-1">
+      Java分布式系统
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        Java分布式系统
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1.Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" title="1.Java中的泛型" class="md-nav__link">
+      1.Java中的泛型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2.Java%E4%B8%AD%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="2.Java中的注解" class="md-nav__link">
+      2.Java中的注解
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../8.Java%E4%B8%AD%E7%9A%84%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8%28RPC%29/" title="8.Java中的远程过程调用(RPC)" class="md-nav__link">
+      8.Java中的远程过程调用(RPC)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        9.Java远程方法调用(RMI)
+      </label>
+    
+    <a href="./" title="9.Java远程方法调用(RMI)" class="md-nav__link md-nav__link--active">
+      9.Java远程方法调用(RMI)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rmi" class="md-nav__link">
+    2. RMI 概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rmi" class="md-nav__link">
+    3. 什么是 RMI 应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 动态代码加载的优点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 远程接口、对象和方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-rmi" class="md-nav__link">
+    3.4. 使用RMI创建分布式应用程序
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    3.4.1. 设计和实现应用程序组件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342" class="md-nav__link">
+    3.4.2. 编译源文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343" class="md-nav__link">
+    3.4.3. 使类可以通过网络访问
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344" class="md-nav__link">
+    3.4.4. 启动应用程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5. 构建一个通用的计算引擎
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rmi" class="md-nav__link">
+    4. 如何实现一个 RMI 服务器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1. 设计远程接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2. 实现远程接口
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    4.2.1. 声明正在实现的远程接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2. 定义远程对象的构造方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    4.2.3. 提供每种远程方法的实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-rmi" class="md-nav__link">
+    4.2.4. 在RMI中传递对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-main" class="md-nav__link">
+    4.2.5. 实现服务器端的main方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#426" class="md-nav__link">
+    4.2.6. 创建和安装安全管理器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#427" class="md-nav__link">
+    4.2.7. 使远程对象可供客户端使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-rmi" class="md-nav__link">
+    5. 如何创建一个 RMI 客户端
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 编译并运行
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../A11.%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8/" title="A11.分布式架构的应用" class="md-nav__link">
+      A11.分布式架构的应用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-6" type="checkbox" id="nav-6-1-6">
+    
+    <label class="md-nav__link" for="nav-6-1-6">
+      实验
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-1-6">
+        实验
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%AE%9E%E9%AA%8C/1.RPC%E5%AE%9E%E9%AA%8C/" title="1.RPC实验" class="md-nav__link">
+      1.RPC实验
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      大学物理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        大学物理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E8%BF%90%E5%8A%A8%E5%92%8C%E5%8A%9B/" title="1.第一章 运动和力" class="md-nav__link">
+      1.第一章 运动和力
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      嵌入式系统
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        嵌入式系统
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-nav__link">
+      1.uCos环境配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-nav__link">
+      2.优先级反转与中断机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/3.uCos%E4%B8%AD%E9%94%81%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%94%E5%85%B3%E4%B8%AD%E6%96%AD%E6%95%88%E7%8E%87%E6%9B%B4%E9%AB%98/" title="3.uCos中锁调度器为什么比关中断效率更高" class="md-nav__link">
+      3.uCos中锁调度器为什么比关中断效率更高
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/4.uCos%E7%9A%84%E5%BB%B6%E8%BF%9F%E4%B8%AD%E6%96%AD%E6%8F%90%E4%BA%A4%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87/" title="4.uCos的延迟中断提交为什么能提高效率" class="md-nav__link">
+      4.uCos的延迟中断提交为什么能提高效率
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6%E5%92%8C%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%95/" title="5.uCos中的任务机制和优先级位图算法" class="md-nav__link">
+      5.uCos中的任务机制和优先级位图算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/6.uCos%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5%E5%92%8C%E9%80%9A%E4%BF%A1/" title="6.uCos中的同步互斥和通信" class="md-nav__link">
+      6.uCos中的同步互斥和通信
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      数字电子技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        数字电子技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/1.%E6%95%B0%E5%88%B6%E5%92%8C%E6%95%B0%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2/" title="1.数制和数制的转换" class="md-nav__link">
+      1.数制和数制的转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/2.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%8D%A1%E8%AF%BA%E5%9B%BE/" title="2.逻辑代数与卡诺图" class="md-nav__link">
+      2.逻辑代数与卡诺图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/3.%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF/" title="3.逻辑门电路" class="md-nav__link">
+      3.逻辑门电路
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+    
+    <label class="md-nav__link" for="nav-6-5">
+      移动应用开发
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        移动应用开发
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1.%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="1.课程项目思维导图" class="md-nav__link">
+      1.课程项目思维导图
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+    
+    <label class="md-nav__link" for="nav-6-6">
+      编译原理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-6">
+        编译原理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/1.%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/" title="1.上下文无关文法" class="md-nav__link">
+      1.上下文无关文法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" title="2.词法分析概述" class="md-nav__link">
+      2.词法分析概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/3.%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-%E8%87%AA%E4%B8%8A%E8%80%8C%E4%B8%8B%E5%88%86%E6%9E%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/" title="3.语法分析 自上而下分析的基本问题" class="md-nav__link">
+      3.语法分析 自上而下分析的基本问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6-4" type="checkbox" id="nav-6-6-4">
+    
+    <label class="md-nav__link" for="nav-6-6-4">
+      练习题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-6-4">
+        练习题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BB%83%E4%B9%A0%E9%A2%98/5.%E7%BB%83%E4%B9%A0%E9%A2%982-4%E7%AB%A0/" title="5.练习题2 4章" class="md-nav__link">
+      5.练习题2 4章
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
+    
+    <label class="md-nav__link" for="nav-6-7">
+      软件协同设计
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-7">
+        软件协同设计
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/1.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B8%8E%E5%AE%9E%E8%B7%B5/" title="1.前后端分离的思考与实践" class="md-nav__link">
+      1.前后端分离的思考与实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/2.%E4%BD%BF%E7%94%A8Express%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE/" title="2.使用Express部署Vue项目" class="md-nav__link">
+      2.使用Express部署Vue项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/3.NESMA%E5%8A%9F%E8%83%BD%E7%82%B9%E4%BC%B0%E8%AE%A1%E6%96%B9%E6%B3%95/" title="3.NESMA功能点估计方法" class="md-nav__link">
+      3.NESMA功能点估计方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/4.%E5%B7%A5%E4%BD%9C%E5%88%86%E8%A7%A3%E7%BB%93%E6%9E%84WBS/" title="4.工作分解结构WBS" class="md-nav__link">
+      4.工作分解结构WBS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rmi" class="md-nav__link">
+    2. RMI 概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rmi" class="md-nav__link">
+    3. 什么是 RMI 应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 动态代码加载的优点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 远程接口、对象和方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-rmi" class="md-nav__link">
+    3.4. 使用RMI创建分布式应用程序
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    3.4.1. 设计和实现应用程序组件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342" class="md-nav__link">
+    3.4.2. 编译源文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343" class="md-nav__link">
+    3.4.3. 使类可以通过网络访问
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344" class="md-nav__link">
+    3.4.4. 启动应用程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5. 构建一个通用的计算引擎
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rmi" class="md-nav__link">
+    4. 如何实现一个 RMI 服务器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1. 设计远程接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2. 实现远程接口
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    4.2.1. 声明正在实现的远程接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2. 定义远程对象的构造方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    4.2.3. 提供每种远程方法的实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-rmi" class="md-nav__link">
+    4.2.4. 在RMI中传递对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-main" class="md-nav__link">
+    4.2.5. 实现服务器端的main方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#426" class="md-nav__link">
+    4.2.6. 创建和安装安全管理器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#427" class="md-nav__link">
+    4.2.7. 使远程对象可供客户端使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-rmi" class="md-nav__link">
+    5. 如何创建一个 RMI 客户端
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 编译并运行
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/Java分布式系统/9.Java远程方法调用(RMI).md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="javarmi"><a class="toclink" href="#javarmi">Java远程方法调用(RMI)</a><a class="headerlink" href="#javarmi" title="Permanent link">#</a></h1>
+<h2 id="_1"><a class="toclink" href="#_1">目录</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#javarmi">Java远程方法调用(RMI)</a><ul>
+<li><a href="#_1">目录</a></li>
+<li><a href="#1">1. 背景</a></li>
+<li><a href="#2-rmi">2. RMI 概述</a></li>
+<li><a href="#3-rmi">3. 什么是 RMI 应用</a><ul>
+<li><a href="#31">3.1. 定义</a></li>
+<li><a href="#32">3.2. 动态代码加载的优点</a></li>
+<li><a href="#33">3.3. 远程接口、对象和方法</a></li>
+<li><a href="#34-rmi">3.4. 使用RMI创建分布式应用程序</a><ul>
+<li><a href="#341">3.4.1. 设计和实现应用程序组件</a></li>
+<li><a href="#342">3.4.2. 编译源文件</a></li>
+<li><a href="#343">3.4.3. 使类可以通过网络访问</a></li>
+<li><a href="#344">3.4.4. 启动应用程序</a></li>
+</ul>
+</li>
+<li><a href="#35">3.5. 构建一个通用的计算引擎</a></li>
+</ul>
+</li>
+<li><a href="#4-rmi">4. 如何实现一个 RMI 服务器</a><ul>
+<li><a href="#41">4.1. 设计远程接口</a></li>
+<li><a href="#42">4.2. 实现远程接口</a><ul>
+<li><a href="#421">4.2.1. 声明正在实现的远程接口</a></li>
+<li><a href="#422">4.2.2. 定义远程对象的构造方法</a></li>
+<li><a href="#423">4.2.3. 提供每种远程方法的实现</a></li>
+<li><a href="#424-rmi">4.2.4. 在RMI中传递对象</a></li>
+<li><a href="#425-main">4.2.5. 实现服务器端的main方法</a></li>
+<li><a href="#426">4.2.6. 创建和安装安全管理器</a></li>
+<li><a href="#427">4.2.7. 使远程对象可供客户端使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-rmi">5. 如何创建一个 RMI 客户端</a></li>
+<li><a href="#6">6. 编译并运行</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="1"><a class="toclink" href="#1">1. 背景</a><a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p>这学期上了《分布式系统》课程，内容主要是基于Java实现分布式计算，所以老师前几节课主要在给我们讲用Java做分布式可能会用到的一些技术。为了方便学习和记录，我将老师讲的内容结合书籍做了一些整理，这一篇主要讨论Java远程方法调用(RMI)。</p>
+<p>下面的内容主要翻译自<a href="https://docs.oracle.com/javase/tutorial/rmi/server.html">Java官方文档</a>。我使用的是<code>Google</code>翻译，翻完了以后如果有不太对的地方就手动调整了一下，难免有一些地方翻译得不是很清楚，欢迎指出，或直接查看官方文档原文。</p>
+<h2 id="2-rmi"><a class="toclink" href="#2-rmi">2. RMI 概述</a><a class="headerlink" href="#2-rmi" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>定义</strong>：<code>Java远程方法调用(RMI)</code>系统允许在一个Java虚拟机中运行的对象调用在另一个<code>Java</code>虚拟机中运行的对象的方法。RMI提供了用<code>Java</code>编程语言编写的程序之间的远程通信。</li>
+</ul>
+<p><em><strong>注</strong>：如果要连接到现有的<code>IDL</code>程序，应该使用<code>Java IDL</code>而不是RMI。</em></p>
+<p>本文简要概述了<code>RMI</code>系统，然后介绍了一个完整的客户端/服务器示例，该示例使用<code>RMI</code>的独特功能在运行时加载和执行用户定义的任务。示例中的服务器实现了一个通用的计算引擎，客户端使用该引擎计算 <script type="math/tex">\pi</script> 符号的值。</p>
+<h2 id="3-rmi"><a class="toclink" href="#3-rmi">3. 什么是 RMI 应用</a><a class="headerlink" href="#3-rmi" title="Permanent link">#</a></h2>
+<h3 id="31"><a class="toclink" href="#31">3.1. 定义</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>定义</strong>：<strong>RMI应用程序</strong>通常包含两个独立的程序，一个服务端和一个客户端。</p>
+<ul>
+<li>典型的<strong>服务端程序</strong>会创建一些远程对象，使这些对象的引用可被访问，并等待客户端调用这些对象上的方法。</li>
+<li>典型的<strong>客户端程序</strong>会获得对服务器上一个或多个远程对象的远程引用，然后调用这些对象上的方法。RMI提供了服务器和客户机之间通信和来回传递信息的机制。这样的应用程序有时被称为分布式对象应用程序。</li>
+</ul>
+</li>
+<li>
+<p><strong>分布式对象应用程序</strong>的功能:</p>
+<ul>
+<li><strong>定位远程对象</strong>。应用程序可以使用各种机制来获取对远程对象的引用。例如，一个应用程序可以用RMI的简单命名工具——RMI注册表来注册它的远程对象。或者，应用程序可以作为其他远程调用的一部分传递和返回远程对象引用。</li>
+<li><strong>与远程对象通信</strong>。远程对象之间通信的细节由RMI处理。对于程序员来说，远程通信类似于普通的Java方法调用。</li>
+<li><strong>加载传递的对象的类定义</strong>。因为RMI允许对象来回传递，所以它提供了加载对象的类定义以及传输对象数据的机制。</li>
+</ul>
+</li>
+</ul>
+<p>下面的插图描述了一个<code>RMI分布式应用程序</code>，它使用<code>RMI注册表</code>来获取对远程对象的引用。</p>
+<ul>
+<li>
+<p>服务器调用注册表将名称与远程对象关联（或绑定）。</p>
+</li>
+<li>
+<p>客户端通过服务器注册表中的名称查找远程对象，然后在其上调用一个方法。</p>
+</li>
+<li>
+<p>图中还显示了<code>RMI</code>系统使用一个现有的<code>web</code>服务器来加载类定义，从服务器到客户端，从客户端到服务器，在需要的时候加载对象。</p>
+</li>
+</ul>
+<p><img alt="rmi" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Java%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/9.Java%E8%BF%9C%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%28RMI%29/rmi-1.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 1. RMI应用程序}
+</script>
+</p>
+<h3 id="32"><a class="toclink" href="#32">3.2. 动态代码加载的优点</a><a class="headerlink" href="#32" title="Permanent link">#</a></h3>
+<p><code>RMI</code>的核心和独特的特性之一是，如果对象的类没有在接收方的<code>Java</code>虚拟机中定义，它就能够下载对象的类的定义。对象的所有类型和行为（以前只能在单个<code>Java</code>虚拟机中使用）都可以传输到另一个（可能是远程的）<code>Java</code>虚拟机。RMI通过对象的实际类传递对象，因此当对象被发送到另一个<code>Java</code>虚拟机时，对象的行为不会改变。该功能允许将新的类型和行为引入远程<code>Java</code>虚拟机，从而动态扩展应用程序的行为。本文中的计算引擎示例使用此功能为分布式程序引入新的行为。</p>
+<h3 id="33"><a class="toclink" href="#33">3.3. 远程接口、对象和方法</a><a class="headerlink" href="#33" title="Permanent link">#</a></h3>
+<p>与任何其他<code>Java</code>应用程序一样，使用<code>Java RMI</code>构建的分布式应用程序由接口和类组成。接口声明方法。这些类实现接口中声明的方法，可能还声明其他方法。在分布式应用程序中，一些实现可能驻留在一些<code>Java</code>虚拟机中，而不是其他虚拟机。具有可以跨<code>Java</code>虚拟机调用的方法的对象称为远程对象。</p>
+<p>对象通过实现远程接口而成为远程对象，远程接口具有以下特征:</p>
+<ul>
+<li>远程接口扩展了<code>java.rmi.Remote</code>接口。</li>
+<li>接口的每个方法在它的<code>throws</code>子句中都声明了<code>java.rmi.RemoteException</code>，以及任何特定于应用程序的异常。</li>
+</ul>
+<p>当对象从一个<code>Java</code>虚拟机传递到另一个<code>Java</code>虚拟机时，<code>RMI</code>将远程对象与非远程对象区别对待。<code>RMI</code>不是在接收方的<code>Java</code>虚拟机中复制实现对象，而是为远程对象传递<code>远程存根（Stub）</code>。存根充当远程对象的本地代表或代理，对于客户端来说，它基本上是远程引用。客户端调用本地存根上的方法，该方法负责对远程对象执行方法调用。</p>
+<p>远程对象的<strong>存根</strong>（Stub）实现远程对象实现的同一组远程接口。此属性允许将存根转换为远程对象实现的任何接口。但是，只有在远程接口中定义的那些方法可以从接收的Java虚拟机中调用。</p>
+<p><code>图2-3</code>能够更加清晰地描述RMI的交互过程。</p>
+<p><img alt="RMI的交互图" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Java%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/9.Java%E8%BF%9C%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%28RMI%29/rmi-2.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 2. RMI的交互图}
+</script>
+</p>
+<p><img alt="存根和骨干网的具体通信过程" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Java%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/9.Java%E8%BF%9C%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%28RMI%29/rmi-3.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 3. 存根和骨干网的具体通信过程}
+</script>
+</p>
+<h3 id="34-rmi"><a class="toclink" href="#34-rmi">3.4. 使用RMI创建分布式应用程序</a><a class="headerlink" href="#34-rmi" title="Permanent link">#</a></h3>
+<p>使用RMI来开发一个分布式应用程序包括以下一般步骤:</p>
+<ol>
+<li>设计和实现分布式应用程序的组件</li>
+<li>编译源文件</li>
+<li>使类可以通过网络访问</li>
+<li>启动应用程序</li>
+</ol>
+<h4 id="341"><a class="toclink" href="#341">3.4.1. 设计和实现应用程序组件</a><a class="headerlink" href="#341" title="Permanent link">#</a></h4>
+<p>首先，确定您的应用程序体系结构，包括哪些组件是本地对象，哪些组件可以远程访问。这个步骤包括:</p>
+<ul>
+<li>
+<p><strong>定义远程接口</strong>。远程接口指定客户端可以远程调用的方法。客户端面向远程接口编程，而不是面向那些接口的实现类。这些接口的设计包括将用作这些方法的参数和返回值的对象类型的确定。如果这些接口或类中的任何一个还不存在，您也需要定义它们。</p>
+</li>
+<li>
+<p><strong>实现远程对象</strong>。远程对象必须实现一个或多个远程接口。远程对象类可以包括仅在本地可用的其他接口和方法的实现。如果要将任何本地的类作为这些方法的参数或返回值使用，那么这些本地的类也必须实现它们。</p>
+</li>
+<li>
+<p><strong>实现客户端</strong>。使用远程对象的客户端可以在定义远程接口之后的任何时候实现，包括在部署远程对象之后。</p>
+</li>
+</ul>
+<h4 id="342"><a class="toclink" href="#342">3.4.2. 编译源文件</a><a class="headerlink" href="#342" title="Permanent link">#</a></h4>
+<p>与任何<code>Java</code>程序一样，使用<code>javac</code>编译器编译源文件。源文件包含远程接口的声明、它们的实现、任何其他服务端类和客户端类。</p>
+<p><em><strong>注</strong>:对于Java平台之前的版本，即标准版5.0，通过使用<code>rmic</code>编译器构建存根类需要一个额外的步骤。然而，这一步已经没有必要了。</em></p>
+<h4 id="343"><a class="toclink" href="#343">3.4.3. 使类可以通过网络访问</a><a class="headerlink" href="#343" title="Permanent link">#</a></h4>
+<p>在此步骤中，你将使某些类定义可以通过网络访问，例如远程接口及其关联类型的定义，以及需要下载到客户端或服务器的类的定义。类定义通常通过<code>web</code>服务器进行网络访问。</p>
+<h4 id="344"><a class="toclink" href="#344">3.4.4. 启动应用程序</a><a class="headerlink" href="#344" title="Permanent link">#</a></h4>
+<p>启动应用程序包括运行<code>RMI</code>远程对象注册表、服务器和客户端。</p>
+<p>本节的其余部分将介绍用于创建计算引擎的步骤。</p>
+<h3 id="35"><a class="toclink" href="#35">3.5. 构建一个通用的计算引擎</a><a class="headerlink" href="#35" title="Permanent link">#</a></h3>
+<p>下面的内容主要介绍一个简单但功能强大的分布式应用程序，即计算引擎。计算引擎是服务器上的一个远程对象，它从客户端获取任务，运行任务并返回任何结果。任务在服务器运行的机器上运行。这种类型的分布式应用程序可以使许多客户端机器能够使用特别强大的机器或具有专门硬件的机器。</p>
+<p>计算引擎的新颖之处在于，在编写或启动计算引擎时，不需要定义它运行的任务。可以在任何时候创建新类型的任务，然后将其交给要运行的计算引擎。任务的惟一要求是其类实现特定的接口。完成任务所需的代码可以由RMI系统下载到计算引擎。然后，计算引擎运行任务，使用正在运行计算引擎的机器上的资源。</p>
+<p>执行任意任务的能力是由<code>Java</code>平台的动态特性所支持的，它通过RMI扩展到网络。<code>RMI</code>动态地将任务代码加载到计算引擎的<code>Java</code>虚拟机中，并在不知道实现任务的类的情况下运行任务。这种能够动态下载代码的应用程序通常被称为基于行为的应用程序。此类应用程序通常需要完整的启用代理的基础设施。对于RMI，这样的应用程序是<code>Java</code>平台上分布式计算的基本机制的一部分。</p>
+<h2 id="4-rmi"><a class="toclink" href="#4-rmi">4. 如何实现一个 RMI 服务器</a><a class="headerlink" href="#4-rmi" title="Permanent link">#</a></h2>
+<p>服务器从客户端接收任务，运行任务并返回任何结果。服务器代码由接口和类组成。接口定义了可以从客户端调用的方法。本质上，接口定义了远程对象的客户端视图。类定义了方法的实现细节。</p>
+<p>这一章主要分为两个部分</p>
+<ol>
+<li><a href="https://docs.oracle.com/javase/tutorial/rmi/designing.html">Designing a Remote Interface</a></li>
+</ol>
+<p>第一部分定义了<code>Compute</code>接口，它提供客户端和服务器之间的连接。通过这一节内容，你还将了解支持这种通信的<code>RMI API</code>。</p>
+<ol start="2">
+<li><a href="https://docs.oracle.com/javase/tutorial/rmi/implementing.html">Implementing a Remote Interface</a></li>
+</ol>
+<p>第二部分将讨论如何实现<code>Compute</code>接口的类，从而实现远程对象。该类还提供组成服务器程序的其余代码，包括创建远程对象实例、向RMI注册表注册该对象并设置安全管理器的<code>main</code>方法。</p>
+<h3 id="41"><a class="toclink" href="#41">4.1. 设计远程接口</a><a class="headerlink" href="#41" title="Permanent link">#</a></h3>
+<p>计算引擎的核心是协议，该协议使任务可以提交到计算引擎，计算引擎可以运行这些任务，并将这些任务的结果返回给客户端。该协议在计算引擎支持的接口中表示。 下图说明了此协议的远程通信。</p>
+<p><img alt="远程通信" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Java%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/9.Java%E8%BF%9C%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%28RMI%29/rmi-4.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 4. 远程通信}
+</script>
+</p>
+<p>每个接口都包含一个方法。 计算引擎的远程接口<code>Compute</code>使任务可以提交到引擎。 客户端接口<code>Task</code>定义了计算引擎如何执行提交的任务。</p>
+<p><code>compute.Compute</code>接口定义了可远程访问的部分，即计算引擎本身。 这是<code>Compute</code>接口的源代码：</p>
+<pre><code class="java">package compute;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface Compute extends Remote {
+    &lt;T&gt; T executeTask(Task&lt;T&gt; t) throws RemoteException;
+}
+</code></pre>
+
+<p>通过扩展接口<code>java.rmi.Remote</code>，<code>Compute</code>接口将其自身标识为可以从另一个<code>Java</code>虚拟机调用其方法的接口。 实现此接口的任何对象都可以是远程对象。</p>
+<p>作为远程接口的成员，<code>executeTask</code>方法是一种远程方法。 因此，必须将此方法定义为能够抛出<code>java.rmi.RemoteException</code>。 <code>RMI</code>系统从远程方法调用中抛出此异常，以表明发生通信故障或协议错误。 <code>RemoteException</code>是一个要求被捕获的异常，因此任何调用远程方法的代码都需要通过捕获该异常或在其<code>throws</code>子句中声明该异常来对其进行处理。</p>
+<p>计算引擎所需的第二个接口是<code>Task</code>接口，它是<code>Compute</code>接口中<code>executeTask</code>方法的参数类型。 <code>compute.Task</code>接口定义了计算引擎与其需要完成的工作之间的接口，从而提供了开始工作的方式。 这是<code>Task</code>界面的源代码：</p>
+<pre><code class="java">package compute;
+
+public interface Task&lt;T&gt; {
+    T execute();
+}
+</code></pre>
+
+<p><code>Task</code>接口定义了一个方法<code>execute</code>，它没有参数，也不会引发异常。 因为该接口未扩展<code>Remote</code>，所以该接口中的方法不需要在其<code>throws</code>子句中列出<code>java.rmi.RemoteException</code>。</p>
+<p><code>Task</code>接口具有类型参数<code>T</code>，它表示任务计算的结果类型。 此接口的<code>execute</code>方法返回计算结果，因此其返回类型为<code>T</code>。</p>
+<p>反过来，<code>Compute</code>接口的<code>executeTask</code>方法返回传递给它的<code>Task</code>实例的执行结果。 因此，<code>executeTask</code>方法具有自己的类型参数<code>T</code>，该参数将其自身的返回类型与传递的<code>Task</code>实例的结果类型相关联。</p>
+<p><code>RMI</code>使用<code>Java</code>对象序列化机制在<code>Java</code>虚拟机之间按值传输对象。 对于被视为可序列化的对象，其类必须实现<code>java.io.Serializable</code>标记接口。 因此，实现<code>Task</code>接口的类也必须实现<code>Serializable</code>，用于任务结果的对象的类也必须实现。</p>
+<p>只要任务类型是<code>Task</code>的实现，就可以由<code>Compute</code>对象运行各种任务。实现此接口的类可以包含任务计算所需的任何数据以及计算所需的任何其他方法。</p>
+<p>这就是<code>RMI</code>如何使这种简单的计算引擎成为可能。因为<code>RMI</code>可以假定<code>Task</code>对象是用<code>Java</code>编程语言编写的，所以<code>RMI</code>将根据需要将计算引擎先前未知的<code>Task</code>对象的实现下载到计算引擎的<code>Java</code>虚拟机中。此功能使计算引擎的客户端可以定义要在服务器计算机上运行的新任务，而无需在该计算机上显式安装代码。</p>
+<p>由<code>ComputeEngine</code>类实现的计算引擎实现<code>Compute</code>接口，从而允许通过调用其<code>executeTask</code>方法将不同的任务提交给它。使用任务的<code>execute</code>方法实现运行这些任务，并将结果返回到远程客户端。</p>
+<h3 id="42"><a class="toclink" href="#42">4.2. 实现远程接口</a><a class="headerlink" href="#42" title="Permanent link">#</a></h3>
+<p>本节讨论为计算引擎实现类的任务。 通常，实现远程接口的类至少应执行以下操作：</p>
+<ul>
+<li>声明要被实现的远程接口</li>
+<li>为每个远程对象定义构造函数</li>
+<li>提供远程接口中每个远程方法的实现</li>
+</ul>
+<p><code>RMI</code>服务器程序需要创建初始的远程对象并将其导出到<code>RMI</code>运行时，这使它们可用于接收传入的远程调用。 此设置过程可以封装在远程对象实现类本身的方法中，也可以完全包含在另一个类中。 设置过程应执行以下操作：</p>
+<ul>
+<li>创建并安装安全管理器</li>
+<li>创建和导出一个或多个远程对象</li>
+<li>为了引导目的，至少向<code>RMI</code>注册表（或向另一个命名服务，例如可通过<code>Java</code>命名和目录接口访问的服务）注册一个远程对象。</li>
+</ul>
+<p>接下来是计算引擎的完整实现。 <code>engine.ComputeEngine</code>类实现远程接口<code>Compute</code>，并且还包括用于设置计算引擎的主要方法。 这是<code>ComputeEngine</code>类的源代码：</p>
+<pre><code class="java">package engine;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import compute.Compute;
+import compute.Task;
+
+public class ComputeEngine implements Compute {
+
+    public ComputeEngine() {
+        super();
+    }
+
+    public &lt;T&gt; T executeTask(Task&lt;T&gt; t) {
+        return t.execute();
+    }
+
+    public static void main(String[] args) {
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+        try {
+            String name = &quot;Compute&quot;;
+            Compute engine = new ComputeEngine();
+            Compute stub =
+                (Compute) UnicastRemoteObject.exportObject(engine, 0);
+            Registry registry = LocateRegistry.getRegistry();
+            registry.rebind(name, stub);
+            System.out.println(&quot;ComputeEngine bound&quot;);
+        } catch (Exception e) {
+            System.err.println(&quot;ComputeEngine exception:&quot;);
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+<p>以下各节讨论计算引擎实现的每个组件。</p>
+<h4 id="421"><a class="toclink" href="#421">4.2.1. 声明正在实现的远程接口</a><a class="headerlink" href="#421" title="Permanent link">#</a></h4>
+<p>计算引擎的实现类声明如下：</p>
+<pre><code class="java">public class ComputeEngine implements Compute
+</code></pre>
+
+<p>该声明指出该类实现了<code>Compute</code>远程接口，因此可以用于远程对象。</p>
+<p><code>ComputeEngine</code>类定义一个远程对象实现类，该类实现单个远程接口而没有其他接口。 <code>ComputeEngine</code>类还包含两个只能在本地调用的可执行程序元素。 这些元素中的第一个是<code>ComputeEngine</code>实例的构造函数。 这些元素中的第二个是用于创建<code>ComputeEngine</code>实例并将其提供给客户端的<code>main</code>方法。</p>
+<h4 id="422"><a class="toclink" href="#422">4.2.2. 定义远程对象的构造方法</a><a class="headerlink" href="#422" title="Permanent link">#</a></h4>
+<p><code>ComputeEngine</code>类具有一个不带任何参数的构造函数。 构造函数的代码如下：</p>
+<pre><code class="java">public ComputeEngine() {
+    super();
+}
+</code></pre>
+
+<p>该构造函数仅调用超类构造函数，它是<code>Object</code>类的无参数构造函数。 尽管这里可以省略，但为了描述清楚还是将其包括在内。</p>
+<h4 id="423"><a class="toclink" href="#423">4.2.3. 提供每种远程方法的实现</a><a class="headerlink" href="#423" title="Permanent link">#</a></h4>
+<p>远程对象的类为远程接口中指定的每个远程方法提供实现。 Compute接口包含一个远程方法executeTask，该方法如下实现：</p>
+<pre><code class="java">public &lt;T&gt; T executeTask(Task&lt;T&gt; t) {
+    return t.execute();
+}
+</code></pre>
+
+<p>此方法实现<code>ComputeEngine</code>远程对象与其客户端之间的协议。 每个客户端向<code>ComputeEngine</code>提供一个<code>Task</code>对象，该<code>Task</code>对象具有<code>Task</code>接口的<code>execute</code>方法的特定实现。 <code>ComputeEngine</code>执行每个客户端的任务，并将任务的<code>execute</code>方法的结果直接返回给客户端。</p>
+<h4 id="424-rmi"><a class="toclink" href="#424-rmi">4.2.4. 在RMI中传递对象</a><a class="headerlink" href="#424-rmi" title="Permanent link">#</a></h4>
+<p>远程方法的参数或从远程方法返回的值几乎可以是任何类型，包括本地对象，远程对象和原始数据类型。更准确地说，任何类型的任何实体都可以传入或传出远程方法，只要该实体是作为原始数据类型，远程对象或可序列化对象的类型的实例即可，这意味着它实现了接口<code>java.io.Serializable</code>。</p>
+<p>某些对象类型不满足任何这些条件，因此无法传递给远程方法或从远程方法返回。 这些对象中的大多数（例如线程或文件描述符）都封装了仅在单个地址空间内有意义的信息。 许多核心类（包括软件包<code>java.lang</code>和<code>java.util</code>中的类）都实现了<code>Serializable</code>接口。</p>
+<p>控制如何传递参数和返回值的规则如下：</p>
+<ul>
+<li><strong>远程对象本质上是通过引用传递的</strong>。 远程对象引用是一个存根，它是一个客户端代理，可实现该远程对象实现的完整的远程接口集。</li>
+<li><strong>使用对象序列化，本地对象通过副本传递</strong>。 默认情况下，将复制所有字段，但标记为静态或瞬态的字段除外。 可以逐级覆盖默认序列化行为。</li>
+</ul>
+<p>通过引用传递远程对象意味着，通过远程方法调用对对象状态所做的任何更改，都将反映在原始远程对象中。传递远程对象时，只有作为远程接口的那些接口可用于接收器。在实现类中定义的方法或在由该类实现的非远程接口中定义的任何方法均不适用于该接收者。</p>
+<p>例如，如果要将引用传递给<code>ComputeEngine</code>类的实例，则接收方将只能访问计算引擎的<code>executeTask</code>方法。该接收者将看不到<code>ComputeEngine</code>构造函数，其<code>main</code>方法或<code>java.lang.Object</code>的任何方法的实现。</p>
+<p>在远程方法调用的参数和返回值中，不是远程对象的对象将按值传递。因此，在接收<code>Java</code>虚拟机中创建对象的副本。接收者对对象状态的任何更改仅反映在接收者的副本中，而不反映在发送者的原始实例中。发送者对对象状态的任何更改仅反映在发送者的原始实例中，而不反映在接收者的副本中。</p>
+<h4 id="425-main"><a class="toclink" href="#425-main">4.2.5. 实现服务器端的main方法</a><a class="headerlink" href="#425-main" title="Permanent link">#</a></h4>
+<p><code>ComputeEngine</code>实现中最复杂的方法是<code>main</code>方法。 主要方法用于启动<code>ComputeEngine</code>，因此需要进行必要的初始化等等，以使服务器准备好接受来自客户端的调用。 此方法不是远程方法，这意味着无法从其他<code>Java</code>虚拟机调用它。 由于<code>main</code>方法被声明为静态方法，因此该方法根本不与对象关联，而是与<code>ComputeEngine</code>类关联。</p>
+<h4 id="426"><a class="toclink" href="#426">4.2.6. 创建和安装安全管理器</a><a class="headerlink" href="#426" title="Permanent link">#</a></h4>
+<p>主要方法的第一个任务是创建并安装安全管理器，以保护对系统资源的访问不受<code>Java</code>虚拟机中运行的不可信下载代码的访问。 安全管理器确定下载的代码是否可以访问本地文件系统或可以执行任何其他特权操作。</p>
+<p>如果<code>RMI</code>程序未安装安全管理器，则<code>RMI</code>将不会下载作为自变量接收到的对象或从远程方法调用返回值的对象的类（从本地类路径之外）。 此限制确保了由下载的代码执行的操作必须遵守安全策略。</p>
+<p>这是创建和安装安全管理器的代码：</p>
+<pre><code class="java">if (System.getSecurityManager() == null) {
+    System.setSecurityManager(new SecurityManager());
+}
+</code></pre>
+
+<h4 id="427"><a class="toclink" href="#427">4.2.7. 使远程对象可供客户端使用</a><a class="headerlink" href="#427" title="Permanent link">#</a></h4>
+<p>接下来，<code>main</code>方法使用以下语句创建<code>ComputeEngine</code>实例并将其导出到<code>RMI</code>运行时：</p>
+<pre><code class="java">Compute engine = new ComputeEngine();
+Compute stub =
+    (Compute) UnicastRemoteObject.exportObject(engine, 0);
+
+</code></pre>
+
+<p>静态<code>UnicastRemoteObject.exportObject</code>方法导出提供的远程对象，以便它可以从远程客户端接收其远程方法的调用。第二个参数int指定用于侦听该对象的传入远程调用请求的TCP端口。通常使用零值，该值指定使用匿名端口。然后，实际端口将在运行时由RMI或基础操作系统选择。但是，也可以使用非零值来指定用于侦听的特定端口。成功导出<code>exportObject</code>调用后，<code>ComputeEngine</code>远程对象已准备就绪，可以处理传入的远程调用。</p>
+<p><code>exportObject</code>方法返回导出的远程对象的存根。请注意，变量存根的类型必须是<code>Compute</code>，而不是<code>ComputeEngine</code>，因为远程对象的存根仅实现导出的远程对象实现的远程接口。</p>
+<p><code>exportObject</code>方法声明它可以引发<code>RemoteException</code>，这是一个经过检查的异常类型。 <code>main</code>方法使用其<code>try / catch</code>块处理此异常。如果未通过这种方式处理异常，则必须在<code>main</code>方法的<code>throws</code>子句中声明<code>RemoteException</code>。如果没有必要的通信资源（例如，请求的端口绑定用于其他目的），则尝试导出远程对象可能会引发<code>RemoteException</code>。</p>
+<p>在客户端可以在远程对象上调用方法之前，客户端必须首先获取对该远程对象的引用。可以通过在程序中获得任何其他对象引用的方式来获得引用，例如通过将引用作为方法返回值的一部分或包含此类引用的数据结构的一部分来获取。</p>
+<p>系统提供一种特殊类型的远程对象RMI注册表，用于查找对其他远程对象的引用。 RMI注册表是一个简单的远程对象命名服务，使客户端能够通过名称获得对远程对象的引用。注册表通常仅用于查找RMI客户端需要使用的第一个远程对象。然后，第一个远程对象可能会为查找其他对象提供支持。</p>
+<p><code>java.rmi.registry.Registry</code>远程接口是用于绑定（或注册）和在注册表中查找远程对象的API。<code>java.rmi.registry.LocateRegistry</code>类提供了静态方法，用于合成对特定网络地址（主机和端口）上注册表的远程引用。这些方法将创建包含指定网络地址的远程引用对象，而不执行任何远程通信。<code>LocateRegistry</code>还提供了用于在当前<code>Java</code>虚拟机中创建新注册表的静态方法，尽管本示例未使用这些方法。在本地主机上的RMI注册表中注册了远程对象后，任何主机上的客户端都可以按名称查找远程对象，获取其引用，然后在该对象上调用远程方法。注册表可以由主机上运行的所有服务器共享，或者单个服务器进程可以创建和使用其自己的注册表。</p>
+<p><code>ComputeEngine</code>类使用以下语句为对象创建名称：</p>
+<pre><code class="java">String name = &quot;Compute&quot;;
+</code></pre>
+
+<p>然后，代码将名称添加到服务器上运行的RMI注册表中。 稍后使用以下语句完成此步骤：</p>
+<pre><code class="java">Registry registry = LocateRegistry.getRegistry();
+registry.rebind(name, stub);
+</code></pre>
+
+<p>此重新绑定调用对本地主机上的<code>RMI</code>注册表进行了远程调用。像任何远程调用一样，此调用可能导致引发<code>RemoteException</code>，该异常由<code>main</code>方法末尾的<code>catch</code>块处理。</p>
+<p>请注意以下有关<code>Registry.rebind</code>调用的内容：</p>
+<ul>
+<li><code>LocateRegistry.getRegistry</code>的无参数重载将对本地主机和默认注册表端口<code>1099</code>上注册表的引用进行综合。如果在<code>1099</code>以外的端口上创建了注册表，则必须使用具有<code>int</code>参数的重载。</li>
+<li>在注册表上进行远程调用时，将传递远程对象的存根而不是远程对象本身的副本。诸<code>ComputeEngine</code>实例之类的远程实现对象永远不会离开创建它们的<code>Java</code>虚拟机。因此，当客户端在服务器的远程对象注册表中执行查找时，将返回存根的副本。因此，在这种情况下，远程对象通过（远程）引用而不是通过值有效地传递。</li>
+<li>出于安全原因，应用程序只能与在同一主机上运行的注册表绑定，取消绑定或重新绑定远程对象引用。此限制可防止远程客户端删除或覆盖服务器注册表中的任何条目。但是，可以从任何本地或远程主机请求查找。</li>
+</ul>
+<p>服务器在本地<code>RMI</code>注册表中注册后，将显示一条消息，表明它已准备好开始处理呼叫。然后，<code>main</code>方法完成。不必等待线程使服务器保持活动状态。只要在本地或远程的另一个<code>Java</code>虚拟机中引用了<code>ComputeEngine</code>对象，就不会关闭<code>ComputeEngine</code>对象或对其进行垃圾回收。由于程序将对注册表的引用绑定到注册表中，因此可以从远程客户端（注册表本身）访问它。 <code>RMI</code>系统使<code>ComputeEngine</code>的进程保持运行状态。 <code>ComputeEngine</code>可用于接受呼叫，直到将其绑定从注册表中删除并且没有远程客户端拥有对<code>ComputeEngine</code>对象的远程引用之前，它不会被回收。</p>
+<p><code>ComputeEngine.main</code>方法中的最后一段代码将处理可能出现的任何异常。可以在代码中引发的唯一检查的异常类型是<code>RemoteException</code>，可以通过<code>UnicastRemoteObject.exportObject</code>调用或通过注册表重新绑定调用来实现。在这两种情况下，该程序都只能执行打印错误消息后退出的操作。在某些分布式应用程序中，可以从故障中恢复以进行远程调用。例如，应用程序可能尝试重试该操作，或者选择另一台服务器继续该操作。</p>
+<h2 id="5-rmi"><a class="toclink" href="#5-rmi">5. 如何创建一个 RMI 客户端</a><a class="headerlink" href="#5-rmi" title="Permanent link">#</a></h2>
+<p>计算引擎是一个相对简单的程序：它运行传递给它的任务。 计算引擎的客户端更为复杂。客户端需要调用计算引擎，但还必须定义要由计算引擎执行的任务。</p>
+<p>在我们的示例中，两个单独的类构成了客户端。第一个类<code>ComputePi</code>查找并调用<code>Compute</code>对象。第二个类，<code>Pi</code>，实现了<code>Task</code>接口并定义了计算引擎要完成的工作。 <code>Pi</code>类的工作是将 <script type="math/tex">\pi</script> 符号的值计算为小数位数。</p>
+<p>非远程任务接口定义如下：</p>
+<pre><code class="java">package compute;
+
+public interface Task&lt;T&gt; {
+    T execute();
+}
+</code></pre>
+
+<p>调用<code>Compute</code>对象的方法的代码必须获得对该对象的引用，创建<code>Task</code>对象，然后请求执行该任务。 任务类<code>Pi</code>的定义在后面示出。<code>Pi</code>对象使用单个参数（结果的所需精度）构造。任务执行的结果是<code>java.math.BigDecimal</code>，表示以指定的精度计算出的 <script type="math/tex">\pi</script> 符号。</p>
+<p>这是主要客户端类<code>client.ComputePi</code>的源代码：</p>
+<pre><code class="java">package client;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.math.BigDecimal;
+import compute.Compute;
+
+public class ComputePi {
+    public static void main(String args[]) {
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+        try {
+            String name = &quot;Compute&quot;;
+            Registry registry = LocateRegistry.getRegistry(args[0]);
+            Compute comp = (Compute) registry.lookup(name);
+            Pi task = new Pi(Integer.parseInt(args[1]));
+            BigDecimal pi = comp.executeTask(task);
+            System.out.println(pi);
+        } catch (Exception e) {
+            System.err.println(&quot;ComputePi exception:&quot;);
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+<p>与<code>ComputeEngine</code>服务器一样，客户端从安装安全管理器开始。此步骤是必需的，因为接收服务器远程对象的存根的过程可能需要从服务器下载类定义。要使RMI下载类，必须启用安全管理器。</p>
+<p>安装安全管理器后，客户端将使用<code>ComputeEngine</code>用来绑定其远程对象的相同名称来构建用于查找<code>Compute</code>远程对象的名称。此外，客户端使用<code>LocateRegistry.getRegistry API</code>来合成对服务器主机上注册表的远程引用。第一个命令行参数<code>args [0]</code>的值是运行<code>Compute</code>对象的远程主机的名称。然后，客户端在注册表上调用<code>lookup</code>方法，以在服务器主机的注册表中按名称查找远程对象。使用的<code>LocateRegistry.getRegistry</code>的特定重载（具有单个<code>String</code>参数）返回对命名主机和默认注册表端口<code>1099</code>处的注册表的引用。如果在<code>1099</code>以外的端口创建了注册表，则必须使用具有<code>int</code>参数的重载。</p>
+<p>接下来，客户端创建一个新的<code>Pi</code>对象，将解析为整数的第二个命令行参数<code>args [1]</code>的值传递给<code>Pi</code>构造函数。此参数指示在计算中使用的小数位数。最后，客户端调用<code>Compute</code>远程对象的<code>executeTask</code>方法。传递给<code>executeTask</code>调用的对象将返回<code>BigDecimal</code>类型的对象，程序会将其存储在变量<code>result</code>中。最后，程序将打印结果。下图描述了<code>ComputePi</code>客户端，<code>rmiregistry</code>和<code>ComputeEngine</code>之间的消息流。</p>
+<p><img alt="消息流" src="../../../img/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Java%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/9.Java%E8%BF%9C%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%28RMI%29/rmi-5.png" /></p>
+<p>
+<script type="math/tex; mode=display">
+\text{Figure 5. 消息流}
+</script>
+</p>
+<p><code>Pi</code>类实现<code>Task</code>接口，并将 <script type="math/tex">\pi</script> 符号的值计算为指定的小数位数。对于此示例，实际算法并不重要。重要的是该算法的计算量很大，这意味着您希望在功能强大的服务器上执行该算法。</p>
+<p>以下是实现<code>Task</code>接口的类<code>client.Pi</code>的源代码：</p>
+<pre><code class="java">package client;
+
+import compute.Task;
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+public class Pi implements Task&lt;BigDecimal&gt;, Serializable {
+
+    private static final long serialVersionUID = 227L;
+
+    /** constants used in pi computation */
+    private static final BigDecimal FOUR = BigDecimal.valueOf(4);
+
+    /** rounding mode to use during pi computation */
+    private static final int roundingMode = BigDecimal.ROUND_HALF_EVEN;
+
+    /** digits of precision after the decimal point */
+    private final int digits;
+
+    /**
+     * Construct a task to calculate pi to the specified precision.
+     */
+    public Pi(int digits) {
+        this.digits = digits;
+    }
+
+    /**
+     * Calculate pi.
+     */
+    public BigDecimal execute() {
+        return computePi(digits);
+    }
+
+    /**
+     * Compute the value of pi to the specified number of digits after the decimal
+     * point. The value is computed using Machin's formula:
+     *
+     * pi/4 = 4*arctan(1/5) - arctan(1/239)
+     *
+     * and a power series expansion of arctan(x) to sufficient precision.
+     */
+    public static BigDecimal computePi(int digits) {
+        int scale = digits + 5;
+        BigDecimal arctan1_5 = arctan(5, scale);
+        BigDecimal arctan1_239 = arctan(239, scale);
+        BigDecimal pi = arctan1_5.multiply(FOUR).subtract(arctan1_239).multiply(FOUR);
+        return pi.setScale(digits, BigDecimal.ROUND_HALF_UP);
+    }
+
+    /**
+     * Compute the value, in radians, of the arctangent of the inverse of the
+     * supplied integer to the specified number of digits after the decimal point.
+     * The value is computed using the power series expansion for the arc tangent:
+     *
+     * arctan(x) = x - (x^3)/3 + (x^5)/5 - (x^7)/7 + (x^9)/9 ...
+     */
+    public static BigDecimal arctan(int inverseX, int scale) {
+        BigDecimal result, numer, term;
+        BigDecimal invX = BigDecimal.valueOf(inverseX);
+        BigDecimal invX2 = BigDecimal.valueOf(inverseX * inverseX);
+
+        numer = BigDecimal.ONE.divide(invX, scale, roundingMode);
+
+        result = numer;
+        int i = 1;
+        do {
+            numer = numer.divide(invX2, scale, roundingMode);
+            int denom = 2 * i + 1;
+            term = numer.divide(BigDecimal.valueOf(denom), scale, roundingMode);
+            if ((i % 2) != 0) {
+                result = result.subtract(term);
+            } else {
+                result = result.add(term);
+            }
+            i++;
+        } while (term.compareTo(BigDecimal.ZERO) != 0);
+        return result;
+    }
+}
+
+</code></pre>
+
+<p>请注意，所有可序列化类（无论它们是直接实现还是间接实现<code>Serializable</code>接口）都必须声明一个名为<code>serialVersionUID</code>的私有静态最终字段，以确保版本之间的序列化兼容性。如果没有发布该类的先前版本，则该字段的值可以是任何长值，类似于<code>Pi</code>使用的<code>227L</code>，只要该值在以后的版本中始终使用即可。如果已发布该类的先前版本而没有显式<code>serialVersionUID</code>声明，但是与该版本的序列化兼容性很重要，则必须将先前版本的默认隐式计算值用作新版本的显式声明的值。可以针对先前版本运行<code>serialver</code>工具，以确定其默认计算值。</p>
+<p>此示例最有趣的功能是，在将<code>Pi</code>对象作为参数传递给<code>executeTask</code>方法之前，<code>Compute</code>实现对象永远不需要<code>Pi</code>类的定义。此时，<code>RMI</code>将用于该类的代码加载到<code>Compute</code>对象的<code>Java</code>虚拟机中，调用<code>execute</code>方法，然后执行任务的代码。结果（在<code>Pi</code>任务的情况下是<code>BigDecimal</code>对象）将返回给调用客户端，在客户端用于打印计算结果。</p>
+<p>提供的<code>Task</code>对象计算<code>Pi</code>值的事实与<code>ComputeEngine</code>对象无关。您还可以实现一个任务，例如，通过使用概率算法来生成随机质数。该任务也需要大量计算，因此是传递给<code>ComputeEngine</code>的很好的选择，但是它需要非常不同的代码。当<code>Task</code>对象传递到<code>Compute</code>对象时，也可以下载此代码。就像在需要时引入用于计算 <script type="math/tex">\pi</script> 符号的算法的方式一样，将在需要时引入生成随机素数的代码。<code>Compute</code>对象仅知道它接收的每个对象都实现了<code>execute</code>方法。<code>Compute</code>对象不知道，也不需要知道实现的作用。</p>
+<h2 id="6"><a class="toclink" href="#6">6. 编译并运行</a><a class="headerlink" href="#6" title="Permanent link">#</a></h2>
+<p>这一部分每个系统都不太一样，推荐大家直接看<a href="https://docs.oracle.com/javase/tutorial/rmi/example.html">官方文档</a>。</p>
+<hr />
+<p>联系邮箱：curren_wong@163.com</p>
+<p>Github：<a href="https://github.com/CurrenWong">https://github.com/CurrenWong</a></p>
+<p>欢迎转载/Star/Fork，有问题欢迎通过邮箱交流。</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../8.Java%E4%B8%AD%E7%9A%84%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8%28RPC%29/" title="8.Java中的远程过程调用(RPC)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                8.Java中的远程过程调用(RPC)
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../A11.%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8/" title="A11.分布式架构的应用" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                A11.分布式架构的应用
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      
+        <script src="../../../js/katex.min.js"></script>
+      
+        <script src="../../../js/mathtex-script-type.min.js"></script>
+      
+        <script src="../../../js/copy-tex.min.js"></script>
+      
+        <script src="../../../js/auto-render.min.js"></script>
+      
+        <script src="../../../js/jquery-3.4.1.min.js"></script>
+      
+        <script src="../../../js/d3.min.js"></script>
+      
+        <script src="../../../js/d3-flextree.js"></script>
+      
+        <script src="../../../js/view.mindmap.js"></script>
+      
+        <script src="../../../js/emoji.min.js"></script>
+      
+        <script src="../../../js/mermaid.min.js"></script>
+      
+        <script src="../../../js/highlight.pack.js"></script>
+      
+        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+      
+        <script src="https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
+      
+        <script src="../../../js/readingtime.js"></script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

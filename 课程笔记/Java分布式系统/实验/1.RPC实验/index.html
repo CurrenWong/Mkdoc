@@ -35,18 +35,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
-        <title>11.分布式架构的应用 - Curren's Notes</title>
+        <title>1.RPC实验 - Curren's Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -64,22 +64,22 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/katex.min.css">
+      <link rel="stylesheet" href="../../../../css/katex.min.css">
     
-      <link rel="stylesheet" href="../../../css/copy-tex.min.css">
+      <link rel="stylesheet" href="../../../../css/copy-tex.min.css">
     
-      <link rel="stylesheet" href="../../../css/view.mindmap.css">
+      <link rel="stylesheet" href="../../../../css/view.mindmap.css">
     
-      <link rel="stylesheet" href="../../../css/atom-one-dark-reasonable.css">
+      <link rel="stylesheet" href="../../../../css/atom-one-dark-reasonable.css">
     
-      <link rel="stylesheet" href="../../../css/font-awesome-all.min.css">
+      <link rel="stylesheet" href="../../../../css/font-awesome-all.min.css">
     
-      <link rel="stylesheet" href="../../../css/emoji.css">
+      <link rel="stylesheet" href="../../../../css/emoji.css">
     
-      <link rel="stylesheet" href="../../../css/extra.css">
+      <link rel="stylesheet" href="../../../../css/extra.css">
     
     
       
@@ -103,7 +103,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="0" class="md-skip">
+      <a href="#rpc" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -112,7 +112,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../.." title="Curren's Notes" aria-label="Curren's Notes" class="md-header-nav__button md-logo">
+        <a href="../../../.." title="Curren's Notes" aria-label="Curren's Notes" class="md-header-nav__button md-logo">
           
             <i class="md-icon">star</i>
           
@@ -129,7 +129,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                11.分布式架构的应用
+                1.RPC实验
               
             </span>
           
@@ -206,7 +206,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         Welcome to Curren's Notes
       </a>
     
@@ -222,7 +222,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" class="md-tabs__link">
+        <a href="../../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" class="md-tabs__link">
           工具使用笔记
         </a>
       
@@ -241,7 +241,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+        <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
           算法学习笔记
         </a>
       
@@ -260,7 +260,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" class="md-tabs__link">
+        <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" class="md-tabs__link">
           考研笔记
         </a>
       
@@ -279,7 +279,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" class="md-tabs__link">
+        <a href="../../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" class="md-tabs__link">
           读书笔记
         </a>
       
@@ -298,7 +298,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../1.Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../1.Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" class="md-tabs__link md-tabs__link--active">
           课程笔记
         </a>
       
@@ -321,7 +321,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../.." title="Curren's Notes" class="md-nav__button md-logo">
+    <a href="../../../.." title="Curren's Notes" class="md-nav__button md-logo">
       
         <i class="md-icon">star</i>
       
@@ -357,7 +357,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../.." title="Welcome to Curren's Notes" class="md-nav__link">
+    <a href="../../../.." title="Welcome to Curren's Notes" class="md-nav__link">
       Welcome to Curren's Notes
     </a>
   </li>
@@ -407,7 +407,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" title="1.我为什么推荐程序员朋友使用得到APP" class="md-nav__link">
+    <a href="../../../../%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0APP/1.%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E7%A8%8B%E5%BA%8F%E5%91%98%E6%9C%8B%E5%8F%8B%E4%BD%BF%E7%94%A8%E5%BE%97%E5%88%B0APP/" title="1.我为什么推荐程序员朋友使用得到APP" class="md-nav__link">
       1.我为什么推荐程序员朋友使用得到APP
     </a>
   </li>
@@ -467,7 +467,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="1.算法设计中的常用技巧" class="md-nav__link">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/1.%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" title="1.算法设计中的常用技巧" class="md-nav__link">
       1.算法设计中的常用技巧
     </a>
   </li>
@@ -479,7 +479,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/2.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="2.归并排序" class="md-nav__link">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/2.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="2.归并排序" class="md-nav__link">
       2.归并排序
     </a>
   </li>
@@ -519,11 +519,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
     
     <label class="md-nav__link" for="nav-3-2-1">
-      分块算法
+      STL基本用法
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2-1">
-        分块算法
+        STL基本用法
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -534,8 +534,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%88%86%E5%9D%97%E7%AE%97%E6%B3%95/1.HDU4858_%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="1.HDU4858 项目管理" class="md-nav__link">
-      1.HDU4858 项目管理
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/STL%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/1.51Nod_2160_%E6%95%B0%E5%AD%97%E6%B8%B8%E6%88%8F/" title="1.51Nod 2160 数字游戏" class="md-nav__link">
+      1.51Nod 2160 数字游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/STL%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/2.51Nod_2142_%E7%AC%ACm%E5%A4%A7%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AF%81%E5%8F%B7%E7%A0%81/" title="2.51Nod 2142 第m大的身份证号码" class="md-nav__link">
+      2.51Nod 2142 第m大的身份证号码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/STL%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/3.%E8%AE%A1%E8%92%9C%E5%AE%A2_T1989_%E8%BF%9E%E7%BB%AD%E8%87%AA%E7%84%B6%E6%95%B0%E5%92%8C/" title="3.计蒜客 T1989 连续自然数和" class="md-nav__link">
+      3.计蒜客 T1989 连续自然数和
     </a>
   </li>
 
@@ -555,10 +579,130 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
     
     <label class="md-nav__link" for="nav-3-2-2">
-      归并排序
+      分块算法
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2-2">
+        分块算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%88%86%E5%9D%97%E7%AE%97%E6%B3%95/1.HDU4858_%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="1.HDU4858 项目管理" class="md-nav__link">
+      1.HDU4858 项目管理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-3" type="checkbox" id="nav-3-2-3">
+    
+    <label class="md-nav__link" for="nav-3-2-3">
+      动态规划
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-3">
+        动态规划
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.51Nod_1009_%E6%95%B0%E5%AD%971%E7%9A%84%E6%95%B0%E9%87%8F/" title="1.51Nod 1009 数字1的数量" class="md-nav__link">
+      1.51Nod 1009 数字1的数量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.51Nod_2080_%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" title="2.51Nod 2080 最长上升子序列" class="md-nav__link">
+      2.51Nod 2080 最长上升子序列
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-4" type="checkbox" id="nav-3-2-4">
+    
+    <label class="md-nav__link" for="nav-3-2-4">
+      字符串
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-4">
+        字符串
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/1.%E8%AE%A1%E8%92%9C%E5%AE%A2_T1112_%E5%8A%A0%E5%AF%86%E7%9A%84%E7%97%85%E5%8E%86%E5%8D%95/" title="1.计蒜客 T1112 加密的病历单" class="md-nav__link">
+      1.计蒜客 T1112 加密的病历单
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-5" type="checkbox" id="nav-3-2-5">
+    
+    <label class="md-nav__link" for="nav-3-2-5">
+      归并排序
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-5">
         归并排序
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -570,8 +714,128 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/1.51Nod-2134_%E9%80%86%E5%BA%8F%E5%AF%B9%E4%B8%AA%E6%95%B01000/" title="1.51Nod 2134 逆序对个数1000" class="md-nav__link">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/1.51Nod-2134_%E9%80%86%E5%BA%8F%E5%AF%B9%E4%B8%AA%E6%95%B01000/" title="1.51Nod 2134 逆序对个数1000" class="md-nav__link">
       1.51Nod 2134 逆序对个数1000
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-6" type="checkbox" id="nav-3-2-6">
+    
+    <label class="md-nav__link" for="nav-3-2-6">
+      数学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-6">
+        数学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/1.51Nod_2059_%E4%B8%8A%E5%8F%B0%E9%98%B6_easy/" title="1.51Nod 2059 上台阶 easy" class="md-nav__link">
+      1.51Nod 2059 上台阶 easy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/2.51Nod_2175_ProjectEuler_5/" title="2.51Nod 2175 ProjectEuler 5" class="md-nav__link">
+      2.51Nod 2175 ProjectEuler 5
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/3.51Nod_2456_%E6%9C%80%E5%B0%8F%E7%BA%A6%E6%95%B0_V2/" title="3.51Nod 2456 最小约数 V2" class="md-nav__link">
+      3.51Nod 2456 最小约数 V2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-7" type="checkbox" id="nav-3-2-7">
+    
+    <label class="md-nav__link" for="nav-3-2-7">
+      简单题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-7">
+        简单题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E7%AE%80%E5%8D%95%E9%A2%98/1.51Nod_2409_%E5%90%AF%E8%92%99%E7%BB%83%E4%B9%A0-%E5%80%8D%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0/" title="1.51Nod 2409 启蒙练习 倍数的个数" class="md-nav__link">
+      1.51Nod 2409 启蒙练习 倍数的个数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E7%AE%80%E5%8D%95%E9%A2%98/2.51Nod_2414_%E5%90%AF%E8%92%99%E7%BB%83%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E8%BE%93%E5%87%BA2/" title="2.51Nod 2414 启蒙练习 图形输出2" class="md-nav__link">
+      2.51Nod 2414 启蒙练习 图形输出2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E7%AE%80%E5%8D%95%E9%A2%98/3.51Node_2070_%E6%9C%80%E5%B0%8F%E7%BD%9A%E6%AC%BE/" title="3.51Node 2070 最小罚款" class="md-nav__link">
+      3.51Node 2070 最小罚款
     </a>
   </li>
 
@@ -611,7 +875,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E6%B2%BF%E7%AE%97%E6%B3%95/1.Listing_All_Fixed-Size_Cycles_in_Sparse_Graphs/" title="1.Listing All Fixed Size Cycles in Sparse Graphs" class="md-nav__link">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E6%B2%BF%E7%AE%97%E6%B3%95/1.Listing_All_Fixed-Size_Cycles_in_Sparse_Graphs/" title="1.Listing All Fixed Size Cycles in Sparse Graphs" class="md-nav__link">
       1.Listing All Fixed Size Cycles in Sparse Graphs
     </a>
   </li>
@@ -647,7 +911,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/1.XGBoost%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/" title="1.XGBoost原理简介" class="md-nav__link">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/1.XGBoost%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/" title="1.XGBoost原理简介" class="md-nav__link">
       1.XGBoost原理简介
     </a>
   </li>
@@ -659,7 +923,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/2.XGBoost%E7%9A%84%E7%BA%AFPython%E5%AE%9E%E7%8E%B0/" title="2.XGBoost的纯Python实现" class="md-nav__link">
+    <a href="../../../../%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/2.XGBoost%E7%9A%84%E7%BA%AFPython%E5%AE%9E%E7%8E%B0/" title="2.XGBoost的纯Python实现" class="md-nav__link">
       2.XGBoost的纯Python实现
     </a>
   </li>
@@ -719,7 +983,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" title="1.第一章 随机事件与概率" class="md-nav__link">
+    <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/" title="1.第一章 随机事件与概率" class="md-nav__link">
       1.第一章 随机事件与概率
     </a>
   </li>
@@ -755,7 +1019,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD/" title="1.第一章 函数 极限 连续" class="md-nav__link">
+    <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD/" title="1.第一章 函数 极限 连续" class="md-nav__link">
       1.第一章 函数 极限 连续
     </a>
   </li>
@@ -767,7 +1031,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" title="2.第二章 导数与微分" class="md-nav__link">
+    <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" title="2.第二章 导数与微分" class="md-nav__link">
       2.第二章 导数与微分
     </a>
   </li>
@@ -779,7 +1043,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E7%AC%AC%E4%B8%89%E7%AB%A0_%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E5%8F%8A%E5%AF%BC%E6%95%B0%E5%BA%94%E7%94%A8/" title="3.第三章 微分中值定理及导数应用" class="md-nav__link">
+    <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E7%AC%AC%E4%B8%89%E7%AB%A0_%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E5%8F%8A%E5%AF%BC%E6%95%B0%E5%BA%94%E7%94%A8/" title="3.第三章 微分中值定理及导数应用" class="md-nav__link">
       3.第三章 微分中值定理及导数应用
     </a>
   </li>
@@ -791,7 +1055,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E7%AC%AC%E5%9B%9B%E7%AB%A0_%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/" title="4.第四章 不定积分" class="md-nav__link">
+    <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E7%AC%AC%E5%9B%9B%E7%AB%A0_%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/" title="4.第四章 不定积分" class="md-nav__link">
       4.第四章 不定积分
     </a>
   </li>
@@ -803,7 +1067,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E7%AC%AC%E4%BA%94%E7%AB%A0_%E5%AE%9A%E7%A7%AF%E5%88%86%E4%B8%8E%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86/" title="5.第五章 定积分与反常积分" class="md-nav__link">
+    <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E7%AC%AC%E4%BA%94%E7%AB%A0_%E5%AE%9A%E7%A7%AF%E5%88%86%E4%B8%8E%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86/" title="5.第五章 定积分与反常积分" class="md-nav__link">
       5.第五章 定积分与反常积分
     </a>
   </li>
@@ -839,7 +1103,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%A0%E9%A2%98/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD_%E9%94%99%E9%A2%98/" title="1.第一章 函数 极限 连续 错题" class="md-nav__link">
+    <a href="../../../../%E8%80%83%E7%A0%94%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%A0%E9%A2%98/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E5%87%BD%E6%95%B0_%E6%9E%81%E9%99%90_%E8%BF%9E%E7%BB%AD_%E9%94%99%E9%A2%98/" title="1.第一章 函数 极限 连续 错题" class="md-nav__link">
       1.第一章 函数 极限 连续 错题
     </a>
   </li>
@@ -899,7 +1163,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" title="数学女孩" class="md-nav__link">
+    <a href="../../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%A5%B3%E5%AD%A9/" title="数学女孩" class="md-nav__link">
       数学女孩
     </a>
   </li>
@@ -963,11 +1227,80 @@
 
 
   <li class="md-nav__item">
-    <a href="../1.Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" title="1.Java中的泛型" class="md-nav__link">
+    <a href="../../1.Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" title="1.Java中的泛型" class="md-nav__link">
       1.Java中的泛型
     </a>
   </li>
 
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2.Java%E4%B8%AD%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="2.Java中的注解" class="md-nav__link">
+      2.Java中的注解
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.Java%E4%B8%AD%E7%9A%84%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8%28RPC%29/" title="8.Java中的远程过程调用(RPC)" class="md-nav__link">
+      8.Java中的远程过程调用(RPC)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../9.Java%E8%BF%9C%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%28RMI%29/" title="9.Java远程方法调用(RMI)" class="md-nav__link">
+      9.Java远程方法调用(RMI)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../A11.%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8/" title="A11.分布式架构的应用" class="md-nav__link">
+      A11.分布式架构的应用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-6" type="checkbox" id="nav-6-1-6" checked>
+    
+    <label class="md-nav__link" for="nav-6-1-6">
+      实验
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-1-6">
+        实验
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
         
           
           
@@ -983,51 +1316,15 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        11.分布式架构的应用
-      </label>
-    
-    <a href="./" title="11.分布式架构的应用" class="md-nav__link md-nav__link--active">
-      11.分布式架构的应用
+    <a href="./" title="1.RPC实验" class="md-nav__link md-nav__link--active">
+      1.RPC实验
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    目录
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../2.Java%E4%B8%AD%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="2.Java中的注解" class="md-nav__link">
-      2.Java中的注解
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -1061,7 +1358,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E8%BF%90%E5%8A%A8%E5%92%8C%E5%8A%9B/" title="1.第一章 运动和力" class="md-nav__link">
+    <a href="../../../%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E8%BF%90%E5%8A%A8%E5%92%8C%E5%8A%9B/" title="1.第一章 运动和力" class="md-nav__link">
       1.第一章 运动和力
     </a>
   </li>
@@ -1097,7 +1394,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-nav__link">
+    <a href="../../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/1.uCos%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="1.uCos环境配置" class="md-nav__link">
       1.uCos环境配置
     </a>
   </li>
@@ -1109,7 +1406,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-nav__link">
+    <a href="../../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/2.%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8D%E8%BD%AC%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6/" title="2.优先级反转与中断机制" class="md-nav__link">
       2.优先级反转与中断机制
     </a>
   </li>
@@ -1121,7 +1418,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/3.uCos%E4%B8%AD%E9%94%81%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%94%E5%85%B3%E4%B8%AD%E6%96%AD%E6%95%88%E7%8E%87%E6%9B%B4%E9%AB%98/" title="3.uCos中锁调度器为什么比关中断效率更高" class="md-nav__link">
+    <a href="../../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/3.uCos%E4%B8%AD%E9%94%81%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%94%E5%85%B3%E4%B8%AD%E6%96%AD%E6%95%88%E7%8E%87%E6%9B%B4%E9%AB%98/" title="3.uCos中锁调度器为什么比关中断效率更高" class="md-nav__link">
       3.uCos中锁调度器为什么比关中断效率更高
     </a>
   </li>
@@ -1133,7 +1430,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/4.uCos%E7%9A%84%E5%BB%B6%E8%BF%9F%E4%B8%AD%E6%96%AD%E6%8F%90%E4%BA%A4%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87/" title="4.uCos的延迟中断提交为什么能提高效率" class="md-nav__link">
+    <a href="../../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/4.uCos%E7%9A%84%E5%BB%B6%E8%BF%9F%E4%B8%AD%E6%96%AD%E6%8F%90%E4%BA%A4%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87/" title="4.uCos的延迟中断提交为什么能提高效率" class="md-nav__link">
       4.uCos的延迟中断提交为什么能提高效率
     </a>
   </li>
@@ -1145,7 +1442,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6%E5%92%8C%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%95/" title="5.uCos中的任务机制和优先级位图算法" class="md-nav__link">
+    <a href="../../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/5.uCos%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%9C%BA%E5%88%B6%E5%92%8C%E4%BC%98%E5%85%88%E7%BA%A7%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%95/" title="5.uCos中的任务机制和优先级位图算法" class="md-nav__link">
       5.uCos中的任务机制和优先级位图算法
     </a>
   </li>
@@ -1157,7 +1454,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/6.uCos%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5%E5%92%8C%E9%80%9A%E4%BF%A1/" title="6.uCos中的同步互斥和通信" class="md-nav__link">
+    <a href="../../../%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/6.uCos%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5%E5%92%8C%E9%80%9A%E4%BF%A1/" title="6.uCos中的同步互斥和通信" class="md-nav__link">
       6.uCos中的同步互斥和通信
     </a>
   </li>
@@ -1193,7 +1490,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/1.%E6%95%B0%E5%88%B6%E5%92%8C%E6%95%B0%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2/" title="1.数制和数制的转换" class="md-nav__link">
+    <a href="../../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/1.%E6%95%B0%E5%88%B6%E5%92%8C%E6%95%B0%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2/" title="1.数制和数制的转换" class="md-nav__link">
       1.数制和数制的转换
     </a>
   </li>
@@ -1205,7 +1502,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/2.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%8D%A1%E8%AF%BA%E5%9B%BE/" title="2.逻辑代数与卡诺图" class="md-nav__link">
+    <a href="../../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/2.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%8D%A1%E8%AF%BA%E5%9B%BE/" title="2.逻辑代数与卡诺图" class="md-nav__link">
       2.逻辑代数与卡诺图
     </a>
   </li>
@@ -1217,7 +1514,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/3.%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF/" title="3.逻辑门电路" class="md-nav__link">
+    <a href="../../../%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/3.%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF/" title="3.逻辑门电路" class="md-nav__link">
       3.逻辑门电路
     </a>
   </li>
@@ -1253,7 +1550,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1.%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="1.课程项目思维导图" class="md-nav__link">
+    <a href="../../../%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1.%E8%AF%BE%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="1.课程项目思维导图" class="md-nav__link">
       1.课程项目思维导图
     </a>
   </li>
@@ -1289,7 +1586,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/1.%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/" title="1.上下文无关文法" class="md-nav__link">
+    <a href="../../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/1.%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/" title="1.上下文无关文法" class="md-nav__link">
       1.上下文无关文法
     </a>
   </li>
@@ -1301,7 +1598,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" title="2.词法分析概述" class="md-nav__link">
+    <a href="../../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/2.%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" title="2.词法分析概述" class="md-nav__link">
       2.词法分析概述
     </a>
   </li>
@@ -1313,7 +1610,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/3.%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-%E8%87%AA%E4%B8%8A%E8%80%8C%E4%B8%8B%E5%88%86%E6%9E%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/" title="3.语法分析 自上而下分析的基本问题" class="md-nav__link">
+    <a href="../../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/3.%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-%E8%87%AA%E4%B8%8A%E8%80%8C%E4%B8%8B%E5%88%86%E6%9E%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/" title="3.语法分析 自上而下分析的基本问题" class="md-nav__link">
       3.语法分析 自上而下分析的基本问题
     </a>
   </li>
@@ -1344,7 +1641,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BB%83%E4%B9%A0%E9%A2%98/5.%E7%BB%83%E4%B9%A0%E9%A2%982-4%E7%AB%A0/" title="5.练习题2 4章" class="md-nav__link">
+    <a href="../../../%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BB%83%E4%B9%A0%E9%A2%98/5.%E7%BB%83%E4%B9%A0%E9%A2%982-4%E7%AB%A0/" title="5.练习题2 4章" class="md-nav__link">
       5.练习题2 4章
     </a>
   </li>
@@ -1385,7 +1682,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/1.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B8%8E%E5%AE%9E%E8%B7%B5/" title="1.前后端分离的思考与实践" class="md-nav__link">
+    <a href="../../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/1.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B8%8E%E5%AE%9E%E8%B7%B5/" title="1.前后端分离的思考与实践" class="md-nav__link">
       1.前后端分离的思考与实践
     </a>
   </li>
@@ -1397,8 +1694,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/2.%E4%BD%BF%E7%94%A8Express%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE/" title="2.使用Express部署Vue项目" class="md-nav__link">
+    <a href="../../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/2.%E4%BD%BF%E7%94%A8Express%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE/" title="2.使用Express部署Vue项目" class="md-nav__link">
       2.使用Express部署Vue项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/3.NESMA%E5%8A%9F%E8%83%BD%E7%82%B9%E4%BC%B0%E8%AE%A1%E6%96%B9%E6%B3%95/" title="3.NESMA功能点估计方法" class="md-nav__link">
+      3.NESMA功能点估计方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%BD%AF%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1/4.%E5%B7%A5%E4%BD%9C%E5%88%86%E8%A7%A3%E7%BB%93%E6%9E%84WBS/" title="4.工作分解结构WBS" class="md-nav__link">
+      4.工作分解结构WBS
     </a>
   </li>
 
@@ -1430,22 +1751,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    目录
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1456,19 +1761,35 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/Java分布式系统/11.分布式架构的应用.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/CurrenWong/Mkdoc/edit/master/docs/课程笔记/Java分布式系统/实验/1.RPC实验.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1"><a class="toclink" href="#_1">分布式架构的应用</a><a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<h2 id="_2"><a class="toclink" href="#_2">目录</a><a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<div class="toc">
-<ul>
-<li><a href="#_1">分布式架构的应用</a><ul>
-<li><a href="#_2">目录</a></li>
-</ul>
-</li>
-</ul>
-</div>
+                <h1 id="rpc"><a class="toclink" href="#rpc">RPC实验</a><a class="headerlink" href="#rpc" title="Permanent link">#</a></h1>
+<p>改造课堂所介绍的rpc框架程序，利用该程序，采用rpc模式开发一个银行atm模拟系统。</p>
+<p>系统主要提供一个服务Card，该服务接口可以提供登录、查询、取钱、存钱等功能。服务接口的设计和实现自定义。</p>
+<p>Atm客户端功能需求</p>
+<p>1、ATM可以实现用户登录、查询、取钱、存钱操作。所有操作以rpc的方式透明地调用服务器端的远程服务对象完成。客户端不能直接访问数据库系统。</p>
+<p>2、用户输入银行账户和密码，可以登录，若登录失败则提示不能登录。</p>
+<p>3、登录后可以显示主菜单菜单分别为查询余额、取钱、存钱和退出。</p>
+<p>4、从3的界面中选择查询，则显示账户余额，并可以退回到主菜单界面重新显示主菜单。</p>
+<p>5、从3的界面中选择取钱，则输入取钱金额。若取钱金额超过余额，则提示错误，否则提示取钱成功，并显示余额，同样本界面可以退回到主菜单界面重新显示主菜单。</p>
+<p>6、从3的界面中选择存钱，则输入存钱金额，然后提示取钱成功，并显示余额，同样本界面可以退回到主菜单界面重新显示主菜单。</p>
+<p>7、从3的界面中选择退出则退出系统。</p>
+<p>服务器端功能需求：</p>
+<p>1、银行卡数据保存在数据库中，请自行设计数据库的相关结构。</p>
+<p>2、可以通过rpc的方式接受客户端的调用完成相关的数据存取。</p>
+<p>rpc框架功能需求：</p>
+<p>1、采用多线程功能，使得该rpc框架可以接受任意多次并发调用。</p>
+<p>2、改造rpc框架，为rpc增加一个可配置的rpc服务可用性扩展，通过配置文件可以至少配置两台以上的服务器同时提供服务端的调用，例如：在配置文件中可以配置两台服务器的地址和端口。客户端无须指定rpc调用的服务器地址和端口，可以简单使用负载均衡随机或轮询算法的方式选择一台服务器进行rpc调用。整个rpc负载均衡调用的过程对于客户端的程序应该完全透明。</p>
+<p>（提示：在本地一台机器调试的时候，可以通过简单运行两个服务端程序，但是服务打开的端口不同的方式来模拟两台服务器）</p>
+<p>3、当一台RPC远程调用网络连接失败，可以自动转向另一台服务器进行调用，当两台服务器均不能联通则报一个错误。</p>
+<p>3、为rpc服务器端调用增加一个简单的可配置的AOP，使得程序开发人员今后可以方便的对银行卡服务的一个或多个功能（如登录、取钱等）进行切面编程。</p>
+<p>4、以AOP的方式，做扩展如下：</p>
+<p>在登录功能后执行一个检查同一个账户是否连续失败次数是否超过3次，如超过3次，则锁定账户，该账户今后将不能再次登录。</p>
+<p>在取钱操作后，执行一个登录日志功能，将取钱账户、取钱金额、取钱日期、取钱前/后账户余额写入数据库日志。</p>
+<p>6、为了简化项目开发，可以假设本rpc服务端上固定只运行一个Card服务，且无须考虑注册中心的功能。</p>
+<p>分组要求：</p>
+<p>每组人数&lt;=5人</p>
                 
                   
                 
@@ -1490,7 +1811,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../1.Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" title="1.Java中的泛型" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../A11.%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8/" title="A11.分布式架构的应用" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1499,19 +1820,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                1.Java中的泛型
+                A11.分布式架构的应用
               </span>
             </div>
           </a>
         
         
-          <a href="../2.Java%E4%B8%AD%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="2.Java中的注解" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/1.%E7%AC%AC%E4%B8%80%E7%AB%A0_%E8%BF%90%E5%8A%A8%E5%92%8C%E5%8A%9B/" title="1.第一章 运动和力" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                2.Java中的注解
+                1.第一章 运动和力
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1539,39 +1860,39 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
       
-        <script src="../../../js/katex.min.js"></script>
+        <script src="../../../../js/katex.min.js"></script>
       
-        <script src="../../../js/mathtex-script-type.min.js"></script>
+        <script src="../../../../js/mathtex-script-type.min.js"></script>
       
-        <script src="../../../js/copy-tex.min.js"></script>
+        <script src="../../../../js/copy-tex.min.js"></script>
       
-        <script src="../../../js/auto-render.min.js"></script>
+        <script src="../../../../js/auto-render.min.js"></script>
       
-        <script src="../../../js/jquery-3.4.1.min.js"></script>
+        <script src="../../../../js/jquery-3.4.1.min.js"></script>
       
-        <script src="../../../js/d3.min.js"></script>
+        <script src="../../../../js/d3.min.js"></script>
       
-        <script src="../../../js/d3-flextree.js"></script>
+        <script src="../../../../js/d3-flextree.js"></script>
       
-        <script src="../../../js/view.mindmap.js"></script>
+        <script src="../../../../js/view.mindmap.js"></script>
       
-        <script src="../../../js/emoji.min.js"></script>
+        <script src="../../../../js/emoji.min.js"></script>
       
-        <script src="../../../js/mermaid.min.js"></script>
+        <script src="../../../../js/mermaid.min.js"></script>
       
-        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../../js/highlight.pack.js"></script>
       
         <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
       
         <script src="https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
       
-        <script src="../../../js/readingtime.js"></script>
+        <script src="../../../../js/readingtime.js"></script>
       
-        <script src="../../../js/extra.js"></script>
+        <script src="../../../../js/extra.js"></script>
       
     
   </body>
