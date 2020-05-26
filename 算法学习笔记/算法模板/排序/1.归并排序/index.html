@@ -686,6 +686,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/STL%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/7.%E7%89%9B%E5%AE%A2%E7%BD%91_NC207028_%E7%AC%ACk%E5%B0%8F%E6%95%B0/" title="7.牛客网 NC207028 第k小数" class="md-nav__link">
+      7.牛客网 NC207028 第k小数
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1430,6 +1442,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E8%B4%AA%E5%BF%83/2.%E7%89%9B%E5%AE%A2%E7%BD%91_NC207078_%E4%BA%A4%E6%8D%A2/" title="2.牛客网 NC207078 交换" class="md-nav__link">
+      2.牛客网 NC207078 交换
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1479,6 +1503,18 @@
   <li class="md-nav__item">
     <a href="../../../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/2.XGBoost%E7%9A%84%E7%BA%AFPython%E5%AE%9E%E7%8E%B0/" title="2.XGBoost的纯Python实现" class="md-nav__link">
       2.XGBoost的纯Python实现
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/3.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD%E8%A1%A8/" title="3.机器学习术语表" class="md-nav__link">
+      3.机器学习术语表
     </a>
   </li>
 
@@ -2648,9 +2684,13 @@
 </ul>
 </div>
 <hr />
-<pre><code class="cpp">#define MAXN 1000
-#define MAXM 1e9 + 1
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
 
+const int MAXN = 1e5 + 1
+const int MAXM = 1e9 + 1
+
+int list[MAXN];
 int leftArray[MAXN];
 int rightArray[MAXN];
 
@@ -2665,8 +2705,8 @@ int merge(int* array, int start, int mid, int end)
     int n2 = end - mid;
     int i, j;
     // 初始化数组
-    memset(leftArray, 0, sizeof(leftArray));
-    memset(rightArray, 0, sizeof(rightArray));
+    memset(leftArray, 0, n1 * sizeof(int));
+    memset(rightArray, 0, n2 * sizeof(int));
     // 数组赋值
     for (i = 0; i &lt; n1; i++)
         leftArray[i] = array[start + i];
@@ -2674,12 +2714,10 @@ int merge(int* array, int start, int mid, int end)
     for (j = 0; j &lt; n2; j++)
         rightArray[j] = array[mid + 1 + j];
 
-    leftArray[n1] = MAXM; //避免检查每一部分是否为空
-    rightArray[n2] = MAXM;
+    leftArray[n1] = rightArray[n2] = MAXM; //避免检查每一部分是否为空
 
     // 清零
-    i = 0;
-    j = 0;
+    i = j =  0;
     // 归并
     for (int k = start; k &lt;= end; k++) {
         if (leftArray[i] &lt;= rightArray[j]) {
@@ -2695,6 +2733,19 @@ int merge(int* array, int start, int mid, int end)
     // 返回逆序数
     return inversePairNum;
 }
+
+int mergeSort(int* array, int start, int end)
+{
+    int sum = 0;
+    if (start &lt; end) {
+        int mid = (start + end) / 2;
+        sum += mergeSort(array, start, mid);
+        sum += mergeSort(array, mid + 1, end);
+        sum += merge(array, start, mid, end);
+    }
+    return sum;
+}
+
 </code></pre>
                 
                   
