@@ -154,3 +154,18 @@ D．减少指令流水线资源冲突
 答案：D<br>
 解析：Cache分为一级L1和二级L2。L1集成在CPU中，称为片内Cache。在L1中还分数据Cache和指令Cache。分别用来存放数据和执行这些数据的指令，两个Cache可以同时被CPU访问，减少了争用Cache所造成的冲突，提高了处理器效能。
 </details>
+
+### 3.2. Tue
+
+下列命令组合情况，一次访存过程中，不可能发生的是          [燕山大学810]
+A.TLB未命中，Cache未命中，Page未命中
+B.TLB未命中，Cache命中，Page命中
+C.TLB命中，Cache未命中，Page命中
+D.TLB命中，Cache命中，Page未命中
+
+<details>
+<summary>答案</summary>
+答案：D<br>
+解析：考点：TLB，Cache，Page的含义。
+TLB即为快表，快表只是慢表(Page)的小小副本，因此TLB命中，必然Page也命中，而当Page命中，TLB则未必命中，故D不可能发生；而Cache的命中与否与TLB、Page的命中与否并无必然联系。
+</details>
