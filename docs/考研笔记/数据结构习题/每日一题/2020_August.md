@@ -212,3 +212,73 @@ D. 仅1、3
 越优的算法的步骤就一般会越复杂， 例如冒泡和选择代码都很简单， 所以归并比选择代码复杂;
 归并是属于用空间换时间的算法，在堆区new出了空间，而选择排序不需要创建空间，空间复杂度为O(1)。
 </details>
+
+### 3.4. Thu
+
+对序列{15，9，7，8，20，-1，4，} 用希尔排序方法排序，经一趟后序列变为{15，-1，4，8，20，9，7}则该次采用的增量是         [哈尔滨工程大学]
+
+A. 2
+
+B. 1
+
+C. 4
+
+D. 3
+
+<details>
+<summary>答案</summary>
+答案：C<br>
+解析：9和-1替换，7和4替换，增量为4。
+</details>
+
+---
+
+希尔排序(Shell's Sort)是插入排序的一种又称“缩小增量排序”（Diminishing Increment Sort），是直接插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。该方法因 D.L.Shell 于 1959 年提出而得名。
+
+希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至 1 时，整个文件恰被分成一组，算法便终止。
+
+增量一般初始化为序列长度 $D$ 的 $1 / 2$，即 $n := D / 2$。然后比较 $list[i]$ 和 $list[i + n]$的大小，若为升序排序，且 $list[i] < list[i + n]$，则交换位置。每遍历完一轮以后 $n := n / 2$，当$n = 0$时排序结束。
+
+算法平均复杂度为 $O(n ^ {\frac{2}{3}})$。
+
+```cpp
+template <typename _RIter>
+void insert_sort(_RIter st, _RIter ed, int delta) {
+    for(_RIter i = st + delta; i < ed; i += delta) {
+        for(_RIter j = i; j > st; j -= delta)
+            if(*j < *(j - delta)) std::swap(*j, *(j - delta));
+            else break;
+    }
+}
+
+template <typename _RIter>
+void shell_sort(_RIter st, _RIter ed) {
+    for(int delta = ed - st; delta; delta /= 2)
+        for(int i = 0; i < delta; i++)
+            insert_sort(st + i, ed, delta);
+}
+```
+
+## 4. Week 4
+
+### 4.1. Tue
+
+图G是n个顶点的无向完全图,则下列说法不正确的为:        [中国科学院大学-2018]
+
+A.  G的邻接多重表需要n(n-1)个边结点和n个顶点结点
+
+B.  G的连通分量个数最少
+
+C.  G为连通图
+
+D.  G所有顶点的度的总和为n(n-1)
+
+<details>
+<summary>答案</summary>
+答案：A<br>
+解析：在无向图中，如果从顶点vi到顶点vj有路径，则称vi和vj连通。如果图中任意两个顶点之间都连通，则称该图为连通图，否则，称该图为非连通图，则其中的极大连通子图称为连通分量，这里所谓的极大是指子图中包含的顶点个数极大。<br>
+A. 边的条数为C（n,2）=n(n-1)/2。与十字链表类似，在临街多重表中，每条边用一个结点表示。<br>
+B. G是完全图，必定是连通图。所以连通分量只有其自身<br>
+C. G是完全图，必定是连通图<br>
+D. 每个顶点都与其余n-1个顶点相连，则n个顶点度的和为n(n-1)<br>
+</details>
