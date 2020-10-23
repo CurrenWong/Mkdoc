@@ -3240,6 +3240,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4-week-4" class="md-nav__link">
+    4. Week 4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tue" class="md-nav__link">
+    4.1. Tue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-wed" class="md-nav__link">
+    4.2. Wed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5053,6 +5080,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4-week-4" class="md-nav__link">
+    4. Week 4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tue" class="md-nav__link">
+    4.1. Tue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-wed" class="md-nav__link">
+    4.2. Wed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5096,6 +5150,11 @@
 <li><a href="#31-mon">3.1. Mon</a></li>
 <li><a href="#32-tue">3.2. Tue</a></li>
 <li><a href="#33-wed">3.3. Wed</a></li>
+</ul>
+</li>
+<li><a href="#4-week-4">4. Week 4</a><ul>
+<li><a href="#41-tue">4.1. Tue</a></li>
+<li><a href="#42-wed">4.2. Wed</a></li>
 </ul>
 </li>
 </ul>
@@ -5272,6 +5331,34 @@ I ．增大快表 (TLB) 容量 II ．让页表常驻内存 III ．增大交换�
 <summary>答案</summary>
 答案：D<br>
 解析：分布式操作系统和网络操作系统的本质区别在于：分布式操作系统能使系统中若干计算机相互协作完成一个共同的任务。这使得各台计算 机组成一个完整的、功能强大的计算机系统，网络操作系统则没有共同协作这个功能。
+</details>
+
+<h2 id="4-week-4"><a class="toclink" href="#4-week-4">4. Week 4</a><a class="headerlink" href="#4-week-4" title="Permanent link">#</a></h2>
+<h3 id="41-tue"><a class="toclink" href="#41-tue">4.1. Tue</a><a class="headerlink" href="#41-tue" title="Permanent link">#</a></h3>
+<p>若某单处理器多进程系统中有多个就绪态进程，则下列关于处理机调度的叙述中，错误的是        ［电子科技大学］</p>
+<p>A．在进程结束时能进行处理机调度</p>
+<p>B．创建新进程后能进行处理机调度</p>
+<p>C．在进程处于临界区时不能进行处理机调度</p>
+<p>D．在系统调用完成并返回用户态时能进行处理机调度</p>
+<details>
+<summary>答案</summary>
+答案：C<br>
+解析：当进程处于临界区时，说明进程正在占用处理机，只要不破坏临界资源的使用规则，是不会影响处理机调度的，比如，通常访问临界资源可能是慢速的外设（如打印机），如果在进程访问打印机时，不能处理机调度，那么系统的性能将是非常低的。几种不适合进行处理机调度的情况：<br>
+①在处理中断的过程中；<br>
+②进程在操作系统内核程序临界区中；<br>
+③其他需要完全屏蔽中断的原子操作过程中。
+</details>
+
+<h3 id="42-wed"><a class="toclink" href="#42-wed">4.2. Wed</a><a class="headerlink" href="#42-wed" title="Permanent link">#</a></h3>
+<p>操作系统采用分页存储管理方式，要求        。［燕山大学］</p>
+<p>A．每个进程拥有一张页表，且进程的页表驻留在内存中</p>
+<p>B．每个进程拥有一张页表，但只有执行进程的页表驻留在内存中</p>
+<p>C．所有进程共享一张页表，以节约有限的内存空间，但页表必须驻留在内存中</p>
+<p>D．所有进程共享一张页表，只有页表中当前使用的页面必须驻留在内存中，以最大限度地节省有限的内存空间</p>
+<details>
+<summary>答案</summary>
+答案：A<br>
+解析：在多个进程并发执行时，所有进程的页表大多数驻留在内存中，在系统中只设置一个页表寄存器(PTR)，在其中存放页表在内存的起始地址和页表的长度。平时，进程未执行时，页表的起始地址和页表长度存放在本进程的PCB中，当调度到某进程时，才将这两个数据装入页表寄存器中。每个进程都有一个单独的逻辑地址，有一张属于自己的页表。
 </details>
                 
                   

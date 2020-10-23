@@ -3859,6 +3859,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4-week-4" class="md-nav__link">
+    4. Week 4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tue" class="md-nav__link">
+    4.1. Tue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-wed" class="md-nav__link">
+    4.2. Wed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5067,6 +5094,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4-week-4" class="md-nav__link">
+    4. Week 4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tue" class="md-nav__link">
+    4.1. Tue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-wed" class="md-nav__link">
+    4.2. Wed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5111,6 +5165,11 @@
 <li><a href="#31-mon">3.1. Mon</a></li>
 <li><a href="#32-tue">3.2. Tue</a></li>
 <li><a href="#33-wed">3.3. Wed</a></li>
+</ul>
+</li>
+<li><a href="#4-week-4">4. Week 4</a><ul>
+<li><a href="#41-tue">4.1. Tue</a></li>
+<li><a href="#42-wed">4.2. Wed</a></li>
 </ul>
 </li>
 </ul>
@@ -5272,6 +5331,33 @@ IP地址：类似于你这台电脑的标志，但在网络上是靠IP地址识�
 <summary>答案</summary>
 答案：C<br>
 解析：网卡是组网的关键部件，也称为适配器卡(adapter card)。其主要功能是：实现与主机总线的通信连接；实现数据链路层的功能；实现物理层的功能。
+</details>
+
+<h2 id="4-week-4"><a class="toclink" href="#4-week-4">4. Week 4</a><a class="headerlink" href="#4-week-4" title="Permanent link">#</a></h2>
+<h3 id="41-tue"><a class="toclink" href="#41-tue">4.1. Tue</a><a class="headerlink" href="#41-tue" title="Permanent link">#</a></h3>
+<p>一个TCP连接总是以1KB的最大段发送TCP段，发送方有足够多的数据要发送。当拥塞窗口为16KB时发生了超时，如果接下来的4个RTT(往返时间)时间内的TCP段的传输都是成功的，那么当第4个RTT时间内发送的所有TCP段都得到肯定应答时，拥塞窗口大小是          [山东农业大学]</p>
+<p>A．7KB</p>
+<p>B．8KB</p>
+<p>C．9KB</p>
+<p>D．16KB</p>
+<details>
+<summary>答案</summary>
+答案：C<br>
+解析：考查TCP的拥塞控制方法。无论在慢开始阶段还是在拥塞避免阶段，只要发送方判断网络出现拥塞(其根据就是没有按时收到确认)，就要把慢开始门限ssthresh设置为出现拥塞时的发送方窗口值的一半(但不能小于2)。<br>
+把拥塞窗口cwnd重新设置为1，执行慢开始算法。这样做的目的就是要迅速减少主机发送到网络中的分组数，使得发生拥塞的路由器有足够时间把队列中积压的分组处理完毕。<br>
+在发送拥塞后，慢开始门限ssthresh变为16/2=8KB，发送窗口变为1KB。在接下来的3个RTT内，拥塞窗口执行慢开始算法，呈指数形式增加到8KB。由于慢开始门限ssthresh为8KB，因此转而执行拥塞避免算法，即拥塞窗口开始加法增大。因此第4个RTT结束后，拥塞窗口的大小为9KB
+</details>
+
+<h3 id="42-wed"><a class="toclink" href="#42-wed">4.2. Wed</a><a class="headerlink" href="#42-wed" title="Permanent link">#</a></h3>
+<p>计算机网络按照信号频带占有方法来划分为        [山东农业大学]</p>
+<p>A．基带网和宽带网</p>
+<p>B．双绞线网和光纤网</p>
+<p>C．环形网和点线形网</p>
+<p>D．局域网和广域网</p>
+<details>
+<summary>答案</summary>
+答案：A<br>
+解析：计算机网络按照信号频带占用的方式可分为基带网和宽带网。未经调制的原始数字信号称为“基带信号”，传输此类信号的网络称为“基带网”。正弦波经过数字信号调制后，可得到一个具有固定频率的模拟信号，称为调制信号。传输具有不同频率调制信号的网络称为“宽带网”。
 </details>
                 
                   
