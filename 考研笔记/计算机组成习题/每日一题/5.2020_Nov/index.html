@@ -3615,6 +3615,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%80%83%E7%A0%94%E6%94%BF%E6%B2%BB/%E6%97%B6%E6%94%BF/3.%E5%8D%81%E4%B8%80%E6%9C%88%E6%97%B6%E6%94%BF%E8%80%83%E7%82%B9%E6%95%B4%E7%90%86/" title="3.十一月时政考点整理" class="md-nav__link">
+      3.十一月时政考点整理
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3975,6 +3987,33 @@
           <li class="md-nav__item">
   <a href="#17" class="md-nav__link">
     1.7. 浮点数规格化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-week-2" class="md-nav__link">
+    2. Week 2
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cache" class="md-nav__link">
+    2.1. Cache地址变换表的大小
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 周期挪用
   </a>
   
 </li>
@@ -5227,6 +5266,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-week-2" class="md-nav__link">
+    2. Week 2
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cache" class="md-nav__link">
+    2.1. Cache地址变换表的大小
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 周期挪用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5260,6 +5326,11 @@
 <li><a href="#15">1.5. 二进制数据大小计算</a></li>
 <li><a href="#16">1.6. 主频</a></li>
 <li><a href="#17">1.7. 浮点数规格化</a></li>
+</ul>
+</li>
+<li><a href="#2-week-2">2. Week 2</a><ul>
+<li><a href="#21-cache">2.1. Cache地址变换表的大小</a></li>
+<li><a href="#22">2.2. 周期挪用</a></li>
 </ul>
 </li>
 </ul>
@@ -5349,6 +5420,31 @@
 <summary>答案</summary>
 答案：D<br>
 解析：运算结果两符号位不等，表示尾数之和绝对值大于1，需右规，即将尾数之和向右移一位，阶码加1。
+</details>
+
+<h2 id="2-week-2"><a class="toclink" href="#2-week-2">2. Week 2</a><a class="headerlink" href="#2-week-2" title="Permanent link">#</a></h2>
+<h3 id="21-cache"><a class="toclink" href="#21-cache">2.1. Cache地址变换表的大小</a><a class="headerlink" href="#21-cache" title="Permanent link">#</a></h3>
+<p>某存储系统中，主存容量是Cache容量的4096倍，Cache被分为64个块，当主存地址与Cache地址采用直接地址变换时，地址变换表的大小应为         （假设地址变换表每行仅存储主存字块标记）（西安电子科技大学 2007年）</p>
+<p>A．6×12bit</p>
+<p>B．6×4096bit</p>
+<p>C．64×12bit</p>
+<p>D．64×4096bit</p>
+<details>
+<summary>答案</summary>
+答案：C<br>
+解析：Cache被分为64个块，故地址变换表为64行，每行存储主存字块标记为12位（212=4096）。
+</details>
+
+<h3 id="22"><a class="toclink" href="#22">2.2. 周期挪用</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
+<p>周期挪用常用于_____（北京航空航天大学2017）</p>
+<p>A. 程序查询方式的输入输出</p>
+<p>B. 程序中断方式的输入输出</p>
+<p>C. DMA方式的输入输出  </p>
+<p>D. 通道方式的输入输出  </p>
+<details>
+<summary>答案</summary>
+答案：C<br>
+解析：周期挪用是指利用CPU不访问存储器的那些周期来实现DMA操作，此时DMA可以使用总线而不用通知CPU也不会妨碍CPU的工作。在这种方法中，每当I/O设备发出DMA请求时，I/O设备便挪用或窃取总线占用权一个或几个主存周期，而DMA不请求时，CPU仍继续访问主存。
 </details>
                 
                   
