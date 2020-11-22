@@ -3908,6 +3908,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E4%B9%A0%E9%A2%98/5.2001%E7%9C%9F%E9%A2%98%E9%98%85%E8%AF%BB/" title="5.2001真题阅读" class="md-nav__link">
+      5.2001真题阅读
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E4%B9%A0%E9%A2%98/6.2002%E7%9C%9F%E9%A2%98%E9%98%85%E8%AF%BB/" title="6.2002真题阅读" class="md-nav__link">
+      6.2002真题阅读
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -4157,6 +4181,54 @@
           <li class="md-nav__item">
   <a href="#27" class="md-nav__link">
     2.7. 中断周期
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-week-3" class="md-nav__link">
+    3. Week 3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 微指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 微指令结构设计的目标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 依赖硬件的数据传送方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4. 流水线
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5. 微指令
   </a>
   
 </li>
@@ -5495,6 +5567,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-week-3" class="md-nav__link">
+    3. Week 3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 微指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 微指令结构设计的目标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3. 依赖硬件的数据传送方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4. 流水线
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5. 微指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5538,6 +5658,14 @@
 <li><a href="#25">2.5. 编址</a></li>
 <li><a href="#26">2.6. 存取速度</a></li>
 <li><a href="#27">2.7. 中断周期</a></li>
+</ul>
+</li>
+<li><a href="#3-week-3">3. Week 3</a><ul>
+<li><a href="#31">3.1. 微指令</a></li>
+<li><a href="#32">3.2. 微指令结构设计的目标</a></li>
+<li><a href="#33">3.3. 依赖硬件的数据传送方式</a></li>
+<li><a href="#34">3.4. 流水线</a></li>
+<li><a href="#35">3.5. 微指令</a></li>
 </ul>
 </li>
 </ul>
@@ -5712,6 +5840,67 @@
 <summary>答案</summary>
 答案：C<br>
 解析：考察中断执行过程。要区分中断隐指令和中断服务程序所完成的不同任务。中断隐指令主要要关中断，保护断点，发中断响应信号并形成中断服务程序入口地址。其他的工作，如保护现场、恢复现场等由中断服务程序完成。
+</details>
+
+<h2 id="3-week-3"><a class="toclink" href="#3-week-3">3. Week 3</a><a class="headerlink" href="#3-week-3" title="Permanent link">#</a></h2>
+<h3 id="31"><a class="toclink" href="#31">3.1. 微指令</a><a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<p>当微指令采用分段编码时，我们将互斥性微命令          。（哈尔滨工程大学 2005年）</p>
+<p>A．放在同一段中</p>
+<p>B．用多级译码来区分</p>
+<p>C．放在不同段中</p>
+<p>D．任意存放</p>
+<details>
+<summary>答案</summary>
+答案：A<br>
+解析：分段编码法是把一组互斥性的微命令信号组成一个小组（即一个字段），然后通过小组译码器对每个微命令信号进行译码，译码输出作为操作控制信息。即当微指令采用分段编码时，将互斥性微命令放在同一段中。
+</details>
+
+<h3 id="32"><a class="toclink" href="#32">3.2. 微指令结构设计的目标</a><a class="headerlink" href="#32" title="Permanent link">#</a></h3>
+<p>下列不属于微指令结构设计所追求的目标的是          。(哈尔滨工程大学 2005年)</p>
+<p>A．提高微程序的执行速度</p>
+<p>B．提高微程序设计的灵活性</p>
+<p>C．缩短微指令的长度</p>
+<p>D．增大控制存储器的容量</p>
+<details>
+<summary>答案</summary>
+答案：D<br>
+解析：设计微指令结构时，所追求的目标：微指令结构要有利于缩短微指令字长度；有利于减小控制存储器的容量；有利于提高微程序的执行速度；有利于微指令的修改；有利于微程序设计的灵活性。
+</details>
+
+<h3 id="33"><a class="toclink" href="#33">3.3. 依赖硬件的数据传送方式</a><a class="headerlink" href="#33" title="Permanent link">#</a></h3>
+<p>依赖硬件的数据传送方式是       。（中国科学院大学 2015）</p>
+<p>A．程序控制</p>
+<p>B．程序中断</p>
+<p>C．DMA</p>
+<p>D．无</p>
+<details>
+<summary>答案</summary>
+答案：C<br>
+解析：DMA方式也称为直接主存存取方式，其思想是：允许主存储器和I/O设备之间通过“DMA控制器(DMAC)”直接进行批量数据交换，除了在数据传输开始和结束时，整个过程无须CPU的干预。
+</details>
+
+<h3 id="34"><a class="toclink" href="#34">3.4. 流水线</a><a class="headerlink" href="#34" title="Permanent link">#</a></h3>
+<p>设指令流水线把一条指令分为取指、分析、执行3个部分，且3部分的时间分别为t取指=2ns、t分析=2ns、t执行=1ns，则100条指令全部执行完毕需        。（清华大学 2005年）</p>
+<p>A．163ns</p>
+<p>B．183ns</p>
+<p>C．193ns</p>
+<p>D．203ns</p>
+<details>
+<summary>答案</summary>
+答案: D<br>
+解析: 100条指令全部执行完毕需6+（100-1）*2-1=203ns;因最后执行不需要2ns故减去1ns。
+</details>
+
+<h3 id="35"><a class="toclink" href="#35">3.5. 微指令</a><a class="headerlink" href="#35" title="Permanent link">#</a></h3>
+<p>为确定下一条微指令的地址。通常采用断定方式，其基本思想是       。（北京理工大学 2005年）</p>
+<p>A．用程序计数器PC来产生后继微指令地址</p>
+<p>B．用微程序计数器μPC来产生后继微指令地址</p>
+<p>C．通过微指令顺序控制字段由设计者指定或由设计者指定的判别字段控制产生后继微指令地址</p>
+<p>D．通过指令中指定一个专门字段来控制产生后继微指令地址</p>
+<details>
+<summary>答案</summary>
+答案：C<br>
+解析：断定方式中下一条微指令的地址包含在当前微指令的代码中。
 </details>
                 
                   
