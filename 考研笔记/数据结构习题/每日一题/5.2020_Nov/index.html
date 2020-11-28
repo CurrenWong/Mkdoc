@@ -3597,6 +3597,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6. 双向链表的优点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4142,6 +4156,30 @@
   <li class="md-nav__item">
     <a href="../../../%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E4%B9%A0%E9%A2%98/6.2002%E7%9C%9F%E9%A2%98%E9%98%85%E8%AF%BB/" title="6.2002真题阅读" class="md-nav__link">
       6.2002真题阅读
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E4%B9%A0%E9%A2%98/7.2003%E7%9C%9F%E9%A2%98%E9%98%85%E8%AF%BB/" title="7.2003真题阅读" class="md-nav__link">
+      7.2003真题阅读
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB%E4%B9%A0%E9%A2%98/8.2004%E7%9C%9F%E9%A2%98%E9%98%85%E8%AF%BB/" title="8.2004真题阅读" class="md-nav__link">
+      8.2004真题阅读
     </a>
   </li>
 
@@ -5610,6 +5648,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6. 双向链表的优点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5666,6 +5718,8 @@
 <li><a href="#33">3.3. 归并排序</a></li>
 <li><a href="#34">3.4. 循环队列</a></li>
 <li><a href="#35">3.5. 图的邻接矩阵表示</a></li>
+<li><a href="#36">3.6. 双向链表的优点</a></li>
+<li><a href="#_2"></a></li>
 </ul>
 </li>
 </ul>
@@ -5906,6 +5960,30 @@
 <summary>答案</summary>
 答案: C<br>
 解析: 图的邻接矩阵对角线元素必为0，其余元素全为1代表任何两个顶点之间都存在边，也就是完全图。
+</details>
+
+<h3 id="36"><a class="toclink" href="#36">3.6. 双向链表的优点</a><a class="headerlink" href="#36" title="Permanent link">#</a></h3>
+<p>与单链表相比较，双向链表的优点之一是         。（北京航空航天大学 2005年）</p>
+<p>A．可以省略头结点指针</p>
+<p>B．可以进行随机访问</p>
+<p>C．插入、删除操作更简单</p>
+<p>D．顺序访问相邻结点更灵活</p>
+<details>
+<summary>答案</summary>
+答案：D<br>
+解析：A错，双向链表也可以有头指针。B是顺序存储的特点。C与单链表相比，双向链表增加了指针数量，使得插入、删除操作更麻烦。D正确，因为双向链表即可以访问前驱结点，也可以访问后继结点。
+</details>
+
+<h3 id="_2"><a class="toclink" href="#_2"></a><a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<p>在非空双向循环链表中q所指的链接点前面插入一个由p指的链接点的过程是依次执行语句p-&gt;rlink=q；p-&gt;llink=q-&gt;llink；q-&gt;llink=p；           。（北京航空航天大学 2007年）</p>
+<p>A．q-&gt;rlink-&gt;llink=p；</p>
+<p>B．q-&gt;llink-&gt;rlink=p；</p>
+<p>C．p-&gt;rlink-&gt;llink=p；</p>
+<p>D．p-&gt;llink-&gt;rlink=p；</p>
+<details>
+<summary>答案</summary>
+答案: D<br>
+解析: 执行完以上三步之后，只需要再将原线性表前面结点的rlink指向p即可，即p->llink-> rlink=p。
 </details>
                 
                   
