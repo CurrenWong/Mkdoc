@@ -1,0 +1,416 @@
+{
+    // Place your mkdoc 工作区 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+    // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+    // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+    // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+    // Placeholders with the same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"scope": "javascript,typescript",
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // },
+    // ----------
+    // 图片引用
+    "Figure Reference": {
+        "scope": "markdown, latex",
+        "prefix": "figRef",
+        "body": [
+            "@fig:${Mark}{nolink=True}",
+        ],
+        "description": "Figure Reference"
+    },
+    // 图片标记
+    "Figure Mark": {
+        "scope": "markdown, latex",
+        "prefix": "figMark",
+        "body": [
+            "{#fig:${Mark}}",
+        ],
+        "description": "Figure Mark"
+    },
+    // 公式引用
+    "Equation Reference": {
+        "scope": "markdown, latex",
+        "prefix": "eqRef",
+        "body": [
+            "@eq:${Mark}{nolink=True}",
+        ],
+        "description": "Equation Reference"
+    },
+    // 公式标记
+    "Equation Mark": {
+        "scope": "markdown, latex",
+        "prefix": "eqMark",
+        "body": [
+            "{#eq:${Mark}}",
+        ],
+        "description": "Equation Mark"
+    },
+    // 表格引用
+    "Table Reference": {
+        "scope": "markdown, latex",
+        "prefix": "tableRef",
+        "body": [
+            "@tbl:${Mark}{nolink=True}",
+        ],
+        "description": "Table Reference"
+    },
+    // 表格标记
+    "Table Mark": {
+        "scope": "markdown, latex",
+        "prefix": "tableMark",
+        "body": [
+            "Table: ${Caption} {#tbl:${Mark}}",
+        ],
+        "description": "Table Mark"
+    },
+    // 分数
+    "Fractiton": {
+        "scope": "markdown, latex",
+        "prefix": "frac",
+        "body": [
+            "\\frac{${numerator}}{${denominator}}",
+        ],
+        "description": "For Loop"
+    },
+    // 方程组
+    "Bracket": {
+        "scope": "markdown, latex",
+        "prefix": "bracket",
+        "body": [
+            "{\\left\\{ \\begin{aligned}",
+            "${formula} & , (a < x < b) \\\\\\",
+            "\\end{aligned}\\right. }"
+        ],
+        "description": "Equation Set with Bracket"
+    },
+    // 长公式
+    "Alighed": {
+        "scope": "markdown, latex",
+        "prefix": "aligned",
+        "body": [
+            "{ \\begin{aligned}",
+            "${formula} & \\\\\\",
+            "\\end{aligned} }",
+        ],
+        "description": "Equation Set"
+    },
+    // 行外数学公式
+    "Math": {
+        "scope": "markdown, latex",
+        "prefix": "math",
+        "body": [
+            "$$",
+            "${formula}",
+            "$$"
+        ],
+        "description": "Math Environment"
+    },
+    // 行内数学公式
+    "Math-inline": {
+        "scope": "markdown, latex",
+        "prefix": "mathinline",
+        "body": [
+            "$${formula}$",
+        ],
+        "description": "Inline Math Environment"
+    },
+    // 极限
+    "Limit": {
+        "scope": "markdown, latex",
+        "prefix": "limit",
+        "body": [
+            "\\lim\\limits_{${x} \\to ${x_0}}{${formula}}",
+        ],
+        "description": "Limit"
+    },
+    // 函数x
+    "Function x": {
+        "scope": "markdown, latex",
+        "prefix": "fx",
+        "body": [
+            "f(x)",
+        ],
+        "description": "Function"
+    },
+    // 函数g
+    "Function g": {
+        "scope": "markdown, latex",
+        "prefix": "gx",
+        "body": [
+            "g(x)",
+        ],
+        "description": "Function"
+    },
+    // 积分fx
+    "Integral": {
+        "scope": "markdown, latex",
+        "prefix": "integral",
+        "body": [
+            "\\int {f(x)} dx",
+        ],
+        "description": "Integral"
+    },
+    // 积分
+    "Composite Integral": {
+        "scope": "markdown, latex",
+        "prefix": "integral-composite",
+        "body": [
+            "\\int ${formula} dx",
+        ],
+        "description": "Composite Integral"
+    },
+    // 幂函数
+    "Exponential Function": {
+        "scope": "markdown, latex",
+        "prefix": "exponential",
+        "body": [
+            "${x}^(${a})",
+        ],
+        "description": "Exponential Function"
+    },
+    // 三角函数sin
+    "Sin": {
+        "scope": "markdown, latex",
+        "prefix": "sin",
+        "body": [
+            "\\sin ${x}",
+        ],
+        "description": "sin x"
+    },
+    // 三角函数sin
+    "Sin(x)": {
+        "scope": "markdown, latex",
+        "prefix": "sinx",
+        "body": [
+            "\\sin(${x})",
+        ],
+        "description": "sin(x)"
+    },
+    // 三角函数cos
+    "Cos": {
+        "scope": "markdown, latex",
+        "prefix": "cos",
+        "body": [
+            "\\cos ${x}",
+        ],
+        "description": "cos x"
+    },
+    // 三角函数cos
+    "Cos(x)": {
+        "scope": "markdown, latex",
+        "prefix": "cosx",
+        "body": [
+            "\\cos(${x})",
+        ],
+        "description": "cos(x)"
+    },
+    // 根号
+    "Sqrt": {
+        "scope": "markdown, latex",
+        "prefix": "sqrt",
+        "body": [
+            "\\sqrt[]{${x}}",
+        ],
+        "description": "sqrt"
+    },
+    // 根号
+    "SqrtN": {
+        "scope": "markdown, latex",
+        "prefix": "sqrtn",
+        "body": [
+            "\\sqrt[${n}]{${x}}",
+        ],
+        "description": "sqrt"
+    },
+    // 根号
+    "Sqrt x^2 + a^2": {
+        "scope": "markdown, latex",
+        "prefix": "sqrta",
+        "body": [
+            "\\sqrt{${x}^2 + ${a}^2}",
+        ],
+        "description": "sqrt x^2 + a^2"
+    },
+    // 上方括号
+    "Overbrace": {
+        "scope": "markdown, latex",
+        "prefix": "overbrace",
+        "body": [
+            "{\\overbrace{${formula}}^{\\text{${explanation}}}}",
+        ],
+        "description": "overbrace"
+    },
+    // 下方括号
+    "Underbrace": {
+        "scope": "markdown, latex",
+        "prefix": "underbrace",
+        "body": [
+            "{\\underbrace{${formula}}_{\\text{${explanation}}}}",
+        ],
+        "description": "overbrace"
+    },
+    // 公式标号
+    "Tag": {
+        "scope": "markdown, latex",
+        "prefix": "tag",
+        "body": [
+            "\\tag{${number}}",
+        ],
+        "description": "tag"
+    },
+    // 参考文献
+    "Bibliography": {
+        "scope": "markdown, latex",
+        "prefix": "bib",
+        "body": [
+            "<div id=\"bib-${index}\"></div>",
+        ],
+        "description": "bibliography"
+    },
+    // 引用参考文献
+    "Cite": {
+        "scope": "markdown, latex",
+        "prefix": "cite",
+        "body": [
+            "[<sup>${index}</sup>](#bib-${index})",
+        ],
+        "description": "cite"
+    },
+    // 矩阵(圆括号)
+    "Matrix": {
+        "scope": "markdown, latex",
+        "prefix": "pmatrix",
+        "body": [
+            "\\begin{pmatrix} ${n} \\\\\\ ${m} \\end{pmatrix}",
+        ],
+        "description": "pmatrix 矩阵(圆括号)"
+    },
+    // 矩阵[方括号]
+    "B Matrix": {
+        "scope": "markdown, latex",
+        "prefix": "bmatrix",
+        "body": [
+            "\\begin{bmatrix} ${n} \\\\\\ ${m} \\end{bmatrix}",
+        ],
+        "description": "bmatrix 矩阵[方括号]"
+    },
+    // 行列式
+    "V Matrix": {
+        "scope": "markdown, latex",
+        "prefix": "vmatrix",
+        "body": [
+            "\\begin{vmatrix} ${n} \\\\\\ ${m} \\end{vmatrix}",
+        ],
+        "description": "vmatrix 行列式"
+    },
+    // 上划线
+    "Overline": {
+        "scope": "markdown, latex",
+        "prefix": "overline",
+        "body": [
+            "\\overline {${A}}",
+        ],
+        "description": "pmatrix"
+    },
+    // 下划线
+    "Underline": {
+        "scope": "markdown, latex",
+        "prefix": "underline",
+        "body": [
+            "\\underline{\\hspace*{${size}cm}}",
+        ],
+        "description": "underline"
+    },
+    // 数学环境折叠
+    "MathDetails": {
+        "scope": "markdown, latex",
+        "prefix": "math-details",
+        "body": [
+            "<details>",
+            "<summary>${title}</summary>",
+            "<math-details>",
+            "",
+            "$$",
+            "${content}",
+            "$$",
+            "</math-details>",
+            "</details>"
+        ],
+        "description": "Math Details"
+    },
+    // 折叠
+    "Details": {
+        "scope": "markdown, latex",
+        "prefix": "details",
+        "body": [
+            "<details>",
+            "<summary>${title}</summary>",
+            "${content}",
+            "</details>"
+        ],
+        "description": "Details"
+    },
+    // 长等号
+    "Longequal": {
+        "scope": "markdown, latex",
+        "prefix": "longequal",
+        "body": [
+            "\\xlongequal[\\text{${overset}}]{\\text{${underset}}}",
+        ],
+        "description": "xlongequal"
+    },
+    // 矢量符号
+    "Overrightarrow": {
+        "scope": "markdown, latex",
+        "prefix": "overrightarrow",
+        "body": [
+            "\\overrightarrow{${a}}",
+        ],
+        "description": "Overrightarrow"
+    },
+    // \Delta
+    "Delta": {
+        "scope": "markdown, latex",
+        "prefix": "delta",
+        "body": [
+            "\\Delta{${a}}",
+        ],
+        "description": "Delta"
+    },
+    // definite integral
+    // 定积分
+    "Definite Integral": {
+        "scope": "markdown, latex",
+        "prefix": "integral-definite",
+        "body": [
+            "\\int_{${a}}^{${b}} f(x) dx",
+        ],
+        "description": "Definite Integral"
+    },
+    // 定积分
+    "Composite Definite Integral": {
+        "scope": "markdown, latex",
+        "prefix": "integral-definite-composite",
+        "body": [
+            "\\int_{${a}}^{${b}} ${formula} dx",
+        ],
+        "description": "Composite Definite Integral"
+    },
+    // 长竖线
+    // Big ｜
+    "Long vertical line": {
+        "scope": "markdown, latex",
+        "prefix": "big",
+        "body": [
+            "\\Big|_{${a}}^{${b}}",
+        ],
+        "description": "Long vertical line"
+    },
+}
