@@ -461,5 +461,5 @@ $(function() {
 	});
 });
 
-// 显示页面访问量
-$(showPageView());
+// 显示页面访问量，已经停止服务
+// $(showPageView());
