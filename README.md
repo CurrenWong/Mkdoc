@@ -7,6 +7,12 @@
 
 本站点使用[Mkdocs](https://mkdocs.org)搭建，加入了一些代码高亮、生成思维导图、生成UML图等等的`Javascript`组件。
 
+启动命令：
+
+```cmd
+nohup mkdocs serve -a '0.0.0.0:8000' > output.txt 2>&1 &
+```
+
 ## 如何使用本站
 
 - 如果你是考研学子，欢迎浏览我的[考研笔记](https://currenwong.github.io/Mkdoc/考研笔记/概率论与数理统计/1.第一章_随机事件与概率/)。
