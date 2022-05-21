@@ -10,13 +10,24 @@ site_description: Curren's Notes
 
 theme: 
   name: material
+  custom_dir: overrides
   palette: # 颜色
-    primary: 'deep orange'
-    accent: 'indigo'
-  logo: # 图标
-    icon: 'star'
-  feature: # 是否将一层目录显示为上方的tab
-    tabs: true
+    primary: 'indigo'
+    accent: 'deep orange'
+  icon: # 图标
+    logo: 'bootstrap/star'
+  features: # 是否将一层目录显示为上方的tab
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    # remain visible when scrolling down
+    # - navigation.tabs.sticky
+    # self show on toc
+    - navigation.indexes
+    # toc follow content in link
+    # - toc.follow
+    - navigation.top
+    # - navigation.sections
   language: 'en' # 语言
 
 extra_javascript:
@@ -32,8 +43,8 @@ extra_javascript:
   - js/mermaid.min.js # Mermaid UML
   - js/highlight.pack.js # 代码高亮
   # 访问量统计
-  - https://cdn1.lncld.net/static/js/av-min-1.5.0.js
-  - https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js
+  # - https://cdn1.lncld.net/static/js/av-min-1.5.0.js
+  # - https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js
   - js/readingtime.js # 显示阅读时间
   - js/extra.js # 渲染未被mathJax捕捉的公式，渲染思维导图
   
@@ -48,6 +59,7 @@ extra_css:
   - css/extra.css
 
 markdown_extensions:
+  - tables
   - mdx_math:
         add_preview: false
         enable_dollar_delimiter: true
@@ -57,14 +69,29 @@ markdown_extensions:
         toc_depth: 4
         anchorlink: true
         baselevel: 1
-        
-  - sane_lists
-  - meta
-  - wikilinks
-  - admonition
+  # Material
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  # - sane_lists
+  # - meta
+  # - wikilinks
+  # - admonition
+  # highlight
+  - pymdownx.highlight:
+      use_pygments: false
+      anchor_linenums: false
+      linenums: false
+  # - pymdownx.inlinehilite
+  # - pymdownx.snippets
+  # - pymdownx.superfences
+
 
 plugins:
-  - search
+  # - search
   - build_plantuml:
       render: "server" # or "local" for local rendering
       bin_path: "/usr/local/bin/plantuml" # ignored when render: server
