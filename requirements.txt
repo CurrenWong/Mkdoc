@@ -1,0 +1,6 @@
+mkdocs
+mkdocs-build-plantuml-plugin
+mkdocs-material
+mkdocs-mermaid-plugin
+mkdocs-minify-plugin
+mkdocs-redirects
