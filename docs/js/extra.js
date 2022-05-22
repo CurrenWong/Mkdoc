@@ -316,8 +316,80 @@ function showReadingTime() {
     $('h1').first().after('<p><strong>阅读时间：</strong><span class="eta"></span> (<span class="words"></span> 字)</p>');
 }
 
+
+// 渲染mindmap代码框
+function transferMindCode() {
+    // 渲染mindmap
+    if ($('.language-mindmap').length != 0) {
+        // 获取所有mindmap代码框
+        var mapList = $('.language-mindmap');
+        for (let i = 0; i < mapList.length; i++) {
+            const element = $(mapList[i]);
+            // 转换格式
+            markToNode(element, i + 1);
+            // 构建标题树
+            var tree_root = headToTree(element, "n1, n2, n3, n4, n5, n6", i + 1);
+            // 渲染
+            markmap('svg#mindmap-inline-' + String(i + 1), tree_root, {
+                preset: 'colorful', // or default
+                linkShape: 'diagonal' // or bracket
+            });
+            // 去除原来的代码区域
+            element.parent().remove();
+        }
+    }
+}
+
+
+// 将标题渲染成思维导图
+function transferMindMap() {
+    // 在目录前插入思维导图
+    $("h2").children(".toclink").filter(function () {
+        return $(this).text() == "目录";
+    }).parent().before(getSvgTemplate("mindmap"));
+    // 渲染
+    if ($('svg#mindmap').length != 0) {
+        // 构建标题树
+        var tree_root = headToTree($("body"), "h1, h2, h3, h4, h5, h6");
+        markmap('svg#mindmap', tree_root, {
+            preset: 'colorful', // or default
+            linkShape: 'diagonal' // or bracket
+        });
+        // 将思维导图的叶子节点链接到对应内容锚点
+        $("[isLeaf='true']").each(function () {
+            if ($(this).attr("href") != null) {
+                $(this).click(function () {
+                    window.location.href = $(this).attr("href");
+                });
+            }
+        });
+    }
+}
+
+
+// 代码高亮
+function transferCode() {
+    // 不转换UML图
+    var text = 'pre code';
+    ignoreList = ['mermaid', 'mindmap'];
+    document.querySelectorAll(text).forEach((block) => {
+        if (ignoreList.indexOf(block.className) != -1) {
+
+        } else {
+            hljs.highlightBlock(block);
+        }
+    });
+    $('.mermaid').each(function () {
+        $(this).attr('style', 'background-color:blanchedalmond');
+    });
+}
 // --------------------------------
 // 代码运行
+
+// 转换代码框中的代码高亮
+$(transferCode());
+// 转换define中的代码高亮
+$(transferMetaCode());
 
 // 渲染折叠公式
 $(document).ready($("math-details").each(function () {
@@ -350,83 +422,8 @@ $(document).ready(
     }));
 
 
-// 将标题渲染成思维导图
-$(document).ready(
-    function () {
-        // 在目录前插入思维导图
-        $("h2").children(".toclink").filter(function () {
-            return $(this).text() == "目录";
-        }).parent().before(getSvgTemplate("mindmap"));
-        // 渲染
-        if ($('svg#mindmap').length != 0) {
-            // 构建标题树
-            var tree_root = headToTree($("body"), "h1, h2, h3, h4, h5, h6");
-            markmap('svg#mindmap', tree_root, {
-                preset: 'colorful', // or default
-                linkShape: 'diagonal' // or bracket
-            });
-            // 将思维导图的叶子节点链接到对应内容锚点
-            $("[isLeaf='true']").each(function () {
-                if ($(this).attr("href") != null) {
-                    $(this).click(function () {
-                        window.location.href = $(this).attr("href");
-                    });
-                }
-            });
-        }
-    }
-);
-
-
-// 代码高亮
-$(function () {
-    // 不转换UML图
-    var text = 'pre code';
-    ignoreList = ['mermaid', 'mindmap'];
-    document.querySelectorAll(text).forEach((block) => {
-        if (ignoreList.indexOf(block.className) != -1) {
-
-        } else {
-            hljs.highlightBlock(block);
-        }
-    });
-    $('.mermaid').each(function () {
-        $(this).attr('style', 'background-color:blanchedalmond');
-    });
-}
-    // hljs.initHighlightingOnLoad()
-);
-
-// 转换define中的代码高亮
-$(transferMetaCode());
-
 // 转换metaFun类中的meta，由于highlightjs后生效，没有效果
 // $(transferMetaTitle());
-
-// 渲染mindmap代码框
-$(document).ready(
-    function () {
-        // 渲染mindmap
-        if ($('.language-mindmap').length != 0) {
-            // 获取所有mindmap代码框
-            var mapList = $('.language-mindmap');
-            for (let i = 0; i < mapList.length; i++) {
-                const element = $(mapList[i]);
-                // 转换格式
-                markToNode(element, i + 1);
-                // 构建标题树
-                var tree_root = headToTree(element, "n1, n2, n3, n4, n5, n6", i + 1);
-                // 渲染
-                markmap('svg#mindmap-inline-' + String(i + 1), tree_root, {
-                    preset: 'colorful', // or default
-                    linkShape: 'diagonal' // or bracket
-                });
-                // 去除原来的代码区域
-                element.parent().remove();
-            }
-        }
-    }
-);
 
 // 渲染emoji和FontAwesome
 $(translateEmoji());
@@ -441,25 +438,30 @@ $(translateDeleteLine());
 $(showReadingTime());
 
 // 计算并显示阅读所需时间
-$(function() {
+$(function () {
 
-	$('article').readingTime({
-		// readingTimeAsNumber: true,
-		// readingTimeTarget: $('.reading-time'),
+    $('article').readingTime({
+        // readingTimeAsNumber: true,
+        // readingTimeTarget: $('.reading-time'),
         wordCountTarget: '.words',
-		wordsPerMinute: 275,
-		round: true,
+        wordsPerMinute: 275,
+        round: true,
         lang: 'zh',
-        lessThanAMinuteString:'Less than 1 min',
-		success: function(data) {
-			console.log(data);
-		},
-		error: function(data) {
-			console.log(data.error);
-			$('.reading-time').remove();
-		}
-	});
+        lessThanAMinuteString: 'Less than 1 min',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (data) {
+            console.log(data.error);
+            $('.reading-time').remove();
+        }
+    });
 });
 
 // 显示页面访问量，已经停止服务
 // $(showPageView());
+
+// 渲染思维导图
+$(document).ready(transferMindMap());
+// 渲染代码框中的思维导图
+$(document).ready(transferMindCode());
