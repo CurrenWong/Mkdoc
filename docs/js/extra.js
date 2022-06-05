@@ -247,7 +247,7 @@ function isWeixin() {
 // 若是手机访问，去除长公式的标号，防止影响阅读
 function clearTag() {
     if (isMobile() || isWeixin()) {
-        $(".mord.text").remove();
+        $(".tag").remove();
     }
 }
 
