@@ -6674,6 +6674,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.11. 倒代换
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8575,6 +8582,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.11. 倒代换
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8723,6 +8737,7 @@
 <li><a href="#38-8">3.8. 方法8 利用定积分定义求极限（见第五章）</a></li>
 <li><a href="#39-9">3.9. 方法9 利用拉格朗日中指定理求极限</a></li>
 <li><a href="#310">3.10. 数列极限</a></li>
+<li><a href="#311">3.11. 倒代换</a></li>
 </ul>
 </li>
 <li><a href="#4">4. 函数的连续性</a><ul>
@@ -8967,6 +8982,15 @@ e^x = 1 + x + {x^2\over{2!}} + \cdots + {x^n\over{n!}} + o(x^n)
 \tag{1.27}
 </script>
 </p>
+<p>若 <script type="math/tex">f(x)</script> 在 <script type="math/tex">x_0</script> 处 <script type="math/tex">n</script> 阶可导，则当 <script type="math/tex">h \to 0</script> 时</p>
+<p>
+<script type="math/tex; mode=display">
+f(x_0 + h) =\mathop{ \sum }\limits_{{n=0}}^{{ \infty }}\frac{{1}}{{n!}}\mathop{{f}}\nolimits^{{(n)}}{ \left( {0} \right) }{\mathop{{h}}\nolimits^{{n}}} + o(h^n),h \in U{ \left( {0} \right) }
+\tag{1.28}
+</script>
+</p>
+<p>即将 <script type="math/tex">x = x_0 + h</script> 带入公式 <script type="math/tex">1.18</script>
+</p>
 <h3 id="36-6"><a class="toclink" href="#36-6">3.6. 方法6 利用夹逼原理求极限</a><a class="headerlink" href="#36-6" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>常用结论</strong></li>
@@ -9042,6 +9066,8 @@ I=\lim _{n \rightarrow \infty} x_{n}\left(y_{n}-z_{n}\right) \cdot f^{\prime}(\x
 </script>
 </p>
 <p>带入递推式求解。</p>
+<h3 id="311"><a class="toclink" href="#311">3.11. 倒代换</a><a class="headerlink" href="#311" title="Permanent link">#</a></h3>
+<p>当极限运算中存在多位 <script type="math/tex">\frac{1}{x}</script> 使运算量增大时时，可以考虑使用倒代换 <script type="math/tex">t = \frac{1}{x}</script> 简化计算。</p>
 <hr />
 <h2 id="4"><a class="toclink" href="#4">4. 函数的连续性</a><a class="headerlink" href="#4" title="Permanent link">#</a></h2>
 <h3 id="41"><a class="toclink" href="#41">4.1. 连续的定义</a><a class="headerlink" href="#41" title="Permanent link">#</a></h3>
