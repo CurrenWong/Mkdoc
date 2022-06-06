@@ -6742,6 +6742,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3. 三次方公式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8532,6 +8539,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3. 三次方公式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8591,6 +8605,7 @@
 <li><a href="#6">6. 补充</a><ul>
 <li><a href="#61">6.1. 常用积分</a></li>
 <li><a href="#62">6.2. 三角公式</a></li>
+<li><a href="#63">6.3. 三次方公式</a></li>
 </ul>
 </li>
 <li><a href="#7">7. 总结</a></li>
@@ -8958,6 +8973,45 @@
 <li>若<script type="math/tex">R(\sin x, - \cos x) = - R(\sin x, \cos x)</script>，则令<script type="math/tex">u = \sin x</script>，或凑<script type="math/tex">d\sin x</script>.</li>
 <li>若<script type="math/tex">R(- \sin x, - \cos x) = R(\sin x, \cos x)</script>，则令<script type="math/tex">u = \tan x</script>，或凑<script type="math/tex">d\tan x</script>.</li>
 </ol>
+<hr />
+<ol>
+<li>凑微分法，形如</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\int{\frac{\sin\,\,x}{a\sin x + b\mathrm{cos}\cdot x}}{\mathrm{d}}x\,,\quad\int{\frac{\cos\,\,x}{a\sin x + b\mathrm{cos}\cdot x}}{\mathrm{d}}{{x}}
+</script>
+</p>
+<p>的积分，可将分子分解成分母及其导数的和。</p>
+<p>例如</p>
+<p>
+<script type="math/tex; mode=display">
+I=\int\frac{\mathrm{sin}\ x}{\mathrm{sin}\ x+\cos\ x}\mathrm{d}x
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\sin x=\alpha(\sin x+\cos x)+\beta(\sin x+\cos x)^{\prime}\\
+=(\alpha-\beta)\sin x+(\alpha+\beta)\cos x
+</script>
+</p>
+<p>求解得到</p>
+<p>
+<script type="math/tex; mode=display">
+\alpha=\frac{1}{2},\beta=-\,\frac{1}{2}
+</script>
+</p>
+<p>从而对积分进行求解</p>
+<p>
+<script type="math/tex; mode=display">
+I=\int\frac{\frac{1}{2}(\sin\,x+\cos\,x)}{\sin\,x+\cos\,x}\mathrm{d}x-\frac{1}{2}\,\frac{(\sin\,x+\cos\,x)^{\prime}}{\sin\,x+\cos\,x}\,\mathrm{d}x
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+={\frac{1}{2}}x-{\frac{1}{2}}\ln|\;\sin x+\cos\;x\;|+C
+</script>
+</p>
 <h3 id="53"><a class="toclink" href="#53">5.3. 简单无理函数积分</a><a class="headerlink" href="#53" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>简单无理函数积分</strong> <script type="math/tex">
@@ -8977,6 +9031,27 @@
 <script type="math/tex; mode=display">
 \int \frac{1}{\sqrt{x}} = 2 \sqrt{x} + C
 \tag{4.30}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int \frac{\mathrm{d} x}{\cos x}
+&=\int \frac{\mathrm{d} \sin x}{1-\sin ^{2} x} \\
+&=\frac{1}{2} \int\left(\frac{1}{1+\sin x}+\frac{1}{1-\sin x}\right) \mathrm{d} \sin x \\
+&=\frac{1}{2} \ln \frac{1+\sin x}{1-\sin x}+C \\
+&=\frac{1}{2} \ln \frac{(1+\sin x)^{2}}{\cos ^{2} x}+C \\
+&=\ln \left|\frac{1}{\cos x}+\tan x\right|+C
+\end{aligned}
+\tag{4.39}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int \frac{\mathrm{d} x}{\sin x} =\frac{1}{2} \ln \left|\frac{1-\cos x}{1+\cos x}\right|+C
+\\=\frac{1}{2} \ln \left|\frac{(1-\cos x)^2}{1-\cos^2 x}\right|+C
+\\= \ln (1 - \cos x) - \ln |\sin x|
+\tag{4.40}
 </script>
 </p>
 <h3 id="62"><a class="toclink" href="#62">6.2. 三角公式</a><a class="headerlink" href="#62" title="Permanent link">#</a></h3>
@@ -9002,6 +9077,31 @@
 <script type="math/tex; mode=display">
 \cos(\alpha + \beta) = \cos \alpha \cos \beta + \sin \alpha \sin \beta
 \tag{4.34}
+</script>
+</p>
+<h3 id="63"><a class="toclink" href="#63">6.3. 三次方公式</a><a class="headerlink" href="#63" title="Permanent link">#</a></h3>
+<p>
+<script type="math/tex; mode=display">
+a^3-b^3=(a-b)(a^2+ab+b^2)
+\tag{4.35}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+a^3+b^3=(a+b)(a^2-ab+b^2)
+\tag{4.36}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(a+b)^3=a^3+3a^2b+3ab^2+b^3
+\tag{4.37}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(a-b)^3=a^3-3a^2b+3ab^2-b^3
+\tag{4.38}
 </script>
 </p>
 <hr />
