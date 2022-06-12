@@ -6652,6 +6652,19 @@
     2.3. 定积分的性质
   </a>
   
+    <nav class="md-nav" aria-label="2.3. 定积分的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1. 可加性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -8408,6 +8421,19 @@
     2.3. 定积分的性质
   </a>
   
+    <nav class="md-nav" aria-label="2.3. 定积分的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1. 可加性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -8532,7 +8558,10 @@
 <li><a href="#2">2. 定积分</a><ul>
 <li><a href="#21">2.1. 定积分的定义</a></li>
 <li><a href="#22">2.2. 定积分存在的充分条件</a></li>
-<li><a href="#23">2.3. 定积分的性质</a></li>
+<li><a href="#23">2.3. 定积分的性质</a><ul>
+<li><a href="#231">2.3.1. 可加性</a></li>
+</ul>
+</li>
 <li><a href="#24">2.4. 积分上限函数</a></li>
 <li><a href="#25">2.5. 定积分的计算</a><ul>
 <li><a href="#251-">2.5.1. 牛顿-莱布尼茨公式</a></li>
@@ -8585,6 +8614,13 @@
 <li>若 <script type="math/tex">f(x)</script> 只有有限个第一类间断点，则 <script type="math/tex"> \int_{a}^{b} f(x) dx </script> 必定存在。</li>
 </ol>
 <h3 id="23"><a class="toclink" href="#23">2.3. 定积分的性质</a><a class="headerlink" href="#23" title="Permanent link">#</a></h3>
+<h4 id="231"><a class="toclink" href="#231">2.3.1. 可加性</a><a class="headerlink" href="#231" title="Permanent link">#</a></h4>
+<p>定积分具有区间可加性</p>
+<p>
+<script type="math/tex; mode=display">
+\int_{a}^{b}f(x)d x=\int_{a}^{c}f(x)d x+\int_{c}^{b}f(x)d x
+</script>
+</p>
 <h3 id="24"><a class="toclink" href="#24">2.4. 积分上限函数</a><a class="headerlink" href="#24" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>定义：</strong></li>
@@ -8639,7 +8675,50 @@
 </script>
 </p>
 <h4 id="254"><a class="toclink" href="#254">2.5.4. 利用奇偶性和周期性</a><a class="headerlink" href="#254" title="Permanent link">#</a></h4>
+<ol>
+<li>设 <script type="math/tex">f(x)</script> 为 <script type="math/tex">[-a, a]</script> 上的连续函数 <script type="math/tex">(a > 0)</script>，则</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\int_{-a}^{a} f(x) dx = {\left\{ \begin{aligned}
+&0 & , f(x) \text{为奇函数时}\\
+&2 \int_{0}^{a} f(x) dx & , f(x)\text{为偶函数时}
+\end{aligned}\right. }
+\tag{5.20}
+</script>
+</p>
+<ol>
+<li>设 <script type="math/tex">f(x)</script> 是以 <script type="math/tex">T</script> 为周期的连续函数，则对任给数 <script type="math/tex">a</script>，总有</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\int_{a}^{a + T} f(x) dx = \int_{0}^{T} f(x) dx
+\tag{5.21}
+</script>
+</p>
 <h4 id="255"><a class="toclink" href="#255">2.5.5. 利用已有公式</a><a class="headerlink" href="#255" title="Permanent link">#</a></h4>
+<p>
+<script type="math/tex; mode=display">
+\int_{0}^{\frac{\pi}{2}} \sin ^{n} x \mathrm{~d} x=\int_{0}^{\frac{\pi}{2}} \cos ^{n} x \mathrm{~d} x= \begin{cases}\frac{n-1}{n} \cdot \frac{n-3}{n-2} \cdots \frac{2}{3}, & n \text { 为大于 } 1 \text { 的奇数 } \\ \frac{n-1}{n} \cdot \frac{n-3}{n-2} \cdots \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}, & n \text { 为偶数 }\end{cases}
+\tag{5.16}
+</script>
+</p>
+<p>$$
+\int_{0}^{\pi} xf(\sin x) dx = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) dx ,\text{其中<script type="math/tex">f(x)</script>连续}
+\tag{5.17}
+$$</p>
+<p>
+<script type="math/tex; mode=display">
+\int_{0}^{a} \sqrt{a^2 - x^2} dx = \frac{\pi}{4} a^2
+\tag{5.18}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\int_{0}^{a} \sqrt{2ax - x^2} dx = \frac{\pi}{4} a^2
+\tag{5.19}
+</script>
+</p>
 <h4 id="256"><a class="toclink" href="#256">2.5.6. 积分特殊解法</a><a class="headerlink" href="#256" title="Permanent link">#</a></h4>
 <p>对某些积分 <script type="math/tex">I = \int_{a}^{b} f(x) dx</script> 难以处理时，有时通过变形将 <script type="math/tex">I</script> 变为另一种形式 <script type="math/tex">I = \int_{a}^{b} g(x) dx</script>，然后把两者结合在一起</p>
 <p>
@@ -8729,7 +8808,7 @@ p \le 1 & , \text{发散} \\
 <p><strong>定义</strong>：</p>
 <ol>
 <li>设 <script type="math/tex">f(x)</script> 在 <script type="math/tex">(a, b]</script> 上连续，点 <script type="math/tex">a</script> 为函数的瑕点。如果极限 <script type="math/tex">\displaystyle\lim\limits_{t \to a^+} \int_{t}^{b} {f(x)}dx</script>
-<strong>存在</strong>，则称此极限为函数 f(x)在无穷区间 <script type="math/tex">[a, b]</script> 上的反常积分，记作 <script type="math/tex">\displaystyle\int_{a}^{b} f(x) dx</script>，即</li>
+<strong>存在</strong>，则称此极限为函数 <script type="math/tex">f(x)</script> 在无穷区间 <script type="math/tex">[a, b]</script> 上的反常积分，记作 <script type="math/tex">\displaystyle\int_{a}^{b} f(x) dx</script>，即</li>
 </ol>
 <p>
 <script type="math/tex; mode=display">

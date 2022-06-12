@@ -8400,7 +8400,7 @@ S = \frac{1}{2} \int_{\alpha}^{\beta} \rho^2(\theta) d\theta
 </script>
 </p>
 <h3 id="22"><a class="toclink" href="#22">2.2. 旋转体体积</a><a class="headerlink" href="#22" title="Permanent link">#</a></h3>
-<p>可通过二重积分 <script type="math/tex">V =  2\pi \iint_D y d \sigma</script> 和 <script type="math/tex">V =  2\pi \iint_D x d \sigma</script> 进行计算。</p>
+<p>可通过二重积分 <script type="math/tex">V =  2\pi \iint_D y d \sigma</script> 和 <script type="math/tex">V =  2\pi \iint_D x d \sigma</script> 进行计算。被积函数表示旋转点的半径，<script type="math/tex">2\pi r</script> 表示该点旋转的周长，对 <script type="math/tex">x</script> 和 <script type="math/tex">y</script> 进行积分后 <script type="math/tex">V =  2\pi \iint_D r d \sigma</script> 表示区域旋转体的体积。</p>
 <p>若区域 <script type="math/tex">D</script> 由 <script type="math/tex">y = f(x), (f(x) \ge 0)</script> 和直线 <script type="math/tex">x = a, x = b, (0 \le a \le b)</script> 及 <script type="math/tex">x</script> 轴所围成的，则</p>
 <ol>
 <li>区域 <script type="math/tex">D</script> 绕 <script type="math/tex">x</script> 轴旋转一周所得到的旋转体体积为</li>
@@ -8412,12 +8412,30 @@ V_x = \pi \int_{a}^{b} f^2(x) dx
 </script>
 </p>
 <ol>
+<li>区域 <script type="math/tex">D</script> 绕 <script type="math/tex">y = a(a > \max y)</script> 旋转一周所得到的旋转体体积为</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+V_x = \pi \int_{a}^{b} [a  - f(x)]^2 dx
+\tag{6.9}
+</script>
+</p>
+<ol>
 <li>区域 <script type="math/tex">D</script> 绕 <script type="math/tex">y</script> 轴旋转一周所得到的旋转体体积为</li>
 </ol>
 <p>
 <script type="math/tex; mode=display">
 V_y = 2\pi \int_{a}^{b} xf(x) dx
 \tag{6.4}
+</script>
+</p>
+<ol>
+<li>区域 <script type="math/tex">D</script> 绕 <script type="math/tex">x = a (a < \min x)</script> 旋转一周所得到的旋转体体积为</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+V_y = 2\pi \int_{a}^{b} (x-a)f(x) dx
+\tag{6.10}
 </script>
 </p>
 <ol>
